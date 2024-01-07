@@ -1,5 +1,5 @@
 @extends('layouts.appMain')
-@section('title') Login @endsection
+@section('title') Oturum aç @endsection
 @section('content')
     <aside class="px-xl-5 px-4 auth-aside" data-bs-theme="none">
         <img class="login-img" src="{{ asset('assets/images/kbb-logo.svg') }}" alt="">

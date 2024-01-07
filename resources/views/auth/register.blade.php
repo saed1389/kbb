@@ -1,77 +1,57 @@
-@extends('layouts.app')
-
+@extends('layouts.appMain')
+@section('title') Üye Ol @endsection
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+    <aside class="px-xl-5 px-4 auth-aside" data-bs-theme="none">
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
 
-                        <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+        <img class="login-img" src="{{ asset('assets/images/kbb-logo.svg') }}" alt="">
+    </aside>
+    <div class="px-xl-5 px-4 auth-body">
+        <form>
+            <ul class="row g-3 list-unstyled li_animate">
+                <li class="col-12">
+                    <h1 class="h2 title-font">Kişisel Bilgileri</h1>
+                    <p>Your Admin Dashboard</p>
+                </li>
+                <li class="col-6">
+                    <label class="form-label">Full name</label>
+                    <input type="text" class="form-control form-control-lg" placeholder="Jony">
+                </li>
+                <li class="col-6">
+                    <label class="form-label">&nbsp;</label>
+                    <input type="text" class="form-control form-control-lg" placeholder="Parker">
+                </li>
+                <li class="col-12">
+                    <label class="form-label">Email address</label>
+                    <input type="email" class="form-control form-control-lg" placeholder="name@example.com">
+                </li>
+                <li class="col-6">
+                    <label class="form-label">Password</label>
+                    <input type="password" class="form-control form-control-lg" placeholder="8+ characters required">
+                </li>
+                <li class="col-6">
+                    <label class="form-label">Confirm password</label>
+                    <input type="password" class="form-control form-control-lg" placeholder="8+ characters required">
+                </li>
+                <li class="col-12">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="TermsConditions">
+                        <label class="form-check-label" for="TermsConditions">
+                            I accept the <a href="#" title="" class="text-primary">Terms and Conditions</a>
+                        </label>
+                    </div>
+                </li>
+                <li class="col-12 my-4">
+                    <a class="btn btn-lg w-100 btn-primary text-uppercase mb-2" href="index.html" title="">SIGN UP</a>
+                    <a class="btn btn-lg btn-secondary w-100" href="#">
+                        <i class="fa fa-google me-2"></i>
+                        <span>Sign up with Google</span>
+                    </a>
+                </li>
+                <li class="col-12">
+                    <span class="text-muted d-flex d-sm-inline-flex mt-3 mt-sm-0">Already have an account? <a class="ms-2" href="signin.html">Sign in here</a></span>
+                </li>
+            </ul><!--[ ul.row end ]-->
+        </form>
     </div>
-</div>
 @endsection
