@@ -6,6 +6,7 @@
     <title>Türk Kulak Burun Boğaz ve Baş Boyun Cerrahisi Derneği | @yield('title')</title>
     <meta name="description" content="" />
     <meta name="keywords" content="">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/favicon/favicon.ico') }}" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,8 +26,10 @@
     <link rel="stylesheet" href="{{ asset('assets/vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendor/css/pages/cards-advance.css') }}" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
+    <link rel="stylesheet" href="{{ asset('assets/vendor/libs/sweetalert2/sweetalert2.css') }}" />
     <script src="{{ asset('assets/vendor/js/helpers.js') }}"></script>
     <script src="{{ asset('assets/js/config.js') }}"></script>
+    @stack('styles')
 </head>
 <body>
 <div class="layout-wrapper layout-content-navbar  ">
@@ -56,6 +59,7 @@
 <script src="{{ asset('assets/vendor/libs/swiper/swiper.js') }}"></script>
 <script src="{{ asset('assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js') }}"></script>
 <script src="{{ asset('assets/js/main.js') }}"></script>
+<script src="{{ asset('assets/vendor/libs/sweetalert2/sweetalert2.js') }}"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 @stack('scripts')
 <script>

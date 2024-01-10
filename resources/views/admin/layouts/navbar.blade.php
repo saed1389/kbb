@@ -5,9 +5,14 @@
         </a>
     </div>
     <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+        <div class="navbar-nav align-items-center">
+            <div class="nav-item navbar-search-wrapper mb-0">
+                <a class="nav-item nav-link search-toggler d-flex align-items-center px-0">
+                    <span class="d-none d-md-inline-block text-muted"><strong>TÜRK KULAK BURUN BOĞAZ VE BAŞ BOYUN CERRAHİSİ DERNEĞİ | Admin Panel</strong></span>
+                </a>
+            </div>
+        </div>
         <ul class="navbar-nav flex-row align-items-center ms-auto">
-
-
             <li class="nav-item dropdown-shortcuts navbar-dropdown dropdown me-2 me-xl-0">
                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
                     <i class='ti ti-layout-grid-add ti-md'></i>
@@ -15,10 +20,7 @@
                 <div class="dropdown-menu dropdown-menu-end py-0">
                     <div class="dropdown-menu-header border-bottom">
                         <div class="dropdown-header d-flex align-items-center py-3">
-                            <h5 class="text-body mb-0 me-auto">Shortcuts</h5>
-                            <a href="javascript:void(0)" class="dropdown-shortcuts-add text-body" data-bs-toggle="tooltip" data-bs-placement="top" title="Add shortcuts">
-                                <i class="ti ti-sm ti-apps"></i>
-                            </a>
+                            <h5 class="text-body mb-0 me-auto">Kısayollar</h5>
                         </div>
                     </div>
                     <div class="dropdown-shortcuts-list scrollable-container">
@@ -99,8 +101,8 @@
                 <ul class="dropdown-menu dropdown-menu-end py-0">
                     <li class="dropdown-menu-header border-bottom">
                         <div class="dropdown-header d-flex align-items-center py-3">
-                            <h5 class="text-body mb-0 me-auto">Notification</h5>
-                            <a href="javascript:void(0)" class="dropdown-notifications-all text-body" data-bs-toggle="tooltip" data-bs-placement="top" title="Mark all as read">
+                            <h5 class="text-body mb-0 me-auto">Bildirimler</h5>
+                            <a href="javascript:void(0)" class="dropdown-notifications-all text-body" data-bs-toggle="tooltip" data-bs-placement="top" title="Tümünü okundu olarak işaretle">
                                 <i class="ti ti-mail-opened fs-4"></i></a>
                         </div>
                     </li>
@@ -338,8 +340,8 @@
                                     </div>
                                 </div>
                                 <div class="flex-grow-1">
-                                    <span class="fw-medium d-block">{{ Auth::user()->name }}</span>
-                                    <small class="text-muted">Admin</small>
+                                    <span class="fw-medium d-block">{{ Auth::user()->first_name. ' '.Auth::user()->last_name }}</span>
+                                    {{--<small class="text-muted">Admin</small>--}}
                                 </div>
                             </div>
                         </a>
@@ -350,7 +352,7 @@
                     <li>
                         <a class="dropdown-item" href="pages-profile-user.html">
                             <i class="ti ti-user-check me-2 ti-sm"></i>
-                            <span class="align-middle">My Profile</span>
+                            <span class="align-middle">Profilim</span>
                         </a>
                     </li>
                     <li>
@@ -359,37 +361,15 @@
                             <span class="align-middle">Settings</span>
                         </a>
                     </li>
-                    <li>
-                        <a class="dropdown-item" href="pages-account-settings-billing.html">
-                            <span class="d-flex align-items-center align-middle">
-                                <i class="flex-shrink-0 ti ti-credit-card me-2 ti-sm"></i>
-                                <span class="flex-grow-1 align-middle">Billing</span>
-                                <span class="flex-shrink-0 badge badge-center rounded-pill bg-label-danger w-px-20 h-px-20">2</span>
-                            </span>
-                        </a>
-                    </li>
+
                     <li>
                         <div class="dropdown-divider"></div>
                     </li>
-                    <li>
-                        <a class="dropdown-item" href="pages-faq.html">
-                            <i class="ti ti-help me-2 ti-sm"></i>
-                            <span class="align-middle">FAQ</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="pages-pricing.html">
-                            <i class="ti ti-currency-dollar me-2 ti-sm"></i>
-                            <span class="align-middle">Pricing</span>
-                        </a>
-                    </li>
-                    <li>
-                        <div class="dropdown-divider"></div>
-                    </li>
+
                     <li>
                         <a class="dropdown-item" href="auth-login-cover.html" target="_blank">
                             <i class="ti ti-logout me-2 ti-sm"></i>
-                            <span class="align-middle">Log Out</span>
+                            <span class="align-middle">Oturumu Kapat</span>
                         </a>
                     </li>
                 </ul>

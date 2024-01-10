@@ -1,4 +1,4 @@
-<footer class="content-footer footer bg-footer-theme">
+<footer class="content-footer footer bg-footer-theme" style="position: fixed; bottom: 0;">
     <div class="container-xxl">
         <div
             class="footer-container d-flex align-items-center justify-content-between py-2 flex-md-row flex-column">

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Backend\UserTitleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,7 +38,18 @@ All Admin Routes List
 --------------------------------------------*/
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
 
-    Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.home');
+    Route::prefix('/admin')->group(function () {
+        Route::get('home', [HomeController::class, 'adminHome'])->name('admin.home');
+
+        Route::prefix('users')->group(function () {
+            Route::resource('titles', UserTitleController::class)->except('show', 'create', 'destroy', 'update', 'edit');
+            Route::get('titles/delete/{id}', [UserTitleController::class, 'delete'])->name('titles.delete');
+            Route::get('titles/editModal/{id}', [UserTitleController::class, 'editModal'])->name('titles.editModal');
+            Route::post('titles/updateModal', [UserTitleController::class, 'updateModal'])->name('titles.updateModal');
+            Route::post('titles/changeStatus/{id}/{status}', [UserTitleController::class, 'changeStatus']);
+        });
+    });
+
 });
 
 /*------------------------------------------

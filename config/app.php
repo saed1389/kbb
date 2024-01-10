@@ -70,7 +70,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Europe/Istanbul',
 
     /*
     |--------------------------------------------------------------------------
@@ -83,7 +83,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'tr',
 
     /*
     |--------------------------------------------------------------------------
@@ -96,7 +96,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'tr',
 
     /*
     |--------------------------------------------------------------------------
@@ -109,7 +109,7 @@ return [
     |
     */
 
-    'faker_locale' => 'en_US',
+    'faker_locale' => 'tr_TR',
 
     /*
     |--------------------------------------------------------------------------
@@ -177,7 +177,7 @@ return [
     |
     | This array of class aliases will be registered when this application
     | is started. However, feel free to register as many as you wish as
-    | the aliases are "lazy" loaded so they don't hinder performance.
+    | the aliases are "lazy" loaded, so they don't hinder performance.
     |
     */
 
