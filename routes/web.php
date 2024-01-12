@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Backend\UserTitleController;
 use App\Http\Controllers\Backend\UserJobController;
+use App\Http\Controllers\Backend\EventCategoryController;
+use App\Http\Controllers\Backend\NewsCategoryController;
 use App\Http\Controllers\Frontend\IndexController;
 
 /*
@@ -61,6 +63,20 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
             Route::post('jobs/updateModal', [UserJobController::class, 'updateModal'])->name('jobs.updateModal');
             Route::post('jobs/changeStatus/{id}/{status}', [UserJobController::class, 'changeStatus']);
         });
+
+        // Event Category Routes
+        Route::resource('event-categories', EventCategoryController::class)->except('show', 'create', 'destroy', 'update', 'edit');
+        Route::get('event-categories/delete/{id}', [EventCategoryController::class, 'delete'])->name('event-categories.delete');
+        Route::get('event-categories/editModal/{id}', [EventCategoryController::class, 'editModal'])->name('event-categories.editModal');
+        Route::post('event-categories/updateModal', [EventCategoryController::class, 'updateModal'])->name('event-categories.updateModal');
+        Route::post('event-categories/changeStatus/{id}/{status}', [EventCategoryController::class, 'changeStatus']);
+
+        // News Category Routes
+        Route::resource('news-categories', NewsCategoryController::class)->except('show', 'create', 'destroy', 'update', 'edit');
+        Route::get('news-categories/delete/{id}', [NewsCategoryController::class, 'delete'])->name('news-categories.delete');
+        Route::get('news-categories/editModal/{id}', [NewsCategoryController::class, 'editModal'])->name('news-categories.editModal');
+        Route::post('news-categories/updateModal', [NewsCategoryController::class, 'updateModal'])->name('news-categories.updateModal');
+        Route::post('news-categories/changeStatus/{id}/{status}', [NewsCategoryController::class, 'changeStatus']);
     });
 
 });

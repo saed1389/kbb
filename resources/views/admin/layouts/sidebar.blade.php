@@ -199,19 +199,14 @@
             </ul>
         </li>
 
-        <li class="menu-item">
+        <li class="menu-item @if(Request::segment(2) == 'news-categories') active open @endif">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class='menu-icon tf-icons ti ti-category'></i>
                 <div data-i18n="Front Pages"><strong>Haber Kategori Yönetimi</strong></div>
             </a>
             <ul class="menu-sub">
-                <li class="menu-item">
-                    <a href="front-pages/landing-page.html" class="menu-link" >
-                        <div data-i18n="Landing">Kategori Ekle</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="front-pages/pricing-page.html" class="menu-link" >
+                <li class="menu-item @if(Request::segment(2) == 'news-categories') active @endif">
+                    <a href="{{ route('news-categories.index') }}" class="menu-link" >
                         <div data-i18n="Pricing">Kategori Listesi</div>
                     </a>
                 </li>
@@ -219,19 +214,14 @@
             </ul>
         </li>
 
-        <li class="menu-item">
+        <li class="menu-item @if(Request::segment(2) == 'event-categories') active open @endif">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class='menu-icon tf-icons ti ti-calendar-event'></i>
                 <div data-i18n="Front Pages"><strong>Etkinlik Kategori Yönetimi</strong></div>
             </a>
             <ul class="menu-sub">
-                <li class="menu-item">
-                    <a href="front-pages/landing-page.html" class="menu-link" >
-                        <div data-i18n="Landing">Kategori Ekle</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="front-pages/pricing-page.html" class="menu-link" >
+                <li class="menu-item @if(Request::segment(2) == 'event-categories') active @endif">
+                    <a href="{{ route('event-categories.index') }}" class="menu-link" >
                         <div data-i18n="Pricing">Kategori Listesi</div>
                     </a>
                 </li>

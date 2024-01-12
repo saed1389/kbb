@@ -84,7 +84,7 @@
                             <td>{{ $item->userName->first_name. ' '. $item->userName->last_name }}</td>
                             <td>
                                 <label class="switch switch-success">
-                                    <input type="checkbox" class="switch-input active" name="status" id="status" data-id="1" value="1" checked="">
+                                    <input type="checkbox" class="switch-input active" name="status" id="status" data-id="{{ $item->id }}" value="{{ $item->id }}" @checked($item->status == 1)>
                                     <span class="switch-toggle-slider">
                                     <span class="switch-on">
                                       <i class="ti ti-check"></i>

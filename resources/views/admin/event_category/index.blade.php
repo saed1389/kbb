@@ -1,5 +1,5 @@
 @extends('admin.layouts.app')
-@section('title') Üye Ünvan Listesi @endsection
+@section('title') Etkinlik Kategori Listesi @endsection
 @section('content')
     @push('styles')
         <style>
@@ -11,7 +11,7 @@
     @endpush
     <div class="container-xxl flex-grow-1 container-p-y">
         <div class="card">
-            <h5 class="card-header">Üye Meslek Listesi</h5>
+            <h5 class="card-header">Etkinlik Kategori Listesi</h5>
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-8">
@@ -20,41 +20,38 @@
                                 <li class="breadcrumb-item">
                                     <a href="{{ route('admin.home') }}">Anasayfa </a>
                                 </li>
-                                <li class="breadcrumb-item">
-                                    <a href="javascript:void(0);">Üye Yönetimi</a>
-                                </li>
-                                <li class="breadcrumb-item active">Üye Meslek Listesi</li>
+                                <li class="breadcrumb-item active">Etkinlik Kategori Listesi</li>
 
                             </ol>
                         </nav>
                     </div>
                     <div class="col-md-4 ">
                         <button type="button" class="btn btn-primary waves-effect waves-light float-end " data-bs-toggle="modal" data-bs-target="#backDropModal">
-                            Yeni Meslek Ekle
+                            Etkinlik Kategori Ekle
                         </button>
                         <div class="modal fade" id="backDropModal" data-bs-backdrop="static" tabindex="-1">
                             <div class="modal-dialog">
-                                <form class="modal-content" action="{{ route('jobs.store') }}" method="post" >
+                                <form class="modal-content" action="{{ route('event-categories.store') }}" method="post" >
                                     @csrf
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="backDropModalTitle">Yeni Meslek Ekle</h5>
+                                        <h5 class="modal-title" id="backDropModalTitle">Etkinlik Kategori Ekle</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
                                         <div class="row">
                                             <div class="col mb-3">
-                                                <label for="job" class="form-label">Meslek Adı</label>
-                                                <input type="text" id="job" name="job" class="form-control" placeholder="Meslek Adı Giriniz" required>
+                                                <label for="title" class="form-label">Etkinlik Kategori Adı</label>
+                                                <input type="text" id="title" name="title" class="form-control" placeholder="Etkinlik Kategori Giriniz" required>
                                             </div>
                                             <div class="col mb-3">
-                                                <label for="job_en" class="form-label">Meslek Adı (en)</label>
-                                                <input type="text" id="job_en" name="job_en" class="form-control" placeholder="Meslek Adı (en) Giriniz" >
+                                                <label for="title_en" class="form-label">Etkinlik Kategori (en)</label>
+                                                <input type="text" id="title_en" name="title_en" class="form-control" placeholder="Etkinlik Kategori (en) Giriniz" >
                                             </div>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">İptal</button>
-                                        <button type="submit" class="btn btn-primary" >Meslek Ekle</button>
+                                        <button type="submit" class="btn btn-primary" >Etkinlik Kategori Ekle</button>
                                     </div>
                                 </form>
                             </div>
@@ -68,19 +65,19 @@
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>Meslekler</th>
-                        <th>Meslekler (en)</th>
+                        <th>Kategori Adı</th>
+                        <th>Kategori Adı (en)</th>
                         <th>Oluşturma</th>
                         <th>Durum</th>
                         <th>İşlemler</th>
                     </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                    @forelse($jobs as $item)
+                    @forelse($events as $item)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $item->job }}</td>
-                            <td>{{ $item->job_en ? $item->job_en : '-' }}</td>
+                            <td>{{ $item->title }}</td>
+                            <td>{{ $item->title_en ? $item->title_en : '-' }}</td>
                             <td>{{ $item->userName->first_name. ' '. $item->userName->last_name }}</td>
                             <td>
                                 <label class="switch switch-success">
@@ -97,7 +94,7 @@
                             </td>
                             <td>
                                 <button type="button" value="{{ $item->id }}" class="btn btn-label-primary btn-sm waves-effect editBtn" >Düzenle</button>
-                                <button type="button" href="{{ route('jobs.delete', $item->id) }}" class="btn btn-label-danger btn-sm waves-effect" id="delete">Sil</button>
+                                <button type="button" href="{{ route('event-categories.delete', $item->id) }}" class="btn btn-label-danger btn-sm waves-effect" id="delete">Sil</button>
                             </td>
                         </tr>
                     @empty
@@ -114,28 +111,28 @@
     {{-- Edit Modal --}}
     <div class="modal fade" id="editModal" data-bs-backdrop="static" tabindex="-1">
         <div class="modal-dialog">
-            <form class="modal-content" action="{{ route('jobs.updateModal') }}" method="post" >
+            <form class="modal-content" action="{{ route('event-categories.updateModal') }}" method="post" >
                 @csrf
-                <input type="hidden" id="job_id" name="job_id">
+                <input type="hidden" id="title_id" name="title_id">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="backDropModalTitle"> Meslek Düzenle</h5>
+                    <h5 class="modal-title" id="backDropModalTitle"> Etkinlik Kategori Düzenle</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
                         <div class="col mb-3">
-                            <label for="jobEdit" class="form-label">Meslek Adı</label>
-                            <input type="text" id="jobEdit" name="job" class="form-control" placeholder="Meslek Adı Giriniz" required>
+                            <label for="titleEdit" class="form-label">Etkinlik Kategori Adı</label>
+                            <input type="text" id="titleEdit" name="title" class="form-control" placeholder="Etkinlik Kategori Adı Giriniz" required>
                         </div>
                         <div class="col mb-3">
-                            <label for="job_enEdit" class="form-label">Meslek Adı (en)</label>
-                            <input type="text" id="job_enEdit" name="job_en" class="form-control" placeholder="Meslek Adı (en) Giriniz" >
+                            <label for="title_enEdit" class="form-label">Etkinlik Kategori Adı (en)</label>
+                            <input type="text" id="title_enEdit" name="title_en" class="form-control" placeholder="Etkinlik Kategori Adı (en) Giriniz" >
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">İptal</button>
-                    <button type="submit" class="btn btn-primary" >Meslek Düzenle</button>
+                    <button type="submit" class="btn btn-primary" >Etkinlik Kategori Düzenle</button>
                 </div>
             </form>
         </div>
@@ -149,12 +146,11 @@
                     $('#editModal').modal('show');
                     $.ajax({
                         type: "GET",
-                        url: "{{ url('admin/users/jobs/editModal') }}/"+title_id,
+                        url: "{{ url('admin/event-categories/editModal') }}/"+title_id,
                         success: function (response) {
-
-                            $('#jobEdit').val(response.title.job);
-                            $('#job_enEdit').val(response.title.job_en);
-                            $('#job_id').val(job_id);
+                            $('#titleEdit').val(response.title.title);
+                            $('#title_enEdit').val(response.title.title_en);
+                            $('#title_id').val(title_id);
                         }
                     });
                 });
@@ -171,7 +167,7 @@
                         headers: {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                         },
-                        url: "{{ url('/admin/users/jobs/changeStatus') }}/"+check_id+"/"+check_active,
+                        url: "{{ url('/admin/event-categories/changeStatus') }}/"+check_id+"/"+check_active,
                         data: { _token : $('meta[name="csrf-token"]').attr('content'),id: check_id, active: check_active},
                         success: function(response){
                             toastr.info("Durumu başarıyla değiştirin!");
