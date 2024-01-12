@@ -96,6 +96,11 @@
                         <div data-i18n="Pricing">Üye Ünvanları</div>
                     </a>
                 </li>
+                <li class="menu-item @if(Request::segment(3) == 'jobs') active @endif">
+                    <a href="{{ route('jobs.index') }}" class="menu-link" >
+                        <div data-i18n="Pricing">Üye Mesleklerı </div>
+                    </a>
+                </li>
                 <li class="menu-item">
                     <a href="front-pages/pricing-page.html" class="menu-link" >
                         <div data-i18n="Pricing">Toplu Mail</div>
@@ -246,7 +251,7 @@
             </a>
         </li>
         <li class="menu-item">
-            <a href="app-chat.html" class="menu-link">
+            <a href="{{ route('admin.logout') }}" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-logout"></i>
                 <div data-i18n="Chat"><strong>Oturumu kapat</strong></div>
             </a>

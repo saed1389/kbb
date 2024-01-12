@@ -50,16 +50,24 @@ class LoginController extends Controller
         ]);
 
         if (auth()->attempt(array('email' => $input['email'], 'password' => $input['password']))) {
+            $notification = array(
+                'message' => "Oturum açma işlemi başarılı oldu.",
+                'alert-type' => 'success'
+            );
             if (auth()->user()->type == 'admin') {
-                return redirect()->route('admin.home');
+                return redirect()->route('admin.home')->with($notification);
             } else if (auth()->user()->type == 'manager') {
-                return redirect()->route('manager.home');
+                return redirect()->route('manager.home')->with($notification);
             } else {
-                return redirect()->route('home');
+                return redirect()->route('home')->with($notification);
             }
         } else {
+            $notification = array(
+                'message' => "E-posta adresi VEYA şifre yanlış.",
+                'alert-type' => 'error'
+            );
             return redirect()->route('login')
-                ->with('error', 'Email-Address And Password Are Wrong.');
+                ->with($notification);
         }
 
     }

@@ -3,26 +3,23 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Models\UserTitle;
+use App\Models\UserJob;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 
-class UserTitleController extends Controller
+class UserJobController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        $titles = UserTitle::orderBy('id', 'desc')->get();
-        return view('admin.users.title.index', compact('titles'));
+        $jobs = UserJob::orderBy('id', 'desc')->get();
+        return view('admin.users.job.index', compact('jobs'));
     }
     public function store(Request $request)
     {
-        UserTitle::create([
-            'title' => $request->title,
-            'title_en' => $request->title_en,
+        UserJob::create([
+            'job' => $request->job,
+            'job_en' => $request->job_en,
             'order' => 0,
             'status' => 1,
             'created_by' => Auth::user()->id,
@@ -30,33 +27,33 @@ class UserTitleController extends Controller
         ]);
 
         $notification = array(
-            'message' => "Ünvan başarıyla eklendi!",
+            'message' => "Meslek başarıyla eklendi!",
             'alert-type' => 'success'
         );
 
-        return redirect()->route('titles.index')->with($notification);
+        return redirect()->route('jobs.index')->with($notification);
     }
 
     public function editModal(string $id)
     {
-        $title = UserTitle::find($id);
+        $job = UserJob::find($id);
         return response()->json([
             'status' => 200,
-            'title' => $title
+            'job' => $job
         ]);
     }
 
     public function updateModal(Request $request)
     {
-        UserTitle::where('id', $request->title_id)->update([
-            'title' => $request->title,
-            'title_en' => $request->title_en,
+        UserJob::where('id', $request->job_id)->update([
+            'job' => $request->job,
+            'job_en' => $request->job_en,
             'created_by' => Auth::user()->id,
             'updated_at' => Carbon::now()
         ]);
 
         $notification = array(
-            'message' => "Ünvan başarıyla Düzenlendi!",
+            'message' => "Meslek başarıyla Düzenlendi!",
             'alert-type' => 'success'
         );
         return redirect()->back()->with($notification);
@@ -65,9 +62,9 @@ class UserTitleController extends Controller
 
     public function delete($id)
     {
-        UserTitle::where('id', $id)->delete();
+        UserJob::where('id', $id)->delete();
         $notification = array(
-            'message' => "Ünvan başarıyla silindi!",
+            'message' => "Meslek başarıyla silindi!",
             'alert-type' => 'danger'
         );
 
@@ -76,6 +73,6 @@ class UserTitleController extends Controller
 
     public function changeStatus($id, $status)
     {
-        UserTitle::where('id', $id)->update(['status' => $status]);
+        UserJob::where('id', $id)->update(['status' => $status]);
     }
 }

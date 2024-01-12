@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -51,9 +52,8 @@ class RegisterController extends Controller
     {
 
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string'],
         ]);
     }
 
@@ -63,13 +63,34 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
-    protected function create(array $data)
+    /*protected function create(array $data)
     {
-
         return User::create([
-            'name' => $data['name'],
+            'title' => $data['title'],
+            'occupation' => $data['job'],
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
+            'country' => $data['country'],
+            'birthday_date' => $data['birthday_date'],
+            'gender' => $data['gender'],
+            'father_name' => $data['father_name'],
+            'mother_name' => $data['mother_name'],
+            'working_status' => $data['working_status'],
+            'company_name' => $data['company_name'],
+            'work_address' => $data['work_address'],
+            'work_city' => $data['work_city'],
+            'work_province' => $data['work_province'],
+            'work_tel' => $data['work_tel'],
+            'home_address' => $data['home_address'],
+            'home_city' => $data['home_city'],
+            'home_province' => $data['home_province'],
+            'home_tel' => $data['home_tel'],
+            'mobile' => $data['mobile'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'type' => 0,
+            'status' => 0,
+            'created_at' => Carbon::now()
         ]);
-    }
+    }*/
 }
