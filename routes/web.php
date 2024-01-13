@@ -6,6 +6,8 @@ use App\Http\Controllers\Backend\UserTitleController;
 use App\Http\Controllers\Backend\UserJobController;
 use App\Http\Controllers\Backend\EventCategoryController;
 use App\Http\Controllers\Backend\NewsCategoryController;
+use App\Http\Controllers\Backend\PhotoCategoryController;
+use App\Http\Controllers\Backend\ImageController;
 use App\Http\Controllers\Frontend\IndexController;
 
 /*
@@ -77,6 +79,17 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
         Route::get('news-categories/editModal/{id}', [NewsCategoryController::class, 'editModal'])->name('news-categories.editModal');
         Route::post('news-categories/updateModal', [NewsCategoryController::class, 'updateModal'])->name('news-categories.updateModal');
         Route::post('news-categories/changeStatus/{id}/{status}', [NewsCategoryController::class, 'changeStatus']);
+
+        // Photo Gallery Routes
+        Route::prefix('photos')->group(function () {
+            Route::resource('galleries', PhotoCategoryController::class)->except('create', 'destroy', 'update', 'edit');
+            Route::get('galleries/delete/{id}', [PhotoCategoryController::class, 'delete'])->name('galleries.delete');
+            Route::get('galleries/editModal/{id}', [PhotoCategoryController::class, 'editModal'])->name('galleries.editModal');
+            Route::post('galleries/updateModal', [PhotoCategoryController::class, 'updateModal'])->name('galleries.updateModal');
+            Route::post('galleries/changeStatus/{id}/{status}', [PhotoCategoryController::class, 'changeStatus']);
+
+            Route::resource('images', ImageController::class)->except('destroy');
+        });
     });
 
 });

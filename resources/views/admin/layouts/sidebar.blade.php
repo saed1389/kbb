@@ -148,7 +148,7 @@
 
             </ul>
         </li>
-        <li class="menu-item">
+        <li class="menu-item @if(Request::segment(2) == 'photos') active open @endif">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class='menu-icon tf-icons ti ti-photo'></i>
                 <div data-i18n="Front Pages"><strong>Foto Galeri</strong></div>
@@ -159,8 +159,8 @@
                         <div data-i18n="Pricing">Fotoğraf Yükle</div>
                     </a>
                 </li>
-                <li class="menu-item">
-                    <a href="front-pages/pricing-page.html" class="menu-link" >
+                <li class="menu-item @if(Request::segment(3) == 'galleries') active @endif">
+                    <a href="{{ route('galleries.index') }}" class="menu-link" >
                         <div data-i18n="Pricing">Fotoğraf Galerileri</div>
                     </a>
                 </li>

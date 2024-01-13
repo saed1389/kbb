@@ -44,8 +44,8 @@
                                                 <input type="text" id="title" name="title" class="form-control" placeholder="Etkinlik Kategori Giriniz" required>
                                             </div>
                                             <div class="col mb-3">
-                                                <label for="title_en" class="form-label">Etkinlik Kategori (en)</label>
-                                                <input type="text" id="title_en" name="title_en" class="form-control" placeholder="Etkinlik Kategori (en) Giriniz" >
+                                                <label for="title_en" class="form-label">Etkinlik Kategori Adı (en)</label>
+                                                <input type="text" id="title_en" name="title_en" class="form-control" placeholder="Etkinlik Kategori Adı (en) Giriniz" >
                                             </div>
                                         </div>
                                     </div>

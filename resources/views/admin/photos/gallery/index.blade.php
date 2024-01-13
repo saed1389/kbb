@@ -1,5 +1,5 @@
 @extends('admin.layouts.app')
-@section('title') Haber Kategori Listesi @endsection
+@section('title') Fotoğraf Galeri Listesi @endsection
 @section('content')
     @push('styles')
         <style>
@@ -11,7 +11,7 @@
     @endpush
     <div class="container-xxl flex-grow-1 container-p-y">
         <div class="card">
-            <h5 class="card-header">Haber Kategori Listesi</h5>
+            <h5 class="card-header">Fotoğraf Galeri Listesi</h5>
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-8">
@@ -20,38 +20,38 @@
                                 <li class="breadcrumb-item">
                                     <a href="{{ route('admin.home') }}">Anasayfa </a>
                                 </li>
-                                <li class="breadcrumb-item active">Haber Kategori Listesi</li>
+                                <li class="breadcrumb-item active">Fotoğraf Galeri Listesi</li>
 
                             </ol>
                         </nav>
                     </div>
                     <div class="col-md-4 ">
                         <button type="button" class="btn btn-primary waves-effect waves-light float-end " data-bs-toggle="modal" data-bs-target="#backDropModal">
-                            Yeni Haber Kategori Ekle
+                            Fotoğraf Galeri Ekle
                         </button>
                         <div class="modal fade" id="backDropModal" data-bs-backdrop="static" tabindex="-1">
                             <div class="modal-dialog">
-                                <form class="modal-content" action="{{ route('news-categories.store') }}" method="post" >
+                                <form class="modal-content" action="{{ route('galleries.store') }}" method="post" >
                                     @csrf
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="backDropModalTitle">Yeni Haber Kategori Ekle</h5>
+                                        <h5 class="modal-title" id="backDropModalTitle">Fotoğraf Galeri Ekle</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
                                         <div class="row">
                                             <div class="col mb-3">
-                                                <label for="title" class="form-label">Haber Kategori Adı</label>
-                                                <input type="text" id="title" name="title" class="form-control" placeholder="Haber Kategori Adı Giriniz" required>
+                                                <label for="title" class="form-label">Fotoğraf Galeri Adı</label>
+                                                <input type="text" id="title" name="title" class="form-control" placeholder="Fotoğraf Galeri Giriniz" required>
                                             </div>
                                             <div class="col mb-3">
-                                                <label for="title_en" class="form-label">Haber Kategori Adı (en)</label>
-                                                <input type="text" id="title_en" name="title_en" class="form-control" placeholder="Haber Kategori Adı (en) Giriniz" >
+                                                <label for="title_en" class="form-label">Fotoğraf Galeri Adı (en)</label>
+                                                <input type="text" id="title_en" name="title_en" class="form-control" placeholder="Fotoğraf Galeri Adı (en) Giriniz" >
                                             </div>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">İptal</button>
-                                        <button type="submit" class="btn btn-primary" >Haber Kategori Ekle</button>
+                                        <button type="submit" class="btn btn-primary" >Fotoğraf Galeri Ekle</button>
                                     </div>
                                 </form>
                             </div>
@@ -65,15 +65,15 @@
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>Kategori Adı</th>
-                        <th>Kategori Adı (en)</th>
+                        <th>Galeri Adı</th>
+                        <th>Galeri Adı (en)</th>
                         <th>Oluşturma</th>
                         <th>Durum</th>
                         <th>İşlemler</th>
                     </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                    @forelse($news as $item)
+                    @forelse($photos as $item)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->title }}</td>
@@ -94,7 +94,7 @@
                             </td>
                             <td>
                                 <button type="button" value="{{ $item->id }}" class="btn btn-label-primary btn-sm waves-effect editBtn" >Düzenle</button>
-                                <button type="button" href="{{ route('news-categories.delete', $item->id) }}" class="btn btn-label-danger btn-sm waves-effect" id="delete">Sil</button>
+                                <button type="button" href="{{ route('galleries.delete', $item->id) }}" class="btn btn-label-danger btn-sm waves-effect" id="delete">Sil</button>
                             </td>
                         </tr>
                     @empty
@@ -111,28 +111,28 @@
     {{-- Edit Modal --}}
     <div class="modal fade" id="editModal" data-bs-backdrop="static" tabindex="-1">
         <div class="modal-dialog">
-            <form class="modal-content" action="{{ route('news-categories.updateModal') }}" method="post" >
+            <form class="modal-content" action="{{ route('galleries.updateModal') }}" method="post" >
                 @csrf
                 <input type="hidden" id="title_id" name="title_id">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="backDropModalTitle"> Haber Kategori Düzenle</h5>
+                    <h5 class="modal-title" id="backDropModalTitle"> Fotoğraf Galeri Düzenle</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
                         <div class="col mb-3">
-                            <label for="titleEdit" class="form-label">Haber Kategori Adı</label>
-                            <input type="text" id="titleEdit" name="title" class="form-control" placeholder="Haber Kategori Adı Giriniz" required>
+                            <label for="titleEdit" class="form-label">Fotoğraf Galeri Adı</label>
+                            <input type="text" id="titleEdit" name="title" class="form-control" placeholder="Fotoğraf Galeri Adı Giriniz" required>
                         </div>
                         <div class="col mb-3">
-                            <label for="title_enEdit" class="form-label">Haber Kategori Adı (en)</label>
-                            <input type="text" id="title_enEdit" name="title_en" class="form-control" placeholder="Haber Kategori Adı (en) Giriniz" >
+                            <label for="title_enEdit" class="form-label">Fotoğraf Galeri Adı (en)</label>
+                            <input type="text" id="title_enEdit" name="title_en" class="form-control" placeholder="Fotoğraf Galeri Adı (en) Giriniz" >
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">İptal</button>
-                    <button type="submit" class="btn btn-primary" >Haber Kategori Düzenle</button>
+                    <button type="submit" class="btn btn-primary" >Fotoğraf Galeri Düzenle</button>
                 </div>
             </form>
         </div>
@@ -146,7 +146,7 @@
                     $('#editModal').modal('show');
                     $.ajax({
                         type: "GET",
-                        url: "{{ url('admin/news-categories/editModal') }}/"+title_id,
+                        url: "{{ url('admin/photos/galleries/editModal') }}/"+title_id,
                         success: function (response) {
                             $('#titleEdit').val(response.title.title);
                             $('#title_enEdit').val(response.title.title_en);
@@ -167,7 +167,7 @@
                         headers: {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                         },
-                        url: "{{ url('/admin/news-categories/changeStatus') }}/"+check_id+"/"+check_active,
+                        url: "{{ url('/admin/photos/galleries/changeStatus') }}/"+check_id+"/"+check_active,
                         data: { _token : $('meta[name="csrf-token"]').attr('content'),id: check_id, active: check_active},
                         success: function(response){
                             toastr.info("Durumu başarıyla değiştirin!");
