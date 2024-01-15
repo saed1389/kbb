@@ -155,7 +155,7 @@
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="front-pages/pricing-page.html" class="menu-link" >
+                    <a href="{{ route('images.index') }}" class="menu-link" >
                         <div data-i18n="Pricing">Fotoğraf Yükle</div>
                     </a>
                 </li>
@@ -229,7 +229,7 @@
             </ul>
         </li>
         <li class="menu-item">
-            <a href="app-email.html" class="menu-link">
+            <a href="{{ route('member-types.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-settings-2"></i>
                 <div data-i18n="Email"><strong>Üyelik Tipi Yönetimi</strong></div>
             </a>

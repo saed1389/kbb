@@ -27,14 +27,14 @@
                     </div>
                     <div class="col-md-4 ">
                         <button type="button" class="btn btn-primary waves-effect waves-light float-end " data-bs-toggle="modal" data-bs-target="#backDropModal">
-                            Etkinlik Kategori Ekle
+                            Yeni Etkinlik Kategori Ekle
                         </button>
                         <div class="modal fade" id="backDropModal" data-bs-backdrop="static" tabindex="-1">
                             <div class="modal-dialog">
                                 <form class="modal-content" action="{{ route('event-categories.store') }}" method="post" >
                                     @csrf
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="backDropModalTitle">Etkinlik Kategori Ekle</h5>
+                                        <h5 class="modal-title" id="backDropModalTitle">Yeni Etkinlik Kategori Ekle</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">

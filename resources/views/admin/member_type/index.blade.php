@@ -1,5 +1,5 @@
 @extends('admin.layouts.app')
-@section('title') Fotoğraf Galeri Listesi @endsection
+@section('title') Etkinlik Kategori Listesi @endsection
 @section('content')
     @push('styles')
         <style>
@@ -7,22 +7,11 @@
                 display: none !important;
             }
         </style>
+
     @endpush
     <div class="container-xxl flex-grow-1 container-p-y">
         <div class="card">
-            <h5 class="card-header">Fotoğraf Galeri Listesi</h5>
-            @if (request('message'))
-                <div class="row" style="justify-content: center;">
-                    <div class="col-md-4">
-                        <div class="alert alert-success alert-dismissible" role="alert">
-                            {{ urldecode(request('message')) }}
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-            @endif
+            <h5 class="card-header">Üye Tip Listesi</h5>
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-8">
@@ -31,38 +20,38 @@
                                 <li class="breadcrumb-item">
                                     <a href="{{ route('admin.home') }}">Anasayfa </a>
                                 </li>
-                                <li class="breadcrumb-item active">Fotoğraf Galeri Listesi</li>
+                                <li class="breadcrumb-item active">Üye Tip Listesi</li>
 
                             </ol>
                         </nav>
                     </div>
                     <div class="col-md-4 ">
                         <button type="button" class="btn btn-primary waves-effect waves-light float-end " data-bs-toggle="modal" data-bs-target="#backDropModal">
-                            Yeni Fotoğraf Galeri Ekle
+                            Yeni Üye Tip Ekle
                         </button>
                         <div class="modal fade" id="backDropModal" data-bs-backdrop="static" tabindex="-1">
                             <div class="modal-dialog">
-                                <form class="modal-content" action="{{ route('galleries.store') }}" method="post" >
+                                <form class="modal-content" action="{{ route('member-types.store') }}" method="post" >
                                     @csrf
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="backDropModalTitle">Yeni Fotoğraf Galeri Ekle</h5>
+                                        <h5 class="modal-title" id="backDropModalTitle">Yeni Üye Tip Ekle</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
                                         <div class="row">
                                             <div class="col mb-3">
-                                                <label for="title" class="form-label">Fotoğraf Galeri Adı</label>
-                                                <input type="text" id="title" name="title" class="form-control" placeholder="Fotoğraf Galeri Giriniz" required>
+                                                <label for="title" class="form-label">Üye Tip Adı</label>
+                                                <input type="text" id="title" name="title" class="form-control" placeholder="Üye Tip Giriniz" required>
                                             </div>
                                             <div class="col mb-3">
-                                                <label for="title_en" class="form-label">Fotoğraf Galeri Adı (en)</label>
-                                                <input type="text" id="title_en" name="title_en" class="form-control" placeholder="Fotoğraf Galeri Adı (en) Giriniz" >
+                                                <label for="title_en" class="form-label">Üye Tip Adı (en)</label>
+                                                <input type="text" id="title_en" name="title_en" class="form-control" placeholder="Üye Tip Adı (en) Giriniz" >
                                             </div>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">İptal</button>
-                                        <button type="submit" class="btn btn-primary" >Fotoğraf Galeri Ekle</button>
+                                        <button type="submit" class="btn btn-primary" >Üye Tip Ekle</button>
                                     </div>
                                 </form>
                             </div>
@@ -76,15 +65,15 @@
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>Galeri Adı</th>
-                        <th>Galeri Adı (en)</th>
+                        <th>Tip Adı</th>
+                        <th>Tip Adı (en)</th>
                         <th>Oluşturma</th>
                         <th>Durum</th>
                         <th>İşlemler</th>
                     </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                    @forelse($photos as $item)
+                    @forelse($members as $item)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->title }}</td>
@@ -105,7 +94,7 @@
                             </td>
                             <td>
                                 <button type="button" value="{{ $item->id }}" class="btn btn-label-primary btn-sm waves-effect editBtn" >Düzenle</button>
-                                <button type="button" href="{{ route('galleries.delete', $item->id) }}" class="btn btn-label-danger btn-sm waves-effect" id="delete">Sil</button>
+                                <button type="button" href="{{ route('member-types.delete', $item->id) }}" class="btn btn-label-danger btn-sm waves-effect" id="delete">Sil</button>
                             </td>
                         </tr>
                     @empty
@@ -122,28 +111,28 @@
     {{-- Edit Modal --}}
     <div class="modal fade" id="editModal" data-bs-backdrop="static" tabindex="-1">
         <div class="modal-dialog">
-            <form class="modal-content" action="{{ route('galleries.updateModal') }}" method="post" >
+            <form class="modal-content" action="{{ route('member-types.updateModal') }}" method="post" >
                 @csrf
                 <input type="hidden" id="title_id" name="title_id">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="backDropModalTitle"> Fotoğraf Galeri Düzenle</h5>
+                    <h5 class="modal-title" id="backDropModalTitle"> Üye Tip Düzenle</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
                         <div class="col mb-3">
-                            <label for="titleEdit" class="form-label">Fotoğraf Galeri Adı</label>
-                            <input type="text" id="titleEdit" name="title" class="form-control" placeholder="Fotoğraf Galeri Adı Giriniz" required>
+                            <label for="titleEdit" class="form-label">Üye Tip Adı</label>
+                            <input type="text" id="titleEdit" name="title" class="form-control" placeholder="Üye Tip Adı Giriniz" required>
                         </div>
                         <div class="col mb-3">
-                            <label for="title_enEdit" class="form-label">Fotoğraf Galeri Adı (en)</label>
-                            <input type="text" id="title_enEdit" name="title_en" class="form-control" placeholder="Fotoğraf Galeri Adı (en) Giriniz" >
+                            <label for="title_enEdit" class="form-label">Üye Tip Adı (en)</label>
+                            <input type="text" id="title_enEdit" name="title_en" class="form-control" placeholder="Üye Tip Adı (en) Giriniz" >
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">İptal</button>
-                    <button type="submit" class="btn btn-primary" >Fotoğraf Galeri Düzenle</button>
+                    <button type="submit" class="btn btn-primary" >Üye Tip Düzenle</button>
                 </div>
             </form>
         </div>
@@ -157,7 +146,7 @@
                     $('#editModal').modal('show');
                     $.ajax({
                         type: "GET",
-                        url: "{{ url('admin/photos/galleries/editModal') }}/"+title_id,
+                        url: "{{ url('admin/member-types/editModal') }}/"+title_id,
                         success: function (response) {
                             $('#titleEdit').val(response.title.title);
                             $('#title_enEdit').val(response.title.title_en);
@@ -178,7 +167,7 @@
                         headers: {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                         },
-                        url: "{{ url('/admin/photos/galleries/changeStatus') }}/"+check_id+"/"+check_active,
+                        url: "{{ url('/admin/member-types/changeStatus') }}/"+check_id+"/"+check_active,
                         data: { _token : $('meta[name="csrf-token"]').attr('content'),id: check_id, active: check_active},
                         success: function(response){
                             toastr.info("Durumu başarıyla değiştirin!");

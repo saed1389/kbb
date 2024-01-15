@@ -7,6 +7,7 @@ use App\Http\Controllers\Backend\UserJobController;
 use App\Http\Controllers\Backend\EventCategoryController;
 use App\Http\Controllers\Backend\NewsCategoryController;
 use App\Http\Controllers\Backend\PhotoCategoryController;
+use App\Http\Controllers\Backend\MemberTypeController;
 use App\Http\Controllers\Backend\ImageController;
 use App\Http\Controllers\Frontend\IndexController;
 
@@ -88,8 +89,16 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
             Route::post('galleries/updateModal', [PhotoCategoryController::class, 'updateModal'])->name('galleries.updateModal');
             Route::post('galleries/changeStatus/{id}/{status}', [PhotoCategoryController::class, 'changeStatus']);
 
-            Route::resource('images', ImageController::class)->except('destroy');
+            Route::resource('images', ImageController::class)->except('destroy', 'create', 'store');
+            Route::post('images/add', [ImageController::class, 'add'])->name('images.add');
         });
+
+        // Member Type Routes
+        Route::resource('member-types', MemberTypeController::class)->except('show', 'create', 'destroy', 'update', 'edit');
+        Route::get('member-types/delete/{id}', [MemberTypeController::class, 'delete'])->name('member-types.delete');
+        Route::get('member-types/editModal/{id}', [MemberTypeController::class, 'editModal'])->name('member-types.editModal');
+        Route::post('member-types/updateModal', [MemberTypeController::class, 'updateModal'])->name('member-types.updateModal');
+        Route::post('member-types/changeStatus/{id}/{status}', [MemberTypeController::class, 'changeStatus']);
     });
 
 });
