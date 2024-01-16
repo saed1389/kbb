@@ -22,17 +22,6 @@ class ImageController extends Controller
         return view('admin.photos.image.index', compact('galleries'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function add(Request $request)
     {
 
@@ -62,7 +51,7 @@ class ImageController extends Controller
 
         // Add your logic to store the description and file details in the database or perform other actions
         $notification = array(
-            'message' => "File uploaded successfully!",
+            'message' => "Dosya başarıyla yüklendi!",
             'alert-type' => 'success'
         );
         // Redirect or respond as needed
@@ -70,35 +59,16 @@ class ImageController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function delete($id)
     {
-        //
-    }
+        $image = Image::find($id);
+        @unlink($image->image);
+        $image->delete();
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        $notification = array(
+            'message' => "Resim başarıyla silindi!",
+            'alert-type' => 'danger'
+        );
+        return redirect()->back()->with($notification);
     }
 }

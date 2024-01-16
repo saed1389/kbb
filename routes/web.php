@@ -91,6 +91,7 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
 
             Route::resource('images', ImageController::class)->except('destroy', 'create', 'store');
             Route::post('images/add', [ImageController::class, 'add'])->name('images.add');
+            Route::get('images/delete/{id}', [ImageController::class, 'delete'])->name('images.delete');
         });
 
         // Member Type Routes

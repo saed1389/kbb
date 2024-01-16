@@ -87,7 +87,7 @@
                     @forelse($photos as $item)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $item->title }}</td>
+                            <td><a href="{{ route('galleries.show', $item->id) }}">{{ $item->title }}</a></td>
                             <td>{{ $item->title_en ? $item->title_en : '-' }}</td>
                             <td>{{ $item->userName->first_name. ' '. $item->userName->last_name }}</td>
                             <td>
@@ -104,6 +104,7 @@
                                 </label>
                             </td>
                             <td>
+                                <a href="{{ route('galleries.show', $item->id) }}" class="btn btn-label-info btn-sm waves-effect" >İncele</a>
                                 <button type="button" value="{{ $item->id }}" class="btn btn-label-primary btn-sm waves-effect editBtn" >Düzenle</button>
                                 <button type="button" href="{{ route('galleries.delete', $item->id) }}" class="btn btn-label-danger btn-sm waves-effect" id="delete">Sil</button>
                             </td>

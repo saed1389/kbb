@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Image;
 use App\Models\PhotoCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -39,7 +40,9 @@ class PhotoCategoryController extends Controller
 
     public function show($id)
     {
-
+        $photos = Image::where('category', $id)->get();
+        $gallery = PhotoCategory::where('id', $id)->first();
+        return view('admin.photos.gallery.show', compact('photos', 'gallery'));
     }
     public function editModal(string $id)
     {
