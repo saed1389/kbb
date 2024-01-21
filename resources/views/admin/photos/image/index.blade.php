@@ -183,7 +183,7 @@
                             <input name="file" type="file" multiple />
                         </div>
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-success">Submit</button>
+                            <button type="submit" class="btn btn-success">Resim Ekle</button>
                         </div>
                     </form>
 

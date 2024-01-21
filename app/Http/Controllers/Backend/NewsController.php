@@ -9,6 +9,7 @@ use App\Models\NewsCategory;
 use App\Models\PhotoCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
 use Yajra\DataTables\Facades\DataTables;
@@ -19,8 +20,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $news = News::all();
-        return view('admin.news.index', compact('news'));
+        return view('admin.news.index');
     }
 
     /**
@@ -83,6 +83,8 @@ class NewsController extends Controller
         News::create([
             'title' => $request->title,
             'title_en' => $request->title_en,
+            'slug' => Str::slug($request->title),
+            'slug_en' => Str::slug($request->title_en),
             'start_date' => $request->start_date,
             'end_date' => $request->end_date,
             'short_description' => $request->short_description,
@@ -189,6 +191,8 @@ class NewsController extends Controller
         News::where('id', $id)->update([
             'title' => $request->title,
             'title_en' => $request->title_en,
+            'slug' => Str::slug($request->title),
+            'slug_en' => Str::slug($request->title_en),
             'start_date' => $request->start_date,
             'end_date' => $request->end_date,
             'short_description' => $request->short_description,

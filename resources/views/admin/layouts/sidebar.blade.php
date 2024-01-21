@@ -23,7 +23,7 @@
             </a>
         </li>
 
-        <li class="menu-item">
+        <li class="menu-item @if(Request::segment(2) == 'news') active open @endif">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-news"></i>
                 <div data-i18n="Layouts"><strong>Haber Yönetimi</strong></div>
@@ -31,12 +31,12 @@
 
             <ul class="menu-sub">
 
-                <li class="menu-item">
+                <li class="menu-item @if(Request::segment(2) == 'news' && Request::segment(3) == 'create') active @endif">
                     <a href="{{ route('news.create') }}" class="menu-link">
                         <div data-i18n="Collapsed menu">Haber Ekle</div>
                     </a>
                 </li>
-                <li class="menu-item">
+                <li class="menu-item @if(Request::segment(2) == 'news' && Request::segment('3') == null) active @endif">
                     <a href="{{ route('news.index') }}" class="menu-link">
                         <div data-i18n="Content navbar">Haber Listesi</div>
                     </a>
@@ -45,19 +45,19 @@
             </ul>
         </li>
 
-        <li class="menu-item">
+        <li class="menu-item @if(Request::segment(2) == 'events') active open @endif">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class='menu-icon tf-icons ti ti-components'></i>
                 <div data-i18n="Front Pages"><strong>Etkinlik Yönetimi</strong></div>
             </a>
             <ul class="menu-sub">
-                <li class="menu-item">
-                    <a href="front-pages/landing-page.html" class="menu-link" >
+                <li class="menu-item @if(Request::segment(2) == 'events' && Request::segment(3) == 'create') active @endif">
+                    <a href="{{ route('events.create') }}" class="menu-link" >
                         <div data-i18n="Landing">Etkinlik Ekle</div>
                     </a>
                 </li>
-                <li class="menu-item">
-                    <a href="front-pages/pricing-page.html" class="menu-link" >
+                <li class="menu-item @if(Request::segment(2) == 'events' && Request::segment(3) == null) active @endif">
+                    <a href="{{ route('events.index') }}" class="menu-link" >
                         <div data-i18n="Pricing">Etkinlik Listesi</div>
                     </a>
                 </li>
