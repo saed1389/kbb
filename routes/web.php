@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\NewsCategoryController;
 use App\Http\Controllers\Backend\PhotoCategoryController;
 use App\Http\Controllers\Backend\MemberTypeController;
 use App\Http\Controllers\Backend\ImageController;
+use App\Http\Controllers\Backend\NewsController;
 use App\Http\Controllers\Frontend\IndexController;
 
 /*
@@ -93,6 +94,12 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
             Route::post('images/add', [ImageController::class, 'add'])->name('images.add');
             Route::get('images/delete/{id}', [ImageController::class, 'delete'])->name('images.delete');
         });
+
+        // News Routes
+        Route::resource('news', NewsController::class)->except('show', 'destroy');
+        Route::get('news/delete/{id}', [NewsController::class, 'delete'])->name('news.delete');
+        Route::post('news/changeStatus/{id}/{status}', [NewsController::class, 'changeStatus']);
+        Route::get('get_news', [NewsController::class, 'GetNews'])->name('get_news');
 
         // Member Type Routes
         Route::resource('member-types', MemberTypeController::class)->except('show', 'create', 'destroy', 'update', 'edit');

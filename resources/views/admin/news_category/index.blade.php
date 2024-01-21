@@ -178,6 +178,4 @@
             });
         </script>
     @endpush
-
-
 @endsection
