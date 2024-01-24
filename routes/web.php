@@ -11,6 +11,7 @@ use App\Http\Controllers\Backend\MemberTypeController;
 use App\Http\Controllers\Backend\ImageController;
 use App\Http\Controllers\Backend\NewsController;
 use App\Http\Controllers\Backend\EventController;
+use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Frontend\IndexController;
 
 /*
@@ -67,6 +68,14 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
             Route::get('jobs/editModal/{id}', [UserJobController::class, 'editModal'])->name('jobs.editModal');
             Route::post('jobs/updateModal', [UserJobController::class, 'updateModal'])->name('jobs.updateModal');
             Route::post('jobs/changeStatus/{id}/{status}', [UserJobController::class, 'changeStatus']);
+
+            // User Routes
+            Route::resource('members', UserController::class)->except('destroy', 'show');
+            Route::get('members/delete/{id}', [UserController::class, 'delete'])->name('members.delete');
+            Route::get('members/deleteImage/{id}', [UserController::class, 'deleteImage'])->name('members.deleteImage');
+            Route::get('members/deleteCV/{id}', [UserController::class, 'deleteCV'])->name('members.deleteCV');
+            Route::post('members/changeStatus/{id}/{status}', [UserController::class, 'changeStatus']);
+            Route::get('get_members', [UserController::class, 'GetMembers'])->name('get_members');
         });
 
         // Event Category Routes

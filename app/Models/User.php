@@ -5,6 +5,7 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -23,7 +24,9 @@ class User extends Authenticatable
         'occupation',
         'first_name',
         'last_name',
+        'slug',
         'country',
+        'tc_card_no',
         'birthday_date',
         'gender',
         'father_name',
@@ -39,9 +42,13 @@ class User extends Authenticatable
         'home_province',
         'home_tel',
         'mobile',
+        'memberChatAddress',
         'email',
         'password',
         'type',
+        'user_type',
+        'profile_image',
+        'user_cv',
         'status',
     ];
 
@@ -64,6 +71,17 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function titleName():BelongsTo
+    {
+        return $this->belongsTo(UserTitle::class,'title', 'id');
+    }
+
+    public function jobName():BelongsTo
+    {
+        return $this->belongsTo(UserJob::class,'occupation', 'id');
+    }
+
 
 
     protected function type(): Attribute

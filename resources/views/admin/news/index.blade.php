@@ -89,7 +89,14 @@
                     responsive: true,
                     ajax: "{{ route('get_news') }}",
                     aoColumns : [
-                        { data: 'id', name: 'id', "searchable": false,  "orderable": false},
+                        {
+                            data: null,
+                            render: function(data, type, row, meta) {
+                                return meta.row + 1;
+                            },
+                            "searchable": false,
+                            "orderable": false
+                        },
                         { data: 'news_category.title', name: 'news_category.title', "searchable": false, "orderable": false},
                         { data: 'title', name: 'title', "searchable": true},
                         { data: "created_at",

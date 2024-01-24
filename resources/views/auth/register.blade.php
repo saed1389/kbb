@@ -327,7 +327,6 @@
 
                 $('#home_province').change(function (event) {
                     var idProvince = this.value;
-                    console.log(idProvince);
                     $('#home_city').html('');
 
                     $.ajaxSetup({

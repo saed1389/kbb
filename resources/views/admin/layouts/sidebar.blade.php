@@ -70,14 +70,14 @@
                 <i class='menu-icon tf-icons ti ti-users-group'></i>
                 <div data-i18n="Front Pages"><strong>Üye Yönetimi</strong></div>
             </a>
-            <ul class="menu-sub">
-                <li class="menu-item">
-                    <a href="front-pages/landing-page.html" class="menu-link" >
+            <ul class="menu-sub" >
+                <li class="menu-item @if(Request::segment(3) == 'members' && Request::segment(4) == 'create') active @endif">
+                    <a href="{{ route('members.create') }}" class="menu-link" >
                         <div data-i18n="Landing">Yeni Üye Ekle</div>
                     </a>
                 </li>
-                <li class="menu-item">
-                    <a href="front-pages/pricing-page.html" class="menu-link" >
+                <li class="menu-item @if(Request::segment(3) == 'members' && Request::segment(4) == null) active @endif">
+                    <a href="{{ route('members.index') }}" class="menu-link" >
                         <div data-i18n="Pricing">Üye Listesi</div>
                     </a>
                 </li>
