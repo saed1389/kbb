@@ -83,13 +83,13 @@
                                 <label class="switch switch-success">
                                     <input type="checkbox" class="switch-input active" name="status" id="status" data-id="{{ $item->id }}" value="{{ $item->id }}" @checked($item->status == 1)>
                                     <span class="switch-toggle-slider">
-                                    <span class="switch-on">
-                                      <i class="ti ti-check"></i>
+                                        <span class="switch-on">
+                                            <i class="ti ti-check"></i>
+                                        </span>
+                                        <span class="switch-off">
+                                            <i class="ti ti-x"></i>
+                                        </span>
                                     </span>
-                                    <span class="switch-off">
-                                      <i class="ti ti-x"></i>
-                                    </span>
-                                  </span>
                                 </label>
                             </td>
                             <td>

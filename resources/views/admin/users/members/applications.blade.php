@@ -1,5 +1,5 @@
 @extends('admin.layouts.app')
-@section('title') Üye Listesi @endsection
+@section('title')Başvuru Listesi @endsection
 @section('content')
     @push('styles')
         <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
@@ -26,7 +26,7 @@
     @endpush
     <div class="container-xxl flex-grow-1 container-p-y">
         <div class="card">
-            <h5 class="card-header">Üye Listesi</h5>
+            <h5 class="card-header">Başvuru Listesi</h5>
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-8">
@@ -35,16 +35,16 @@
                                 <li class="breadcrumb-item">
                                     <a href="{{ route('admin.home') }}">Anasayfa </a>
                                 </li>
-                                <li class="breadcrumb-item active">Üye Listesi</li>
+                                <li class="breadcrumb-item">
+                                    <a href="{{ route('members.index') }}">Üye Yönetimi  </a>
+                                </li>
+                                <li class="breadcrumb-item active">Başvuru Listesi</li>
 
                             </ol>
                         </nav>
+
                     </div>
-                    <div class="col-md-4 mb-4">
-                        <a href="{{ route('members.create') }}" class="btn btn-primary waves-effect waves-light float-end ">
-                            Yeni Üye Ekle
-                        </a>
-                    </div>
+
                     <div class="card-datatable table-responsive">
                         <table id="example" class="table table table-striped" style="width:100%">
                             <thead>
@@ -52,13 +52,12 @@
                                 <th>#</th>
                                 <th>Ad</th>
                                 <th>Soyad</th>
-                                <th>ÜYELİK TİPİ</th>
                                 <th>ÜNVAN</th>
                                 <th>CİNSİYET</th>
                                 <th>CEP TEL</th>
                                 <th>MAİL ADRESİ</th>
                                 <th>OLUŞTURMA</th>
-                                <th>Askıya Al</th>
+                                <th>Onay</th>
                                 <th>İşlemler</th>
                             </tr>
                             </thead>
@@ -89,7 +88,7 @@
                     processing : true,
                     serverSide : true,
                     responsive: true,
-                    ajax: "{{ route('get_members') }}",
+                    ajax: "{{ route('get_applications') }}",
                     aoColumns : [
                         {
                             data: null,
@@ -99,27 +98,25 @@
                             "searchable": false,
                             "orderable": false
                         },
-                        { data: 'first_name', name: 'first_name', "searchable": true,  "orderable": true},
-                        { data: 'last_name', name: 'last_name', "searchable": true,  "orderable": true},
-
                         {
-                            data: 'user_type',
-                            name: 'user_type',
-                            render: function (data) {
-                                switch (data) {
-                                    case 1:
-                                        return 'Dernek Üyesi';
-                                    case 2:
-                                        return 'Websitesi Üyesi';
-                                    case 3:
-                                        return 'Admin';
-                                    case 4:
-                                        return 'Üye';
-                                    default:
-                                        return '';
-                                }
-                            },   searchable: false, orderable: false,
+                            data: 'first_name',
+                            name: 'first_name',
+                            render: function(data, type, row) {
+                                return '<a href="{{ url("admin/users/members/applications") }}/' + row.id + '/show" >' + data + '</a>';
+                            },
+                            "searchable": true,
+                            "orderable": true
                         },
+                        {
+                            data: 'last_name',
+                            name: 'last_name',
+                            render: function(data, type, row) {
+                                return '<a href="{{ url("admin/users/members/applications") }}/' + row.id + '/show" >' + data + '</a>';
+                            },
+                            "searchable": true,
+                            "orderable": true
+                        },
+
                         { data: 'titleName', name: 'titleName', "searchable": false, "orderable": false},
                         { data: 'gender',
                             name: 'gender',
@@ -149,7 +146,7 @@
                         },
                         { data: null,
                             render: function (data, type, row) {
-                                return '<td><label class="switch switch-danger">' +
+                                return '<td><label class="switch switch-success">' +
                                     '<input type="checkbox" class="switch-input active" name="status" id="status" data-id="' + row.id + '" value="' + row.id + '" ' + (row.status == 1 ? 'checked' : '') + '>' +
                                     '<span class="switch-toggle-slider">' +
                                     '<span class="switch-on">' +
@@ -189,7 +186,7 @@
                             var d = new Date();
                             var l = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
                             var n = d.getHours() + "-" + d.getMinutes() + "-" + d.getSeconds();
-                            return 'Etkinlik Listesi' + l + ' ' + n;
+                            return 'Başvurusu Listesi' + l + ' ' + n;
                         },
                     }, {
                         "extend": 'pdfHtml5',
@@ -244,7 +241,7 @@
                             url: "{{ url('/admin/users/members/changeStatus') }}/"+check_id+"/"+check_active,
                             data: { _token : $('meta[name="csrf-token"]').attr('content'), id: check_id, active: check_active},
                             success: function(response){
-                                toastr.error("Üye başarıyla askıya alındı!");
+                                toastr.success("Üyenin askıya alınması başarıyla kaldırıldı!");
                                 $dataTable.ajax.reload();
                             },
                             error: function(error) {
@@ -290,5 +287,6 @@
                 dt.ajax.reload();
             }
         </script>
+
     @endpush
 @endsection

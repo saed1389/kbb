@@ -8,10 +8,12 @@ use App\Http\Controllers\Backend\EventCategoryController;
 use App\Http\Controllers\Backend\NewsCategoryController;
 use App\Http\Controllers\Backend\PhotoCategoryController;
 use App\Http\Controllers\Backend\MemberTypeController;
+use App\Http\Controllers\Backend\DocumentController;
 use App\Http\Controllers\Backend\ImageController;
 use App\Http\Controllers\Backend\NewsController;
 use App\Http\Controllers\Backend\EventController;
 use App\Http\Controllers\Backend\UserController;
+use App\Http\Controllers\Backend\MailListController;
 use App\Http\Controllers\Frontend\IndexController;
 
 /*
@@ -74,9 +76,26 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
             Route::get('members/delete/{id}', [UserController::class, 'delete'])->name('members.delete');
             Route::get('members/deleteImage/{id}', [UserController::class, 'deleteImage'])->name('members.deleteImage');
             Route::get('members/deleteCV/{id}', [UserController::class, 'deleteCV'])->name('members.deleteCV');
+            Route::get('members/suspend', [UserController::class, 'suspend'])->name('members.suspend');
+            Route::get('members/applications', [UserController::class, 'applications'])->name('members.applications');
+            Route::get('members/applications/{id}/show', [UserController::class, 'show'])->name('members.show');
             Route::post('members/changeStatus/{id}/{status}', [UserController::class, 'changeStatus']);
             Route::get('get_members', [UserController::class, 'GetMembers'])->name('get_members');
+            Route::get('get_suspends', [UserController::class, 'getSuspends'])->name('get_suspends');
+            Route::get('get_applications', [UserController::class, 'getApplications'])->name('get_applications');
+
+            // Mailin List Routes
+            Route::resource('mailingUsers', MailListController::class)->except('show', 'destroy', 'create', 'edit');
+            Route::post('mailingUsers/changeStatus/{id}/{status}', [MailListController::class, 'changeStatus']);
+            Route::get('mailingUsers/delete/{id}', [MailListController::class, 'delete'])->name('mailingUsers.delete');
+            Route::get('mailingUsers/editModal/{id}', [MailListController::class, 'editModal'])->name('mailingUsers.editModal');
+            Route::post('mailingUsers/updateModal', [MailListController::class, 'updateModal'])->name('mailingUsers.updateModal');
+            Route::get('get_mailList', [MailListController::class, 'GetMailList'])->name('get_mailList');
         });
+
+        // Document Routes
+        Route::resource('documents', DocumentController::class)->except('destroy');
+        Route::get('documents/delete/{id}', [DocumentController::class, 'delete'])->name('documents.delete');
 
         // Event Category Routes
         Route::resource('event-categories', EventCategoryController::class)->except('show', 'create', 'destroy', 'update', 'edit');

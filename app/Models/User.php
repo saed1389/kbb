@@ -82,7 +82,30 @@ class User extends Authenticatable
         return $this->belongsTo(UserJob::class,'occupation', 'id');
     }
 
+    public function workCity():BelongsTo
+    {
+        return $this->belongsTo(Provinces::class, 'work_province', 'province_no');
+    }
 
+    public function workSate():BelongsTo
+    {
+        return $this->belongsTo(City::class, 'work_city', 'city_no');
+    }
+
+    public function homeCity():BelongsTo
+    {
+        return $this->belongsTo(Provinces::class, 'home_province', 'province_no');
+    }
+
+    public function homeSate():BelongsTo
+    {
+        return $this->belongsTo(City::class, 'home_city', 'city_no');
+    }
+
+    public function countryName():BelongsTo
+    {
+        return $this->belongsTo(Country::class, 'country', 'id_country');
+    }
 
     protected function type(): Attribute
     {

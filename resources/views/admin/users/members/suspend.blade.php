@@ -1,5 +1,5 @@
 @extends('admin.layouts.app')
-@section('title') Üye Listesi @endsection
+@section('title')Askıya Alınmış Üye Listesi @endsection
 @section('content')
     @push('styles')
         <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
@@ -26,7 +26,7 @@
     @endpush
     <div class="container-xxl flex-grow-1 container-p-y">
         <div class="card">
-            <h5 class="card-header">Üye Listesi</h5>
+            <h5 class="card-header">Askıya Alınmış Üye Listesi</h5>
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-8">
@@ -35,16 +35,16 @@
                                 <li class="breadcrumb-item">
                                     <a href="{{ route('admin.home') }}">Anasayfa </a>
                                 </li>
-                                <li class="breadcrumb-item active">Üye Listesi</li>
+                                <li class="breadcrumb-item">
+                                    <a href="{{ route('members.index') }}">Üye Yönetimi  </a>
+                                </li>
+                                <li class="breadcrumb-item active">Askıya Alınmış Üye Listesi</li>
 
                             </ol>
                         </nav>
+
                     </div>
-                    <div class="col-md-4 mb-4">
-                        <a href="{{ route('members.create') }}" class="btn btn-primary waves-effect waves-light float-end ">
-                            Yeni Üye Ekle
-                        </a>
-                    </div>
+
                     <div class="card-datatable table-responsive">
                         <table id="example" class="table table table-striped" style="width:100%">
                             <thead>
@@ -89,7 +89,7 @@
                     processing : true,
                     serverSide : true,
                     responsive: true,
-                    ajax: "{{ route('get_members') }}",
+                    ajax: "{{ route('get_suspends') }}",
                     aoColumns : [
                         {
                             data: null,
@@ -149,7 +149,7 @@
                         },
                         { data: null,
                             render: function (data, type, row) {
-                                return '<td><label class="switch switch-danger">' +
+                                return '<td><label class="switch switch-success">' +
                                     '<input type="checkbox" class="switch-input active" name="status" id="status" data-id="' + row.id + '" value="' + row.id + '" ' + (row.status == 1 ? 'checked' : '') + '>' +
                                     '<span class="switch-toggle-slider">' +
                                     '<span class="switch-on">' +
@@ -189,7 +189,7 @@
                             var d = new Date();
                             var l = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
                             var n = d.getHours() + "-" + d.getMinutes() + "-" + d.getSeconds();
-                            return 'Etkinlik Listesi' + l + ' ' + n;
+                            return 'Askıya alınmış Listesi' + l + ' ' + n;
                         },
                     }, {
                         "extend": 'pdfHtml5',
@@ -244,7 +244,7 @@
                             url: "{{ url('/admin/users/members/changeStatus') }}/"+check_id+"/"+check_active,
                             data: { _token : $('meta[name="csrf-token"]').attr('content'), id: check_id, active: check_active},
                             success: function(response){
-                                toastr.error("Üye başarıyla askıya alındı!");
+                                toastr.success("Üyenin askıya alınması başarıyla kaldırıldı!");
                                 $dataTable.ajax.reload();
                             },
                             error: function(error) {
@@ -290,5 +290,6 @@
                 dt.ajax.reload();
             }
         </script>
+
     @endpush
 @endsection

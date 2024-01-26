@@ -120,6 +120,12 @@ class UserController extends Controller
         return redirect()->route('members.index')->with($notification);
     }
 
+    public function show($id)
+    {
+        $user = User::where('id', $id)->first();
+        return view('admin.users.members.applicationShow', compact('user'));
+    }
+
     public function edit(string $id)
     {
         $user = User::where('id', $id)->first();
@@ -233,6 +239,16 @@ class UserController extends Controller
         return redirect()->route('members.index')->with($notification);
     }
 
+    public function suspend()
+    {
+        return view('admin.users.members.suspend');
+    }
+
+    public function applications()
+    {
+        return view('admin.users.members.applications');
+    }
+
     public function deleteImage($id)
     {
         $user = User::findOrFail($id);
@@ -272,6 +288,43 @@ class UserController extends Controller
             return datatables()->of(User::with(['titleName'])
                 ->where('type', '!=', 1)
                 ->where('status', 1)
+                ->where('apply', 1)
+                ->select('users.*'))
+
+                ->addColumn('titleName', function (User $user) {
+                    return optional($user->titleName)->title;
+                })
+                ->make(true);
+        } else {
+            return false;
+        }
+    }
+
+    public function getSuspends()
+    {
+        if (\request()->ajax()) {
+            return datatables()->of(User::with(['titleName'])
+                ->where('type', '!=', 1)
+                ->where('status', 0)
+                ->where('apply', 1)
+                ->select('users.*'))
+
+                ->addColumn('titleName', function (User $user) {
+                    return optional($user->titleName)->title;
+                })
+                ->make(true);
+        } else {
+            return false;
+        }
+    }
+
+    public function getApplications()
+    {
+        if (\request()->ajax()) {
+            return datatables()->of(User::with(['titleName'])
+                ->where('type', '!=', 1)
+                ->where('apply', 0)
+                ->where('status', 0)
                 ->select('users.*'))
 
                 ->addColumn('titleName', function (User $user) {

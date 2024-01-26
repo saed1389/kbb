@@ -81,13 +81,13 @@
                         <div data-i18n="Pricing">Üye Listesi</div>
                     </a>
                 </li>
-                <li class="menu-item">
-                    <a href="front-pages/pricing-page.html" class="menu-link" >
+                <li class="menu-item @if(Request::segment(3) == 'members' && Request::segment(4) == 'applications') active @endif">
+                    <a href="{{ route('members.applications') }}" class="menu-link" >
                         <div data-i18n="Pricing">Üye Başvuru Listesi</div>
                     </a>
                 </li>
-                <li class="menu-item">
-                    <a href="front-pages/pricing-page.html" class="menu-link" >
+                <li class="menu-item @if(Request::segment(3) == 'members' && Request::segment(4) == 'suspend') active @endif">
+                    <a href="{{ route('members.suspend') }}" class="menu-link" >
                         <div data-i18n="Pricing">Üyeliği Askıya Alınanlar</div>
                     </a>
                 </li>
@@ -106,27 +106,27 @@
                         <div data-i18n="Pricing">Toplu Mail</div>
                     </a>
                 </li>
-                <li class="menu-item">
-                    <a href="front-pages/pricing-page.html" class="menu-link" >
+                <li class="menu-item @if(Request::segment(3) == 'mailingUsers') active @endif">
+                    <a href="{{ route('mailingUsers.index') }}" class="menu-link" >
                         <div data-i18n="Pricing">Mailing Listesi</div>
                     </a>
                 </li>
             </ul>
         </li>
 
-        <li class="menu-item">
+        <li class="menu-item @if(Request::segment(2) == 'documents') active open @endif">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class='menu-icon tf-icons ti ti-file'></i>
                 <div data-i18n="Front Pages"><strong>Belge Yönetimi</strong></div>
             </a>
             <ul class="menu-sub">
-                <li class="menu-item">
-                    <a href="front-pages/landing-page.html" class="menu-link" >
+                <li class="menu-item @if(Request::segment(3) == 'documents' && Request::segment(4) == 'create') active @endif">
+                    <a href="{{ route('documents.create') }}" class="menu-link" >
                         <div data-i18n="Landing">Belge Ekle</div>
                     </a>
                 </li>
-                <li class="menu-item">
-                    <a href="front-pages/pricing-page.html" class="menu-link" >
+                <li class="menu-item @if(Request::segment(3) == 'documents' && Request::segment(4) == null) active @endif">
+                    <a href="{{ route('documents.index') }}" class="menu-link" >
                         <div data-i18n="Pricing">Belge Listesi</div>
                     </a>
                 </li>

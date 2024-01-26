@@ -166,7 +166,7 @@
                                 <select id="home_province" class="selectpicker w-100" name="home_province" data-style="btn-default" tabindex="null">
                                     <option disabled selected>İl Seç..</option>
                                     @foreach($provinces as $item)
-                                        <option value="{{ $item->province_no }}" {{ old('work_province') == $item->home_province ? 'selected' : '' }} >{{ $item->province_name }}</option>
+                                        <option value="{{ $item->province_no }}" {{ old('home_province') == $item->province_no ? 'selected' : '' }} >{{ $item->province_name }}</option>
                                     @endforeach
                                 </select>
                             </div>
