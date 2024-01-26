@@ -3,7 +3,11 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Document;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class DocumentController extends Controller
 {
@@ -12,7 +16,7 @@ class DocumentController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.documents.index');
     }
 
     /**
@@ -20,7 +24,7 @@ class DocumentController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.documents.add');
     }
 
     /**
@@ -28,15 +32,39 @@ class DocumentController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $request->validate([
+            'title' => 'required',
+            'user_cv' => 'mimes:doc,docx,pdf',
+        ]);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
+        if ($request->file('file')) {
+            $file = $request->file('file');
+            $gen = Str::slug($request->title);
+            $fileName = $gen.'-'.date('d-m-Y-H-i-s').'.'.$file->getClientOriginalExtension();
+            $filePath = 'uploads/Document/';
+
+            $file->move(public_path($filePath), $fileName);
+            $doc_url = 'uploads/Document/'.$fileName;
+        }
+
+        Document::create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'file' => $doc_url,
+            'documentPlace' => $request->documentPlace,
+            'documentType' => $request->documentType,
+            'OnPermission' => $request->OnPermission,
+            'created_by' => Auth::user()->id,
+            'status' => $request->status,
+            'created_at' => Carbon::now()
+        ]);
+
+        $notification = array(
+            'message' => "Belge başarıyla eklendi!",
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('documents.index')->with($notification);
     }
 
     /**
@@ -44,7 +72,8 @@ class DocumentController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $doc = Document::where('id', $id)->first();
+        return view('admin.documents.edit', compact('doc'));
     }
 
     /**
@@ -52,7 +81,40 @@ class DocumentController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'user_cv' => 'mimes:doc,docx,pdf',
+        ]);
+
+        if ($request->file('file')) {
+            $file = $request->file('file');
+            $gen = Str::slug($request->title);
+            $fileName = $gen.'-'.date('d-m-Y-H-i-s').'.'.$file->getClientOriginalExtension();
+            $filePath = 'uploads/Document/';
+
+            $file->move(public_path($filePath), $fileName);
+            $doc_url = 'uploads/Document/'.$fileName;
+        } else {
+            $doc_url = $request->oldDoc;
+        }
+
+        Document::where('id', $id)->update([
+            'title' => $request->title,
+            'description' => $request->description,
+            'file' => $doc_url,
+            'documentPlace' => $request->documentPlace,
+            'documentType' => $request->documentType,
+            'OnPermission' => $request->OnPermission,
+            'created_by' => Auth::user()->id,
+            'status' => $request->status,
+        ]);
+
+        $notification = array(
+            'message' => "Belge başarıyla düzenlendi!",
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('documents.index')->with($notification);
     }
 
     /**
@@ -60,6 +122,31 @@ class DocumentController extends Controller
      */
     public function delete(string $id)
     {
-        //
+        $doc = Document::where('id', $id)->first();
+        @unlink($doc->file);
+        $doc->delete();
+
+        $notification = array(
+            'message' => "Belge başarıyla silindi!",
+            'alert-type' => 'danger'
+        );
+
+        return redirect()->back()->with($notification);
     }
+
+    public function changeStatus($id, $status)
+    {
+        Document::where('id', $id)->update(['status' => $status]);
+    }
+
+    public function GetDocuments()
+    {
+        if (\request()->ajax()) {
+            return datatables()->of(Document::select('documents.*')->orderBy('created_at', 'desc'))
+                ->make(true);
+        } else {
+            return false;
+        }
+    }
+
 }

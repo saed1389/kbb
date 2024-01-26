@@ -96,6 +96,8 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
         // Document Routes
         Route::resource('documents', DocumentController::class)->except('destroy');
         Route::get('documents/delete/{id}', [DocumentController::class, 'delete'])->name('documents.delete');
+        Route::post('documents/changeStatus/{id}/{status}', [DocumentController::class, 'changeStatus']);
+        Route::get('get_documents', [DocumentController::class, 'GetDocuments'])->name('get_documents');
 
         // Event Category Routes
         Route::resource('event-categories', EventCategoryController::class)->except('show', 'create', 'destroy', 'update', 'edit');

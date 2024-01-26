@@ -120,12 +120,12 @@
                 <div data-i18n="Front Pages"><strong>Belge Yönetimi</strong></div>
             </a>
             <ul class="menu-sub">
-                <li class="menu-item @if(Request::segment(3) == 'documents' && Request::segment(4) == 'create') active @endif">
+                <li class="menu-item @if(Request::segment(2) == 'documents' && Request::segment(3) == 'create') active @endif">
                     <a href="{{ route('documents.create') }}" class="menu-link" >
                         <div data-i18n="Landing">Belge Ekle</div>
                     </a>
                 </li>
-                <li class="menu-item @if(Request::segment(3) == 'documents' && Request::segment(4) == null) active @endif">
+                <li class="menu-item @if(Request::segment(2) == 'documents' && Request::segment(3) == null) active @endif">
                     <a href="{{ route('documents.index') }}" class="menu-link" >
                         <div data-i18n="Pricing">Belge Listesi</div>
                     </a>
