@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Backend\UserTitleController;
 use App\Http\Controllers\Backend\UserJobController;
 use App\Http\Controllers\Backend\EventCategoryController;
+use App\Http\Controllers\Backend\CommentController;
 use App\Http\Controllers\Backend\NewsCategoryController;
 use App\Http\Controllers\Backend\PhotoCategoryController;
 use App\Http\Controllers\Backend\MemberTypeController;
@@ -98,6 +99,11 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
         Route::get('documents/delete/{id}', [DocumentController::class, 'delete'])->name('documents.delete');
         Route::post('documents/changeStatus/{id}/{status}', [DocumentController::class, 'changeStatus']);
         Route::get('get_documents', [DocumentController::class, 'GetDocuments'])->name('get_documents');
+
+        // Comment Routes
+        Route::resource('comments', CommentController::class)->except('create', 'store', 'destroy', 'edit', 'update');
+        Route::get('comments/delete/{id}', [CommentController::class, 'delete'])->name('comments.delete');
+        Route::post('comments/changeStatus/{id}/{status}', [CommentController::class, 'changeStatus']);
 
         // Event Category Routes
         Route::resource('event-categories', EventCategoryController::class)->except('show', 'create', 'destroy', 'update', 'edit');

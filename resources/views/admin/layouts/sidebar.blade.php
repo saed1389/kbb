@@ -134,14 +134,14 @@
             </ul>
         </li>
 
-        <li class="menu-item">
+        <li class="menu-item @if(Request::segment(2) == 'comments') active open @endif">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class='menu-icon tf-icons ti ti-no-creative-commons'></i>
                 <div data-i18n="Front Pages"><strong>Yorum Yönetimi</strong></div>
             </a>
             <ul class="menu-sub">
-                <li class="menu-item">
-                    <a href="front-pages/pricing-page.html" class="menu-link" >
+                <li class="menu-item @if(Request::segment(2) == 'comments') active @endif">
+                    <a href="{{ route('comments.index') }}" class="menu-link" >
                         <div data-i18n="Pricing">Yorum Listesi</div>
                     </a>
                 </li>
