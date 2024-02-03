@@ -101,12 +101,12 @@
                         <div data-i18n="Pricing">Üye Mesleklerı </div>
                     </a>
                 </li>
-                <li class="menu-item">
-                    <a href="front-pages/pricing-page.html" class="menu-link" >
+                <li class="menu-item @if(Request::segment(4) == 'bulkMail' && Request::segment(3) == 'mailingUsers') active @endif">
+                    <a href="{{ route('mailingUsers.bulkMail') }}" class="menu-link" >
                         <div data-i18n="Pricing">Toplu Mail</div>
                     </a>
                 </li>
-                <li class="menu-item @if(Request::segment(3) == 'mailingUsers') active @endif">
+                <li class="menu-item @if(Request::segment(3) == 'mailingUsers' && Request::segment(4) == null) active @endif">
                     <a href="{{ route('mailingUsers.index') }}" class="menu-link" >
                         <div data-i18n="Pricing">Mailing Listesi</div>
                     </a>
@@ -167,8 +167,8 @@
 
             </ul>
         </li>
-        <li class="menu-item">
-            <a href="app-email.html" class="menu-link">
+        <li class="menu-item @if(Request::segment(2) == 'scholarships') active @endif">
+            <a href="{{ route('scholarships.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-certificate"></i>
                 <div data-i18n="Email"><strong>Burs Başvuruları</strong></div>
             </a>

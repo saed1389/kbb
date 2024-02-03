@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\MailList;
+use App\Models\News;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -92,9 +93,29 @@ class MailListController extends Controller
         return redirect()->back()->with($notification);
     }
 
+    public function bulk()
+    {
+        return view('admin.users.mailingList.bulk');
+    }
+
+    public function bulkNews()
+    {
+        $total_mail = MailList::where('status', 1)->count();
+        return view('admin.users.mailingList.bulkNews', compact('total_mail'));
+    }
+
     public function changeStatus($id, $status)
     {
         MailList::where('id', $id)->update(['status' => $status]);
+    }
+
+    public function getNewsData($id)
+    {
+        $data = News::where('id', $id)->first();
+        return response()->json([
+            'status' => true,
+            'data' => $data
+        ]);
     }
 
     public function GetMailList()

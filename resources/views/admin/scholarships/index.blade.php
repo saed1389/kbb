@@ -26,7 +26,7 @@
     @endpush
     <div class="container-xxl flex-grow-1 container-p-y">
         <div class="card">
-            <h5 class="card-header">Üye Listesi</h5>
+            <h5 class="card-header">Türk KBB VE BBC Derneği Yurtdışı Eğitim Bursu</h5>
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-8">
@@ -35,27 +35,25 @@
                                 <li class="breadcrumb-item">
                                     <a href="{{ route('admin.home') }}">Anasayfa </a>
                                 </li>
-                                <li class="breadcrumb-item active">Üye Listesi</li>
+                                <li class="breadcrumb-item active">Başvuru Listesi</li>
 
                             </ol>
                         </nav>
                     </div>
-                    <div class="col-md-4 mb-4">
-                        <a href="{{ route('members.create') }}" class="btn btn-primary waves-effect waves-light float-end ">
-                            Yeni Üye Ekle
-                        </a>
-                    </div>
+
                     <div class="card-datatable table-responsive">
                         <table id="example" class="table table table-striped" style="width:100%">
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>BELGE BAŞLIĞI</th>
-                                <th>AÇIKLAMA</th>
-                                <th>BELGE</th>
-                                <th>Oluşturulma Tarihi</th>
-                                <th>DURUMU</th>
-                                <th>İşlemler</th>
+                                <th>Name Surname</th>
+                                <th>Domestic Company</th>
+                                <th>Position</th>
+                                <th>Title</th>
+                                <th>Phone Number</th>
+                                <th>Mobile Phone</th>
+                                <th>Email</th>
+                                <th>University</th>
                             </tr>
                             </thead>
                         </table>
@@ -85,7 +83,7 @@
                     processing : true,
                     serverSide : true,
                     responsive: true,
-                    ajax: "{{ route('get_documents') }}",
+                    ajax: "{{ route('get_scholarships') }}",
                     aoColumns : [
                         {
                             data: null,
@@ -95,59 +93,22 @@
                             "searchable": false,
                             "orderable": false
                         },
-                        { data: 'title', name: 'title',
-                            render: function (data, type, row) {
-                                return data.length > 50 ? data.substr(0, 50) + '...' : data;
-                            },"searchable": true,  "orderable": true},
-                        { data: 'description', name: 'description', "searchable": true,  "orderable": true},
 
-                        { data: 'file', name: 'file',
+                        { data: 'name', name: 'name', "searchable": true,  "orderable": true},
+                        { data: 'domesticCompany', name: 'domesticCompany', "searchable": true,  "orderable": true},
+                        { data: 'position', name: 'position', "searchable": true,  "orderable": true},
+                        { data: 'title', name: 'title', "searchable": true,  "orderable": true},
+                        { data: 'phoneNumber', name: 'phoneNumber', "searchable": true,  "orderable": true},
+                        { data: 'mobilePhone', name: 'mobilePhone', "searchable": true,  "orderable": true},
+                        { data: 'email', name: 'email', "searchable": true,  "orderable": true},
+                        { data: 'university', name: 'university', "searchable": true,  "orderable": true},
+
+                        /*{ data: 'file', name: 'file',
                             render: function (data, type, row) {
                                 return '<a href="/' + data + '" download>Dosyayı indir</a>';
                             },
-                            "searchable": false, "orderable": false},
-
-
-                        { data: "created_at",
-                            name: 'created_at',
-                            render: function (data) {
-                                var date = new Date(data);
-
-                                var formattedDate = date.toLocaleString('tr-TR', {
-                                    day: 'numeric',
-                                    month: 'numeric',
-                                    year: 'numeric',
-                                    hour: 'numeric',
-                                    minute: 'numeric',
-                                    second: 'numeric',
-                                });
-
-                                return formattedDate;
-                            },
-                            "searchable": false
-                        },
-
-                        { data: null,
-                            render: function (data, type, row) {
-                                return '<td><label class="switch switch-success">' +
-                                    '<input type="checkbox" class="switch-input active" name="status" id="status" data-id="' + row.id + '" value="' + row.id + '" ' + (row.status == 1 ? 'checked' : '') + '>' +
-                                    '<span class="switch-toggle-slider">' +
-                                    '<span class="switch-on">' +
-                                    '<i class="ti ti-check"></i>' +
-                                    '</span>' +
-                                    '<span class="switch-off">' +
-                                    '<i class="ti ti-x"></i>' +
-                                    '</span>' +
-                                    '</span>' +
-                                    '</label></td>';
-                            }, "searchable": false, "orderable": false
-                        },
-                        { data: null,
-                            render: function (data, type, row) {
-                                return '<a href="{{ url("admin/documents") }}/' + row.id + '/edit" class="btn btn-primary btn-sm">Düzenle</a>' +
-                                    ' <button href="{{ url("admin/documents/delete") }}/' + row.id + '" type="button" class="btn btn-sm btn-danger" id="delete" >Sil</button>';
-                            }, "searchable": false, "orderable": false
-                        },
+                            "searchable": false, "orderable": false
+                        },*/
                     ],
 
                     "columnDefs": [{
@@ -170,7 +131,7 @@
                             var d = new Date();
                             var l = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
                             var n = d.getHours() + "-" + d.getMinutes() + "-" + d.getSeconds();
-                            return 'Etkinlik Listesi' + l + ' ' + n;
+                            return 'Başvuru Listesi' + l + ' ' + n;
                         },
                     }, {
                         "extend": 'pdfHtml5',

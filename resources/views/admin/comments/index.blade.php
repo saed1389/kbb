@@ -65,7 +65,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="5">Sonuç bulunamadı</td>
+                            <td colspan="7">Sonuç bulunamadı</td>
                         </tr>
                     @endforelse
                     </tbody>

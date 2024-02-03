@@ -10,11 +10,13 @@ use App\Http\Controllers\Backend\NewsCategoryController;
 use App\Http\Controllers\Backend\PhotoCategoryController;
 use App\Http\Controllers\Backend\MemberTypeController;
 use App\Http\Controllers\Backend\DocumentController;
+use App\Http\Controllers\Backend\ScholarshipController;
 use App\Http\Controllers\Backend\ImageController;
 use App\Http\Controllers\Backend\NewsController;
 use App\Http\Controllers\Backend\EventController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\MailListController;
+use App\Http\Controllers\Backend\BulkEmails;
 use App\Http\Controllers\Frontend\IndexController;
 
 /*
@@ -91,7 +93,11 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
             Route::get('mailingUsers/delete/{id}', [MailListController::class, 'delete'])->name('mailingUsers.delete');
             Route::get('mailingUsers/editModal/{id}', [MailListController::class, 'editModal'])->name('mailingUsers.editModal');
             Route::post('mailingUsers/updateModal', [MailListController::class, 'updateModal'])->name('mailingUsers.updateModal');
+            Route::get('mailingUsers/bulkMail', [MailListController::class, 'bulk'])->name('mailingUsers.bulkMail');
+            Route::get('mailingUsers/bulkMail/news-mail', [MailListController::class, 'bulkNews'])->name('mailingUsers.bulkNews');
             Route::get('get_mailList', [MailListController::class, 'GetMailList'])->name('get_mailList');
+            Route::get('mailingUsers/get_news_data/{id}', [MailListController::class, 'getNewsData'])->name('mailingUsers.get_news_data');
+            Route::post('send-emails', [BulkEmails::class, 'sendBulkNews'])->name('send-bulk-news');
         });
 
         // Document Routes
@@ -99,6 +105,12 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
         Route::get('documents/delete/{id}', [DocumentController::class, 'delete'])->name('documents.delete');
         Route::post('documents/changeStatus/{id}/{status}', [DocumentController::class, 'changeStatus']);
         Route::get('get_documents', [DocumentController::class, 'GetDocuments'])->name('get_documents');
+
+        // Scholarship Routes
+        Route::resource('scholarships', ScholarshipController::class)->except('destroy');
+        Route::get('scholarships/delete/{id}', [ScholarshipController::class, 'delete'])->name('scholarships.delete');
+        Route::post('scholarships/changeStatus/{id}/{status}', [ScholarshipController::class, 'changeStatus']);
+        Route::get('get_scholarships', [ScholarshipController::class, 'GetScholarships'])->name('get_scholarships');
 
         // Comment Routes
         Route::resource('comments', CommentController::class)->except('create', 'store', 'destroy', 'edit', 'update');

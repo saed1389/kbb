@@ -10,6 +10,8 @@ class Comment extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public function writerName():BelongsTo
     {
         return $this->belongsTo(User::class, 'writer', 'id');

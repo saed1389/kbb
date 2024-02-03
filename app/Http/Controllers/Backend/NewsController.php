@@ -246,7 +246,7 @@ class NewsController extends Controller
     {
         if (\request()->ajax()) {
             return datatables()->of(News::with('newsCategory:id,title')
-                ->select('news.id', 'news.title', 'news.news_category', 'news.hit', 'news.created_at', 'news.status'))
+                ->select('news.id', 'news.title', 'news.news_category', 'news.hit', 'news.news_body', 'news.news_href', 'news.image', 'news.created_at', 'news.status'))
                 ->make(true);
 
         } else {
