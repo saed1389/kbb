@@ -1,14 +1,6 @@
 @extends('admin.layouts.app')
 @section('title') Etkinlik Kategori Listesi @endsection
 @section('content')
-    @push('styles')
-        <style>
-            .swal2-deny{
-                display: none !important;
-            }
-        </style>
-
-    @endpush
     <div class="container-xxl flex-grow-1 container-p-y">
         <div class="card">
             <h5 class="card-header">Üye Tip Listesi</h5>
@@ -178,6 +170,4 @@
             });
         </script>
     @endpush
-
-
 @endsection

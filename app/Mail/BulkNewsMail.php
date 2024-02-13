@@ -15,13 +15,16 @@ class BulkNewsMail extends Mailable
     use Queueable, SerializesModels;
 
     protected $content;
-
+    public $emailSubject; // Add this property for the subject
     /**
      * Create a new message instance.
      */
-    public function __construct($content)
+    public function __construct($content, $emailSubject)
     {
         $this->content = $content;
+        $this->emailSubject = $emailSubject;
+
+        $this->subject($this->emailSubject);
     }
 
     /**
@@ -30,7 +33,7 @@ class BulkNewsMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Bulk News Mail',
+            subject: $this->emailSubject,
         );
     }
 
@@ -46,7 +49,7 @@ class BulkNewsMail extends Mailable
 
     public function build()
     {
-        return $this->subject('Your Email Subject')
+        return $this->subject($this->emailSubject)
             ->view('email.bulk') // Use any existing view file for now
             ->with(['content' => $this->content]);
     }

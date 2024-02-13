@@ -21,21 +21,21 @@
                         </a>
                     </div>
                     <div class="col-sm-6 col-lg-3 mb-4">
-                        <a href="">
+                        <a href="{{ route('mailingUsers.flashNews') }}" target="_blank">
                             <div class="card card-border-shadow-danger">
                                 <div class="card-body">
                                     <div class="d-flex align-items-center mb-2 pb-1">
                                         <div class="avatar me-2">
                                             <span class="avatar-initial rounded bg-label-danger"><i class="ti ti-calendar ti-md"></i></span>
                                         </div>
-                                        <h5 class="ms-1 mb-0">FLAŞH HABER ŞABLONU</h5>
+                                        <h5 class="ms-1 mb-0">FLAŞ HABER ŞABLONU</h5>
                                     </div>
                                 </div>
                             </div>
                         </a>
                     </div>
                     <div class="col-sm-6 col-lg-3 mb-4">
-                        <a href="">
+                        <a href="{{ route('mailingUsers.deceaseNewsMail') }}" target="_blank">
                             <div class="card card-border-shadow-dark">
                                 <div class="card-body">
                                     <div class="d-flex align-items-center mb-2 pb-1">
@@ -49,7 +49,7 @@
                         </a>
                     </div>
                     <div class="col-sm-6 col-lg-3 mb-4">
-                        <a href="">
+                        <a href="{{ route('mailingUsers.entryNewsMail') }}" target="_blank">
                             <div class="card card-border-shadow-info">
                                 <div class="card-body">
                                     <div class="d-flex align-items-center mb-2 pb-1">

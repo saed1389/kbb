@@ -95,9 +95,15 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
             Route::post('mailingUsers/updateModal', [MailListController::class, 'updateModal'])->name('mailingUsers.updateModal');
             Route::get('mailingUsers/bulkMail', [MailListController::class, 'bulk'])->name('mailingUsers.bulkMail');
             Route::get('mailingUsers/bulkMail/news-mail', [MailListController::class, 'bulkNews'])->name('mailingUsers.bulkNews');
+            Route::get('mailingUsers/bulkMail/flash-news', [MailListController::class, 'flashNews'])->name('mailingUsers.flashNews');
+            Route::get('mailingUsers/bulkMail/deceaseNewsMail', [MailListController::class, 'deceaseNewsMail'])->name('mailingUsers.deceaseNewsMail');
+            Route::get('mailingUsers/bulkMail/entryNewsMail', [MailListController::class, 'entryNewsMail'])->name('mailingUsers.entryNewsMail');
             Route::get('get_mailList', [MailListController::class, 'GetMailList'])->name('get_mailList');
             Route::get('mailingUsers/get_news_data/{id}', [MailListController::class, 'getNewsData'])->name('mailingUsers.get_news_data');
             Route::post('send-emails', [BulkEmails::class, 'sendBulkNews'])->name('send-bulk-news');
+            Route::post('send-flash-news', [BulkEmails::class, 'sendFlashNews'])->name('send-flash-news');
+            Route::post('send-decease-news', [BulkEmails::class, 'sendDeceaseNews'])->name('send-decease-news');
+            Route::post('send-entry-news', [BulkEmails::class, 'sendEntryNews'])->name('send-entry-news');
         });
 
         // Document Routes

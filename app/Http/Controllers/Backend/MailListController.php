@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\MailList;
 use App\Models\News;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -102,6 +103,27 @@ class MailListController extends Controller
     {
         $total_mail = MailList::where('status', 1)->count();
         return view('admin.users.mailingList.bulkNews', compact('total_mail'));
+    }
+
+    public function flashNews()
+    {
+        $total_mail = MailList::where('status', 1)->count();
+        $total_user = User::where('type', '!=', 1)->where('status', 1)->count();
+        return view('admin.users.mailingList.flashNews', compact('total_mail', 'total_user'));
+    }
+
+    public function deceaseNewsMail()
+    {
+        $total_mail = MailList::where('status', 1)->count();
+        $total_user = User::where('type', '!=', 1)->where('status', 1)->count();
+        return view('admin.users.mailingList.deceaseNewsMail', compact('total_mail', 'total_user'));
+    }
+
+    public function entryNewsMail()
+    {
+        $total_mail = MailList::where('status', 1)->count();
+        $total_user = User::where('type', '!=', 1)->where('status', 1)->count();
+        return view('admin.users.mailingList.entryNewsMail', compact('total_user', 'total_mail'));
     }
 
     public function changeStatus($id, $status)
