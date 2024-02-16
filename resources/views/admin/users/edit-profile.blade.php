@@ -1,0 +1,323 @@
+@extends('admin.layouts.app')
+@section('title')
+    Üye Düzenleme
+@endsection
+@section('content')
+    @push('styles')
+        <link rel="stylesheet" href="{{ asset('assets/vendor/libs/bootstrap-select/bootstrap-select.css') }}" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.8.0/css/pikaday.min.css">
+    @endpush
+    <div class="container-xxl flex-grow-1 container-p-y mb-5">
+        <div class="card">
+            <h5 class="card-header">Kişisel Bilgileri</h5>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-8">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="{{ route('admin.home') }}">Anasayfa </a>
+                                </li>
+                                <li class="breadcrumb-item">
+                                    <a href="{{ route('admin.profile', $user->id) }}">Profilim  </a>
+                                </li>
+                                <li class="breadcrumb-item active">Kişisel Bilgileri</li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <form class="" action="{{ route('admin-profile-edit-update', $user->id) }}" method="post">
+                        @csrf
+                        <div class="row">
+                            <h4 class="mb-1 pt-2">Üyelik Genel Bilgileri</h4>
+                            <div class="col-md-3 mb-3">
+                                <label for="first_name" class="form-label">Adı <span class="text-danger">*</span></label>
+                                <input type="text" id="first_name" name="first_name" class="form-control" value="{{ $user->first_name ?? old('first_name') }}" placeholder="Lütfen Adınızı Giriniz" required>
+                                @error('first_name')
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label for="last_name" class="form-label">Soy Adı <span class="text-danger">*</span></label>
+                                <input type="text" id="last_name" name="last_name" class="form-control" value="{{ $user->last_name ?? old('last_name') }}" placeholder="Lütfen Soy Adınızı Giriniz" required>
+                                @error('last_name')
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label" for="user_type">Üyelik Tipi</label>
+                                <select id="user_type" class="selectpicker w-100" name="user_type" data-style="btn-default" tabindex="null">
+                                    <option disabled selected>Üyelik Tipi Seç</option>
+                                    <option value="1" @selected($user->user_type == 1 ?? old('user_type') == 1 ) >Dernek Üyesi</option>
+                                    <option value="2" @selected($user->user_type == 2 ?? old('user_type') == 2 ) >Websitesi Üyesi</option>
+                                    <option value="3" @selected($user->user_type == 3 ?? old('user_type') == 3 ) >Admin</option>
+                                    <option value="4" @selected($user->user_type == 4 ?? old('user_type') == 4 ) >Üye</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label" for="title">Üyelik Ünvanı</label>
+                                <select id="title" class="selectpicker w-100" name="title" data-style="btn-default" tabindex="null" required>
+                                    <option disabled selected>Üyelik Ünvanı Seç</option>
+                                    @foreach($titles as $item)
+                                        <option value="{{ $item->id }}" {{ $user->title == $item->id ?? old('title') == $item->id ? 'selected' : '' }}>{{ $item->title }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label for="mother_name" class="form-label">Anne Adı <span class="text-danger">*</span></label>
+                                <input type="text" id="mother_name" name="mother_name" class="form-control" value="{{ $user->mother_name ?? old('mother_name') }}" placeholder="Lütfen Anne Adınızı Giriniz" required>
+                                @error('mother_name')
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label for="father_name" class="form-label">Baba Adı <span class="text-danger">*</span></label>
+                                <input type="text" id="father_name" name="father_name" class="form-control" value="{{ $user->father_name ?? old('father_name') }}" placeholder="Lütfen Baba Adınızı Giriniz" required>
+                                @error('father_name')
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label" for="gender">Cinsiyet</label>
+                                <select id="gender" class="selectpicker w-100" name="gender" data-style="btn-default" tabindex="null">
+                                    <option disabled selected>Cinsiyet Seç</option>
+                                    <option value="1" @selected($user->gender == 1 ?? old('gender') == 1 ) >Erkek</option>
+                                    <option value="2" @selected($user->gender == 2 ?? old('gender') == 2 ) >Kadın</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label" for="occupation">Mesleginiz</label>
+                                <select id="occupation" class="selectpicker w-100" name="occupation" data-style="btn-default" tabindex="null">
+                                    <option disabled selected>Seçiniz..</option>
+                                    @foreach($jobs as $item)
+                                        <option value="{{ $item->id }}" {{ $user->occupation == $item->id ?? old('occupation') == $item->id ? 'selected' : '' }} >{{ $item->job }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label for="tc_card_no" class="form-label">T.C. Kimlik Nu <span class="text-danger">*</span></label>
+                                <input type="number" id="tc_card_no" name="tc_card_no" class="form-control" value="{{ $user->tc_card_no ?? old('tc_card_no') }}" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==11) return false;" maxlength="11" placeholder="Örn: 99999999999" data-inputmask="'mask': '99999999999'" required>
+                                @error('tc_card_no')
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label for="birthday_date" class="form-label">Doğum Tarihi </label>
+                                <input type="text" id="birthday_date" name="birthday_date" class="form-control" value="{{ $user->birthday_date ?? old('birthday_date') }}" >
+                                @error('birthday_date')
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label" for="country">Üye Uyruğu</label>
+                                <select id="country" class="selectpicker w-100" name="country" data-style="btn-default" tabindex="null">
+                                    <option disabled selected>Üye Uyruğu Seç..</option>
+                                    @foreach($countries as $item)
+                                        <option value="{{ $item->id_country }}" @selected($user->country == $item->id_country ?? old('country') == $item->id_country )>{{ $item->country_name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label" for="working_status">Çalışma Durumu</label>
+                                <select id="working_status" class="selectpicker w-100" name="working_status" data-style="btn-default" tabindex="null">
+                                    <option disabled selected>Seçiniz..</option>
+                                    <option value="1" @selected($user->working_status == 1 ?? old('working_status') == 1) >Emekli</option>
+                                    <option value="2" @selected($user->working_status == 2 ?? old('working_status') == 2) >Aktif Çalışan</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="company_name" class="form-label">Kurum Adı <span class="text-danger">*</span></label>
+                                <input type="text" id="company_name" name="company_name" class="form-control" value="{{ $user->company_name ?? old('company_name') }}" placeholder="Lütfen Kurum Adınızı Giriniz" required>
+                                @error('company_name')
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="col-md-6"></div>
+                            <div class="col-md-6 mb-3">
+                                <label for="work_address" class="form-label">İş Adresi <span class="text-danger">*</span></label>
+                                <textarea class="form-control" id="work_address" name="work_address" placeholder="Lütfen İş Adresinizı Giriniz" rows="2"  required>{{ $user->work_address ?? old('work_address') }}</textarea>
+                                @error('work_address')
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label" for="work_province">İl</label>
+                                <select id="work_province" class="selectpicker w-100" name="work_province" data-style="btn-default" tabindex="null">
+                                    <option disabled selected>İl Seç..</option>
+                                    @foreach($provinces as $item)
+                                        <option value="{{ $item->province_no }}" {{ $user->work_province == $item->province_no ?? old('work_province') == $item->province_no ? 'selected' : '' }} >{{ $item->province_name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label" for="work_city">İlçe</label>
+                                <select id="work_city" name="work_city" class="form-control">
+                                    <option value disabled selected>İlk İl Seçiniz</option>
+                                    @foreach($city_work as $city)
+                                        <option value="{{ $city->city_no }}" {{ $city->city_no == $user->work_city ? 'selected' : '' }}>
+                                            {{ $city->city_name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="home_address" class="form-label">Ev Adresi <span class="text-danger">*</span></label>
+                                <textarea class="form-control" id="home_address" name="home_address" placeholder="Lütfen Ev Adresinizı Giriniz" rows="2"  required>{{ $user->home_address ?? old('home_address') }}</textarea>
+                                @error('home_address')
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label" for="home_province">İl</label>
+                                <select id="home_province" class="selectpicker w-100" name="home_province" data-style="btn-default" tabindex="null">
+                                    <option disabled selected>İl Seç..</option>
+                                    @foreach($provinces as $item)
+                                        <option value="{{ $item->province_no }}" {{ $user->home_province == $item->province_no ?? old('work_province') == $item->province_no ? 'selected' : '' }} >{{ $item->province_name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label" for="home_city">İlçe</label>
+                                <select id="home_city" name="home_city" class="form-control">
+                                    <option value disabled selected>İlk İl Seçiniz</option>
+                                    @foreach($city_home as $city)
+                                        <option value="{{ $city->city_no }}" {{ $city->city_no == $user->home_city ? 'selected' : '' }}>
+                                            {{ $city->city_name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label for="mobile" class="form-label">Cep Telefonu </label>
+                                <input type="tel" id="mobile" name="mobile" class="form-control" placeholder="Örn: 05331234567" value="{{ $user->mobile ?? old('mobile') }}" >
+                                @error('mobile')
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label for="home_tel" class="form-label">Ev Telefonu </label>
+                                <input type="tel" id="home_tel" name="home_tel" class="form-control" value="{{ $user->home_tel ?? old('home_tel') }}" placeholder="Örn: 05331234567" >
+                                @error('home_tel')
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label for="work_tel" class="form-label">İş Telefonu </label>
+                                <input type="tel" id="work_tel" name="work_tel" class="form-control" value="{{ $user->work_tel ?? old('work_tel') }}" placeholder="Örn: 05331234567" >
+                                @error('work_tel')
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label" for="memberChatAddress">Yazışma Adresi</label>
+                                <select id="memberChatAddress" class="selectpicker w-100" name="memberChatAddress" data-style="btn-default" tabindex="null">
+                                    <option disabled selected>Yazışma Adresi Seçiniz</option>
+                                    <option value="1" @selected($user->memberChatAddress == 1 ?? old('memberChatAddress') == 1 ) >Ev Adresi</option>
+                                    <option value="2" @selected($user->memberChatAddress == 2 ?? old('memberChatAddress') == 2 ) >İş Adresi</option>
+                                </select>
+                            </div>
+                            <hr>
+                            <h4 class="mb-1 pt-2">Üyelik Giriş Bilgileri</h4>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">E-Posta <span class="text-danger">*</span></label>
+                                    <input type="email" class="form-control @error('email') invalid @enderror" value="{{ $user->email ?? old('email') }}" id="email" name="email" placeholder="Lütfen E-posta adresini girin" required>
+                                    @error('email')
+                                    <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3 form-password-toggle">
+                                    <label class="form-label" for="password">Şifre güncelle <span class="text-danger">*</span></label>
+                                    <div class="input-group input-group-merge">
+                                        <input type="password" id="password" class="form-control" name="password" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" />
+                                        <span class="input-group-text cursor-pointer"><i class="ti ti-eye-off"></i></span>
+                                    </div>
+                                </div>
+                                @error('password')
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+
+                            <div class="col-md-4">
+                                <a href="{{ route('admin.profile', $user->id) }}" class="btn btn-secondary">Geri dön</a>
+                                <button type="submit" class="btn btn-primary">Bilgileri Kaydet & Düzenle</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    @push('scripts')
+        <script src="{{ asset('assets/js/code.js') }}"></script>
+        <script src="{{ asset('assets/vendor/libs/bootstrap-select/bootstrap-select.js') }}"></script>
+        <script src="{{ asset('assets/js/forms-selects.js') }}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.8.0/pikaday.min.js"></script>
+        <script>
+            var dateInput = document.getElementById('birthday_date');
+            var picker = new Pikaday({
+                field: dateInput,
+                format: 'DD-MM-YYYY',
+                i18n: {
+                    previousMonth : 'Önceki Ay',
+                    nextMonth     : 'Sonraki Ay',
+                    months        : ['Ocak','Şubat','Mart','Nisan','Mayıs','Haziran','Temmuz','Ağustos','Eylül','Ekim','Kasım','Aralık'],
+                    weekdays      : ['Pazar','Pazartesi','Salı','Çarşamba','Perşembe','Cuma','Cumartesi'],
+                    weekdaysShort : ['Paz','Pts','Sal','Çar','Per','Cum','Cts']
+                }
+            });
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#work_province').change(function (event) {
+                    var idProvince = this.value;
+                    console.log(idProvince);
+                    $('#work_city').html('');
+                    $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
+                    });
+
+                    $.ajax({
+                        url: "{{ route('province.fetch-city') }}",
+                        type: 'POST',
+                        dataType: 'json',
+                        data: {province_no: idProvince, _token: "{{ csrf_token() }}"},
+                        success: function (response) {
+                            $('#work_city').html('<option value=""> İlçe Seç... </option>');
+                            $.each(response.city, function (index, val) {
+                                $('#work_city').append('<option value="'+val.city_no+'">'+val.city_name+'</option>')
+                            });
+                        }
+                    })
+                });
+
+                $('#home_province').change(function (event) {
+                    var idProvince = this.value;
+                    $('#home_city').html('');
+                    $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
+                    });
+
+                    $.ajax({
+                        url: "{{ route('province.fetch-city') }}",
+                        type: 'POST',
+                        dataType: 'json',
+                        data: {province_no: idProvince, _token: "{{ csrf_token() }}"},
+                        success: function (response) {
+                            $('#home_city').html('<option value=""> İlçe Seç... </option>');
+                            $.each(response.city, function (index, val) {
+                                $('#home_city').append('<option value="'+val.city_no+'">'+val.city_name+'</option>')
+                            });
+                        }
+                    })
+                });
+            });
+        </script>
+    @endpush
+@endsection

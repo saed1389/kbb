@@ -347,7 +347,6 @@
             var image = document.getElementById('image');
             var cropper;
 
-            /* Image Change Event */
             $("body").on("change", ".image", function(e){
                 var files = e.target.files;
                 var done = function (url) {
@@ -374,46 +373,36 @@
                 }
             });
 
-            /* Show Model Event */
             $modal.on('shown.bs.modal', function () {
                 cropper = new Cropper(image, {
-                    aspectRatio: 2.8548, // Set the aspectRatio to 2.8548 (885x310)
+                    aspectRatio: 2.8548,
                     viewMode: 0,
                     preview: '.preview',
-                    autoCropArea: 0, // 100% autoCropArea ensures the entire image is initially selected
-                    cropBoxResizable: false, // Disable crop box resizing
-                    cropBoxMovable: true,   // Enable moving the crop box
-                    movable: true, // Enable image movement
+                    autoCropArea: 0,
+                    cropBoxResizable: false,
+                    cropBoxMovable: true,
+                    movable: true,
                     strict: true,
                 });
 
-                // Bind a click event to the document
                 $(document).on('click', function (e) {
-                    // Check if the clicked element is inside the modal content
                     if (!$(e.target).closest('.modal-content').length) {
-                        // If not, reset the cropper
                         cropper.reset();
                     }
                 });
             }).on('hidden.bs.modal', function () {
                 cropper.destroy();
                 cropper = null;
-                // Remove the click event when the modal is hidden
                 $(document).off('click');
             });
 
-            /* Modal Close Event */
             $modal.on('click', '[data-dismiss="modal"]', function () {
-                // Manually hide the modal to trigger the 'hidden.bs.modal' event
                 $modal.modal('hide');
-                // Clear input value
                 $(".image").val('');
-                // Clear preview image
                 $(".show-image").hide();
                 $(".show-image").attr("src", '');
             });
 
-            /* Crop Button Click Event */
             $("#crop").click(function(){
                 var canvas = cropper.getCroppedCanvas({
                     width: 885,

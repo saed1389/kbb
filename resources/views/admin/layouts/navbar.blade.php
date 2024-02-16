@@ -327,47 +327,52 @@
                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"
                    data-bs-toggle="dropdown">
                     <div class="avatar avatar-online">
-                        <img src="{{ asset('assets/img/avatars/1.png') }}" alt="" class="h-auto rounded-circle">
+                        <img src="@if(Auth::user()->profile_image)
+                                                        {{ asset(Auth::user()->profile_image) }}
+                                                        @else
+                                                        {{ Auth::user()->gender == 1 ? asset('assets/img/avatars/14.png') : asset('assets/img/avatars/2.png') }}
+                                                @endif" alt="" class="h-auto rounded">
                     </div>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
                     <li>
-                        <a class="dropdown-item" href="pages-account-settings-account.html">
-                            <div class="d-flex">
-                                <div class="flex-shrink-0 me-3">
-                                    <div class="avatar avatar-online">
-                                        <img src="{{ asset('assets/img/avatars/1.png') }}" alt class="h-auto rounded-circle">
-                                    </div>
-                                </div>
-                                <div class="flex-grow-1">
-                                    <span class="fw-medium d-block">{{ Auth::user()->first_name. ' '.Auth::user()->last_name }}</span>
-                                    {{--<small class="text-muted">Admin</small>--}}
+                        <div class="d-flex">
+                            <div class="flex-shrink-0 me-3" style="margin-left: 1rem;">
+                                <div class="avatar avatar-online">
+                                    <img src="@if(Auth::user()->profile_image)
+                                                        {{ asset(Auth::user()->profile_image) }}
+                                                        @else
+                                                        {{ Auth::user()->gender == 1 ? asset('assets/img/avatars/14.png') : asset('assets/img/avatars/2.png') }}
+                                                @endif" alt class="h-auto rounded">
                                 </div>
                             </div>
-                        </a>
+                            <div class="flex-grow-1" style="padding-top: 9px;">
+                                <span class="fw-medium d-block">{{ Auth::user()->first_name. ' '.Auth::user()->last_name }}</span>
+                            </div>
+                        </div>
                     </li>
                     <li>
                         <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="pages-profile-user.html">
+                        <a class="dropdown-item" href="{{ route('admin.profile', Auth::user()->id) }}">
                             <i class="ti ti-user-check me-2 ti-sm"></i>
                             <span class="align-middle">Profilim</span>
                         </a>
                     </li>
-                    <li>
+                   {{-- <li>
                         <a class="dropdown-item" href="pages-account-settings-account.html">
                             <i class="ti ti-settings me-2 ti-sm"></i>
                             <span class="align-middle">Settings</span>
                         </a>
-                    </li>
+                    </li>--}}
 
                     <li>
                         <div class="dropdown-divider"></div>
                     </li>
 
                     <li>
-                        <a class="dropdown-item" href="auth-login-cover.html" target="_blank">
+                        <a class="dropdown-item" href="{{ route('admin.logout') }}">
                             <i class="ti ti-logout me-2 ti-sm"></i>
                             <span class="align-middle">Oturumu Kapat</span>
                         </a>

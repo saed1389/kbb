@@ -59,6 +59,12 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::prefix('/admin')->group(function () {
         Route::get('home', [HomeController::class, 'adminHome'])->name('admin.home');
         Route::get('/logout', [HomeController::class, 'AdminLogout'])->name('admin.logout');
+        Route::get('profile/{id}', [HomeController::class, 'profileShow'])->name('admin.profile');
+        Route::get('profile-edit/{id}', [HomeController::class, 'profile'])->name('admin-profile-edit');
+        Route::post('profile-edit-update/{id}', [HomeController::class, 'profileUpdate'])->name('admin-profile-edit-update');
+        Route::get('profile-edit-photo/{id}', [HomeController::class, 'profilePhoto'])->name('admin-profile-photo');
+        Route::post('profile-webcam-store/{id}', [HomeController::class, 'webcamStore'])->name('profile-webcam-store');
+        Route::post('profile-file-store/{id}', [HomeController::class, 'fileStore'])->name('profile-file-store');
         Route::prefix('users')->group(function () {
             // User Title Routes
             Route::resource('titles', UserTitleController::class)->except('show', 'create', 'destroy', 'update', 'edit');
