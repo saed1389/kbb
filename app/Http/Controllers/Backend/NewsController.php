@@ -103,6 +103,7 @@ class NewsController extends Controller
             'cropImage' => $this->storeBase64($request->image_base64),
             'created_by' => Auth::user()->id,
             'news_order' => 0,
+            'confirm' => 1
         ]);
 
         $notification = array(
@@ -188,6 +189,12 @@ class NewsController extends Controller
             $new_page = 0;
         }
 
+        if (Auth::user()->type == 'admin') {
+            $confirm = 1;
+        } else {
+            $confirm = 0;
+        }
+
         News::where('id', $id)->update([
             'title' => $request->title,
             'title_en' => $request->title_en,
@@ -210,7 +217,7 @@ class NewsController extends Controller
             'image' => $save_url,
             'cropImage' => $crop,
             'created_by' => Auth::user()->id,
-            'news_order' => 0,
+            'news_order' => $confirm,
         ]);
 
         $notification = array(
@@ -242,13 +249,55 @@ class NewsController extends Controller
         News::where('id', $id)->update(['status' => $status]);
     }
 
+    public function changeConfirm($id, $confirm)
+    {
+        News::where('id', $id)->update(['confirm' => $confirm]);
+    }
+
+    public function confirm()
+    {
+        $news = News::where('confirm', 0)->get();
+        return view('admin.news.confirm', compact('news'));
+    }
+
     public function GetNews()
     {
         if (\request()->ajax()) {
-            return datatables()->of(News::with('newsCategory:id,title')
-                ->select('news.id', 'news.title', 'news.news_category', 'news.hit', 'news.news_body', 'news.news_href', 'news.image', 'news.created_at', 'news.status'))
+            return datatables()->eloquent(
+                News::with('newsCategory:id,title')
+                    ->where('news.confirm', 1)
+            )
+                ->addColumn('id', function ($news) {
+                    return $news->id;
+                })
+                ->addColumn('title', function ($news) {
+                    return $news->title;
+                })
+                ->addColumn('news_category', function ($news) {
+                    return $news->newsCategory->title;
+                })
+                ->addColumn('hit', function ($news) {
+                    return $news->hit;
+                })
+                ->addColumn('news_body', function ($news) {
+                    return $news->news_body;
+                })
+                ->addColumn('news_href', function ($news) {
+                    return $news->news_href;
+                })
+                ->addColumn('image', function ($news) {
+                    return $news->image;
+                })
+                ->addColumn('created_at', function ($news) {
+                    return $news->created_at;
+                })
+                ->addColumn('status', function ($news) {
+                    return $news->status;
+                })
+                ->addColumn('confirm', function ($news) {
+                    return $news->confirm;
+                })
                 ->make(true);
-
         } else {
             return false;
         }

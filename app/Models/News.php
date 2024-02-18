@@ -16,4 +16,9 @@ class News extends Model
     {
         return $this->belongsTo(NewsCategory::class, 'news_category', 'id');
     }
+
+    public function getAuthorName(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'created_by', 'id');
+    }
 }

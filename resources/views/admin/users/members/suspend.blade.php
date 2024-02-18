@@ -58,7 +58,7 @@
                                 <th>CEP TEL</th>
                                 <th>MAİL ADRESİ</th>
                                 <th>OLUŞTURMA</th>
-                                <th>Askıya Al</th>
+                                <th>Askıya Kaldır</th>
                                 <th>İşlemler</th>
                             </tr>
                             </thead>

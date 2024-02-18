@@ -241,8 +241,11 @@
                             url: "{{ url('/admin/users/members/changeStatus') }}/"+check_id+"/"+check_active,
                             data: { _token : $('meta[name="csrf-token"]').attr('content'), id: check_id, active: check_active},
                             success: function(response){
-                                toastr.success("Üyenin askıya alınması başarıyla kaldırıldı!");
+                                toastr.success("Başvuru Başarıyla Onaylandı!");
                                 $dataTable.ajax.reload();
+                                setTimeout(function(){
+                                    location.reload();
+                                }, 1000);
                             },
                             error: function(error) {
                                 console.error("AJAX Error:", error);

@@ -27,6 +27,12 @@
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-news"></i>
                 <div data-i18n="Layouts"><strong>Haber Yönetimi</strong></div>
+                @php
+                    $confirm = \App\Models\News::where('confirm', 0)->count();
+                @endphp
+                @if($confirm > 0)
+                    <div class="badge bg-primary rounded-pill ms-auto">{{ $confirm }}</div>
+                @endif
             </a>
 
             <ul class="menu-sub">
@@ -41,7 +47,14 @@
                         <div data-i18n="Content navbar">Haber Listesi</div>
                     </a>
                 </li>
-
+                <li class="menu-item @if(Request::segment(2) == 'news' && Request::segment('3') == 'confirm') active @endif">
+                    <a href="{{ route('news.confirm') }}" class="menu-link">
+                        <div data-i18n="Content navbar">Haber Onayı</div>
+                        @if($confirm > 0)
+                            <div class="badge bg-primary rounded-pill ms-auto">{{ $confirm }}</div>
+                        @endif
+                    </a>
+                </li>
             </ul>
         </li>
 
@@ -64,11 +77,16 @@
 
             </ul>
         </li>
-
+        @php
+            $app = \App\Models\User::where('apply', 0)->where('status', 0)->count();
+        @endphp
         <li class="menu-item @if(Request::segment(2) == 'users') active open @endif">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class='menu-icon tf-icons ti ti-users-group'></i>
                 <div data-i18n="Front Pages"><strong>Üye Yönetimi</strong></div>
+                @if($app > 0)
+                    <div class="badge bg-primary rounded-pill ms-auto">{{ $app }}</div>
+                @endif
             </a>
             <ul class="menu-sub" >
                 <li class="menu-item @if(Request::segment(3) == 'members' && Request::segment(4) == 'create') active @endif">
@@ -84,6 +102,9 @@
                 <li class="menu-item @if(Request::segment(3) == 'members' && Request::segment(4) == 'applications') active @endif">
                     <a href="{{ route('members.applications') }}" class="menu-link" >
                         <div data-i18n="Pricing">Üye Başvuru Listesi</div>
+                        @if($app > 0)
+                            <div class="badge bg-primary rounded-pill ms-auto">{{ $app }}</div>
+                        @endif
                     </a>
                 </li>
                 <li class="menu-item @if(Request::segment(3) == 'members' && Request::segment(4) == 'suspend') active @endif">
@@ -154,12 +175,12 @@
                 <div data-i18n="Front Pages"><strong>Foto Galeri</strong></div>
             </a>
             <ul class="menu-sub">
-                <li class="menu-item">
+                <li class="menu-item @if(Request::segment(3) == 'images' && Request::segment(2) == 'photos') active @endif">
                     <a href="{{ route('images.index') }}" class="menu-link" >
                         <div data-i18n="Pricing">Fotoğraf Yükle</div>
                     </a>
                 </li>
-                <li class="menu-item @if(Request::segment(3) == 'galleries') active @endif">
+                <li class="menu-item @if(Request::segment(3) == 'galleries' && Request::segment(2) == 'photos') active @endif">
                     <a href="{{ route('galleries.index') }}" class="menu-link" >
                         <div data-i18n="Pricing">Fotoğraf Galerileri</div>
                     </a>
@@ -179,18 +200,18 @@
             <span class="menu-header-text" data-i18n="Apps & Pages">Ayarlar</span>
         </li>
 
-        <li class="menu-item">
+        <li class="menu-item @if(Request::segment(2) == 'menus') active open @endif">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class='menu-icon tf-icons ti ti-menu-2'></i>
                 <div data-i18n="Front Pages"><strong>Menü Yönetimi</strong></div>
             </a>
-            <ul class="menu-sub">
-                <li class="menu-item">
+            <ul class="menu-sub ">
+                <li class="menu-item @if(Request::segment(2) == 'menus' && Request::segment(3) == 'create') active @endif">
                     <a href="{{ route('menus.create') }}" class="menu-link" >
                         <div data-i18n="Landing">Menü Ekle</div>
                     </a>
                 </li>
-                <li class="menu-item">
+                <li class="menu-item @if(Request::segment(2) == 'menus' && Request::segment(3) == null) active @endif">
                     <a href="{{ route('menus.index') }}" class="menu-link" >
                         <div data-i18n="Pricing">Menü Listesi</div>
                     </a>

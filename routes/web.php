@@ -175,7 +175,9 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
         Route::resource('news', NewsController::class)->except('show', 'destroy');
         Route::get('news/delete/{id}', [NewsController::class, 'delete'])->name('news.delete');
         Route::post('news/changeStatus/{id}/{status}', [NewsController::class, 'changeStatus']);
+        Route::post('news/changeConfirm/{id}/{confirm}', [NewsController::class, 'changeConfirm']);
         Route::get('get_news', [NewsController::class, 'GetNews'])->name('get_news');
+        Route::get('news/confirm', [NewsController::class, 'confirm'])->name('news.confirm');
 
         // Event Routes
         Route::resource('events', EventController::class)->except('show', 'destroy');
