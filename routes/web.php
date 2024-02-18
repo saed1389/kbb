@@ -17,6 +17,8 @@ use App\Http\Controllers\Backend\EventController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\MailListController;
 use App\Http\Controllers\Backend\BulkEmails;
+use App\Http\Controllers\Backend\MenuController;
+use App\Http\Controllers\Backend\SubMenuController;
 use App\Http\Controllers\Frontend\IndexController;
 
 /*
@@ -65,6 +67,7 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
         Route::get('profile-edit-photo/{id}', [HomeController::class, 'profilePhoto'])->name('admin-profile-photo');
         Route::post('profile-webcam-store/{id}', [HomeController::class, 'webcamStore'])->name('profile-webcam-store');
         Route::post('profile-file-store/{id}', [HomeController::class, 'fileStore'])->name('profile-file-store');
+
         Route::prefix('users')->group(function () {
             // User Title Routes
             Route::resource('titles', UserTitleController::class)->except('show', 'create', 'destroy', 'update', 'edit');
@@ -111,6 +114,18 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
             Route::post('send-decease-news', [BulkEmails::class, 'sendDeceaseNews'])->name('send-decease-news');
             Route::post('send-entry-news', [BulkEmails::class, 'sendEntryNews'])->name('send-entry-news');
         });
+
+        // Menu Routes
+        Route::resource('menus', MenuController::class)->except('show', 'destroy');
+        Route::get('menus/delete/{id}', [MenuController::class, 'delete'])->name('menus.delete');
+        Route::post('menus/updateAccordionOrder', [MenuController::class, 'updateAccordionOrder'])->name('manus.updateAccordionOrder');
+        Route::post('menus/updateTableOrder', [MenuController::class, 'updateTableOrder'])->name('manus.updateTableOrder');
+        Route::post('menus/changeStatus/{id}/{status}', [MenuController::class, 'changeStatus']);
+
+        // Menu Routes
+        Route::resource('submenus', SubMenuController::class)->except('show', 'destroy');
+        Route::get('submenus/delete/{id}', [SubMenuController::class, 'delete'])->name('submenus.delete');
+        Route::post('submenus/changeStatus/{id}/{status}', [SubMenuController::class, 'changeStatus']);
 
         // Document Routes
         Route::resource('documents', DocumentController::class)->except('destroy');

@@ -186,12 +186,12 @@
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="front-pages/landing-page.html" class="menu-link" >
+                    <a href="{{ route('menus.create') }}" class="menu-link" >
                         <div data-i18n="Landing">Menü Ekle</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="front-pages/pricing-page.html" class="menu-link" >
+                    <a href="{{ route('menus.index') }}" class="menu-link" >
                         <div data-i18n="Pricing">Menü Listesi</div>
                     </a>
                 </li>

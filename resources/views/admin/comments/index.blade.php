@@ -1,13 +1,6 @@
 @extends('admin.layouts.app')
 @section('title') Yorum Listesi @endsection
 @section('content')
-    @push('styles')
-        <style>
-            .swal2-deny{
-                display: none !important;
-            }
-        </style>
-    @endpush
     <div class="container-xxl flex-grow-1 container-p-y">
         <div class="card">
             <h5 class="card-header">Yorum Listesi</h5>
@@ -26,7 +19,7 @@
                 </div>
             </div>
             <div class="card-datatable table-responsive">
-                <table id="example" class="table table table-striped" style="width:100%">
+                <table id="example" class="table table-striped" style="width:100%">
                     <thead>
                     <tr>
                         <th>#</th>

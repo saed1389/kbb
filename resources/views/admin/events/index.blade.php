@@ -45,7 +45,6 @@
                         <a href="{{ route('events.create') }}" class="btn btn-primary waves-effect waves-light float-end ">
                             Yeni Etkinlik Ekle
                         </a>
-
                     </div>
                     <div class="card-datatable table-responsive">
                         <table id="example" class="table table table-striped" style="width:100%">
