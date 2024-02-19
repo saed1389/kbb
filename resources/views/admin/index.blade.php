@@ -11,7 +11,7 @@
                         <div class="swiper-slide">
                             <div class="row">
                                 <div class="col-12">
-                                    <h5 class="text-white mb-0 mt-2">{{ Auth::user()->title.' '.Auth::user()->first_name. ' '. Auth::user()->last_name }}</h5>
+                                    <h5 class="text-white mb-0 mt-2">{{ Auth::user()->titleName->title.' '.Auth::user()->first_name. ' '. Auth::user()->last_name }}</h5>
                                     <small>{{ Auth::user()->email }}</small>
                                 </div>
                                 <div class="row">

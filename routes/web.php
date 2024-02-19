@@ -14,6 +14,7 @@ use App\Http\Controllers\Backend\ScholarshipController;
 use App\Http\Controllers\Backend\ImageController;
 use App\Http\Controllers\Backend\NewsController;
 use App\Http\Controllers\Backend\EventController;
+use App\Http\Controllers\Backend\VideoController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\MailListController;
 use App\Http\Controllers\Backend\BulkEmails;
@@ -169,6 +170,13 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
             Route::resource('images', ImageController::class)->except('destroy', 'create', 'store');
             Route::post('images/add', [ImageController::class, 'add'])->name('images.add');
             Route::get('images/delete/{id}', [ImageController::class, 'delete'])->name('images.delete');
+
+            Route::resource('videos', VideoController::class)->except('edit', 'destroy', 'create');
+            Route::get('videos/editModal/{id}', [VideoController::class, 'editModal'])->name('videos.editModal');
+            Route::post('videos/updateModal', [VideoController::class, 'updateModal'])->name('videos.updateModal');
+            Route::get('videos/delete/{id}', [VideoController::class, 'delete'])->name('videos.delete');
+            Route::post('videos/changeStatus/{id}/{status}', [VideoController::class, 'changeStatus']);
+
         });
 
         // News Routes

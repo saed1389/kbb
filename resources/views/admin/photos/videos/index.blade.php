@@ -1,9 +1,10 @@
 @extends('admin.layouts.app')
-@section('title') Etkinlik Kategori Listesi @endsection
+@section('title') Eğitim Videolar Listesi @endsection
 @section('content')
+
     <div class="container-xxl flex-grow-1 container-p-y">
         <div class="card">
-            <h5 class="card-header">Etkinlik Kategori Listesi</h5>
+            <h5 class="card-header">Eğitim Videolar Listesi</h5>
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-8">
@@ -12,38 +13,42 @@
                                 <li class="breadcrumb-item">
                                     <a href="{{ route('admin.home') }}">Anasayfa </a>
                                 </li>
-                                <li class="breadcrumb-item active">Etkinlik Kategori Listesi</li>
+                                <li class="breadcrumb-item active">Eğitim Videolar  Listesi</li>
 
                             </ol>
                         </nav>
                     </div>
                     <div class="col-md-4 ">
                         <button type="button" class="btn btn-primary waves-effect waves-light float-end " data-bs-toggle="modal" data-bs-target="#backDropModal">
-                            Yeni Etkinlik Kategori Ekle
+                            Yeni Video Ekle
                         </button>
                         <div class="modal fade" id="backDropModal" data-bs-backdrop="static" tabindex="-1">
                             <div class="modal-dialog">
-                                <form class="modal-content" action="{{ route('event-categories.store') }}" method="post" >
+                                <form class="modal-content" action="{{ route('videos.store') }}" method="post" >
                                     @csrf
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="backDropModalTitle">Yeni Etkinlik Kategori Ekle</h5>
+                                        <h5 class="modal-title" id="backDropModalTitle">Yeni Video Ekle</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
                                         <div class="row">
-                                            <div class="col mb-3">
-                                                <label for="title" class="form-label">Etkinlik Kategori Adı</label>
-                                                <input type="text" id="title" name="title" class="form-control" placeholder="Etkinlik Kategori Giriniz" required>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="title" class="form-label">Video başlığı</label>
+                                                <input type="text" id="title" name="title" class="form-control" placeholder="Video başlığı Giriniz" required>
                                             </div>
-                                            <div class="col mb-3">
-                                                <label for="title_en" class="form-label">Etkinlik Kategori Adı (en)</label>
-                                                <input type="text" id="title_en" name="title_en" class="form-control" placeholder="Etkinlik Kategori Adı (en) Giriniz" >
+                                            <div class="col-md-6 mb-3">
+                                                <label for="title_en" class="form-label">Video başlığı (en)</label>
+                                                <input type="text" id="title_en" name="title_en" class="form-control" placeholder="Video başlığı (en) Giriniz" >
+                                            </div>
+                                            <div class="col-md-12 mb-3">
+                                                <label for="link" class="form-label">Video linki (en)</label>
+                                                <input type="text" id="link" name="link" class="form-control" placeholder="Video linki Giriniz" required>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">İptal</button>
-                                        <button type="submit" class="btn btn-primary" >Etkinlik Kategori Ekle</button>
+                                        <button type="submit" class="btn btn-primary" >Video Ekle</button>
                                     </div>
                                 </form>
                             </div>
@@ -57,19 +62,19 @@
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>Kategori Adı</th>
-                        <th>Kategori Adı (en)</th>
+                        <th>Video Başlığı</th>
+                        <th>Video linki</th>
                         <th>Oluşturma</th>
                         <th>Durum</th>
                         <th>İşlemler</th>
                     </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                    @forelse($events as $item)
+                    @forelse($videos as $item)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->title }}</td>
-                            <td>{{ $item->title_en ? $item->title_en : '-' }}</td>
+                            <td>{{ $item->link }}</td>
                             <td>{{ $item->userName->first_name. ' '. $item->userName->last_name }}</td>
                             <td>
                                 <label class="switch switch-success">
@@ -103,28 +108,32 @@
     {{-- Edit Modal --}}
     <div class="modal fade" id="editModal" data-bs-backdrop="static" tabindex="-1">
         <div class="modal-dialog">
-            <form class="modal-content" action="{{ route('event-categories.updateModal') }}" method="post" >
+            <form class="modal-content" action="{{ route('videos.updateModal') }}" method="post" >
                 @csrf
                 <input type="hidden" id="title_id" name="title_id">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="backDropModalTitle"> Etkinlik Kategori Düzenle</h5>
+                    <h5 class="modal-title" id="backDropModalTitle"> Video Düzenle</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col mb-3">
-                            <label for="titleEdit" class="form-label">Etkinlik Kategori Adı</label>
-                            <input type="text" id="titleEdit" name="title" class="form-control" placeholder="Etkinlik Kategori Adı Giriniz" required>
+                        <div class="col-md-6 mb-3">
+                            <label for="titleEdit" class="form-label">Video Başlığı Adı</label>
+                            <input type="text" id="titleEdit" name="title" class="form-control" placeholder="Video Başlığı Giriniz" required>
                         </div>
-                        <div class="col mb-3">
-                            <label for="title_enEdit" class="form-label">Etkinlik Kategori Adı (en)</label>
-                            <input type="text" id="title_enEdit" name="title_en" class="form-control" placeholder="Etkinlik Kategori Adı (en) Giriniz" >
+                        <div class="col-md-6 mb-3">
+                            <label for="title_enEdit" class="form-label">Video Başlığı (en)</label>
+                            <input type="text" id="title_enEdit" name="title_en" class="form-control" placeholder="Video Başlığı (en) Giriniz" >
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <label for="linkEdit" class="form-label">Video linki (en)</label>
+                            <input type="text" id="linkEdit" name="link" class="form-control" placeholder="Video linki Giriniz" required>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">İptal</button>
-                    <button type="submit" class="btn btn-primary" >Etkinlik Kategori Düzenle</button>
+                    <button type="submit" class="btn btn-primary" >Video Düzenle</button>
                 </div>
             </form>
         </div>
@@ -138,10 +147,11 @@
                     $('#editModal').modal('show');
                     $.ajax({
                         type: "GET",
-                        url: "{{ url('admin/event-categories/editModal') }}/"+title_id,
+                        url: "{{ url('admin/photos/videos/editModal') }}/"+title_id,
                         success: function (response) {
                             $('#titleEdit').val(response.title.title);
                             $('#title_enEdit').val(response.title.title_en);
+                            $('#linkEdit').val(response.title.link);
                             $('#title_id').val(title_id);
                         }
                     });
@@ -159,7 +169,7 @@
                         headers: {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                         },
-                        url: "{{ url('/admin/event-categories/changeStatus') }}/"+check_id+"/"+check_active,
+                        url: "{{ url('/admin/photos/videos/changeStatus') }}/"+check_id+"/"+check_active,
                         data: { _token : $('meta[name="csrf-token"]').attr('content'),id: check_id, active: check_active},
                         success: function(response){
                             toastr.info("Durumu başarıyla değiştirin!");
