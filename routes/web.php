@@ -16,6 +16,7 @@ use App\Http\Controllers\Backend\NewsController;
 use App\Http\Controllers\Backend\EventController;
 use App\Http\Controllers\Backend\VideoController;
 use App\Http\Controllers\Backend\UserController;
+use App\Http\Controllers\Backend\ZoomController;
 use App\Http\Controllers\Backend\MailListController;
 use App\Http\Controllers\Backend\BulkEmails;
 use App\Http\Controllers\Backend\MenuController;
@@ -167,16 +168,17 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
             Route::post('galleries/updateModal', [PhotoCategoryController::class, 'updateModal'])->name('galleries.updateModal');
             Route::post('galleries/changeStatus/{id}/{status}', [PhotoCategoryController::class, 'changeStatus']);
 
+            // Image Routes
             Route::resource('images', ImageController::class)->except('destroy', 'create', 'store');
             Route::post('images/add', [ImageController::class, 'add'])->name('images.add');
             Route::get('images/delete/{id}', [ImageController::class, 'delete'])->name('images.delete');
 
+            // Videos Routes
             Route::resource('videos', VideoController::class)->except('edit', 'destroy', 'create');
             Route::get('videos/editModal/{id}', [VideoController::class, 'editModal'])->name('videos.editModal');
             Route::post('videos/updateModal', [VideoController::class, 'updateModal'])->name('videos.updateModal');
             Route::get('videos/delete/{id}', [VideoController::class, 'delete'])->name('videos.delete');
             Route::post('videos/changeStatus/{id}/{status}', [VideoController::class, 'changeStatus']);
-
         });
 
         // News Routes
@@ -192,6 +194,13 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
         Route::get('events/delete/{id}', [EventController::class, 'delete'])->name('events.delete');
         Route::post('events/changeStatus/{id}/{status}', [EventController::class, 'changeStatus']);
         Route::get('get_events', [EventController::class, 'GetEvents'])->name('get_events');
+
+        // Zoom and Webinar Routes
+        Route::resource('zooms', ZoomController::class)->except('edit', 'destroy', 'create', 'update');
+        Route::get('zooms/editModal/{id}', [ZoomController::class, 'editModal'])->name('zooms.editModal');
+        Route::post('zooms/updateModal', [ZoomController::class, 'updateModal'])->name('zooms.updateModal');
+        Route::get('zooms/delete/{id}', [ZoomController::class, 'delete'])->name('zooms.delete');
+        Route::post('zooms/changeStatus/{id}/{status}', [ZoomController::class, 'changeStatus']);
 
         // Member Type Routes
         Route::resource('member-types', MemberTypeController::class)->except('show', 'create', 'destroy', 'update', 'edit');

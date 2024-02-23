@@ -58,7 +58,7 @@
             </ul>
         </li>
 
-        <li class="menu-item @if(Request::segment(2) == 'events') active open @endif">
+        <li class="menu-item @if(Request::segment(2) == 'events' || Request::segment(2) == 'zooms') active open @endif">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class='menu-icon tf-icons ti ti-components'></i>
                 <div data-i18n="Front Pages"><strong>Etkinlik Yönetimi</strong></div>
@@ -72,6 +72,12 @@
                 <li class="menu-item @if(Request::segment(2) == 'events' && Request::segment(3) == null) active @endif">
                     <a href="{{ route('events.index') }}" class="menu-link" >
                         <div data-i18n="Pricing">Etkinlik Listesi</div>
+                    </a>
+                </li>
+
+                <li class="menu-item @if(Request::segment(2) == 'zooms') active @endif">
+                    <a href="{{ route('zooms.index') }}" class="menu-link" >
+                        <div data-i18n="Pricing">Zoom/Webinar Listesi</div>
                     </a>
                 </li>
 
