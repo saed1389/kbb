@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\FooterMenu;
 use App\Models\Menu;
 use App\Models\SubMenu;
 use Illuminate\Http\Request;
@@ -159,5 +160,43 @@ class MenuController extends Controller
         }
 
         return response()->json(['status' => '200']);
+    }
+
+    public function footerMenu()
+    {
+        $menus = Menu::where('status', 1)->get();
+        $rightMenus = FooterMenu::where('position', 2)->get();
+        $leftMenus = FooterMenu::where('position', 1)->get();
+        return view('admin.menus.footer', compact('menus', 'rightMenus', 'leftMenus'));
+    }
+
+    public function footerMenuStore(Request $request)
+    {
+        //dd($request);
+        $request->validate([
+            'menu_id' => 'required',
+            'position' => 'required'
+        ]);
+
+        FooterMenu::create([
+            'menu_id' => $request->menu_id,
+            'position' => $request->position,
+        ]);
+
+        $notification = array(
+            'message' => "Menü başarıyla eklendi!",
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+    }
+
+    public function footerMenuEdit($id)
+    {
+        $footer = FooterMenu::where('id', $id)->first();
+        $menus = Menu::where('status', 1)->get();
+        $rightMenus = FooterMenu::where('position', 2)->get();
+        $leftMenus = FooterMenu::where('position', 1)->get();
+        return view('admin.menus.footerEdit', compact('menus', 'rightMenus', 'leftMenus', 'footer'));
     }
 }

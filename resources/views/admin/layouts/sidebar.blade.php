@@ -196,6 +196,11 @@
                         <div data-i18n="Pricing">Eğitim Videoları</div>
                     </a>
                 </li>
+                <li class="menu-item @if(Request::segment(3) == 'torlak' && Request::segment(2) == 'photos') active @endif">
+                    <a href="{{ route('torlak.index') }}" class="menu-link" >
+                        <div data-i18n="Pricing">Torlak</div>
+                    </a>
+                </li>
             </ul>
         </li>
         <li class="menu-item @if(Request::segment(2) == 'scholarships') active @endif">
@@ -226,7 +231,11 @@
                         <div data-i18n="Pricing">Menü Listesi</div>
                     </a>
                 </li>
-
+                <li class="menu-item @if(Request::segment(2) == 'menus' && Request::segment(3) == 'footer') active @endif">
+                    <a href="{{ route('menus.footer-menu') }}" class="menu-link" >
+                        <div data-i18n="Pricing">Footer Menu Yönetimi</div>
+                    </a>
+                </li>
             </ul>
         </li>
 

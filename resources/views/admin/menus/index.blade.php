@@ -1,16 +1,26 @@
 @extends('admin.layouts.app')
-@section('title') Menü Listesi @endsection
+@section('title')
+    Menü Listesi
+@endsection
 @section('content')
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
     <style>
-        #table tr { cursor: move; }
-        #table td { vertical-align: middle; }
-        .dragged { background-color: white; color: white; border-color: white; }
-        .dragged td * { visibility: hidden; }
-        .sortable-icon { cursor: move}
+        #table tr {
+            cursor: move;
+        }
+        #table td {
+            vertical-align: middle;
+        }
+        .dragged {
+            background-color: white;
+            color: white;
+            border-color: white;
+        }
+        .dragged td * {
+            visibility: hidden;
+        }
+        .sortable-icon {
+            cursor: move
+        }
     </style>
     <div class="container-xxl flex-grow-1 container-p-y">
         <div class="card">
@@ -41,8 +51,10 @@
                             <div class="col-md-10">
                                 <h2 class="accordion-header" id="panelsStayOpen-heading{{ $menu->id }}">
                                     <button class="accordion-button collapsed draggable-handle" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse{{ $menu->id }}" aria-expanded="false" aria-controls="panelsStayOpen-collapse{{ $menu->id }}">
-                                        <span class="sortable-icon "><i class="fa-solid fa-bars"></i> &nbsp; &nbsp;</span>
-                                        {{ $menu->title }}
+                                        <span class="sortable-icon ">
+                                            <i class="fa-solid fa-bars"></i> &nbsp; &nbsp;
+                                        </span>
+                                        <strong>{{ $menu->title }}</strong>
                                     </button>
                                 </h2>
                             </div>
@@ -58,10 +70,10 @@
                                     $types = \App\Models\Menu::where('parent_id', $menu->id)->orderBy('menuOrder')->get();
                                 @endphp
                                 <div class="table-responsive">
-                                    <table class="table table-striped" id="table">
+                                    <table class="table table-striped" id="table{{ $menu->id }}">
                                         <thead>
                                         <tr>
-                                            <th style="width: 10px;">#</th>
+                                            <th style="width: 10px;" class="no-sort">#</th>
                                             <th scope="col">MENÜ BAŞLIK</th>
                                             <th scope="col">MENÜ HERF</th>
                                             <th scope="col">OLUŞTURMA</th>
@@ -69,10 +81,10 @@
                                             <th scope="col">İŞLEMLER</th>
                                         </tr>
                                         </thead>
-                                        <tbody id="tableBodyContents">
+                                        <tbody id="tableBodyContents{{ $menu->id }}">
                                         @foreach($types as $type)
-                                            <tr class="task-list tableRow" data-id="{{ $type->id }}">
-                                                <td style="width: 10px;">
+                                            <tr class="tableRow" data-id="{{ $type->id }}">
+                                                <td>
                                                     <i class="fa-solid fa-bars"></i>
                                                 </td>
                                                 <td>
@@ -88,10 +100,10 @@
                                                     {{ $type->hit }}
                                                 </td>
                                                 <td>
-                                                    <a href="{{ route('menus.edit', $type->id) }}" class="btn btn-primary btn-sm"  data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit">
+                                                    <a href="{{ route('menus.edit', $type->id) }}" class="btn btn-primary btn-sm mb-1" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit">
                                                         Düzenle
                                                     </a>
-                                                    <button type="button" href="{{ route('menus.delete', $type->id) }}" id="delete" class="btn btn-danger btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete">
+                                                    <button type="button" href="{{ route('menus.delete', $type->id) }}" class="btn btn-danger btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete">
                                                         Sil
                                                     </button>
                                                 </td>
@@ -109,69 +121,12 @@
     </div>
     @push('scripts')
         <script src="{{ asset('assets/js/code.js') }}"></script>
+        <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/jquery-sortablejs@latest/jquery-sortable.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
-        <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
-        <script type="text/javascript">
-            $(function () {
-
-                $("#table").DataTable({
-                    ordering: false,
-                    searching: false,
-                    paging: false,
-                    info: false
-                });
-
-                $("#tableBodyContents").sortable({
-                    items: "tr",
-                    cursor: 'move',
-                    opacity: 0.5,
-                    update: function() {
-                        sendOrderToServer();
-                    }
-                });
-
-                function sendOrderToServer() {
-                    $.ajaxSetup({
-                        headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        }
-                    });
-                    var order = [];
-                    var token = $('meta[name="csrf-token"]').attr('content');
-
-                    $('tr.tableRow').each(function(index,element) {
-                        order.push({
-                            id: $(this).attr('data-id'),
-                            position: index+1
-                        });
-                    });
-
-                    $.ajax({
-                        type: "POST",
-                        dataType: "json",
-                        url: "{{ route('manus.updateTableOrder') }}",
-                        data: {
-                            _method:'post',
-                            order: order,
-                            _token: token
-                        },
-                        success: function(response) {
-
-                            if (response.status === "200") {
-                                toastr.success("Menü sıralaması başarıyla değiştirildi");
-                            } else {
-                                toastr.error("Bir şeyler yanlış gitti");
-                            }
-                        }
-                    });
-                }
-            });
-        </script>
 
         <script type="text/javascript">
-
             $(function () {
                 new Sortable(document.getElementById('accordionPanelsStayOpenExample'), {
                     handle: '.sortable-icon',
@@ -190,22 +145,14 @@
                         });
                     });
 
-                    $.ajaxSetup({
-                        headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        }
-                    });
-
-                    var token = $('meta[name="csrf-token"]').attr('content');
-
                     $.ajax({
                         type: "POST",
                         dataType: "json",
-                        url: "{{ route('manus.updateAccordionOrder') }}", // Adjust the route name accordingly
+                        url: "{{ route('manus.updateAccordionOrder') }}",
                         data: {
                             _method: 'post',
                             order: order,
-                            _token: token
+                            _token: $('meta[name="csrf-token"]').attr('content')
                         },
                         success: function (response) {
                             if (response.status === "200") {
@@ -215,6 +162,54 @@
                             }
                         }
                     });
+                }
+
+                $(".table").each(function (index, element) {
+                    var tableId = $(element).attr('id');
+                    $("#" + tableId + " tbody").sortable({
+                        items: "tr",
+                        cursor: 'move',
+                        opacity: 0.5,
+                        update: function () {
+                            sendOrderToServer(tableId);
+                        }
+                    }).disableSelection();
+                });
+
+                function sendOrderToServer(tableId) {
+
+                    var order = getOrderArray($("#" + tableId + " tbody tr"));
+                    console.log("Order inside sendOrderToServer:", order);
+
+                    $.ajax({
+                        type: "POST",
+                        dataType: "json",
+                        url: "{{ route('manus.updateTableOrder') }}",
+                        data: {
+                            _method: 'post',
+                            order: order,
+                            _token: $('meta[name="csrf-token"]').attr('content')
+                        },
+                        success: function (response) {
+                            if (response.status === "200") {
+                                toastr.info("Menü sıralaması başarıyla değiştirildi");
+                            } else {
+                                toastr.error("Bir şeyler yanlış gitti");
+                            }
+                        }
+                    });
+                }
+
+                function getOrderArray(rows) {
+                    var order = [];
+                    console.log(order);
+                    rows.each(function (index, element) {
+                        order.push({
+                            id: $(this).data('id'),
+                            position: index + 1
+                        });
+                    });
+                    return order;
                 }
             });
         </script>

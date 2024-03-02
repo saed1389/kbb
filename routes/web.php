@@ -21,6 +21,7 @@ use App\Http\Controllers\Backend\MailListController;
 use App\Http\Controllers\Backend\BulkEmails;
 use App\Http\Controllers\Backend\MenuController;
 use App\Http\Controllers\Backend\SubMenuController;
+use App\Http\Controllers\Backend\TorlakController;
 use App\Http\Controllers\Frontend\IndexController;
 
 /*
@@ -122,9 +123,12 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
         Route::get('menus/delete/{id}', [MenuController::class, 'delete'])->name('menus.delete');
         Route::post('menus/updateAccordionOrder', [MenuController::class, 'updateAccordionOrder'])->name('manus.updateAccordionOrder');
         Route::post('menus/updateTableOrder', [MenuController::class, 'updateTableOrder'])->name('manus.updateTableOrder');
+        Route::get('menus/footer', [MenuController::class, 'footerMenu'])->name('menus.footer-menu');
+        Route::post('menus/footer/store', [MenuController::class, 'footerMenuStore'])->name('menus.footer-menu-store');
+        Route::get('menus/footer/edit', [MenuController::class, 'footerMenuEdit'])->name('menus.footer-menu-edit');
         Route::post('menus/changeStatus/{id}/{status}', [MenuController::class, 'changeStatus']);
 
-        // Menu Routes
+        // SubMenu Routes
         Route::resource('submenus', SubMenuController::class)->except('show', 'destroy');
         Route::get('submenus/delete/{id}', [SubMenuController::class, 'delete'])->name('submenus.delete');
         Route::post('submenus/changeStatus/{id}/{status}', [SubMenuController::class, 'changeStatus']);
@@ -179,6 +183,11 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
             Route::post('videos/updateModal', [VideoController::class, 'updateModal'])->name('videos.updateModal');
             Route::get('videos/delete/{id}', [VideoController::class, 'delete'])->name('videos.delete');
             Route::post('videos/changeStatus/{id}/{status}', [VideoController::class, 'changeStatus']);
+
+            // Torlak Routes
+            Route::resource('torlak', TorlakController::class)->except('destroy', 'show');
+            Route::get('torlak/delete/{id}', [TorlakController::class, 'delete'])->name('torlak.delete');
+            Route::post('torlak/changeStatus/{id}/{status}', [TorlakController::class, 'changeStatus']);
         });
 
         // News Routes
