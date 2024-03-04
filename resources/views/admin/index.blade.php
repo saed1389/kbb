@@ -16,13 +16,13 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-7 col-md-9 col-12 order-2 order-md-1">
-                                        <h6 class="text-white mt-0 mt-md-3 mb-3">Traffic</h6>
+                                        <h6 class="text-white mt-0 mt-md-3 mb-3">&nbsp;</h6>
                                         <div class="row">
                                             <div class="col-6">
                                                 <ul class="list-unstyled mb-0">
                                                     <li class="d-flex mb-4 align-items-center">
                                                         <p class="mb-0 fw-medium me-2 website-analytics-text-bg">Haberlerim</p>
-                                                        <p class="mb-0">113 Adet</p>
+                                                        <p class="mb-0">{{ $myNews }} Adet</p>
                                                     </li>
                                                     <li class="d-flex align-items-center mb-2">
                                                         <p class="mb-0 fw-medium me-2 website-analytics-text-bg">Duyurularım</p>
@@ -34,18 +34,18 @@
                                                 <ul class="list-unstyled mb-0">
                                                     <li class="d-flex mb-4 align-items-center">
                                                         <p class="mb-0 fw-medium me-2 website-analytics-text-bg">Etkinliklerim</p>
-                                                        <p class="mb-0">0 Adet</p>
+                                                        <p class="mb-0">{{ $myEvents }} Adet</p>
                                                     </li>
                                                     <li class="d-flex align-items-center mb-2">
                                                         <p class="mb-0 fw-medium me-2 website-analytics-text-bg">Aktif Üye</p>
-                                                        <p class="mb-0">4327 Adet</p>
+                                                        <p class="mb-0">{{ $activeUsers }} Adet</p>
                                                     </li>
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-5 col-md-3 col-12 order-1 order-md-2 my-4 my-md-0 text-center">
-                                        <img src="{{ Auth::user()->profile_image ? Auth::user()->profile_image : asset('assets/img/logo.png') }}" alt="" width="170" class="card-website-analytics-img">
+                                        <img src="{{ Auth::user()->profile_image ? asset(Auth::user()->profile_image) : asset('assets/img/logo.png') }}" alt="" width="170" class="card-website-analytics-img rounded">
                                     </div>
                                 </div>
                             </div>
@@ -110,7 +110,7 @@
                             <div class="avatar me-2">
                                 <span class="avatar-initial rounded bg-label-primary"><i class="ti ti-news ti-md"></i></span>
                             </div>
-                            <h4 class="ms-1 mb-0">42</h4>
+                            <h4 class="ms-1 mb-0">{{ $allNews }}</h4>
                         </div>
                         <h5 class="mb-1">Toplam Haber</h5>
                     </div>
@@ -123,7 +123,7 @@
                             <div class="avatar me-2">
                                 <span class="avatar-initial rounded bg-label-warning"><i class="ti ti-calendar ti-md"></i></span>
                             </div>
-                            <h4 class="ms-1 mb-0">8</h4>
+                            <h4 class="ms-1 mb-0">{{ $allEvents }}</h4>
                         </div>
                         <h5 class="mb-1">Toplam Etkinlik</h5>
                     </div>
@@ -136,7 +136,7 @@
                             <div class="avatar me-2">
                                 <span class="avatar-initial rounded bg-label-danger"><i class="ti ti-message-2 ti-md"></i></span>
                             </div>
-                            <h4 class="ms-1 mb-0">27</h4>
+                            <h4 class="ms-1 mb-0">{{ $allComments }}</h4>
                         </div>
                         <h5 class="mb-1">Toplam Yorum</h5>
                     </div>
@@ -149,7 +149,7 @@
                             <div class="avatar me-2">
                                 <span class="avatar-initial rounded bg-label-info"><i class="ti ti-users ti-md"></i></span>
                             </div>
-                            <h4 class="ms-1 mb-0">13</h4>
+                            <h4 class="ms-1 mb-0">{{ $allUsers }}</h4>
                         </div>
                         <h5 class="mb-1">Toplam Kullanıcı</h5>
                     </div>
@@ -161,31 +161,26 @@
             <div class="col-md-6 mb-4">
                 <div class="card">
                     <h5 class="card-header">Son Eklediğim Haberler</h5>
-                    <div class="table-responsive text-nowrap">
-                        <table class="table">
-                            <caption class="ms-4">List of Projects</caption>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
                             <thead>
                             <tr>
-                                <th>Project</th>
-                                <th>Client</th>
-                                <th>Users</th>
-                                <th>Status</th>
-                                <th>Actions</th>
+                                <th>#</th>
+                                <th>Haber Başlığı</th>
+                                <th>Oluşturma</th>
+                                <th>Hit</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td><i class="ti ti-brand-angular ti-lg text-danger me-3"></i> <span class="fw-medium">Angular Project</span></td>
-                                <td>Albert Cook</td>
-                                <td>
 
-                                </td>
-                                <td><span class="badge bg-label-primary me-1">Active</span></td>
-                                <td>
-
-                                </td>
-                            </tr>
-
+                            @foreach($lastNews as $item)
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td><a href="{{ route('news.edit', $item->id) }}">{{ $item->title }}</a></td>
+                                    <td>{{ $item->created_at }}</td>
+                                    <td>{{ $item->hit }}</td>
+                                </tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -194,31 +189,26 @@
             <div class="col-md-6 mb-4">
                 <div class="card">
                     <h5 class="card-header">Son Eklediğim Etkinlikler</h5>
-                    <div class="table-responsive text-nowrap">
-                        <table class="table">
-                            <caption class="ms-4">List of Projects</caption>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
                             <thead>
                             <tr>
-                                <th>Project</th>
-                                <th>Client</th>
-                                <th>Users</th>
-                                <th>Status</th>
-                                <th>Actions</th>
+                                <th>#</th>
+                                <th>Haber Başlığı</th>
+                                <th>Oluşturma</th>
+                                <th>Hit</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td><i class="ti ti-brand-angular ti-lg text-danger me-3"></i> <span class="fw-medium">Angular Project</span></td>
-                                <td>Albert Cook</td>
-                                <td>
 
-                                </td>
-                                <td><span class="badge bg-label-primary me-1">Active</span></td>
-                                <td>
-
-                                </td>
-                            </tr>
-
+                            @foreach($lastNews as $item)
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td><a href="{{ route('news.edit', $item->id) }}">{{ $item->title }}</a></td>
+                                    <td>{{ $item->created_at }}</td>
+                                    <td>{{ $item->hit }}</td>
+                                </tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </div>

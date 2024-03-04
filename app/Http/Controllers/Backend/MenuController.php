@@ -191,6 +191,17 @@ class MenuController extends Controller
         return redirect()->back()->with($notification);
     }
 
+    public function footerMenuDelete($id)
+    {
+        FooterMenu::where('id', $id)->delete();
+        $notification = array(
+            'message' => "Menü başarıyla silindi!",
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('menus.footer-menu')->with($notification);
+    }
+
     public function footerMenuEdit($id)
     {
         $footer = FooterMenu::where('id', $id)->first();
@@ -198,5 +209,25 @@ class MenuController extends Controller
         $rightMenus = FooterMenu::where('position', 2)->get();
         $leftMenus = FooterMenu::where('position', 1)->get();
         return view('admin.menus.footerEdit', compact('menus', 'rightMenus', 'leftMenus', 'footer'));
+    }
+
+    public function footerMenuUpdate(Request $request, $id)
+    {
+        $request->validate([
+            'menu_id' => 'required',
+            'position' => 'required'
+        ]);
+
+        FooterMenu::where('id', $id)->update([
+            'menu_id' => $request->menu_id,
+            'position' => $request->position,
+        ]);
+
+        $notification = array(
+            'message' => "Menü başarıyla güncelle!",
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
     }
 }

@@ -29,11 +29,11 @@
                         </a>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row mt-4">
                     <div class="col-md-9">
                         <div class="row">
                             <div class="col-md-6">
-                                <h5>Left Menu</h5>
+                                <h5>DERNEĞİMİZ</h5>
                                 <div class="table table-striped">
                                     <table class="table">
                                         <thead>
@@ -63,8 +63,8 @@
                                                     </label>
                                                 </td>
                                                 <td>
-                                                    <button type="button" value="{{ $item->id }}" class="btn btn-label-primary btn-sm waves-effect editBtn mb-1" >Düzenle</button>
-                                                    <button type="button" href="{{ route('titles.delete', $item->id) }}" class="btn btn-label-danger btn-sm waves-effect" id="delete">Sil</button>
+                                                    <a href="{{ route('menus.footer-menu-edit', $item->id) }}" class="btn btn-label-primary btn-sm waves-effect editBtn mb-1" >Düzenle</a>
+                                                    <button type="button" href="{{ route('menus.footer-delete', $item->id) }}" class="btn btn-label-danger btn-sm waves-effect" id="delete">Sil</button>
                                                 </td>
                                             </tr>
                                         @empty
@@ -77,7 +77,7 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <h5>Right Menu</h5>
+                                <h5>BİLGİ MERKEZİ</h5>
                                 <div class="table table-striped">
                                     <table class="table">
                                         <thead>
@@ -107,8 +107,8 @@
                                                     </label>
                                                 </td>
                                                 <td>
-                                                    <button type="button" value="{{ $item->id }}" class="btn btn-label-primary btn-sm waves-effect editBtn mb-1" >Düzenle</button>
-                                                    <button type="button" href="{{ route('titles.delete', $item->id) }}" class="btn btn-label-danger btn-sm waves-effect" id="delete">Sil</button>
+                                                    <a href="{{ route('menus.footer-menu-edit', $item->id) }}" class="btn btn-label-primary btn-sm waves-effect editBtn mb-1" >Düzenle</a>
+                                                    <button type="button" href="{{ route('menus.footer-delete', $item->id) }}" class="btn btn-label-danger btn-sm waves-effect" id="delete">Sil</button>
                                                 </td>
                                             </tr>
                                         @empty
@@ -127,14 +127,14 @@
                         <div class="card mb-4">
                             <h5 class="card-header">Alt bilgi menüleri</h5>
                             <div class="card-body">
-                                <form action="{{ route('menus.footer-menu-store') }}" method="post">
+                                <form action="{{ route('menus.footer-menu-update', $footer->id) }}" method="post">
                                     @csrf
                                     <div class="mt-3">
                                         <label for="menu_id" class="form-label">Menüler</label>
                                         <select id="menu_id" name="menu_id" class="select2 form-select form-select-lg" data-allow-clear="true" required>
                                             <option selected disabled>Lütfen seçin... </option>
                                             @foreach($menus as $menu)
-                                                <option value="{{ $menu->id }}">{{ $menu->title }}</option>
+                                                <option value="{{ $menu->id }}" @selected($menu->id == $footer->menu_id)>{{ $menu->title }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -143,12 +143,12 @@
                                         <label for="position" class="form-label">Menüler</label>
                                         <select id="position" name="position" class="form-select" required>
                                             <option selected disabled>Lütfen seçin... </option>
-                                            <option value="1">DERNEĞİMİZ</option>
-                                            <option value="2">BİLGİ MERKEZİ</option>
+                                            <option value="1" @selected($footer->position == 1) >DERNEĞİMİZ</option>
+                                            <option value="2" @selected($footer->position == 2) >BİLGİ MERKEZİ</option>
                                         </select>
                                     </div>
                                     <div class="mt-3">
-                                        <button class="btn btn-success" >Ekle</button>
+                                        <button class="btn btn-success" >Düzenle</button>
                                     </div>
                                 </form>
 
@@ -159,8 +159,9 @@
             </div>
         </div>
     </div>
-@push('scripts')
-    <script src="{{ asset('assets/vendor/libs/select2/select2.js') }}"></script>
-    <script src="{{ asset('assets/js/forms-selects.js') }}"></script>
-@endpush
+    @push('scripts')
+        <script src="{{ asset('assets/js/code.js') }}"></script>
+        <script src="{{ asset('assets/vendor/libs/select2/select2.js') }}"></script>
+        <script src="{{ asset('assets/js/forms-selects.js') }}"></script>
+    @endpush
 @endsection

@@ -1,44 +1,4 @@
-/*-----------------------------------------------------------------------------------
 
-    Theme Name: Poorex - Nonprofit Charity HTML Template
-    Author: Theme Pure
-    Support: https://help.themepure.net/support/
-    Version: 1.0
-
------------------------------------------------------------------------------------
-
-/************ TABLE OF CONTENTS ***************
-
-    01. theme default css
-	02. header css start
-	03. about css start
-	04. blog css star
-	05. brand css start
-	06. contact css start
-	07. cta css start
-	08. donation css start
-	09. error css start
-	10. event css start
-	11. faq css start
-	12. feature css start
-	13. funfact css start
-	14. gallery css start
-	15. mission css start
-	16. providing css start
-	17. service css start
-	18. shop css start
-	19. slider css start
-	20. team css start
-	21. testimonial css start
-	22. checkout css start
-    23. cart css start
-	24. login css start
-	25. footer css start
-
-**********************************************/
-/*----------------------------------------
- 01. THEME DEFAULT CSS START
-----------------------------------------*/
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet');
 :root {
     /**
@@ -53,14 +13,14 @@
     --tp-common-white: #ffffff;
     --tp-common-black: #000000;
     --tp-common-orange: #fe7f4c;
-    --tp-heading-primary: #1e3737;
+    --tp-heading-primary: #212da9;
     --tp-grey-1: #f2f7f7;
     --tp-grey-2: #8b9e9e;
     --tp-text-body: #6e7a7a;
-    --tp-theme-1: #1e3737;
-    --tp-theme-2: #07847f;
+    --tp-theme-1: #212da8;
+    --tp-theme-2: #b0cbec;
     --tp-theme-3: #8fe1de;
-    --tp-border-1: #385656;
+    --tp-border-1: #3126a7;
     --tp-border-2: #edefef;
 }
 
@@ -2838,7 +2798,7 @@ input[type=text], input[type=email], input[type=tel], input[type=number], input[
     right: -60px;
     height: 25px;
     width: 60px;
-    background-color: #047470;
+    background-color: #3126a7;
     content: "";
     clip-path: polygon(100% 0, 0 0, 0 100%);
 }
@@ -7282,7 +7242,7 @@ input[type=text], input[type=email], input[type=tel], input[type=number], input[
 /*  15. mission css start
 /*----------------------------------------*/
 .tp-mission-2__space {
-    padding: 120px 0;
+    padding: 75px 0;
 }
 @media (max-width: 767px) {
     .tp-mission-2__space {

@@ -36,7 +36,7 @@ use App\Http\Controllers\Frontend\IndexController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontend.index');
 });
 
 Route::post('/province/fetch-city', [IndexController::class,'province_fetch_city'])->name('province.fetch-city');
@@ -125,7 +125,10 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
         Route::post('menus/updateTableOrder', [MenuController::class, 'updateTableOrder'])->name('manus.updateTableOrder');
         Route::get('menus/footer', [MenuController::class, 'footerMenu'])->name('menus.footer-menu');
         Route::post('menus/footer/store', [MenuController::class, 'footerMenuStore'])->name('menus.footer-menu-store');
-        Route::get('menus/footer/edit', [MenuController::class, 'footerMenuEdit'])->name('menus.footer-menu-edit');
+        Route::get('menus/delete/{id}', [MenuController::class, 'footerMenuDelete'])->name('menus.footer-delete');
+        Route::get('menus/footer/edit/{id}', [MenuController::class, 'footerMenuEdit'])->name('menus.footer-menu-edit');
+        Route::post('menus/footer/update/{id}', [MenuController::class, 'footerMenuUpdate'])->name('menus.footer-menu-update');
+
         Route::post('menus/changeStatus/{id}/{status}', [MenuController::class, 'changeStatus']);
 
         // SubMenu Routes

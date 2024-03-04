@@ -29,11 +29,11 @@
                         </a>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row mt-4">
                     <div class="col-md-9">
                         <div class="row">
                             <div class="col-md-6">
-                                <h5>Left Menu</h5>
+                                <h5>DERNEĞİMİZ</h5>
                                 <div class="table table-striped">
                                     <table class="table">
                                         <thead>
@@ -63,8 +63,8 @@
                                                     </label>
                                                 </td>
                                                 <td>
-                                                    <button type="button" value="{{ $item->id }}" class="btn btn-label-primary btn-sm waves-effect editBtn mb-1" >Düzenle</button>
-                                                    <button type="button" href="{{ route('titles.delete', $item->id) }}" class="btn btn-label-danger btn-sm waves-effect" id="delete">Sil</button>
+                                                    <a href="{{ route('menus.footer-menu-edit', $item->id) }}" class="btn btn-label-primary btn-sm waves-effect editBtn mb-1" >Düzenle</a>
+                                                    <button type="button" href="{{ route('menus.footer-delete', $item->id) }}" class="btn btn-label-danger btn-sm waves-effect" id="delete">Sil</button>
                                                 </td>
                                             </tr>
                                         @empty
@@ -77,7 +77,7 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <h5>Right Menu</h5>
+                                <h5>BİLGİ MERKEZİ</h5>
                                 <div class="table table-striped">
                                     <table class="table">
                                         <thead>
@@ -107,8 +107,8 @@
                                                     </label>
                                                 </td>
                                                 <td>
-                                                    <button type="button" value="{{ $item->id }}" class="btn btn-label-primary btn-sm waves-effect editBtn mb-1" >Düzenle</button>
-                                                    <button type="button" href="{{ route('titles.delete', $item->id) }}" class="btn btn-label-danger btn-sm waves-effect" id="delete">Sil</button>
+                                                    <a href="{{ route('menus.footer-menu-edit', $item->id) }}" class="btn btn-label-primary btn-sm waves-effect editBtn mb-1" >Düzenle</a>
+                                                    <button type="button" href="{{ route('menus.footer-delete', $item->id) }}" class="btn btn-label-danger btn-sm waves-effect" id="delete">Sil</button>
                                                 </td>
                                             </tr>
                                         @empty
@@ -160,6 +160,7 @@
         </div>
     </div>
 @push('scripts')
+    <script src="{{ asset('assets/js/code.js') }}"></script>
     <script src="{{ asset('assets/vendor/libs/select2/select2.js') }}"></script>
     <script src="{{ asset('assets/js/forms-selects.js') }}"></script>
 @endpush

@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\City;
+use App\Models\Comment;
 use App\Models\Country;
+use App\Models\Event;
+use App\Models\News;
 use App\Models\Provinces;
 use App\Models\User;
 use App\Models\UserJob;
@@ -46,7 +49,17 @@ class HomeController extends Controller
      */
     public function adminHome(): View
     {
-        return view('admin.index');
+        $myNews = News::where('created_by', Auth::user()->id)->where('status', 1)->count();
+        $myEvents = Event::where('created_by', Auth::user()->id)->where('status', 1)->count();
+        $activeUsers = User::where('status', 1)->where('apply', 1)->count();
+        $allNews = News::where('status', 1)->count();
+        $allEvents = Event::where('status', 1)->count();
+        $allComments = Comment::count();
+        $allUsers = User::count();
+        $lastNews = News::where('status', 1)->orderBy('id', 'desc')->limit(10)->get();
+        $lastEvents = Event::where('status', 1)->orderBy('id', 'desc')->limit(10)->get();
+
+        return view('admin.index', compact('activeUsers', 'myEvents', 'myNews', 'allEvents', 'allNews', 'allComments', 'allUsers', 'lastEvents', 'lastNews'));
     }
 
     public function profileShow($id)
@@ -157,7 +170,7 @@ class HomeController extends Controller
         $name_gen = @$user->first_name.'-'.@$user->last_name.'-'.uniqid().'.'.$request->file('icon')->getClientOriginalExtension();
         $img1 = $manager->read($request->file('icon'));
         $imgSmall = $img1->scale(500, 355);
-        $imgSmall->toJpeg(80)->save(base_path('public/uploads/users/images/'.$name_gen));
+        $imgSmall->toPng(80)->save(base_path('public/uploads/users/images/'.$name_gen));
         $save_url = 'uploads/users/images/'.$name_gen;
         @unlink($user->profile_image);
         User::where('id', $id)->update([
