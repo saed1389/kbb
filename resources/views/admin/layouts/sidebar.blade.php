@@ -221,7 +221,17 @@
                 <div data-i18n="Front Pages"><strong>Menü Yönetimi</strong></div>
             </a>
             <ul class="menu-sub ">
-                <li class="menu-item @if(Request::segment(2) == 'menus' && Request::segment(3) == 'create') active @endif">
+                <li class="menu-item @if(Request::segment(2) == 'menus' && Request::segment(3) == 'presidents') active @endif">
+                    <a href="{{ route('presidents.index') }}" class="menu-link" >
+                        <div data-i18n="Landing">Başkanlarımız</div>
+                    </a>
+                </li>
+                <li class="menu-item @if(Request::segment(2) == 'menus' && Request::segment(3) == 'directors') active @endif">
+                    <a href="{{ route('directors.index') }}" class="menu-link" >
+                        <div data-i18n="Landing">Yönetim Kurulu</div>
+                    </a>
+                </li>
+                {{--<li class="menu-item @if(Request::segment(2) == 'menus' && Request::segment(3) == 'create') active @endif">
                     <a href="{{ route('menus.create') }}" class="menu-link" >
                         <div data-i18n="Landing">Menü Ekle</div>
                     </a>
@@ -230,12 +240,12 @@
                     <a href="{{ route('menus.index') }}" class="menu-link" >
                         <div data-i18n="Pricing">Menü Listesi</div>
                     </a>
-                </li>
-                <li class="menu-item @if(Request::segment(2) == 'menus' && Request::segment(3) == 'footer') active @endif">
+                </li>--}}
+                {{--<li class="menu-item @if(Request::segment(2) == 'menus' && Request::segment(3) == 'footer') active @endif">
                     <a href="{{ route('menus.footer-menu') }}" class="menu-link" >
                         <div data-i18n="Pricing">Footer Menu Yönetimi</div>
                     </a>
-                </li>
+                </li>--}}
             </ul>
         </li>
 

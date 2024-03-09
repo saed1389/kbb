@@ -17,6 +17,8 @@ use App\Http\Controllers\Backend\EventController;
 use App\Http\Controllers\Backend\VideoController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\ZoomController;
+use App\Http\Controllers\Backend\PresidentController;
+use App\Http\Controllers\Backend\DirectorController;
 use App\Http\Controllers\Backend\MailListController;
 use App\Http\Controllers\Backend\BulkEmails;
 use App\Http\Controllers\Backend\MenuController;
@@ -72,6 +74,7 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
         Route::post('profile-file-store/{id}', [HomeController::class, 'fileStore'])->name('profile-file-store');
 
         Route::prefix('users')->group(function () {
+
             // User Title Routes
             Route::resource('titles', UserTitleController::class)->except('show', 'create', 'destroy', 'update', 'edit');
             Route::get('titles/delete/{id}', [UserTitleController::class, 'delete'])->name('titles.delete');
@@ -120,14 +123,23 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
 
         // Menu Routes
         Route::resource('menus', MenuController::class)->except('show', 'destroy');
-        Route::get('menus/delete/{id}', [MenuController::class, 'delete'])->name('menus.delete');
-        Route::post('menus/updateAccordionOrder', [MenuController::class, 'updateAccordionOrder'])->name('manus.updateAccordionOrder');
-        Route::post('menus/updateTableOrder', [MenuController::class, 'updateTableOrder'])->name('manus.updateTableOrder');
-        Route::get('menus/footer', [MenuController::class, 'footerMenu'])->name('menus.footer-menu');
-        Route::post('menus/footer/store', [MenuController::class, 'footerMenuStore'])->name('menus.footer-menu-store');
-        Route::get('menus/delete/{id}', [MenuController::class, 'footerMenuDelete'])->name('menus.footer-delete');
-        Route::get('menus/footer/edit/{id}', [MenuController::class, 'footerMenuEdit'])->name('menus.footer-menu-edit');
-        Route::post('menus/footer/update/{id}', [MenuController::class, 'footerMenuUpdate'])->name('menus.footer-menu-update');
+        Route::prefix('menus/')->group(function (){
+            Route::resource('presidents', PresidentController::class)->except('show', 'create', 'destroy');
+            Route::post('presidents/changeStatus/{id}/{status}', [PresidentController::class, 'changeStatus']);
+            Route::get('presidents/delete/{id}', [PresidentController::class, 'delete'])->name('presidents.delete');
+            Route::resource('directors', DirectorController::class)->except('show', 'create', 'destroy');
+            Route::post('directors/changeStatus/{id}/{status}', [DirectorController::class, 'changeStatus']);
+            Route::get('directors/delete/{id}', [DirectorController::class, 'delete'])->name('directors.delete');
+            /*Route::get('/delete/{id}', [MenuController::class, 'delete'])->name('menus.delete');
+            Route::post('/updateAccordionOrder', [MenuController::class, 'updateAccordionOrder'])->name('manus.updateAccordionOrder');
+            Route::post('/updateTableOrder', [MenuController::class, 'updateTableOrder'])->name('manus.updateTableOrder');*/
+            /*Route::get('/footer', [MenuController::class, 'footerMenu'])->name('menus.footer-menu');
+            Route::post('/footer/store', [MenuController::class, 'footerMenuStore'])->name('menus.footer-menu-store');
+            Route::get('/delete/{id}', [MenuController::class, 'footerMenuDelete'])->name('menus.footer-delete');
+            Route::get('/footer/edit/{id}', [MenuController::class, 'footerMenuEdit'])->name('menus.footer-menu-edit');
+            Route::post('/footer/update/{id}', [MenuController::class, 'footerMenuUpdate'])->name('menus.footer-menu-update');*/
+        });
+
 
         Route::post('menus/changeStatus/{id}/{status}', [MenuController::class, 'changeStatus']);
 

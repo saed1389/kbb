@@ -194,14 +194,14 @@
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Haber Başlığı</th>
+                                <th>Etkinli Başlığı</th>
                                 <th>Oluşturma</th>
                                 <th>Hit</th>
                             </tr>
                             </thead>
                             <tbody>
 
-                            @foreach($lastNews as $item)
+                            @foreach($lastEvents as $item)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td><a href="{{ route('news.edit', $item->id) }}">{{ $item->title }}</a></td>
