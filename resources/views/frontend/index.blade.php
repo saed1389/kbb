@@ -70,7 +70,10 @@
                 margin: 1em 0 10px;
 
             }
-
+            .swiper-pagination-vertical.swiper-pagination-bullets, .swiper-vertical>.swiper-pagination-bullets {
+                right: var(--swiper-pagination-right,25px) !important;
+                left: var(--swiper-pagination-left,auto) !important;
+            }
             /* Responsive styles */
             @media (min-width: 768px) {
                 .news-slider article {
@@ -123,14 +126,13 @@
             @media screen and (max-width: 992px) {
                 .blog-slider {
                     max-width: 680px;
-                    height: 400px;
+                    height: 500px;
+                    top: 0 !important;
                 }
             }
             @media screen and (max-width: 768px) {
                 .blog-slider {
-                    min-height: 500px;
-                    height: auto;
-                    margin: 180px auto;
+                    margin-top: 100px;
                 }
             }
             @media screen and (max-height: 500px) and (min-width: 992px) {
@@ -327,10 +329,14 @@
                     justify-content: center;
                     align-items: center;
                 }
+                .swiper-pagination-vertical.swiper-pagination-bullets, .swiper-vertical>.swiper-pagination-bullets {
+                    top: 40% !important;
+                }
             }
             .blog-slider__pagination.swiper-pagination-bullets .swiper-pagination-bullet {
                 margin: 8px 0;
             }
+
             .swiper-container-vertical>.swiper-pagination-bullets {
                 right: 30px;
             }
@@ -352,8 +358,8 @@
             .blog-slider__pagination .swiper-pagination-bullet-active {
                 opacity: 1;
                 background: #3126a6;
-                height: 30px;
-                width: 30px;
+                height: 30px !important;
+                width: 30px !important;
                 color: white;
                 padding-top: 3px;
                 border-radius: 50%;
@@ -676,72 +682,13 @@
                                 <div class="swiper-container tp-brand-2__active swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events">
                                     <div class="swiper-wrapper" id="swiper-wrapper-ef8dcc84b935d910a" aria-live="polite" style="transform: translate3d(-235.2px, 0px, 0px); transition-duration: 0ms;">
                                         <div class="swiper-slide swiper-slide-duplicate swiper-slide-prev" data-swiper-slide-index="0" style="width: 235.2px;" role="group" aria-label="1 / 15">
-                                            <div class="tp-brand-2__item text-center">
-                                                <img src="{{ asset('front/assets/img/brand/brand-2-1.png') }}" alt="">
-                                            </div>
-                                        </div><div class="swiper-slide swiper-slide-duplicate swiper-slide-active" data-swiper-slide-index="1" style="width: 235.2px;" role="group" aria-label="2 / 15">
-                                            <div class="tp-brand-2__item text-center">
-                                                <img src="{{ asset('front/assets/img/brand/brand-2-2.png') }}" alt="">
-                                            </div>
-                                        </div><div class="swiper-slide swiper-slide-duplicate swiper-slide-next" data-swiper-slide-index="2" style="width: 235.2px;" role="group" aria-label="3 / 15">
-                                            <div class="tp-brand-2__item text-center">
-                                                <img src="{{ asset('front/assets/img/brand/brand-2-3.png') }}" alt="">
-                                            </div>
-                                        </div><div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="3" style="width: 235.2px;" role="group" aria-label="4 / 15">
-                                            <div class="tp-brand-2__item text-center">
-                                                <img src="{{ asset('front/assets/img/brand/brand-2-4.png') }}" alt="">
-                                            </div>
-                                        </div><div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="4" style="width: 235.2px;" role="group" aria-label="5 / 15">
-                                            <div class="tp-brand-2__item text-center">
-                                                <img src="{{ asset('front/assets/img/brand/brand-2-2.png') }}" alt="">
-                                            </div>
+                                            <a data-container="#events" data-html="true" data-placement="bottom" data-trigger="focus" data-toggle="popover" tabindex="0" title="" data-content="<i class='fa fa-calendar' aria-hidden='true'></i> 19 Mart 2024 Salı<br><i class='fa fa-map-marker' aria-hidden='true'></i>  Online-Zoom  <br><i class='fa fa-link' aria-hidden='true'></i> <a href='https://www.kbb.org.tr/haber/kbb-platform-online-toplantisi--mart-12824' target='_blank'>Detay</a><br>" data-original-title="KBB Platform Onlıne Toplantısı&quot; Alerjik Rinitin Güncel Yönetimi&quot; <hr>" aria-describedby="popover769845">
+                                                <div class="eventbg">
+                                                    <div class="ayfont">Mart</div><div class="gunfont">19</div><div class="yilfont">2024</div>
+                                                </div>
+                                            </a>
                                         </div>
-                                        <div class="swiper-slide swiper-slide-duplicate-prev" data-swiper-slide-index="0" style="width: 235.2px;" role="group" aria-label="6 / 15">
-                                            <div class="tp-brand-2__item text-center">
-                                                <img src="{{ asset('front/assets/img/brand/brand-2-1.png') }}" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide swiper-slide-duplicate-active" data-swiper-slide-index="1" style="width: 235.2px;" role="group" aria-label="7 / 15">
-                                            <div class="tp-brand-2__item text-center">
-                                                <img src="{{ asset('front/assets/img/brand/brand-2-2.png') }}" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide swiper-slide-duplicate-next" data-swiper-slide-index="2" style="width: 235.2px;" role="group" aria-label="8 / 15">
-                                            <div class="tp-brand-2__item text-center">
-                                                <img src="{{ asset('front/assets/img/brand/brand-2-3.png') }}" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide" data-swiper-slide-index="3" style="width: 235.2px;" role="group" aria-label="9 / 15">
-                                            <div class="tp-brand-2__item text-center">
-                                                <img src="{{ asset('front/assets/img/brand/brand-2-4.png') }}" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide" data-swiper-slide-index="4" style="width: 235.2px;" role="group" aria-label="10 / 15">
-                                            <div class="tp-brand-2__item text-center">
-                                                <img src="{{ asset('front/assets/img/brand/brand-2-2.png') }}" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="0" style="width: 235.2px;" role="group" aria-label="11 / 15">
-                                            <div class="tp-brand-2__item text-center">
-                                                <img src="{{ asset('front/assets/img/brand/brand-2-1.png') }}" alt="">
-                                            </div>
-                                        </div><div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="1" style="width: 235.2px;" role="group" aria-label="12 / 15">
-                                            <div class="tp-brand-2__item text-center">
-                                                <img src="{{ asset('front/assets/img/brand/brand-2-2.png') }}" alt="">
-                                            </div>
-                                        </div><div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="2" style="width: 235.2px;" role="group" aria-label="13 / 15">
-                                            <div class="tp-brand-2__item text-center">
-                                                <img src="{{ asset('front/assets/img/brand/brand-2-3.png') }}" alt="">
-                                            </div>
-                                        </div><div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="3" style="width: 235.2px;" role="group" aria-label="14 / 15">
-                                            <div class="tp-brand-2__item text-center">
-                                                <img src="{{ asset('front/assets/img/brand/brand-2-4.png') }}" alt="">
-                                            </div>
-                                        </div><div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="4" style="width: 235.2px;" role="group" aria-label="15 / 15">
-                                            <div class="tp-brand-2__item text-center">
-                                                <img src="{{ asset('front/assets/img/brand/brand-2-2.png') }}" alt="">
-                                            </div>
-                                        </div>
+
                                     </div>
                                     <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
                                 </div>

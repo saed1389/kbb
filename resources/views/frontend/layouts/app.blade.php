@@ -50,7 +50,6 @@
                         <div class="search__logo">
                             <a href="/">
                                 <img src="{{ asset('assets/img/logo.png') }}" alt="" class="w-50">
-                                {{--<object data="{{ asset('assets/img/kbb-logo.svg') }}"/>--}}
                             </a>
                         </div>
                         <div class="search__close">
@@ -65,7 +64,7 @@
                     <div class="search__form">
                         <form action="#">
                             <div class="search__input">
-                                <input class="search-input-field" type="text" placeholder="Type here to search...">
+                                <input class="search-input-field" type="text" placeholder="Aramak için buraya yazınız...">
                                 <span class="search-focus-border"></span>
                                 <button type="submit">
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -91,51 +90,34 @@
         </div>
         <div class="tpoffcanvas__logo">
             <a href="/">
-                <img src="{{ asset('front/assets/img/logo/footer-1.png') }}" alt="">
+                <img src="{{ asset('assets/img/logo.png') }}" alt="" class="w-50">
             </a>
-        </div>
-        <div class="tpoffcanvas__title">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima incidunt eaque a cumque, porro maxime autem sed.</p>
         </div>
         <div class="tp-main-menu-mobile d-xl-none"></div>
         <div class="tpoffcanvas__contact-info">
             <div class="tpoffcanvas__contact-title">
-                <h5>Contact us</h5>
+                <h5>Bize Ulaşın</h5>
             </div>
             <ul>
                 <li>
                     <i class="fa-light fa-location-dot"></i>
-                    <a href="https://www.google.com/maps/@23.8223586,90.3661283,15z" target="_blank">Melbone st, Australia, Ny 12099</a>
+                    <a href="javascript:void (0)" >Çobançeşme Sanayi Cad. No:44 Nish İstanbul A Blok Daire: 8 Yenibosna-İstanbul</a>
                 </li>
                 <li>
                     <i class="fas fa-envelope"></i>
-                    <a href="mailto:solaredge@gmail.com">themepure@gmail.com</a>
+                    <a href="mailto:kbb@kbb.org.tr">kbb@kbb.org.tr</a>
                 </li>
                 <li>
                     <i class="fal fa-phone-alt"></i>
-                    <a href="tel:+48555223224">+48 555 223 224</a>
+                    <a href="tel:+902122344481">90 (212) 234 44 81</a>
                 </li>
             </ul>
         </div>
-        <div class="tpoffcanvas__input">
-            <div class="tpoffcanvas__input-title">
-                <h4>Get UPdate</h4>
-            </div>
-            <form action="#">
-                <div class="p-relative">
-                    <input type="text" placeholder="Enter mail">
-                    <button>
-                        <i class="fas fa-paper-plane"></i>
-                    </button>
-                </div>
-            </form>
-        </div>
         <div class="tpoffcanvas__social">
             <div class="social-icon">
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                <a href="https://twitter.com/tkbbvebbcd" target="-_blank"><i class="fab fa-x"></i></a>
+                <a href="https://www.instagram.com/tkbbvebbcd/" target="-_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/T%C3%BCrk-Kulak-Burun-Bo%C4%9Faz-ve-Ba%C5%9F-Boyun-Cerrahisi-Derne%C4%9Fi-493168617369439/" target="-_blank"><i class="fab fa-facebook-f"></i></a>
             </div>
         </div>
     </div>

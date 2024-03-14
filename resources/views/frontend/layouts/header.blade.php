@@ -1,7 +1,7 @@
 <header class="tp-header-height">
     <div id="header-sticky" class="tp-header__left-wrap p-relative">
-        <div class="tp-header__logo ">
-            <a class="text-center" href="/"><img src="{{ asset('assets/img/logo.png') }}" class="w-50" alt=""></a>
+        <div class="tp-header__logo">
+            <a class="text-center" href="/"><img src="{{ asset('assets/img/logo.png') }}" class="w-75" alt=""></a>
         </div>
         <div class="tp-header__right-wrap tp-header__plr">
             <!-- header-top-area-start -->
@@ -11,13 +11,12 @@
                         <div class="col-xxl-6 col-xl-5 col-lg-7 col-md-8">
                             <div class="tp-header-top__left-box">
                                 <ul>
-                                    <li><span>Connect with our charity</span></li>
+                                    <li><span>Sosyal medyamıza bağlanın</span></li>
                                     <li>
                                         <div class="tp-header-top__social">
-                                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                            <a href="#"><i class="fab fa-instagram"></i></a>
-                                            <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                                            <a href="#"><i class="fab fa-twitter"></i></a>
+                                            <a href="https://www.facebook.com/T%C3%BCrk-Kulak-Burun-Bo%C4%9Faz-ve-Ba%C5%9F-Boyun-Cerrahisi-Derne%C4%9Fi-493168617369439/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                                            <a href="https://www.instagram.com/tkbbvebbcd/" target="_blank"><i class="fab fa-instagram"></i></a>
+                                            <a href="https://twitter.com/tkbbvebbcd" target="_blank"><i class="fab fa-x"></i></a>
                                         </div>
                                     </li>
                                 </ul>
@@ -26,8 +25,7 @@
                         <div class="col-xxl-6 col-xl-7 col-lg-5 col-md-4">
                             <div class="tp-header-top__right-box text-end">
                                 <ul>
-                                    <li class="location"><i class="fa-solid fa-location-dot"></i><a target="_blank" href="https://www.google.com/maps/place/%E0%A6%AE%E0%A6%BE%E0%A6%B0%E0%A7%8D%E0%A6%95%E0%A6%BF%E0%A6%A8+%E0%A6%AF%E0%A7%81%E0%A6%95%E0%A7%8D%E0%A6%A4%E0%A6%B0%E0%A6%BE%E0%A6%B7%E0%A7%8D%E0%A6%9F%E0%A7%8D%E0%A6%B0/@39.7270203,-104.9556871,14z/data=!4m6!3m5!1s0x54eab584e432360b:0x1c3bb99243deb742!8m2!3d37.09024!4d-95.712891!16zL20vMDljN3cw?entry=ttu">66 Broklyne  Golden Street, USA</a></li>
-                                    <li><i class="fa-solid fa-envelope"></i><a href="mailto:needhelp@company.com">needhelp@company.com</a></li>
+                                    <li><i class="fa-solid fa-envelope"></i><a href="mailto:kbb@kbb.org.tr"> kbb@kbb.org.tr</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -40,56 +38,80 @@
             <div class="tp-header__area tp-header__space">
                 <div class="container-fluid">
                     <div class="row align-items-center">
-                        <div class="col-xxl-6 col-xl-8 col-lg-8 d-none d-lg-block">
+                        <div class="col-xxl-10 col-xl-10 col-lg-10 d-none d-lg-block">
                             <div class="tp-header__main-menu">
                                 <nav class="tp-main-menu-content">
                                     <ul>
                                         <li>
-                                            <a href="index.html">Home</a>
+                                            <a href="#"><i class="fa fa-home"></i></a>
                                         </li>
-                                        <li class="has-dropdown"><a href="#">Pages</a>
-                                            <ul class="submenu tp-submenu">
-                                                <li><a href="about-us.html">About Us</a></li>
-                                                <li><a href="team.html">Team</a></li>
-                                                <li><a href="team-details.html">Team Details</a></li>
-                                                <li><a href="portfolio.html">Portfolio</a></li>
-                                                <li><a href="shop.html">Shop</a></li>
-                                                <li><a href="shop-details.html">Shop Details</a></li>
-                                                <li><a href="cart.html">Cart</a></li>
-                                                <li><a href="checkout.html">Checkout</a></li>
-                                                <li><a href="faq.html">Faq</a></li>
-                                                <li><a href="login.html">Login</a></li>
-                                                <li><a href="register.html">Register</a></li>
-                                                <li><a href="error.html">Error</a></li>
+                                        <li class="has-dropdown"><a href="#">Derneğimiz <i class="fa fa-angle-down saed"></i></a>
+                                            <ul class="submenu tp-submenu two-columns">
+                                                <li><a href="#">Başkanlarımız</a></li>
+                                                <li><a href="#">Yönetim Kurulu</a></li>
+                                                <li><a href="#">Kurullar</a></li>
+                                                <li><a href="#">Tüzük</a></li>
+                                                <li><a href="#">Tarihçe</a></li>
+                                                <li><a href="#">İktisadi İşletme</a></li>
+                                                <li><a href="#">Kararlar</a></li>
+                                                <li><a href="#">Yönetmelik ve Yönergeler</a></li>
+                                                <li><a href="#">Tanıtım Filmi</a></li>
+                                                <li><a href="#">Kalite Politikası Misyon ve Vizyonumuz</a></li>
                                             </ul>
                                         </li>
-                                        <li class="has-dropdown"><a href="donation-details.html">Donation</a>
-                                            <ul class="submenu tp-submenu">
-                                                <li><a href="donation-1.html">Donation 01</a></li>
-                                                <li><a href="donation-2.html">Donation 02</a></li>
-                                                <li><a href="donation-sidebar.html">Donation Sidebar</a></li>
-                                                <li><a href="donation-details.html">Donation Details</a></li>
+                                        <li class="has-dropdown"><a href="#">Bilgi Merkezi <i class="fa fa-angle-down down"></i></a>
+                                            <ul class="submenu tp-submenu three-columns">
+                                                <li><a href="#">Haberler</a></li>
+                                                <li><a href="#">Toplantılar</a></li>
+                                                <li><a href="#">Geçmiş Kongre Program ve Bildiri Kitapları</a></li>
+                                                <li><a href="#">Dergiler</a></li>
+                                                <li><a href="#">Hasta Bilgilendirme Broşürleri</a></li>
+                                                <li><a href="#">UÇEP</a></li>
+                                                <li><a href="#">Tıpta Uzmanlık Eğitimi Karnesi</a></li>
+                                                <li><a href="#">Onam Formları</a></li>
+                                                <li><a href="#">Kılavuzlar</a></li>
+                                                <li><a href="#">Satın Alma Süreci</a></li>
+                                                <li><a href="#">KBB ve BBC Uzmanlık Eğitimi Kitabı - 1</a></li>
+                                                <li><a href="#">KBB ve BBC Uzmanlık Eğitimi Kitabı - 2</a></li>
+                                                <li><a href="#">Linkler</a></li>
+                                                <li><a href="#">Türk KBB-BBC Derneği Etik Kitabı</a></li>
+                                                <li><a href="#">Hukuk</a></li>
                                             </ul>
                                         </li>
-                                        <li class="has-dropdown"><a href="evant-details.html">Events</a>
+                                        <li class="has-dropdown"><a href="#">KBB Okulları <i class="fa fa-angle-down down"></i></a>
                                             <ul class="submenu tp-submenu">
-                                                <li><a href="event.html">Event</a></li>
-                                                <li><a href="evant-details.html">Event Details</a></li>
+                                                <li><a href="#">Yüz Plastik Cerrahi Okulu</a></li>
+                                                <li><a href="#">Baş Boyun ve Tiroid Cerrahisi Okulu</a></li>
+                                                <li><a href="#">Laringoloji ve Foniatri Okulu</a></li>
+                                                <li><a href="#">Otoloji ve Nörootoloji Okulu</a></li>
+                                                <li><a href="#">Rinoloji-Rinoplasti-Alerji ve Uyku Okulu</a></li>
                                             </ul>
                                         </li>
-                                        <li class="has-dropdown"><a href="blog-details.html">Blog</a>
+                                        <li><a href="#">KBB Yeterlik</a>
+
+                                        </li>
+                                        <li class="has-dropdown"><a href="#">Burs - Ödüller <i class="fa fa-angle-down down"></i></a>
                                             <ul class="submenu tp-submenu">
-                                                <li><a href="blog.html">Blog</a></li>
-                                                <li><a href="blog-sidebar.html">Blog Sidebar</a></li>
-                                                <li><a href="blog-details.html">Blog Details</a></li>
+                                                <li><a href="#">Burslar</a></li>
+                                                <li><a href="#">Ödüller</a></li>
+                                                <li><a href="#">Proje Destek</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="#">Asistan Okulu</a></li>
+                                        <li><a href="#">Değişim Programı</a></li>
+                                        <li class="has-dropdown"><a href="#">Üyelik <i class="fa fa-angle-down down"></i></a>
+                                            <ul class="submenu tp-submenu">
+                                                <li><a href="#">Üyelerimiz</a></li>
+                                                <li><a href="#">Yeni Üyelik</a></li>
+                                                <li><a href="#">Üyelik Koşulları</a></li>
+                                            </ul>
+                                        </li>
+
                                     </ul>
                                 </nav>
                             </div>
                         </div>
-                        <div class="col-xxl-6 col-xl-4 col-lg-4 col-12">
+                        <div class="col-xxl-2 col-xl-2 col-lg-2 col-12">
                             <div class="tp-header__right-action">
                                 <ul class="d-flex align-items-center justify-content-end">
                                     <li class="d-none d-xl-block">
@@ -98,9 +120,16 @@
                                             <a href="login.html"><i class="flaticon-user"></i></a>
                                         </div>
                                     </li>
+
                                     <li>
                                         <div class="tp-header-2__bar d-lg-none">
                                             <button class="tp-menu-bar" type="button"><span><i class="fa-solid fa-bars-staggered"></i></span></button>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="tp-header__tel-box d-flex align-items-center">
+
+
                                         </div>
                                     </li>
                                 </ul>

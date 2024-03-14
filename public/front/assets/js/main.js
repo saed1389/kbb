@@ -14,7 +14,7 @@
     ///////////////////////////////////////////////////
     // 02. SubMenu Dropdown Toggle
     if ($('.tp-main-menu nav > ul > li.has-dropdown > a').length) {
-        $('.tp-main-menu nav > ul > li.has-dropdown > a').append('<i class="fal fa-angle-down"></i>');
+        $('.tp-main-menu nav > ul > li.has-dropdown > a').append('<i class="fa fa-angle-down"></i>');
     }
 
     $('.tp-service-3__item').on('mouseenter', function () {
