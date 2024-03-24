@@ -51,9 +51,9 @@ All Normal Users Routes List
 --------------------------------------------
 --------------------------------------------*/
 Route::middleware(['auth', 'user-access:user'])->group(function () {
-
-    Route::get('/home', [HomeController::class, 'index'])->name('home');
-
+    Route::prefix('/user')->group(function () {
+        Route::get('home', [HomeController::class, 'index'])->name('user.home');
+    });
 });
 
 /*------------------------------------------

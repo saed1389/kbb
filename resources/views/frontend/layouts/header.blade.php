@@ -116,8 +116,29 @@
                                 <ul class="d-flex align-items-center justify-content-end">
                                     <li class="d-none d-xl-block">
                                         <div class="tp-header__icon-box">
-                                            <button class="search-open-btn"><i class="flaticon-loupe"></i></button>
-                                            <a href="login.html"><i class="flaticon-user"></i></a>
+
+                                            <div class="dropdown">
+                                                <button class="search-open-btn"><i class="flaticon-loupe"></i></button>
+                                                <button class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <i class="flaticon-user"></i>
+                                                </button>
+                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                                    @if(Route::has('login'))
+                                                        @auth
+                                                            <li><a class="dropdown-item" >{{ @Auth::user()->titleName->title.' '.Auth::user()->first_name.' '.Auth::user()->last_name }}</a></li><br>
+                                                            <li><a class="dropdown-item" href="@if(Auth::user()->type == 'admin') {{ route('admin.home') }} @elseif(Auth::user()->type == 'user') {{ route('user.home') }} @endif">Panel</a></li><br>
+                                                            <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Oturumu kapat</a></li>
+                                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                                                @csrf
+                                                            </form>
+                                                        @else
+                                                            <li><a class="dropdown-item" href="{{ route('login') }}">Oturum aç</a></li>
+                                                        @endauth
+                                                    @endif
+
+                                                </ul>
+                                            </div>
+
                                         </div>
                                     </li>
 
@@ -141,5 +162,4 @@
             <!-- header-area-end -->
         </div>
     </div>
-
 </header>
