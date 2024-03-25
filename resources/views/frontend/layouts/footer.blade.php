@@ -76,10 +76,17 @@
                         </div>
                     </div>
 
-                    <div class="col-xl-3 col-lg-3 col-md-6 mb-45  wow tpfadeUp" data-wow-duration=".9s"
-                         data-wow-delay=".9s">
-                        <div class="tp-footer__widget footer-col-4">
-                            <img src="{{ asset('front/assets/images/Logo-2.jpeg') }}" class="rounded w-75" alt="">
+                    <div class="col-xl-3 col-lg-3 col-md-6 mb-45 wow tpfadeUp" data-wow-duration=".9s"
+                         data-wow-delay=".7s">
+                        <div class="tp-footer__widget footer-col-3">
+                            <h4 class="tp-footer__widget-title">Üyelik</h4>
+                            <div class="tp-footer__list">
+                                <ul>
+                                    <li><a href="#">Üyelerimiz</a></li>
+                                    <li><a href="#">Yeni Üyelik</a></li>
+                                    <li><a href="#">Üyelik Koşulları</a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>

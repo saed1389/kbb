@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('user.layouts.app')
 @section('title')
     Profil Bilgileri
 @endsection
@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="{{ asset('assets/vendor/css/pages/page-profile.css') }}" />
     @endpush
     <div class="container-xxl flex-grow-1 container-p-y">
-        <div class="card">
+        <div class="card mb-5">
             <h5 class="card-header"> {{ @$user->titleName->title.' '.$user->first_name.' '.$user->last_name }} Bilgileri</h5>
             <div class="card-body">
                 <div class="row">
@@ -15,7 +15,7 @@
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
-                                    <a href="{{ route('admin.home') }}">Anasayfa </a>
+                                    <a href="{{ route('user.home') }}">Anasayfa </a>
                                 </li>
                                 <li class="breadcrumb-item active">{{ @$user->titleName->title.' '.$user->first_name.' '.$user->last_name }}</li>
                             </ol>
@@ -48,9 +48,7 @@
                                                             <li class="list-inline-item d-flex gap-1">
                                                                 <i class='ti ti-map-pin'></i> {{ @$user->workCity->province_name }}
                                                             </li>
-                                                            <li class="list-inline-item d-flex gap-1">
-                                                                <i class='ti ti-calendar-event'></i> Başvuru: {{ date('d/m/Y H:i:s') }}
-                                                            </li>
+
                                                         </ul>
 
                                                     </div>
@@ -68,12 +66,12 @@
                                 <div class="col-md-12">
                                     <ul class="nav nav-pills flex-column flex-sm-row mb-4">
                                         <li class="nav-item me-2">
-                                            <a class="nav-link active" href="{{ route('admin-profile-edit', Auth::user()->id) }}">
+                                            <a class="nav-link active" href="{{ route('user-profile-edit', Auth::user()->id) }}">
                                                 <i class='ti-xs ti ti-user-check me-1'></i> Bilgilerimi Güncelle
                                             </a>
                                         </li>
                                         <li class="nav-item me-2">
-                                            <a class="nav-link active" href="{{ route('admin-profile-photo', Auth::user()->id) }}">
+                                            <a class="nav-link active" href="{{ route('user-profile-photo', Auth::user()->id) }}">
                                                 <i class='ti-xs ti ti-photo me-1'></i> Fotoğrafı Değiştir
                                             </a>
                                         </li>
@@ -153,6 +151,5 @@
     </div>
     @push('scripts')
         <script src="{{ asset('assets/js/pages-profile.js') }}"></script>
-
     @endpush
 @endsection

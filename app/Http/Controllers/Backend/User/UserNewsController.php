@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Backend;
+namespace App\Http\Controllers\Backend\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Image;
@@ -10,17 +10,14 @@ use App\Models\PhotoCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
-use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
-use Yajra\DataTables\Facades\DataTables;
-class NewsController extends Controller
+use Intervention\Image\ImageManager;
+
+class UserNewsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        return view('admin.news.index');
+        return view('user.news.index');
     }
 
     /**
@@ -30,7 +27,7 @@ class NewsController extends Controller
     {
         $galleries = PhotoCategory::where('status', 1)->get();
         $categories = NewsCategory::where('status', 1)->get();
-        return view('admin.news.add', compact('galleries', 'categories'));
+        return view('user.news.add', compact('galleries', 'categories'));
     }
 
     /**
@@ -38,7 +35,6 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request);
         $request->validate([
             'title' => 'required',
             'news_body' => 'required',
@@ -98,12 +94,12 @@ class NewsController extends Controller
             'news_category' => $request->news_category,
             'slider' => $request->slider,
             'OnPermission' => $request->OnPermission,
-            'status' => $request->status,
+            'status' => 0,
             'image' => $save_url,
             'cropImage' => $this->storeBase64($request->image_base64),
             'created_by' => Auth::user()->id,
             'news_order' => 0,
-            'confirm' => 1
+            'confirm' => 0
         ]);
 
         $notification = array(
@@ -111,7 +107,7 @@ class NewsController extends Controller
             'alert-type' => 'success'
         );
 
-        return redirect()->route('news.index')->with($notification);
+        return redirect()->route('userIndex.news')->with($notification);
 
     }
 
@@ -123,7 +119,7 @@ class NewsController extends Controller
         $news = News::where('id', $id)->first();
         $galleries = PhotoCategory::where('status', 1)->get();
         $categories = NewsCategory::where('status', 1)->get();
-        return view('admin.news.edit', compact('categories', 'galleries', 'news'));
+        return view('user.news.edit', compact('categories', 'galleries', 'news'));
     }
 
     /**
@@ -189,12 +185,6 @@ class NewsController extends Controller
             $new_page = 0;
         }
 
-        if (Auth::user()->type == 'admin') {
-            $confirm = 1;
-        } else {
-            $confirm = 0;
-        }
-
         News::where('id', $id)->update([
             'title' => $request->title,
             'title_en' => $request->title_en,
@@ -213,10 +203,8 @@ class NewsController extends Controller
             'news_category' => $request->news_category,
             'slider' => $request->slider,
             'OnPermission' => $request->OnPermission,
-            'status' => $request->status,
             'image' => $save_url,
             'cropImage' => $crop,
-            'news_order' => $confirm,
         ]);
 
         $notification = array(
@@ -224,7 +212,7 @@ class NewsController extends Controller
             'alert-type' => 'success'
         );
 
-        return redirect()->route('news.index')->with($notification);
+        return redirect()->route('userIndex.news')->with($notification);
     }
 
     public function delete($id)
@@ -240,23 +228,7 @@ class NewsController extends Controller
             'alert-type' => 'success'
         );
 
-        return redirect()->route('news.index')->with($notification);
-    }
-
-    public function changeStatus($id, $status)
-    {
-        News::where('id', $id)->update(['status' => $status]);
-    }
-
-    public function changeConfirm($id, $confirm)
-    {
-        News::where('id', $id)->update(['confirm' => $confirm]);
-    }
-
-    public function confirm()
-    {
-        $news = News::where('confirm', 0)->get();
-        return view('admin.news.confirm', compact('news'));
+        return redirect()->route('userIndex.news')->with($notification);
     }
 
     public function GetNews()
@@ -264,7 +236,8 @@ class NewsController extends Controller
         if (\request()->ajax()) {
             return datatables()->eloquent(
                 News::with('newsCategory:id,title')
-                    ->where('news.confirm', 1)
+                    ->where('news.confirm', 0)
+                    ->where('created_by', Auth::user()->id)
             )
                 ->addColumn('id', function ($news) {
                     return $news->id;
@@ -290,12 +263,7 @@ class NewsController extends Controller
                 ->addColumn('created_at', function ($news) {
                     return $news->created_at;
                 })
-                ->addColumn('status', function ($news) {
-                    return $news->status;
-                })
-                ->addColumn('confirm', function ($news) {
-                    return $news->confirm;
-                })
+
                 ->make(true);
         } else {
             return false;

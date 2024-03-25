@@ -1,9 +1,9 @@
 @extends('admin.layouts.app')
-@section('title') Üye Ünvan Listesi @endsection
+@section('title') KBB Yeterlik @endsection
 @section('content')
     <div class="container-xxl flex-grow-1 container-p-y">
         <div class="card">
-            <h5 class="card-header">Üye Meslek Listesi</h5>
+            <h5 class="card-header">KBB Yeterlik</h5>
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-8">
@@ -12,43 +12,12 @@
                                 <li class="breadcrumb-item">
                                     <a href="{{ route('admin.home') }}">Anasayfa </a>
                                 </li>
-                                <li class="breadcrumb-item active">Üye Meslek Listesi</li>
+                                <li class="breadcrumb-item active">KBB Yeterlik</li>
 
                             </ol>
                         </nav>
                     </div>
-                    <div class="col-md-4 ">
-                        <button type="button" class="btn btn-primary waves-effect waves-light float-end " data-bs-toggle="modal" data-bs-target="#backDropModal">
-                            Yeni Meslek Ekle
-                        </button>
-                        <div class="modal fade" id="backDropModal" data-bs-backdrop="static" tabindex="-1">
-                            <div class="modal-dialog">
-                                <form class="modal-content" action="{{ route('jobs.store') }}" method="post" >
-                                    @csrf
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="backDropModalTitle">Yeni Meslek Ekle</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="row">
-                                            <div class="col mb-3">
-                                                <label for="job" class="form-label">Meslek Adı</label>
-                                                <input type="text" id="job" name="job" class="form-control" placeholder="Meslek Adı Giriniz" required>
-                                            </div>
-                                            <div class="col mb-3">
-                                                <label for="job_en" class="form-label">Meslek Adı (en)</label>
-                                                <input type="text" id="job_en" name="job_en" class="form-control" placeholder="Meslek Adı (en) Giriniz" >
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">İptal</button>
-                                        <button type="submit" class="btn btn-primary" >Meslek Ekle</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
 
@@ -65,7 +34,7 @@
                     </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                    @forelse($jobs as $item)
+                    {{--@forelse($jobs as $item)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->job }}</td>
@@ -93,7 +62,7 @@
                         <tr>
                             <td colspan="5">Sonuç bulunamadı</td>
                         </tr>
-                    @endforelse
+                    @endforelse--}}
 
                     </tbody>
                 </table>
@@ -149,28 +118,5 @@
                 });
             });
         </script>
-        <script>
-            $(document).ready(function(e){
-                $("input.active").click(function() {
-                    var check_active = $(this).is(':checked') ? 1 : 0;
-                    var check_id = $(this).attr('value');
-
-                    $.ajax({
-                        type: "POST",
-                        headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        },
-                        url: "{{ url('/admin/users/jobs/changeStatus') }}/"+check_id+"/"+check_active,
-                        data: { _token : $('meta[name="csrf-token"]').attr('content'),id: check_id, active: check_active},
-                        success: function(response){
-                            toastr.info("Durumu başarıyla değiştirin!");
-                        }
-                    });
-                    return true;
-                });
-            });
-        </script>
     @endpush
-
-
 @endsection

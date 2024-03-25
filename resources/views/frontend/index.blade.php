@@ -109,12 +109,12 @@
             }
 
             .blog-slider {
-                width: 95%;
+                width: 100%;
                 position: relative;
                 max-width: 100%;
                 margin: auto;
                 background: #fff;
-                box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+                box-shadow: 0px 14px 80px rgb(4 4 4 / 32%);
                 padding: 25px;
                 border-radius: 25px;
                 height: 400px;
@@ -122,7 +122,7 @@
             }
 
             .blog-slider-1 {
-                width: 95%;
+                width: 100%;
                 position: relative;
                 max-width: 100%;
                 margin: auto;
@@ -214,10 +214,10 @@
                 transition-delay: 1.7s;
             }
             .blog-slider__img {
-                width: 600px;
+                width: 700px;
                 flex-shrink: 0;
                 height: 300px;
-                background-image: linear-gradient(147deg, #b1c8ea 0%, #3126a7 74%);
+                background-image: linear-gradient(147deg, #ffffff 0%, #ffffff 74%);
                 box-shadow: 4px 13px 30px 1px rgb(38 60 80 / 20%);
                 border-radius: 20px;
                 transform: translateX(-80px);
@@ -256,7 +256,7 @@
             }
             @media screen and (max-height: 500px) and (min-width: 992px) {
                 .blog-slider__img {
-                    height: 270px;
+                    height: 245px;
                 }
             }
             .blog-slider__content {
@@ -369,10 +369,10 @@
             .blog-slider__pagination .swiper-pagination-bullet-active {
                 opacity: 1;
                 background: #3126a6;
-                height: 30px !important;
-                width: 30px !important;
+                height: 20px !important;
+                width: 20px !important;
                 color: white;
-                padding-top: 3px;
+                padding-top: 0;
                 border-radius: 50%;
                 box-shadow: 0px 0px 20px rgb(176, 203, 236);
             }
@@ -458,7 +458,7 @@
                 background-position: center;
                 background-size: cover;
                 padding-top: 60px;
-                height: 300px;
+                height: 270px;
             }
             .swiper-slide img {
                 display: block;
@@ -541,68 +541,33 @@
                     <div class="col-md-10">
                         <div class="blog-slider">
                             <div class="blog-slider__wrp swiper-wrapper">
-                                <div class="blog-slider__item swiper-slide">
-                                    <div class="blog-slider__img">
-
-                                        <img src="https://res.cloudinary.com/muhammederdem/image/upload/q_60/v1535759872/kuldar-kalvik-799168-unsplash.webp" loading="lazy" alt="">
-                                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                @foreach($sliders as $slider)
+                                    <div class="blog-slider__item swiper-slide">
+                                        <div class="blog-slider__img">
+                                            <img src="{{ asset('uploads/news/crop/'.$slider->cropImage) }}" loading="lazy" alt="">
+                                            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                        </div>
+                                        <div class="blog-slider__content">
+                                            <div class="blog-slider__title">{{ $slider->title }}</div>
+                                        </div>
                                     </div>
-                                    <div class="blog-slider__content">
-                                        <span class="blog-slider__code">26 December 2019</span>
-                                        <div class="blog-slider__title">Çanakkale'de Yapılan Yöresel Dernekler Toplantısı Vesilesi İle; Dün, Bugün, Yarın</div>
-                                    </div>
-                                </div>
-                                <div class="blog-slider__item swiper-slide">
-                                    <div class="blog-slider__img">
-                                        <img src="https://res.cloudinary.com/muhammederdem/image/upload/q_60/v1535759871/jason-leung-798979-unsplash.webp" loading="lazy" alt="">
-                                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
-                                    </div>
-                                    <div class="blog-slider__content">
-                                        <span class="blog-slider__code">26 December 2019</span>
-                                        <div class="blog-slider__title">14 Mart Tıp Bayramı Kutlama Mesajları </div>
-                                    </div>
-                                </div>
-
-                                <div class="blog-slider__item swiper-slide">
-                                    <div class="blog-slider__img">
-                                        <img src="https://res.cloudinary.com/muhammederdem/image/upload/q_60/v1535759871/alessandro-capuzzi-799180-unsplash.webp" loading="lazy" alt="">
-                                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
-                                    </div>
-                                    <div class="blog-slider__content">
-                                        <span class="blog-slider__code">26 December 2019</span>
-                                        <div class="blog-slider__title">KBB Platform VideoFilm Oturumları -1: 28 Mart 2024</div>
-                                    </div>
-                                </div>
-
+                                @endforeach
                             </div>
                             <div class="blog-slider__pagination"></div>
                         </div>
                     </div>
                     <div class="col-md-2">
 
-                        {{--<img src="{{ asset('front/assets/img/IFOS2026.png') }}" alt="">
-                        <img src="{{ asset('front/assets/img/kbb_201120231317.jpg') }}" alt="">--}}
                         <div class="blog-slider-1 mt-5">
                             <img class="rounded mt-20" src="{{ asset('front/assets/images/Logo-2.jpeg') }}" alt="">
+                            <hr>
                             <div class="swiper mySwiper">
                                 <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                        <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+                                    <div class="swiper-slide" style="padding-top: 0px !important;">
+                                        <img src="{{ asset('front/assets/img/IFOS2026.png') }}" />
                                     </div>
-                                    <div class="swiper-slide">
-                                        <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
+                                    <div class="swiper-slide" style="padding-top: 0px !important;">
+                                        <img src="{{ asset('front/assets/img/kbb_201120231317.jpg') }}" />
                                     </div>
                                 </div>
                                 <div class="swiper-pagination"></div>
@@ -1029,6 +994,27 @@
                             $(this).popover('hide');
                         }
                     });
+                });
+            });
+        </script>
+        <script>
+            // JavaScript code to handle sticky menu and logo size change on scroll
+            document.addEventListener('DOMContentLoaded', function() {
+                var headerSticky = document.getElementById('header-sticky');
+                var logo = headerSticky.querySelector('.logo');
+
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 100) { // Change 100 to the scroll position where you want the change to happen
+                        headerSticky.classList.add('scrolled'); // Add a class to the header for styling purposes
+
+                        // Adjust the logo size when scrolled
+                        logo.style.width = '50%'; // Adjust the size as needed
+                    } else {
+                        headerSticky.classList.remove('scrolled'); // Remove the class when not scrolled
+
+                        // Reset the logo size to its original size
+                        logo.style.width = '75%'; // Adjust to the original size
+                    }
                 });
             });
         </script>

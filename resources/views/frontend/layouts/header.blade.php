@@ -1,10 +1,11 @@
 <header class="tp-header-height">
     <div id="header-sticky" class="tp-header__left-wrap p-relative">
         <div class="tp-header__logo">
-            <a class="text-center" href="/"><img src="{{ asset('assets/img/logo.png') }}" class="w-75" alt=""></a>
+            <a class="text-center" href="/">
+                <img src="{{ asset('assets/img/logo.png') }}" alt="" class="logo" style="width: 75%;" >
+            </a>
         </div>
         <div class="tp-header__right-wrap tp-header__plr">
-            <!-- header-top-area-start -->
             <div class="tp-header-top__area tp-header-top__hide tp-header-top__space theme-bg">
                 <div class="container-fluid">
                     <div class="row">
@@ -32,9 +33,6 @@
                     </div>
                 </div>
             </div>
-            <!-- header-top-area-end -->
-
-            <!-- header-area-start -->
             <div class="tp-header__area tp-header__space">
                 <div class="container-fluid">
                     <div class="row align-items-center">

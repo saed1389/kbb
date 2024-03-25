@@ -56,10 +56,10 @@ class LoginController extends Controller
             );
             if (auth()->user()->type == 'admin') {
                 return redirect()->route('admin.home')->with($notification);
-            } else if (auth()->user()->type == 'manager') {
-                return redirect()->route('manager.home')->with($notification);
+            } else if (auth()->user()->type == 'user') {
+                return redirect()->route('user.home')->with($notification);
             } else {
-                return redirect()->route('home')->with($notification);
+                return redirect()->route('/')->with($notification);
             }
         } else {
             $notification = array(

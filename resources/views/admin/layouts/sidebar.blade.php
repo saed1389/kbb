@@ -209,6 +209,35 @@
                 <div data-i18n="Email"><strong>Burs Başvuruları</strong></div>
             </a>
         </li>
+        @php
+            $vote = \App\Models\Competence::where('vote', 0)->count();
+        @endphp
+
+        <li class="menu-item @if(Request::segment(2) == 'competences-unconfirmed' || Request::segment(2) == 'competencesList') active open @endif">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons ti ti-file"></i>
+                <div data-i18n="Layouts"><strong>KBB Yeterlik</strong></div>
+                @if($vote > 0)
+                    <div class="badge bg-primary rounded-pill ms-auto">{{ $vote }}</div>
+                @endif
+            </a>
+
+            <ul class="menu-sub">
+                <li class="menu-item @if(Request::segment(2) == 'competencesList') active @endif">
+                    <a href="{{ route('competence-list') }}" class="menu-link">
+                        <div data-i18n="Collapsed menu">Onaylanmış liste</div>
+                    </a>
+                </li>
+                <li class="menu-item @if(Request::segment(2) == 'competences-unconfirmed') active @endif">
+                    <a href="{{ route('unconfirmed-list') }}" class="menu-link">
+                        <div data-i18n="Content navbar">Onaylanmamış liste</div>
+                        @if($vote > 0)
+                            <div class="badge bg-primary rounded-pill ms-auto">{{ $vote }}</div>
+                        @endif
+                    </a>
+                </li>
+            </ul>
+        </li>
 
         <!-- Apps & Pages -->
         <li class="menu-header small text-uppercase">

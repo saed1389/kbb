@@ -2906,9 +2906,9 @@ input[type=text], input[type=email], input[type=tel], input[type=number], input[
 .tp-header__main-menu nav > ul > li > a {
     padding: 40px 0;
     display: inline-block;
-    font-weight: 600;
+    font-weight: 800;
     font-size: 13px;
-    color: var(--tp-grey-2);
+    color: #313636;
     transition: 0.3s;
 }
 @media only screen and (min-width: 1200px) and (max-width: 1399px) {

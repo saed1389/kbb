@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\City;
+use App\Models\News;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -59,5 +60,11 @@ class IndexController extends Controller
             'alert-type' => 'success'
         );
         return redirect()->route('home')->with($notification);
+    }
+
+    public function index()
+    {
+        $sliders = News::where('status', 1)->get();
+        return view('frontend.index', compact('sliders'));
     }
 }

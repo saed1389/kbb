@@ -24,6 +24,8 @@ use App\Http\Controllers\Backend\BulkEmails;
 use App\Http\Controllers\Backend\MenuController;
 use App\Http\Controllers\Backend\SubMenuController;
 use App\Http\Controllers\Backend\TorlakController;
+use App\Http\Controllers\Backend\User\UserNewsController;
+use App\Http\Controllers\Backend\User\UserCompetenceController;
 use App\Http\Controllers\Frontend\IndexController;
 
 /*
@@ -37,9 +39,7 @@ use App\Http\Controllers\Frontend\IndexController;
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.index');
-});
+Route::get('/', [IndexController::class, 'index'])->name('index');
 
 Route::post('/province/fetch-city', [IndexController::class,'province_fetch_city'])->name('province.fetch-city');
 Route::post('/user_register', [IndexController::class,'user_register'])->name('user_register');
@@ -52,7 +52,28 @@ All Normal Users Routes List
 --------------------------------------------*/
 Route::middleware(['auth', 'user-access:user'])->group(function () {
     Route::prefix('/user')->group(function () {
-        Route::get('home', [HomeController::class, 'index'])->name('user.home');
+        Route::get('home', [HomeController::class, 'userIndex'])->name('user.home');
+        Route::get('logout', [HomeController::class, 'userLogout'])->name('user.logout');
+        Route::get('profile/{id}', [HomeController::class, 'userProfileShow'])->name('user.profile');
+        Route::get('profile-edit/{id}', [HomeController::class, 'userProfile'])->name('user-profile-edit');
+        Route::post('profile-edit-update/{id}', [HomeController::class, 'userProfileUpdate'])->name('user-profile-edit-update');
+        Route::get('profile-edit-photo/{id}', [HomeController::class, 'userProfilePhoto'])->name('user-profile-photo');
+        Route::post('profile-webcam-store/{id}', [HomeController::class, 'userWebcamStore'])->name('user-profile-webcam-store');
+        Route::post('profile-file-store/{id}', [HomeController::class, 'userFileStore'])->name('user-profile-file-store');
+
+        Route::resource('UserNews', UserNewsController::class)->except('show', 'destroy')
+            ->name('create', 'userCreate.news')
+            ->name('index', 'userIndex.news')
+            ->name('edit', 'userEdit.news')
+            ->name('update', 'userUpdate.news')
+            ->name('store', 'userStore.news');
+        Route::get('UserNews/delete/{id}', [UserNewsController::class, 'delete'])->name('userNews.delete');
+        Route::get('get_user_news', [UserNewsController::class, 'GetNews'])->name('get_user_news');
+
+        Route::resource('userCompetences', UserCompetenceController::class)->except('show', 'create', 'destroy', 'update', 'edit');
+        Route::get('userCompetences/editModal/{id}', [UserCompetenceController::class, 'editModal'])->name('userCompetences.editModal');
+        Route::post('userCompetences/updateModal', [UserCompetenceController::class, 'updateModal'])->name('userCompetences.updateModal');
+        Route::get('userCompetences/delete/{id}', [UserCompetenceController::class, 'delete'])->name('userCompetences.delete');
     });
 });
 
@@ -74,7 +95,6 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
         Route::post('profile-file-store/{id}', [HomeController::class, 'fileStore'])->name('profile-file-store');
 
         Route::prefix('users')->group(function () {
-
             // User Title Routes
             Route::resource('titles', UserTitleController::class)->except('show', 'create', 'destroy', 'update', 'edit');
             Route::get('titles/delete/{id}', [UserTitleController::class, 'delete'])->name('titles.delete');
@@ -140,7 +160,6 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
             Route::post('/footer/update/{id}', [MenuController::class, 'footerMenuUpdate'])->name('menus.footer-menu-update');*/
         });
 
-
         Route::post('menus/changeStatus/{id}/{status}', [MenuController::class, 'changeStatus']);
 
         // SubMenu Routes
@@ -159,6 +178,12 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
         Route::get('scholarships/delete/{id}', [ScholarshipController::class, 'delete'])->name('scholarships.delete');
         Route::post('scholarships/changeStatus/{id}/{status}', [ScholarshipController::class, 'changeStatus']);
         Route::get('get_scholarships', [ScholarshipController::class, 'GetScholarships'])->name('get_scholarships');
+
+        // KBB Competences
+        Route::get('competencesList', [UserCompetenceController::class, 'list'])->name('competence-list');
+        Route::get('competences-unconfirmed', [UserCompetenceController::class, 'unconfirmedList'])->name('unconfirmed-list');
+        Route::get('Competences/editModal/{id}', [UserCompetenceController::class, 'editModal'])->name('Competences.editModal');
+        Route::post('Competences/updateModal', [UserCompetenceController::class, 'point'])->name('Competences.updateModal');
 
         // Comment Routes
         Route::resource('comments', CommentController::class)->except('create', 'store', 'destroy', 'edit', 'update');
