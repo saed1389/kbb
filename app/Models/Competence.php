@@ -16,4 +16,9 @@ class Competence extends Model
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
+
+    public function pointName():BelongsTo
+    {
+        return $this->belongsTo(CompetencePoint::class, 'point_id', 'id');
+    }
 }

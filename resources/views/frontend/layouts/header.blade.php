@@ -43,7 +43,7 @@
                                         <li>
                                             <a href="#"><i class="fa fa-home"></i></a>
                                         </li>
-                                        <li class="has-dropdown"><a href="#">Derneğimiz <i class="fa fa-angle-down saed"></i></a>
+                                        <li class="has-dropdown"><a href="#">Derneğimiz <i class="fa fa-angle-down disable-arrow"></i></a>
                                             <ul class="submenu tp-submenu two-columns">
                                                 <li><a href="#">Başkanlarımız</a></li>
                                                 <li><a href="#">Yönetim Kurulu</a></li>
@@ -57,7 +57,7 @@
                                                 <li><a href="#">Kalite Politikası Misyon ve Vizyonumuz</a></li>
                                             </ul>
                                         </li>
-                                        <li class="has-dropdown"><a href="#">Bilgi Merkezi <i class="fa fa-angle-down down"></i></a>
+                                        <li class="has-dropdown"><a href="#">Bilgi Merkezi <i class="fa fa-angle-down down disable-arrow"></i></a>
                                             <ul class="submenu tp-submenu three-columns">
                                                 <li><a href="#">Haberler</a></li>
                                                 <li><a href="#">Toplantılar</a></li>
@@ -76,7 +76,7 @@
                                                 <li><a href="#">Hukuk</a></li>
                                             </ul>
                                         </li>
-                                        <li class="has-dropdown"><a href="#">KBB Okulları <i class="fa fa-angle-down down"></i></a>
+                                        <li class="has-dropdown"><a href="#">KBB Okulları <i class="fa fa-angle-down down disable-arrow"></i></a>
                                             <ul class="submenu tp-submenu">
                                                 <li><a href="#">Yüz Plastik Cerrahi Okulu</a></li>
                                                 <li><a href="#">Baş Boyun ve Tiroid Cerrahisi Okulu</a></li>
@@ -88,7 +88,7 @@
                                         <li><a href="#">KBB Yeterlik</a>
 
                                         </li>
-                                        <li class="has-dropdown"><a href="#">Burs - Ödüller <i class="fa fa-angle-down down"></i></a>
+                                        <li class="has-dropdown"><a href="#">Burs - Ödüller <i class="fa fa-angle-down down disable-arrow"></i></a>
                                             <ul class="submenu tp-submenu">
                                                 <li><a href="#">Burslar</a></li>
                                                 <li><a href="#">Ödüller</a></li>
@@ -97,7 +97,7 @@
                                         </li>
                                         <li><a href="#">Asistan Okulu</a></li>
                                         <li><a href="#">Değişim Programı</a></li>
-                                        <li class="has-dropdown"><a href="#">Üyelik <i class="fa fa-angle-down down"></i></a>
+                                        <li class="has-dropdown"><a href="#">Üyelik <i class="fa fa-angle-down down disable-arrow"></i></a>
                                             <ul class="submenu tp-submenu">
                                                 <li><a href="#">Üyelerimiz</a></li>
                                                 <li><a href="#">Yeni Üyelik</a></li>

@@ -210,29 +210,43 @@
             </a>
         </li>
         @php
-            $vote = \App\Models\Competence::where('vote', 0)->count();
+            $vote = \App\Models\Competence::where('vote', 0)->where('status', 0)->where('edit_request', 0)->count();
+            $request = \App\Models\Competence::where('status', 1)->count();
         @endphp
 
-        <li class="menu-item @if(Request::segment(2) == 'competences-unconfirmed' || Request::segment(2) == 'competencesList') active open @endif">
+        <li class="menu-item @if(Request::segment(2) == 'competences-unconfirmed' || Request::segment(2) == 'competencesList' || Request::segment(2) == 'competencesPoint' || Request::segment(2) == 'competences-edit-request') active open @endif">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-file"></i>
                 <div data-i18n="Layouts"><strong>KBB Yeterlik</strong></div>
-                @if($vote > 0)
-                    <div class="badge bg-primary rounded-pill ms-auto">{{ $vote }}</div>
+                @if($vote > 0 || $request > 0)
+                    <div class="badge bg-primary rounded-pill ms-auto">{{ $vote + $request  }}</div>
                 @endif
             </a>
 
             <ul class="menu-sub">
+                <li class="menu-item @if(Request::segment(2) == 'competencesPoint') active @endif">
+                    <a href="{{ route('competencesPoint.index') }}" class="menu-link">
+                        <div data-i18n="Collapsed menu">Yeterlik Puan</div>
+                    </a>
+                </li>
                 <li class="menu-item @if(Request::segment(2) == 'competencesList') active @endif">
                     <a href="{{ route('competence-list') }}" class="menu-link">
-                        <div data-i18n="Collapsed menu">Onaylanmış liste</div>
+                        <div data-i18n="Collapsed menu">Onaylanmış Liste</div>
                     </a>
                 </li>
                 <li class="menu-item @if(Request::segment(2) == 'competences-unconfirmed') active @endif">
                     <a href="{{ route('unconfirmed-list') }}" class="menu-link">
-                        <div data-i18n="Content navbar">Onaylanmamış liste</div>
+                        <div data-i18n="Content navbar">Onaylanmamış Liste</div>
                         @if($vote > 0)
                             <div class="badge bg-primary rounded-pill ms-auto">{{ $vote }}</div>
+                        @endif
+                    </a>
+                </li>
+                <li class="menu-item @if(Request::segment(2) == 'competences-edit-request') active @endif">
+                    <a href="{{ route('competences-edit-request') }}" class="menu-link">
+                        <div data-i18n="Content navbar">Düzenleme isteği</div>
+                        @if($request > 0)
+                            <div class="badge bg-primary rounded-pill ms-auto">{{ $request }}</div>
                         @endif
                     </a>
                 </li>

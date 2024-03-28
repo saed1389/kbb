@@ -51,6 +51,15 @@
                                                 <label for="end_date" class="form-label">Bitiş tarihi</label>
                                                 <input type="date" id="end_date" name="end_date" class="form-control" placeholder="Bitiş tarihi Giriniz" >
                                             </div>
+                                            <div class="col-md-12 mb-3">
+                                                <label for="point_id" class="form-label">Aktivite</label>
+                                                <select name="point_id" class="form-select" id="point_id" required>
+                                                    <option disabled>Lütfen seçin..</option>
+                                                    @foreach($points as $point)
+                                                        <option value="{{ $point->id }}">{{ $point->title }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
                                             <div class="col-md-6 mb-3">
                                                 <label for="location" class="form-label">Konum</label>
                                                 <input type="text" id="location" name="location" class="form-control" placeholder="Konum Giriniz">
@@ -92,13 +101,20 @@
                             <td>{{ date('d-m-Y', strtotime($item->start_date)) }}</td>
                             <td>{{ date('d-m-Y', strtotime($item->end_date)) }}</td>
                             <td>{{ $item->location }}</td>
-                            @if($item->vote == 0)
+
+                            @if($item->status == 2)
                                 <td>
-                                    <button type="button" value="{{ $item->id }}" class="btn btn-label-primary btn-sm waves-effect editBtn" >Düzenle</button>
-                                    <button type="button" href="{{ route('userCompetences.delete', $item->id) }}" class="btn btn-label-danger btn-sm waves-effect mt-1" id="delete">Sil</button>
+                                    <a href="{{ route('userCompetences.request', $item->id) }}"  class="btn btn-label-primary btn-sm waves-effect" >Düzenleme isteği</a>
+                                </td>
+                            @elseif($item->status == 1)
+                                <td>
+                                    <a href="javascript:void (0)"  class="btn btn-label-info btn-sm" >Onaylanmayı bekle</a>
                                 </td>
                             @else
-                                <td></td>
+                                <td>
+                                    <button type="button" value="{{ $item->id }}" class="btn btn-label-primary btn-sm waves-effect editBtn mt-1" >Düzenle</button>
+                                    <button type="button" href="{{ route('userCompetences.delete', $item->id) }}" class="btn btn-label-danger btn-sm waves-effect mt-1" id="delete">Sil</button>
+                                </td>
                             @endif
                         </tr>
                     @empty
@@ -139,6 +155,15 @@
                             <label for="locationEdit" class="form-label">Konum</label>
                             <input type="text" id="locationEdit" name="location" class="form-control" placeholder="Konum Giriniz">
                         </div>
+                        <div class="col-md-12 mb-3">
+                            <label for="point_id" class="form-label">Aktivite</label>
+                            <select name="point_id" class="form-select" id="point_id" required>
+                                <option disabled>Lütfen seçin..</option>
+                                @foreach($points as $point)
+                                    <option value="{{ $point->id }}">{{ $point->title }}</option>
+                                @endforeach
+                            </select>
+                        </div>
                         <div class="col-md-6 mb-3">
                             <label for="certificateEdit" class="form-label">Sertifika</label>
                             <input type="file" id="certificateEdit" name="certificate" class="form-control" placeholder="Sertifika Giriniz">
@@ -176,6 +201,7 @@
                             $('#certificateOld').val(response.job.certificate);
                             $('#certificateDownload').attr('href', '{{ asset('') }}' + response.job.certificate);
                             $('#job_id').val(response.job.id);
+                            $('#point_id').val(response.job.point_id);
                         }
                     });
                 });

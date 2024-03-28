@@ -26,6 +26,7 @@ use App\Http\Controllers\Backend\SubMenuController;
 use App\Http\Controllers\Backend\TorlakController;
 use App\Http\Controllers\Backend\User\UserNewsController;
 use App\Http\Controllers\Backend\User\UserCompetenceController;
+use App\Http\Controllers\Backend\CompetencePointController;
 use App\Http\Controllers\Frontend\IndexController;
 
 /*
@@ -74,6 +75,7 @@ Route::middleware(['auth', 'user-access:user'])->group(function () {
         Route::get('userCompetences/editModal/{id}', [UserCompetenceController::class, 'editModal'])->name('userCompetences.editModal');
         Route::post('userCompetences/updateModal', [UserCompetenceController::class, 'updateModal'])->name('userCompetences.updateModal');
         Route::get('userCompetences/delete/{id}', [UserCompetenceController::class, 'delete'])->name('userCompetences.delete');
+        Route::get('userCompetences/request/{id}', [UserCompetenceController::class, 'request'])->name('userCompetences.request');
     });
 });
 
@@ -182,8 +184,16 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
         // KBB Competences
         Route::get('competencesList', [UserCompetenceController::class, 'list'])->name('competence-list');
         Route::get('competences-unconfirmed', [UserCompetenceController::class, 'unconfirmedList'])->name('unconfirmed-list');
+        Route::get('competences-edit-request', [UserCompetenceController::class, 'editRequest'])->name('competences-edit-request');
+        Route::get('competences-confirm-request/{id}', [UserCompetenceController::class, 'confirmRequest'])->name('competences-confirm-request');
         Route::get('Competences/editModal/{id}', [UserCompetenceController::class, 'editModal'])->name('Competences.editModal');
         Route::post('Competences/updateModal', [UserCompetenceController::class, 'point'])->name('Competences.updateModal');
+        Route::get('Competences/delete/{id}', [UserCompetenceController::class, 'adminDelete'])->name('Competences.delete');
+
+        // KBB Competences Points
+        Route::resource('competencesPoint', CompetencePointController::class)->except('show', 'destroy', 'create');
+        Route::post('competencesPoint/changeStatus/{id}/{status}', [CompetencePointController::class, 'changeStatus']);
+        Route::get('competencesPoint/delete/{id}', [CompetencePointController::class, 'delete'])->name('competencesPoint.delete');
 
         // Comment Routes
         Route::resource('comments', CommentController::class)->except('create', 'store', 'destroy', 'edit', 'update');

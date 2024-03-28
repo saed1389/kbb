@@ -22,10 +22,9 @@
                 <table class="table">
                     <thead>
                     <tr>
+                        <th>#</th>
                         <th>Başlık</th>
-                        <th>Başlangıç tarihi</th>
-                        <th>Bitiş tarihi</th>
-                        <th>Konum</th>
+                        <th>Aktivite tipi</th>
                         <th>Oluşturan</th>
                         <th>İndir</th>
                         <th>İşlemler</th>
@@ -34,9 +33,8 @@
                     <tbody class="table-border-bottom-0">
                     @foreach($competences as $item)
                         <tr>
+                            <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->title }}</td>
-                            <td>{{ date('d-m-Y', strtotime($item->start_date)) }}</td>
-                            <td>{{ date('d-m-Y', strtotime($item->end_date)) }}</td>
                             <td>{{ $item->location }}</td>
                             <td>{{ @$item->userName->first_name. ' '. @$item->userName->last_name }}</td>
                             <th><a href="{{ asset($item->certificate) }}" class="btn btn-sm btn-success" download="">Dosya</a></th>
@@ -48,7 +46,6 @@
                     @endforeach
                     </tbody>
                 </table>
-
             </div>
         </div>
     </div>
@@ -65,12 +62,24 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-12 mb-3">
-                            <label for="jobEdit" class="form-label">Başlık</label>
-                            <input type="text" id="jobEdit" name="job" class="form-control" placeholder="Meslek Adı Giriniz" disabled>
+                            <label for="titleEdit" class="form-label">Başlık</label>
+                            <input type="text" id="titleEdit" name="job" class="form-control"  disabled>
                         </div>
-                        <div class="col-md-12 mb-3">
-                            <label for="point" class="form-label">Poun</label>
-                            <input type="number" id="point" name="point" class="form-control" placeholder="Poun Giriniz">
+                        <div class="col-md-6 mb-3">
+                            <label for="start_dateEdit" class="form-label">Başlangıç tarihi</label>
+                            <input type="text" id="start_dateEdit" name="job" class="form-control"  disabled>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="end_dateEdit" class="form-label">Bitiş tarihi</label>
+                            <input type="text" id="end_dateEdit" name="job" class="form-control"  disabled>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="locationEdite" class="form-label">Konum</label>
+                            <input type="text" id="locationEdit" name="job" class="form-control"  disabled>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="pointEdit" class="form-label">Poun</label>
+                            <input type="number" id="pointEdit" name="point" class="form-control" max="" placeholder="Poun Giriniz">
                         </div>
                     </div>
                 </div>
@@ -92,7 +101,12 @@
                         type: "GET",
                         url: "{{ url('admin/Competences/editModal') }}/"+title_id,
                         success: function (response) {
-                            $('#jobEdit').val(response.job.title);
+                            $('#titleEdit').val(response.job.title);
+                            $('#start_dateEdit').val(response.job.start_date);
+                            $('#end_dateEdit').val(response.job.end_date);
+                            $('#locationEdit').val(response.job.location);
+                            $('#pointEdit').val(response.job.point);
+                            $('#pointEdit').attr('max', response.job.point);
                             $('#job_id').val(response.job.id);
                         }
                     });

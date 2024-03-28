@@ -12,8 +12,8 @@
   */
     --tp-common-white: #ffffff;
     --tp-common-black: #000000;
-    --tp-common-orange: #fe7f4c;
-    --tp-heading-primary: #212da9;
+    --tp-common-orange: #2e72cc;
+    --tp-heading-primary: #1e3737;
     --tp-grey-1: #f2f7f7;
     --tp-grey-2: #8b9e9e;
     --tp-text-body: #6e7a7a;
@@ -1301,7 +1301,7 @@ input[type=text], input[type=email], input[type=tel], input[type=number], input[
 }
 
 .theme-bg {
-    background-color: var(--tp-theme-1);
+    background-color: #192749;
 }
 
 .theme-bg-2 {
@@ -1851,7 +1851,7 @@ input[type=text], input[type=email], input[type=tel], input[type=number], input[
 
 .tp-section-title {
     font-size: 50px;
-    color: var(--tp-theme-1);
+    color: #1e3737;
     font-weight: 800;
     font-family: var(--tp-ff-heading);
     line-height: 1.2;
@@ -2739,7 +2739,7 @@ input[type=text], input[type=email], input[type=tel], input[type=number], input[
     top: 0;
     left: 0;
     z-index: 99;
-    background-color: var(--tp-theme-2);
+    background-color: #355a8d;
     display: inline-block;
     padding: 15px 80px;
     height: calc(100% + 25px);
@@ -2804,7 +2804,7 @@ input[type=text], input[type=email], input[type=tel], input[type=number], input[
     right: -60px;
     height: 25px;
     width: 60px;
-    background-color: #000754;
+    background-color: #192749;
     content: "";
     clip-path: polygon(100% 0, 0 0, 0 100%);
 }
@@ -2959,12 +2959,32 @@ input[type=text], input[type=email], input[type=tel], input[type=number], input[
     -moz-columns: 2;
     width: 440px !important;
 }
+@media screen and (max-width: 768px) {
+    .two-columns {
+        columns: 1;
+        -webkit-columns: 1;
+        -moz-columns: 1;
+        width: auto !important;
+    }
+}
+
+
 .three-columns {
     columns: 3;
     -webkit-columns: 3;
     -moz-columns: 3;
     width: max-content !important;
 }
+
+@media screen and (max-width: 768px) {
+    .three-columns {
+        columns: 1;
+        -webkit-columns: 1;
+        -moz-columns: 1;
+        width: auto !important;
+    }
+}
+
 .tp-header__main-menu nav > ul > li .submenu > li {
     margin: 0 30px;
     margin-bottom: 13px;
@@ -4794,7 +4814,7 @@ input[type=text], input[type=email], input[type=tel], input[type=number], input[
     line-height: 105px;
     border-radius: 50%;
     text-align: center;
-    background-color: var(--tp-theme-1);
+    background-color: #192749;
     display: inline-block;
     font-size: 50px;
     color: var(--tp-common-white);
@@ -4850,6 +4870,21 @@ input[type=text], input[type=email], input[type=tel], input[type=number], input[
     .tp-feature__shape-2 {
         display: none;
     }
+}
+
+.tp-about-kbb::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    height: 100%;
+    width: 100%;
+    background-color: rgb(11 26 62 / 94%);
+    z-index: -1;
+}
+
+.tp-about-kbb h4 {
+    color: whitesmoke;
 }
 
 .tp-feature-2__bg {
@@ -7590,8 +7625,8 @@ input[type=text], input[type=email], input[type=tel], input[type=number], input[
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    padding-bottom: 120px;
-    padding-top: 115px;
+    padding-bottom: 30px;
+    padding-top: 70px;
     background-color: #022b29;
     background-attachment: fixed;
 }
@@ -8758,24 +8793,24 @@ input[type=text], input[type=email], input[type=tel], input[type=number], input[
 /*  17. service css start
 /*----------------------------------------*/
 .tp-service-3__space {
-    padding-top: 155px;
-    padding-bottom: 120px;
+    padding-top: 75px;
+    padding-bottom: 75px;
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
     .tp-service-3__space {
-        padding-bottom: 90px;
+        padding-bottom: 75px;
     }
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
     .tp-service-3__space {
-        padding-bottom: 90px;
-        padding-top: 90px;
+        padding-bottom: 75px;
+        padding-top: 75px;
     }
 }
 @media (max-width: 767px) {
     .tp-service-3__space {
-        padding-bottom: 90px;
-        padding-top: 90px;
+        padding-bottom: 75px;
+        padding-top: 75px;
     }
 }
 .tp-service-3__item:hover .tp-service-3__thumb-box::after {
@@ -8814,7 +8849,7 @@ input[type=text], input[type=email], input[type=tel], input[type=number], input[
     left: 0%;
     height: 30%;
     width: 100%;
-    background-color: rgba(7, 132, 128, 0.851);
+    background-color: #308edc99;
     position: absolute;
     transition: all 500ms ease;
     opacity: 0;
@@ -8878,7 +8913,7 @@ input[type=text], input[type=email], input[type=tel], input[type=number], input[
     transform: translateX(-50%);
     bottom: -17%;
     height: 80px;
-    line-height: 91px;
+    line-height: 75px;
     text-align: center;
     width: 80px;
     border-radius: 50%;
@@ -8893,7 +8928,7 @@ input[type=text], input[type=email], input[type=tel], input[type=number], input[
     left: 0;
     right: 0;
     height: 100%;
-    background-color: var(--tp-common-orange);
+    background-color: #2e72cc;
     transition-delay: 0.1s;
     transition-timing-function: ease-in-out;
     transition-duration: 0.4s;
@@ -13831,7 +13866,7 @@ p.checkout-coupon input[type=text]:focus {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgb(11 26 62 / 94%);
+    background-color: #192749;
     position: absolute;
     content: "";
     z-index: -1;
@@ -14043,7 +14078,7 @@ p.checkout-coupon input[type=text]:focus {
 }
 
 .tp-copyright__bg {
-    background-color: #000754;
+    background-color: black;
     padding: 25px 0;
 }
 .tp-copyright__text span {

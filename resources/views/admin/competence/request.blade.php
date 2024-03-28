@@ -44,8 +44,7 @@
                             <td>{{ @$item->userName->first_name. ' '. @$item->userName->last_name }}</td>
                             <th><a href="{{ asset($item->certificate) }}" class="btn btn-sm btn-success" download="">Dosya</a></th>
                             <td>
-                                <button type="button" value="{{ $item->id }}" class="btn btn-label-primary btn-sm waves-effect editBtn" >Poun ver</button>
-                                <button type="button" href="{{ route('Competences.delete', $item->id) }}" class="btn btn-label-danger btn-sm waves-effect mt-1" id="delete">Sil</button>
+                                <a href="{{ route('competences-confirm-request', $item->id) }}"  class="btn btn-label-success btn-sm " >Onay ver</a>
                             </td>
                         </tr>
                     @endforeach

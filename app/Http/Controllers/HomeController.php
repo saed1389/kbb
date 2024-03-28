@@ -73,7 +73,7 @@ class HomeController extends Controller
         $allComments = Comment::count();
         $allUsers = User::count();
         $lastNews = News::where('status', 1)->where('created_by', Auth::user()->id)->orderBy('id', 'desc')->limit(10)->get();
-        $points = Competence::where('user_id', Auth::user()->id)->sum('point');
+        $points = Competence::where('user_id', Auth::user()->id)->where('vote', 1)->sum('point');
 
         return view('user.index', compact('activeUsers', 'myEvents', 'myNews', 'allEvents', 'allNews', 'allComments', 'allUsers', 'lastNews', 'points'));
     }
