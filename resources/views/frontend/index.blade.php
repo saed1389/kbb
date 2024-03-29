@@ -1,5 +1,5 @@
 @extends('frontend.layouts.app')
-@section('title') Anasayfa @endsection
+@section('title') Türk Kulak Burun Boğaz ve Baş Boyun Cerrahisi Derneği @endsection
 @section('content')
     @push('styles')
         <link rel="stylesheet" href="{{ asset('front/assets/css/index.css') }}" >
