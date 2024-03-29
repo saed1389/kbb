@@ -1,5 +1,5 @@
 @extends('frontend.layouts.app')
-@section('title') Türk Kulak Burun Boğaz ve Baş Boyun Cerrahisi Derneği @endsection
+@section('title') Türk Kulak Burun Boğaz ve Baş Boyun Cerrahisi Derneği | Anasayfa @endsection
 @section('content')
     @push('styles')
         <link rel="stylesheet" href="{{ asset('front/assets/css/index.css') }}" >
