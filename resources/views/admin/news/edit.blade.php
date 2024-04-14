@@ -161,7 +161,7 @@
 
                             </div>
                             <div class="col-md-6">
-                                <a href="{{ route('news.index') }}" class="btn btn-secondary">Geri dön</a>
+                                <a href="javascript:history.back();" class="btn btn-secondary">Geri dön</a>
                                 <button type="submit" class="btn btn-primary">Haber Güncelle</button>
                             </div>
                         </div>

@@ -90,8 +90,8 @@
                     aoColumns : [
                         { data: 'id', name: 'id', "searchable": false,  "orderable": false},
                         { data: 'title', name: 'title', "searchable": true, "orderable": true},
-                        { data: 'event_category.title', name: 'event_category.title', "searchable": false, "orderable": false},
                         { data: 'event_place', name: 'event_place', "searchable": true, "orderable": true},
+                        { data: 'event_category.title', name: 'event_category.title', "searchable": true, "orderable": false},
                         { data: "created_at",
                             name: 'created_at',
                             render: function (data) {

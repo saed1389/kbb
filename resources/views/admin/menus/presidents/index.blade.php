@@ -78,6 +78,7 @@
                         <th>#</th>
                         <th>Başkan Adı, Soyad</th>
                         <th>Görev Yili</th>
+                        <th>Mevcut Başkan</th>
                         <th>Durum</th>
                         <th>İşlemler</th>
                     </tr>
@@ -88,6 +89,19 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->full_name }}</td>
                             <td>{{ $item->year }}</td>
+                            <td>
+                                <label class="switch switch-success">
+                                    <input type="checkbox" class="switch-input current" name="current" id="current" data-id="{{ $item->id }}" value="{{ $item->id }}" @checked($item->current == 1)>
+                                    <span class="switch-toggle-slider">
+                                    <span class="switch-on">
+                                      <i class="ti ti-check"></i>
+                                    </span>
+                                    <span class="switch-off">
+                                      <i class="ti ti-x"></i>
+                                    </span>
+                                  </span>
+                                </label>
+                            </td>
                             <td>
                                 <label class="switch switch-success">
                                     <input type="checkbox" class="switch-input active" name="status" id="status" data-id="{{ $item->id }}" value="{{ $item->id }}" @checked($item->status == 1)>
@@ -101,6 +115,7 @@
                                   </span>
                                 </label>
                             </td>
+
                             <td>
                                 <a href="{{ route('presidents.edit', $item->id) }}" class="btn btn-label-primary btn-sm waves-effect editBtn" >Düzenle</a>
                                 <button type="button" href="{{ route('presidents.delete', $item->id) }}" class="btn btn-label-danger btn-sm waves-effect" id="delete">Sil</button>
@@ -142,6 +157,26 @@
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                         },
                         url: "{{ url('/admin/menus/presidents/changeStatus') }}/"+check_id+"/"+check_active,
+                        data: { _token : $('meta[name="csrf-token"]').attr('content'),id: check_id, active: check_active},
+                        success: function(response){
+                            toastr.info("Durumu başarıyla değiştirin!");
+                        }
+                    });
+                    return true;
+                });
+            });
+
+            $(document).ready(function(e){
+                $("input.current").click(function() {
+                    var check_active = $(this).is(':checked') ? 1 : 0;
+                    var check_id = $(this).attr('value');
+
+                    $.ajax({
+                        type: "POST",
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        url: "{{ url('/admin/menus/presidents/currentPresident') }}/"+check_id+"/"+check_active,
                         data: { _token : $('meta[name="csrf-token"]').attr('content'),id: check_id, active: check_active},
                         success: function(response){
                             toastr.info("Durumu başarıyla değiştirin!");

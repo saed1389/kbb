@@ -178,7 +178,7 @@
         <li class="menu-item @if(Request::segment(2) == 'photos') active open @endif">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class='menu-icon tf-icons ti ti-photo'></i>
-                <div data-i18n="Front Pages"><strong>Foto, Video Galeri</strong></div>
+                <div data-i18n="Front Pages"><strong>Torlak</strong></div>
             </a>
             <ul class="menu-sub">
                 <li class="menu-item @if(Request::segment(3) == 'images' && Request::segment(2) == 'photos') active @endif">
@@ -203,17 +203,11 @@
                 </li>
             </ul>
         </li>
-        <li class="menu-item @if(Request::segment(2) == 'scholarships') active @endif">
-            <a href="{{ route('scholarships.index') }}" class="menu-link">
-                <i class="menu-icon tf-icons ti ti-certificate"></i>
-                <div data-i18n="Email"><strong>Burs Başvuruları</strong></div>
-            </a>
-        </li>
         @php
             $vote = \App\Models\Competence::where('vote', 0)->where('status', 0)->where('edit_request', 0)->count();
             $request = \App\Models\Competence::where('status', 1)->count();
+            $school = \App\Models\School::where('status', 0)->count();
         @endphp
-
         <li class="menu-item @if(Request::segment(2) == 'competences-unconfirmed' || Request::segment(2) == 'competencesList' || Request::segment(2) == 'competencesPoint' || Request::segment(2) == 'competences-edit-request') active open @endif">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-file"></i>
@@ -224,7 +218,7 @@
             </a>
 
             <ul class="menu-sub">
-                <li class="menu-item @if(Request::segment(2) == 'competencesPoint') active @endif">
+                <li class="menu-item @if(Request::segment(2) == 'competencesPoint' && Request::segment(3) == null) active @endif">
                     <a href="{{ route('competencesPoint.index') }}" class="menu-link">
                         <div data-i18n="Collapsed menu">Yeterlik Puan</div>
                     </a>
@@ -250,9 +244,31 @@
                         @endif
                     </a>
                 </li>
+                <li class="menu-item @if(Request::segment(2) == 'competencesPoint' && Request::segment(3) == 'member-list') active @endif">
+                    <a href="{{ route('competences.member-list') }}" class="menu-link">
+                        <div data-i18n="Content navbar">Üye Listesi</div>
+                        @if($request > 0)
+                            <div class="badge bg-primary rounded-pill ms-auto">{{ $request }}</div>
+                        @endif
+                    </a>
+                </li>
             </ul>
         </li>
-
+        <li class="menu-item @if(Request::segment(2) == 'scholarships') active @endif">
+            <a href="{{ route('scholarships.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-certificate"></i>
+                <div data-i18n="Email"><strong>Burs Başvuruları</strong></div>
+            </a>
+        </li>
+        <li class="menu-item @if(Request::segment(2) == 'school-list') active @endif">
+            <a href="{{ route('schools-list') }}" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-building"></i>
+                <div data-i18n="Chat"><strong>KBB Okulları </strong></div>
+                @if($school > 0)
+                    <div class="badge bg-primary rounded-pill ms-auto">{{ $school  }}</div>
+                @endif
+            </a>
+        </li>
         <!-- Apps & Pages -->
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text" data-i18n="Apps & Pages">Ayarlar</span>
@@ -263,17 +279,54 @@
                 <i class='menu-icon tf-icons ti ti-menu-2'></i>
                 <div data-i18n="Front Pages"><strong>Menü Yönetimi</strong></div>
             </a>
+
             <ul class="menu-sub ">
-                <li class="menu-item @if(Request::segment(2) == 'menus' && Request::segment(3) == 'presidents') active @endif">
-                    <a href="{{ route('presidents.index') }}" class="menu-link" >
-                        <div data-i18n="Landing">Başkanlarımız</div>
+                <li class="menu-item @if(Request::segment(2) == 'menus') active open @endif">
+                    <a href="javascript:void(0);" class="menu-link menu-toggle">
+                        <div data-i18n="Customer"> Derneğimiz</div>
                     </a>
+                    <ul class="menu-sub">
+                        <li class="menu-item @if(Request::segment(2) == 'menus' && Request::segment(3) == 'presidents') active @endif">
+                            <a href="{{ route('presidents.index') }}" class="menu-link" >
+                                <div data-i18n="Landing">Başkanlarımız</div>
+                            </a>
+                        </li>
+                        <li class="menu-item @if(Request::segment(2) == 'menus' && Request::segment(3) == 'committees') active open @endif">
+                            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                                <div data-i18n="Customer Details">Kurullar</div>
+                            </a>
+                            <ul class="menu-sub">
+                                <li class="menu-item @if(Request::segment(2) == 'menus' && Request::segment(4) == 'directors') active @endif">
+                                    <a href="{{ route('directors.index') }}" class="menu-link" >
+                                        <div data-i18n="Landing">Yönetim Kurulu</div>
+                                    </a>
+                                </li>
+                                <li class="menu-item @if(Request::segment(2) == 'menus' && Request::segment(4) == 'check' ||  Request::segment(4) == 'checkEdit') active @endif">
+                                    <a href="{{ route('committees.check') }}" class="menu-link">
+                                        <div data-i18n="Overview">Denetleme Kurulu</div>
+                                    </a>
+                                </li>
+                                <li class="menu-item @if(Request::segment(2) == 'menus' && Request::segment(4) == 'advice' || Request::segment(4) == 'adviceEdit') active @endif">
+                                    <a href="{{ route('committees.advice') }}" class="menu-link">
+                                        <div data-i18n="Security">Danışma Kurulu</div>
+                                    </a>
+                                </li>
+                                <li class="menu-item @if(Request::segment(2) == 'menus' && Request::segment(4) == 'honor' || Request::segment(4) == 'honorEdit') active @endif">
+                                    <a href="{{ route('committees.honor') }}" class="menu-link">
+                                        <div data-i18n="Address & Billing">Onur ve Etik Kurulu</div>
+                                    </a>
+                                </li>
+                                <li class="menu-item @if(Request::segment(2) == 'menus' && Request::segment(4) == 'qualification' || Request::segment(4) == 'qualificationEdit') active @endif">
+                                    <a href="{{ route('committees.qualification') }}" class="menu-link">
+                                        <div data-i18n="Notifications">Yeterlik Yürütme Kurulu</div>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+                    </ul>
                 </li>
-                <li class="menu-item @if(Request::segment(2) == 'menus' && Request::segment(3) == 'directors') active @endif">
-                    <a href="{{ route('directors.index') }}" class="menu-link" >
-                        <div data-i18n="Landing">Yönetim Kurulu</div>
-                    </a>
-                </li>
+
                 {{--<li class="menu-item @if(Request::segment(2) == 'menus' && Request::segment(3) == 'create') active @endif">
                     <a href="{{ route('menus.create') }}" class="menu-link" >
                         <div data-i18n="Landing">Menü Ekle</div>
@@ -328,7 +381,7 @@
             </a>
         </li>
         <li class="menu-item">
-            <a href="app-email.html" class="menu-link">
+            <a href="{{ route('settings.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-settings"></i>
                 <div data-i18n="Email"><strong>Sistem Ayarları</strong></div>
             </a>

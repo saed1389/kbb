@@ -20,7 +20,6 @@
 
                 </div>
             </div>
-
             <div class="table-responsive">
                 <table class="table">
                     <thead>
@@ -38,8 +37,8 @@
                     @foreach($competences as $item)
                         <tr>
                             <td>{{ $item->title }}</td>
-                            <td>{{ date('d-m-Y', strtotime($item->start_date)) }}</td>
-                            <td>{{ date('d-m-Y', strtotime($item->end_date)) }}</td>
+                            <td>{{ $item->start_date ? date('d-m-Y', strtotime($item->start_date)) : '-' }}</td>
+                            <td>{{ $item->ent_date ? date('d-m-Y', strtotime($item->end_date)) : '-' }}</td>
                             <td>{{ $item->location }}</td>
                             <td>{{ @$item->userName->first_name. ' '. @$item->userName->last_name }}</td>
                             <th><a href="{{ asset($item->certificate) }}" class="btn btn-sm btn-success" download="">Dosya</a></th>
@@ -53,7 +52,6 @@
             </div>
         </div>
     </div>
-
     @push('scripts')
         <script src="{{ asset('assets/js/code.js') }}"></script>
     @endpush

@@ -42,7 +42,7 @@
                                             <div class="col-md-6 mb-3">
                                                 <label for="type" class="form-label">Toplantı türü</label>
                                                 <select name="type" id="type" class="selectpicker w-100" data-style="btn-default" tabindex="null" required>
-                                                    <option selected disabled>Seciniz</option>
+                                                    <option value="" selected disabled>Seciniz</option>
                                                     <option value="1">Zoom</option>
                                                     <option value="2">Webinar</option>
                                                 </select>
@@ -54,6 +54,9 @@
                                             <div class="col-md-12 mb-3">
                                                 <label for="zoom_link" class="form-label">Zoom Linki</label>
                                                 <input type="text" id="zoom_link" name="zoom_link" class="form-control" placeholder="Zoom Linki Giriniz" required>
+                                                @error('zoom_link')
+                                                <span class="text-danger">{{ $message }}</span>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
@@ -135,7 +138,7 @@
                         <div class="col-md-6 mb-3">
                             <label for="typeEdit" class="form-label">Toplantı türü</label>
                             <select name="type" id="typeEdit" class="form-control" data-style="btn-default" tabindex="null" required>
-                                <option selected disabled>Seciniz</option>
+                                <option value="" selected disabled>Seciniz</option>
                                 <option value="1">Zoom</option>
                                 <option value="2">Webinar</option>
                             </select>
@@ -213,6 +216,4 @@
             });
         </script>
     @endpush
-
-
 @endsection

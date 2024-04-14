@@ -110,11 +110,22 @@ class PresidentController extends Controller
             'message' => "Başkan bilgileri başarıyla düzenlendi!",
             'alert-type' => 'success'
         );
-        return redirect()->back()->with($notification);
+        return redirect()->route('presidents.index')->with($notification);
     }
 
     public function changeStatus($id, $status)
     {
         President::where('id', $id)->update(['status' => $status]);
+    }
+
+    public function currentPresident($id, $status)
+    {
+       // dd($status);
+        $presents = President::all();
+        foreach ($presents as $present) {
+            $present->update(['current' => 0]);
+        }
+
+        President::where('id', $id)->update(['current' => $status]);
     }
 }

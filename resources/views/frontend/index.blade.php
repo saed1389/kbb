@@ -31,10 +31,10 @@
                             <div class="swiper mySwiper">
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide">
-                                        <img src="{{ asset('front/assets/img/IFOS2026.png') }}" />
+                                        <img src="{{ asset('front/assets/img/IFOS2026.png') }}" loading="lazy" alt="" />
                                     </div>
                                     <div class="swiper-slide">
-                                        <img src="{{ asset('front/assets/img/kbb_201120231317.jpg') }}" />
+                                        <img src="{{ asset('front/assets/img/kbb_201120231317.jpg') }}" loading="lazy" alt="" />
                                     </div>
                                 </div>
                                 <div class="swiper-pagination"></div>
@@ -45,17 +45,177 @@
             </div>
         </div>
 
-        <div class="tp-about-kbb fix p-relative pt-120 pb-120">
+
+        <div class="tp-mission-2__area tp-mission-2__space p-relative fix z-index tp-about-kbb">
+            <div class="tp-mission-2__shape">
+                <img src="{{ asset('front/assets/img/mission/mission-shape-1.png') }}" loading="lazy" alt="">
+            </div>
+            <div class="tp-mission-2__plr">
+                <div class="container-fluid g-0">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="row">
+                                <div class="col-xl-4 col-lg-4 mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
+                                    <div class="tp-feature__wraper" style="background-image: url({{ asset('front/assets/images/online-kutuphaneyazisiz.png') }}); background-size: cover; background-position: center;">
+                                        <div class="tp-feature__shape-1">
+                                            <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" loading="lazy" alt="">
+                                        </div>
+                                        <div class="tp-feature__shape-2">
+                                            <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" loading="lazy" alt="">
+                                        </div>
+                                        <div class="tp-feature__item z-index">
+                                            <div class="tp-feature__content d-flex align-items-center" style="height: 90px; place-content: center;">
+                                                <h4 class="tp-feature__title-sm text-white" style="background-color: rgb(29 38 73 / 61%); padding: 5px; border-radius: 5px; position: absolute; bottom: 0;">Online kütüphane</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".5s">
+                                    <div class="tp-feature__wraper" style="background-image: url({{ asset('front/assets/images/hasta-bilgilendirmeyazisiz.png') }}); background-size: cover; background-position: center;">
+                                        <div class="tp-feature__shape-1">
+                                            <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" loading="lazy" alt="">
+                                        </div>
+                                        <div class="tp-feature__shape-2">
+                                            <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" loading="lazy" alt="">
+                                        </div>
+                                        <div class="tp-feature__item z-index">
+                                            <div class="tp-feature__content d-flex align-items-center" style="height: 90px; place-content: center;">
+                                                <h5 class="tp-feature__title-sm text-white" style="background-color: rgb(29 38 73 / 61%); padding: 5px; border-radius: 5px; position: absolute; bottom: 0;">Hasta bilgilendirme</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".7s">
+                                    <div class="tp-feature__wraper" style="background-image: url({{ asset('front/assets/images/dernekleryazisiz.png') }}); background-size: cover; background-position: center;">
+                                        <div class="tp-feature__shape-1">
+                                            <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" loading="lazy" alt="">
+                                        </div>
+                                        <div class="tp-feature__shape-2">
+                                            <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" loading="lazy" alt="">
+                                        </div>
+                                        <div class="tp-feature__item z-index">
+                                            <div class="tp-feature__content d-flex align-items-center" style="height: 90px; place-content: center;">
+                                                <h6 class="tp-feature__title-sm text-white" style="background-color: rgb(29 38 73 / 61%); padding: 5px; border-radius: 5px; position: absolute; bottom: 0; text-align-last: center;">Yöresel dernekler ve alt birim dalları</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
+                                    <div class="tp-feature__wraper" style="background-image: url({{ asset('front/assets/images/toplanti-takvimiyazisiz.png') }}); background-size: cover; background-position: center;">
+                                        <div class="tp-feature__shape-1">
+                                            <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" loading="lazy" alt="">
+                                        </div>
+                                        <div class="tp-feature__shape-2">
+                                            <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" loading="lazy" alt="">
+                                        </div>
+                                        <div class="tp-feature__item z-index">
+                                            <div class="tp-feature__content d-flex align-items-center" style="height: 90px; place-content: center;">
+                                                <h4 class="tp-feature__title-sm text-white" style="background-color: rgb(29 38 73 / 61%); padding: 5px; border-radius: 5px; position: absolute; bottom: 0;">Toplantı takvimi</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".5s" >
+                                    <div class="tp-feature__wraper" style="background-image: url({{ asset('front/assets/images/baskanyazisiz.png') }}); background-size: cover; background-position: center;">
+                                        <div class="tp-feature__shape-1">
+                                            <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" loading="lazy" alt="">
+                                        </div>
+                                        <div class="tp-feature__shape-2">
+                                            <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" loading="lazy" alt="">
+                                        </div>
+                                        <div class="tp-feature__item z-index">
+                                            <div class="tp-feature__content d-flex align-items-center" style="height: 90px; place-content: center;">
+                                                <h4 class="tp-feature__title-sm text-white" style="background-color: rgb(29 38 73 / 61%); padding: 5px; border-radius: 5px; position: absolute; bottom: 0;">Başkanımızın 100.yıl mesajı</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".7s">
+                                    <div class="tp-feature__wraper" style="background-image: url({{ asset('front/assets/images/turk-kbb-arsiv.png') }}); background-size: cover; background-position: center;">
+                                        <div class="tp-feature__shape-1">
+                                            <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" loading="lazy" alt="">
+                                        </div>
+                                        <div class="tp-feature__shape-2">
+                                            <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" loading="lazy" alt="">
+                                        </div>
+                                        <div class="tp-feature__item z-index">
+                                            <div class="tp-feature__content d-flex align-items-center" style="height: 90px; place-content: center; text-align: -webkit-center;">
+                                                <h4 class="tp-feature__title-sm text-white" style="background-color: rgb(29 38 73 / 61%); padding: 5px; border-radius: 5px; position: absolute; bottom: 0;">Türk KBB arşivi</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-3">
+                            <div class="tp-mission-2__left-box">
+
+                                <div class="row">
+                                    <div class="col-xl-12 col-lg-12 mb-5 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
+                                        <div class="tp-feature__wraper" style="padding: 20px 17px 20px 25px;">
+                                            <div class="tp-feature__item z-index">
+                                                <div class="tp-feature__content d-flex align-items-center justify-content-between">
+                                                    <h4 class="tp-feature__title-sm">Onam formları</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-12 col-lg-12 mb-5 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
+                                        <div class="tp-feature__wraper" style="padding: 20px 17px 20px 25px;">
+                                            <div class="tp-feature__item z-index">
+                                                <div class="tp-feature__content d-flex align-items-center justify-content-between">
+                                                    <h4 class="tp-feature__title-sm">Başkana ulaş</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-12 col-lg-12 mb-5 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
+                                        <div class="tp-feature__wraper" style="padding: 20px 17px 20px 25px;">
+                                            <div class="tp-feature__item z-index">
+                                                <div class="tp-feature__content d-flex align-items-center justify-content-between">
+                                                    <h4 class="tp-feature__title-sm">Bir fikrim var</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-12 col-lg-12 mb-5 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
+                                        <div class="tp-feature__wraper" style="padding: 20px 17px 20px 25px;">
+                                            <div class="tp-feature__item z-index">
+                                                <div class="tp-feature__content d-flex align-items-center justify-content-between">
+                                                    <h4 class="tp-feature__title-sm">KBB doktor bul</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-12 col-lg-12 mb-5 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
+                                        <div class="tp-feature__wraper" style="padding: 20px 17px 20px 25px;">
+                                            <div class="tp-feature__item z-index">
+                                                <div class="tp-feature__content d-flex align-items-center justify-content-between">
+                                                    <h4 class="tp-feature__title-sm">Bize ulaşın</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class=" fix p-relative pt-120 pb-120">
             <div class="tp-about-2__text-box d-none d-xl-block">
-                <h5 class="tp-about-2__big-text">KBB</h5>
+                <h5 class="tp-about-2__big-text" style="position: absolute; left: 150px">KBB</h5>
             </div>
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-xl-5 col-lg-5 wow tpfadeLeft" data-wow-duration=".9s" data-wow-delay=".3s" style="visibility: visible; animation-duration: 0.9s; animation-delay: 0.3s; animation-name: tpfadeLeft;">
                         <div class="tp-about-2__main-thumb p-relative text-center text-lg-end">
-                            <img src="{{ asset('front/assets/images/ee.png') }}" alt="">
+                            <img src="{{ asset('front/assets/images/ee.png') }}" loading="lazy" alt="">
                             <div class="tp-about-2__thumb-sm">
-                                <img src="{{ asset('front/assets/images/Logo-2.jpeg') }}" alt="" style="width: 95%;">
+                                <img src="{{ asset('front/assets/images/Logo-2.jpeg') }}" loading="lazy" alt="" style="width: 95%;">
                                 <div class="tp-about-2__icon">
                                     <a class="popup-video" href="https://www.youtube.com/watch?v=PO_fBTkoznc">
                                         <i class="fas fa-play"></i>
@@ -69,7 +229,7 @@
                         <div class="tp-about-2__right-box">
                             <div class="tp-about-2__section-title pb-25">
                                 <span class="tp-section-subtitle-2">Hakkımızda</span>
-                                <h2 class="text-white">Türk Kulak Burun Boğaz ve Baş Boyun Cerrahisi Derneği</h2>
+                                <h2 >Türk Kulak Burun Boğaz ve Baş Boyun Cerrahisi Derneği</h2>
                             </div>
                             <div class="tp-about-2__text">
                                 <p>Kulak Burun Boğaz ve Baş
@@ -111,203 +271,6 @@
                 </div>
             </div>
         </div>
-
-        <div class="tp-mission-2__area tp-mission-2__space p-relative fix z-index grey-bg">
-            <div class="tp-mission-2__shape">
-                <img src="{{ asset('front/assets/img/mission/mission-shape-1.png') }}" alt="">
-            </div>
-            <div class="tp-mission-2__plr">
-                <div class="container-fluid g-0">
-                    <div class="row">
-
-                        <div class="col-md-3">
-                            <div class="tp-mission-2__left-box">
-
-                                <div class="row">
-                                    <div class="col-xl-12 col-lg-12 mb-5 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
-                                        <div class="tp-feature__wraper" style="padding: 17px 17px 25px 30px">
-                                            <div class="tp-feature__item z-index">
-                                                <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                                    <h4 class="tp-feature__title-sm">Onam Formları</h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-12 col-lg-12 mb-5 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
-                                        <div class="tp-feature__wraper" style="padding: 17px 17px 25px 30px">
-                                            <div class="tp-feature__item z-index">
-                                                <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                                    <h4 class="tp-feature__title-sm">Başkana Ulaş</h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-12 col-lg-12 mb-5 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
-                                        <div class="tp-feature__wraper" style="padding: 17px 17px 25px 30px">
-                                            <div class="tp-feature__item z-index">
-                                                <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                                    <h4 class="tp-feature__title-sm">Bir Fikrim Var</h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-12 col-lg-12 mb-5 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
-                                        <div class="tp-feature__wraper" style="padding: 17px 17px 25px 30px">
-                                            <div class="tp-feature__item z-index">
-                                                <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                                    <h4 class="tp-feature__title-sm">KBB Doktor Bul</h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-12 col-lg-12 mb-5 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
-                                        <div class="tp-feature__wraper" style="padding: 17px 17px 25px 30px">
-                                            <div class="tp-feature__item z-index">
-                                                <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                                    <h4 class="tp-feature__title-sm">Bize Ulaşın</h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="col-md-9">
-                            <div class="row">
-                                <div class="col-xl-4 col-lg-4 mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
-                                    <div class="tp-feature__wraper">
-                                        <div class="tp-feature__shape-1">
-                                            <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
-                                        </div>
-                                        <div class="tp-feature__shape-2">
-                                            <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
-                                        </div>
-                                        <div class="tp-feature__item z-index">
-                                            <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                                <h4 class="tp-feature__title-sm">Online Kütüphane</h4>
-                                                <div class="tp-feature__icon">
-                                            <span>
-                                                <i class="flaticon-book"></i>
-                                            </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 col-lg-4 mb-30 wow tpfadeUp" data-wow-duration=".9s"
-                                     data-wow-delay=".5s">
-                                    <div class="tp-feature__wraper">
-                                        <div class="tp-feature__shape-1">
-                                            <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
-                                        </div>
-                                        <div class="tp-feature__shape-2">
-                                            <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
-                                        </div>
-                                        <div class="tp-feature__item z-index">
-                                            <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                                <h5 class="tp-feature__title-sm">Hasta Bilgilendirme Broşürleri</h5>
-                                                <div class="tp-feature__icon">
-                                            <span>
-                                                <i class="flaticon-diet"></i>
-                                            </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 col-lg-4 mb-30 wow tpfadeUp" data-wow-duration=".9s"
-                                     data-wow-delay=".7s">
-                                    <div class="tp-feature__wraper">
-                                        <div class="tp-feature__shape-1">
-                                            <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
-                                        </div>
-                                        <div class="tp-feature__shape-2">
-                                            <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
-                                        </div>
-                                        <div class="tp-feature__item z-index">
-                                            <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                                <h6 class="tp-feature__title-sm">Yöresel Dernekler ve Alt Birim Dalları</h6>
-                                                <div class="tp-feature__icon">
-                                            <span>
-                                                <i class="flaticon-map"></i>
-                                            </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 col-lg-4 mb-30 wow tpfadeUp" data-wow-duration=".9s"
-                                     data-wow-delay=".3s">
-                                    <div class="tp-feature__wraper">
-                                        <div class="tp-feature__shape-1">
-                                            <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
-                                        </div>
-                                        <div class="tp-feature__shape-2">
-                                            <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
-                                        </div>
-                                        <div class="tp-feature__item z-index">
-                                            <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                                <h4 class="tp-feature__title-sm">Toplantı Takvimi</h4>
-                                                <div class="tp-feature__icon">
-                                            <span>
-                                                <i class="flaticon-calendar"></i>
-                                            </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 col-lg-4 mb-30 wow tpfadeUp" data-wow-duration=".9s"
-                                     data-wow-delay=".5s">
-                                    <div class="tp-feature__wraper">
-                                        <div class="tp-feature__shape-1">
-                                            <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
-                                        </div>
-                                        <div class="tp-feature__shape-2">
-                                            <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
-                                        </div>
-                                        <div class="tp-feature__item z-index">
-                                            <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                                <h4 class="tp-feature__title-sm">Başkanımızın 100.yıl mesajı</h4>
-                                                <div class="tp-feature__icon">
-                                            <span>
-                                                <i class="flaticon-handshake"></i>
-                                            </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 col-lg-4 mb-30 wow tpfadeUp" data-wow-duration=".9s"
-                                     data-wow-delay=".7s">
-                                    <div class="tp-feature__wraper">
-                                        <div class="tp-feature__shape-1">
-                                            <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
-                                        </div>
-                                        <div class="tp-feature__shape-2">
-                                            <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
-                                        </div>
-                                        <div class="tp-feature__item z-index">
-                                            <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                                <h4 class="tp-feature__title-sm">Turkish Archives of <span style="font-size: 13px">Otorhinolaryngology</span></h4>
-                                                <div class="tp-feature__icon">
-                                            <span>
-                                                <i class="flaticon-giving"></i>
-                                            </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <div class="tp-cta-2__area pb-115">
             <div class="tp-cta-2__bg p-relative fix" data-background="{{ asset('front/assets/img/cta/cta-bg-1.png') }}">
                 <div class="container">
@@ -389,16 +352,16 @@
                         <div class="tp-service-3__item p-relative">
                             <div class="tp-service-3__thumb-box p-relative">
                                 <div class="tp-service-3__thumb">
-                                    <img src="{{ asset('front/assets/images/kulak.jpg') }}" alt="">
+                                    <img src="{{ asset('front/assets/images/kulak.jpg') }}" loading="lazy" alt="">
                                 </div>
                                 <div class="tp-service-3__icon">
                                     <span><i class="fa fa-ear-listen" style="font-weight: 300;"></i></span>
                                 </div>
                             </div>
                             <div class="tp-service-3__content text-center">
-                                <a href="about-us.html"><h4 class="tp-service-3__title-sm">Kulak</h4></a>
+                                <a href="#"><h4 class="tp-service-3__title-sm">Kulak</h4></a>
                                 <div class="tp-service-3__shape">
-                                    <img src="{{ asset('front/assets/img/service/service-shape.png') }}" alt="">
+                                    <img src="{{ asset('front/assets/img/service/service-shape.png') }}" loading="lazy" alt="">
                                 </div>
                             </div>
                         </div>
@@ -408,16 +371,16 @@
                         <div class="tp-service-3__item p-relative">
                             <div class="tp-service-3__thumb-box p-relative">
                                 <div class="tp-service-3__thumb">
-                                    <img src="{{ asset('front/assets/images/burun.jpg') }}" alt="">
+                                    <img src="{{ asset('front/assets/images/burun.jpg') }}" loading="lazy" alt="">
                                 </div>
                                 <div class="tp-service-3__icon">
                                     <span><i class="fi fi-tr-nose"></i></span>
                                 </div>
                             </div>
                             <div class="tp-service-3__content text-center">
-                                <a href="about-us.html"><h4 class="tp-service-3__title-sm">Burun</h4></a>
+                                <a href="#"><h4 class="tp-service-3__title-sm">Burun</h4></a>
                                 <div class="tp-service-3__shape">
-                                    <img src="{{ asset('front/assets/img/service/service-shape.png') }}" alt="">
+                                    <img src="{{ asset('front/assets/img/service/service-shape.png') }}" loading="lazy" alt="">
                                 </div>
                             </div>
                         </div>
@@ -427,16 +390,16 @@
                         <div class="tp-service-3__item p-relative">
                             <div class="tp-service-3__thumb-box p-relative">
                                 <div class="tp-service-3__thumb">
-                                    <img src="{{ asset('front/assets/images/bogaz.jpg') }}" alt="">
+                                    <img src="{{ asset('front/assets/images/bogaz.jpg') }}" loading="lazy" alt="">
                                 </div>
                                 <div class="tp-service-3__icon">
                                     <span><i class="fi fi-ts-head-side-cough"></i></span>
                                 </div>
                             </div>
                             <div class="tp-service-3__content text-center">
-                                <a href="about-us.html"><h4 class="tp-service-3__title-sm">Boğaz</h4></a>
+                                <a href="#"><h4 class="tp-service-3__title-sm">Boğaz</h4></a>
                                 <div class="tp-service-3__shape">
-                                    <img src="{{ asset('front/assets/img/service/service-shape.png') }}" alt="">
+                                    <img src="{{ asset('front/assets/img/service/service-shape.png') }}" loading="lazy" alt="">
                                 </div>
                             </div>
                         </div>
@@ -446,16 +409,16 @@
                         <div class="tp-service-3__item p-relative">
                             <div class="tp-service-3__thumb-box p-relative">
                                 <div class="tp-service-3__thumb">
-                                    <img src="{{ asset('front/assets/images/pediatrik.jpg') }}" alt="">
+                                    <img src="{{ asset('front/assets/images/pediatrik.jpg') }}" loading="lazy" alt="">
                                 </div>
                                 <div class="tp-service-3__icon">
                                     <span><i class="fi fi-ts-child-head"></i></span>
                                 </div>
                             </div>
                             <div class="tp-service-3__content text-center">
-                                <a href="about-us.html"><h4 class="tp-service-3__title-sm">Pediatrik KBB</h4></a>
+                                <a href="#"><h4 class="tp-service-3__title-sm">Pediatrik KBB</h4></a>
                                 <div class="tp-service-3__shape">
-                                    <img src="{{ asset('front/assets/img/service/service-shape.png') }}" alt="">
+                                    <img src="{{ asset('front/assets/img/service/service-shape.png') }}" loading="lazy" alt="">
                                 </div>
                             </div>
                         </div>
@@ -465,16 +428,16 @@
                         <div class="tp-service-3__item p-relative">
                             <div class="tp-service-3__thumb-box p-relative">
                                 <div class="tp-service-3__thumb">
-                                    <img src="{{ asset('front/assets/images/tumor.jpg') }}" alt="">
+                                    <img src="{{ asset('front/assets/images/tumor.jpg') }}" loading="lazy" alt="">
                                 </div>
                                 <div class="tp-service-3__icon">
                                     <span><i class="fi fi-tr-disease"></i></span>
                                 </div>
                             </div>
                             <div class="tp-service-3__content text-center">
-                                <a href="about-us.html"><h4 class="tp-service-3__title-sm">KBB Tümörler</h4></a>
+                                <a href="#"><h4 class="tp-service-3__title-sm">KBB Tümörler</h4></a>
                                 <div class="tp-service-3__shape">
-                                    <img src="{{ asset('front/assets/img/service/service-shape.png') }}" alt="">
+                                    <img src="{{ asset('front/assets/img/service/service-shape.png') }}" loading="lazy" alt="">
                                 </div>
                             </div>
                         </div>

@@ -24,7 +24,7 @@ class ZoomController extends Controller
             'title' => 'required',
             'type' => 'required',
             'start_time' => 'required',
-            'zoom_link' => 'required|url',
+            'zoom_link' => 'required',
         ]);
 
         Zoom::create([

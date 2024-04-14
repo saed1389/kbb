@@ -28,8 +28,8 @@
                                             <div class="col-6">
                                                 <ul class="list-unstyled mb-0">
                                                     <li class="d-flex mb-4 align-items-center">
-                                                        <p class="mb-0 fw-medium me-2 website-analytics-text-bg">Yeterlik Puanım</p>
-                                                        <p class="mb-0">{{ $points }} </p>
+                                                        <p class="mb-0 fw-medium me-2 website-analytics-text-bg @if($point < 0 ) text-danger @else text-success @endif">Yeterlik</p>
+                                                        <p class="mb-0 @if($point < 0 ) text-danger @else text-success @endif">{{ $point }} </p>
                                                     </li>
                                                     <li class="d-flex align-items-center mb-2">
                                                         <p class=""></p>

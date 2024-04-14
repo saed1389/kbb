@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\City;
+use App\Models\Director;
 use App\Models\News;
+use App\Models\President;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -66,5 +68,23 @@ class IndexController extends Controller
     {
         $sliders = News::where('status', 1)->get();
         return view('frontend.index', compact('sliders'));
+    }
+
+    public function dernegmz()
+    {
+        return view('frontend.our_association.index');
+    }
+
+    public function baskan()
+    {
+        $baskan = President::where('current', 0)->where('status', 1)->orderBy('year', 'asc')->get();
+        $current = President::where('current', 1)->where('status', 1)->first();
+        return view('frontend.our_association.president', compact('baskan', 'current'));
+    }
+
+    public function younetim() {
+        $baskan = Director::where('position', 1)->where('status', 1)->first();
+        $directors = Director::where('position', '!=' , '1')->where('status', 1)->orderBy('position', 'asc')->orderBy('id', 'asc')->get();
+        return view('frontend.our_association.directors', compact('directors', 'baskan'));
     }
 }

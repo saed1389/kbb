@@ -35,7 +35,7 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->title }}</td>
-                            <td>{{ $item->location }}</td>
+                            <td>{{ $item->pointName->title }}</td>
                             <td>{{ @$item->userName->first_name. ' '. @$item->userName->last_name }}</td>
                             <th><a href="{{ asset($item->certificate) }}" class="btn btn-sm btn-success" download="">Dosya</a></th>
                             <td>
@@ -49,10 +49,9 @@
             </div>
         </div>
     </div>
-    {{-- Edit Modal --}}
     <div class="modal fade" id="editModal" data-bs-backdrop="static" tabindex="-1">
         <div class="modal-dialog">
-            <form class="modal-content" action="{{ route('Competences.updateModal') }}" method="post" >
+            <form class="modal-content" action="{{ route('Competences.confirm') }}" method="post" >
                 @csrf
                 <input type="hidden" id="job_id" name="job_id">
                 <div class="modal-header">
@@ -78,8 +77,13 @@
                             <input type="text" id="locationEdit" name="job" class="form-control"  disabled>
                         </div>
                         <div class="col-md-6 mb-3">
+                            <label for="point_idEdit" class="form-label">Aktivite</label>
+                            <input type="text" id="point_idEdit" name="point_id" class="form-control"  disabled>
+                        </div>
+                        <div class="col-md-12 mb-3">
                             <label for="pointEdit" class="form-label">Poun</label>
-                            <input type="number" id="pointEdit" name="point" class="form-control" max="" placeholder="Poun Giriniz">
+                            <input type="number" id="pointEdit" name="point" class="form-control" min="0" max="" placeholder="Poun Giriniz">
+                            <small >Max Puan: <strongs id="max"></strongs> </small>
                         </div>
                     </div>
                 </div>
@@ -95,18 +99,24 @@
         <script>
             $(document).ready(function () {
                 $(document).on('click', '.editBtn', function () {
+
+
                     var title_id = $(this).val();
                     $('#editModal').modal('show');
                     $.ajax({
                         type: "GET",
                         url: "{{ url('admin/Competences/editModal') }}/"+title_id,
                         success: function (response) {
+                            console.log(response);
                             $('#titleEdit').val(response.job.title);
                             $('#start_dateEdit').val(response.job.start_date);
                             $('#end_dateEdit').val(response.job.end_date);
                             $('#locationEdit').val(response.job.location);
                             $('#pointEdit').val(response.job.point);
-                            $('#pointEdit').attr('max', response.job.point);
+                            $('#point_idEdit').val(response.job.point_name);
+                            $('#max').empty();
+                            $('#max').append(response.job.point_max);
+                            $('#pointEdit').attr('max', response.job.point_max);
                             $('#job_id').val(response.job.id);
                         }
                     });

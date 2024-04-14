@@ -1,14 +1,6 @@
 @extends('user.layouts.app')
 @section('title') KBB Yeterlik @endsection
 @section('content')
-    @push('styles')
-        <style>
-            .swal2-deny{
-                display: none !important;
-            }
-        </style>
-
-    @endpush
     <div class="container-xxl flex-grow-1 container-p-y">
         <div class="card">
             <h5 class="card-header">KBB Yeterlik</h5>
@@ -54,7 +46,7 @@
                                             <div class="col-md-12 mb-3">
                                                 <label for="point_id" class="form-label">Aktivite</label>
                                                 <select name="point_id" class="form-select" id="point_id" required>
-                                                    <option disabled>Lütfen seçin..</option>
+                                                    <option disabled value="">Lütfen seçin..</option>
                                                     @foreach($points as $point)
                                                         <option value="{{ $point->id }}">{{ $point->title }}</option>
                                                     @endforeach
@@ -66,7 +58,7 @@
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <label for="certificate" class="form-label">Sertifika</label>
-                                                <input type="file" id="certificate" name="certificate" class="form-control" placeholder="Sertifika Giriniz">
+                                                <input type="file" id="certificate" name="certificate" class="form-control" placeholder="Sertifika Giriniz" required>
                                             </div>
                                         </div>
                                     </div>
@@ -98,8 +90,8 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->title }}</td>
-                            <td>{{ date('d-m-Y', strtotime($item->start_date)) }}</td>
-                            <td>{{ date('d-m-Y', strtotime($item->end_date)) }}</td>
+                            <td>{{ $item->start_date ? date('d-m-Y', strtotime($item->start_date)): '-' }}</td>
+                            <td>{{ $item->end_date ? date('d-m-Y', strtotime($item->end_date)) : '-' }}</td>
                             <td>{{ $item->location }}</td>
 
                             @if($item->status == 2)
@@ -158,7 +150,7 @@
                         <div class="col-md-12 mb-3">
                             <label for="point_id" class="form-label">Aktivite</label>
                             <select name="point_id" class="form-select" id="point_id" required>
-                                <option disabled>Lütfen seçin..</option>
+                                <option disabled value="">Lütfen seçin..</option>
                                 @foreach($points as $point)
                                     <option value="{{ $point->id }}">{{ $point->title }}</option>
                                 @endforeach
@@ -193,7 +185,6 @@
                         type: "GET",
                         url: "{{ url('user/userCompetences/editModal') }}/"+title_id,
                         success: function (response) {
-                            console.log(response);
                             $('#titleEdit').val(response.job.title);
                             $('#start_dateEdit').val(response.job.start_date);
                             $('#end_dateEdit').val(response.job.end_date);
@@ -201,7 +192,11 @@
                             $('#certificateOld').val(response.job.certificate);
                             $('#certificateDownload').attr('href', '{{ asset('') }}' + response.job.certificate);
                             $('#job_id').val(response.job.id);
-                            $('#point_id').val(response.job.point_id);
+                            $('#point_id option').removeAttr('selected'); // Remove selected attribute from all options
+                            $('#point_id option[value="' + response.job.point_id + '"]').attr('selected', 'selected'); // Set selected attribute for the correct option
+                        },
+                        error: function(xhr, status, error) {
+                            console.error(xhr.responseText);
                         }
                     });
                 });

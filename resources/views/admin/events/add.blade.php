@@ -31,12 +31,12 @@
                             </ol>
                         </nav>
                     </div>
-                    <form class="" action="{{ route('events.store') }}" method="post">
+                    <form action="{{ route('events.store') }}" method="post">
                         @csrf
                         <div class="row">
                             <div class="col-md-5 mb-3">
                                 <label for="title" class="form-label">Etkinlik Başlık <span class="text-danger">*</span></label>
-                                <input type="text" id="title" name="title" class="form-control" value="{{ old('title') }}" placeholder="Etkinlik Başlık Giriniz" required>
+                                <input type="text" id="title" name="title" class="form-control" value="{{ old('title') }}" placeholder="Etkinlik Başlık Giriniz">
                                 @error('title')
                                 <span class="text-danger">{{ $message }}</span>
                                 @enderror
@@ -61,8 +61,6 @@
                                 <label for="end_date" class="form-label">Bitiş Tarihi</label>
                                 <input type="date" id="end_date" value="{{ old('end_date') }}" name="end_date" class="form-control" >
                             </div>
-
-
                             <div class="col-md-3 mb-3">
                                 <div class="form-label mb-3">Yeni Sayfa Açılış Durumu</div>
                                 <label class="switch switch-square">
@@ -77,7 +75,11 @@
                             <div class="col-md-12 mb-3">
                                 <label class="form-label" for="editor">Etkinlik İçeriği <span class="text-danger">*</span></label>
                                 <textarea class="form-control editor" id="editor" name="event_body">{{ old('event_body') }}</textarea>
+                                @error('event_body')
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
+
                             <div class="col-md-12 mb-3">
                                 <label class="form-label" for="editor">Etkinlik İçeriği (en)</label>
                                 <textarea class="form-control editor" id="editor" name="event_body_en"> {{ old('event_body_en') }}</textarea>

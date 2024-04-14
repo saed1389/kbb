@@ -52,7 +52,6 @@
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Kategori</th>
                                 <th>Haber Başlığı</th>
                                 <th>Oluşturma</th>
                                 <th>Hit</th>
@@ -97,7 +96,6 @@
                             "searchable": false,
                             "orderable": false
                         },
-                        { data: 'news_category', name: 'news_category.title', "searchable": false, "orderable": false},
                         { data: 'title', name: 'title', "searchable": true},
                         { data: "created_at",
                             name: 'created_at',
@@ -133,8 +131,8 @@
                         },
                         { data: null,
                             render: function (data, type, row) {
-                                return '<a href="{{ url("admin/news") }}/' + row.id + '/edit" class="btn btn-primary">Düzenle</a> ' +
-                                    '<button href="{{ url("admin/news/delete") }}/' + row.id + '" type="button" class="btn btn-danger" id="delete" >Sil</button>';
+                                return '<a href="{{ url("admin/news") }}/' + row.id + '/edit" class="btn btn-primary btn-sm">Düzenle</a> ' +
+                                    '<button href="{{ url("admin/news/delete") }}/' + row.id + '" type="button" class="btn btn-danger btn-sm mt-1" id="delete" >Sil</button>';
                             }, "searchable": false, "orderable": false
                         },
                     ],

@@ -13,7 +13,7 @@ class DirectorController extends Controller
 {
     public function index()
     {
-        $presidents = Director::orderBy('id', 'desc')->get();
+        $presidents = Director::orderBy('position', 'asc')->orderBy('id', 'asc')->get();
         return view('admin.menus.directors.index', compact('presidents'));
     }
 
@@ -50,7 +50,7 @@ class DirectorController extends Controller
 
     public function edit($id)
     {
-        $presidents = Director::orderBy('id', 'desc')->get();
+        $presidents = Director::orderBy('position', 'asc')->orderBy('id', 'asc')->get();
         $president = Director::where('id', $id)->first();
 
         return view('admin.menus.directors.edit', compact('president', 'presidents'));

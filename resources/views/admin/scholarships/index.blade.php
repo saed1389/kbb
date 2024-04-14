@@ -68,7 +68,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.2.2/jszip.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
-        <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
         <script src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
         <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
         <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js"></script>
@@ -183,7 +182,7 @@
                             headers: {
                                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                             },
-                            url: "{{ url('/admin/documents/changeStatus') }}/"+check_id+"/"+check_active,
+                            url: "{{ url('/admin/scholarships/changeStatus') }}/"+check_id+"/"+check_active,
                             data: { _token : $('meta[name="csrf-token"]').attr('content'), id: check_id, active: check_active},
                             success: function(response){
                                 toastr.success("Durumu başarıyla değiştir!");

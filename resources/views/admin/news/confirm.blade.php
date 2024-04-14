@@ -18,12 +18,9 @@
                                     <a href="{{ route('news.index') }}">Haber Listesi </a>
                                 </li>
                                 <li class="breadcrumb-item active">Haber Onayı</li>
-
                             </ol>
                         </nav>
-
                     </div>
-
                     <div class="card-datatable table-responsive">
                         <table id="example" class="table table table-striped" style="width:100%">
                             <thead>
@@ -48,9 +45,7 @@
                                     <td>{{ $item->created_at }}</td>
                                     <td>
                                         <label class="switch switch-success">
-                                            <input type="checkbox" class="switch-input active" name="status" id="status"
-                                                   data-id="{{ $item->id }}"
-                                                   value="{{ $item->id }}" @checked($item->confirm == 1)>
+                                            <input type="checkbox" class="switch-input active" name="status" id="status" data-id="{{ $item->id }}" value="{{ $item->id }}" @checked($item->confirm == 1)>
                                             <span class="switch-toggle-slider">
                                                 <span class="switch-on">
                                                     <i class="ti ti-check"></i>
@@ -62,10 +57,8 @@
                                         </label>
                                     </td>
                                     <td>
-                                        <a type="button" href="{{ route('news.edit', $item->id) }}"
-                                           class="btn btn-label-primary btn-sm waves-effect editBtn">Düzenle</a>
-                                        <button type="button" href="{{ route('news.delete', $item->id) }}"
-                                                class="btn btn-label-danger btn-sm waves-effect" id="delete">Sil
+                                        <a type="button" href="{{ route('news.edit', $item->id) }}" class="btn btn-label-primary btn-sm waves-effect editBtn">Düzenle</a>
+                                        <button type="button" href="{{ route('news.delete', $item->id) }}" class="btn btn-label-danger btn-sm waves-effect" id="delete">Sil
                                         </button>
                                     </td>
                                 </tr>

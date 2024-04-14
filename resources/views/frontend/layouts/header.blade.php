@@ -2,7 +2,7 @@
     <div id="header-sticky" class="tp-header__left-wrap p-relative">
         <div class="tp-header__logo">
             <a class="text-center" href="/">
-                <img src="{{ asset('assets/img/logo.png') }}" alt="" class="logo" style="width: 75%;" >
+                <img src="{{ asset('assets/img/logo.png') }}" alt="" loading="lazy" class="logo" style="width: 75%;" >
             </a>
         </div>
         <div class="tp-header__right-wrap tp-header__plr">
@@ -97,11 +97,12 @@
                                         </li>
                                         <li><a href="#">Asistan Okulu</a></li>
                                         <li><a href="#">Değişim Programı</a></li>
-                                        <li class="has-dropdown"><a href="#">Üyelik <i class="fa fa-angle-down down disable-arrow"></i></a>
+                                        <li class="has-dropdown"><a href="#">Torlak <i class="fa fa-angle-down down disable-arrow"></i></a>
                                             <ul class="submenu tp-submenu">
-                                                <li><a href="#">Üyelerimiz</a></li>
-                                                <li><a href="#">Yeni Üyelik</a></li>
-                                                <li><a href="#">Üyelik Koşulları</a></li>
+                                                <li><a href="#">Eğitim Videoları</a></li>
+                                                <li><a href="#">Kongreler</a></li>
+                                                <li><a href="#">Dersler-Ders Programı</a></li>
+                                                <li><a href="#">Sertifika katılım</a></li>
                                             </ul>
                                         </li>
 
@@ -130,6 +131,8 @@
                                                                 @csrf
                                                             </form>
                                                         @else
+                                                            <li><a class="dropdown-item" href="">Üyelerimiz</a></li>
+                                                            <li><a class="dropdown-item" href="{{ route('register') }}">Yeni Üyelik</a></li>
                                                             <li><a class="dropdown-item" href="{{ route('login') }}">Oturum aç</a></li>
                                                         @endauth
                                                     @endif

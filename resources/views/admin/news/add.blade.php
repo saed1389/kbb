@@ -51,7 +51,7 @@
                         <div class="row">
                             <div class="col-md-4 mb-3">
                                 <label for="title" class="form-label">Haber Başlık <span class="text-danger">*</span></label>
-                                <input type="text" id="title" name="title" class="form-control" value="{{ old('title') }}" placeholder="Haber Başlık Giriniz" required>
+                                <input type="text" id="title" name="title" class="form-control" value="{{ old('title') }}" placeholder="Haber Başlık Giriniz">
                                 @error('title')
                                 <span class="text-danger">{{ $message }}</span>
                                 @enderror
@@ -105,6 +105,9 @@
                                 <label class="form-label" for="editor">Haber <span class="text-danger">*</span></label>
                                 <textarea class="form-control editor" id="editor" name="news_body">{{ old('news_body') }}</textarea>
                             </div>
+                            @error('news_body')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror
                             <div class="col-md-12 mb-3">
                                 <label class="form-label" for="editor">Haber (en)</label>
                                 <textarea class="form-control editor" id="editor" name="news_body_en"> {{ old('news_body_en') }}</textarea>
@@ -150,6 +153,9 @@
                                     <div class="col-md-6">
                                         <input type="file" class="image form-control" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03" aria-label="Upload" name="image">
                                     </div>
+                                    @error('image')
+                                    <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                     <div class="col-md-6">
                                         <input type="hidden" name="image_base64">
                                         <img src="{{ asset('assets/img/images.png') }}" style="width: 200px;" class="show-image" alt="">

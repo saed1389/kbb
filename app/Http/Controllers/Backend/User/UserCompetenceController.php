@@ -68,11 +68,32 @@ class UserCompetenceController extends Controller
      */
     public function editModal(string $id)
     {
-        $job = Competence::find($id);
+        $job = Competence::where('competences.id', $id)
+            ->join('competence_points', 'competence_points.id', '=', 'competences.point_id')
+            ->select('competence_points.title as point_name', 'competence_points.point as point_max', 'competences.*')
+            ->first();
         return response()->json([
             'status' => 200,
             'job' => $job
         ]);
+    }
+
+    public function confirm(Request $request)
+    {
+        $id = $request->job_id;
+        Competence::where('id', $id)->update([
+            'edit_request' => 0,
+            'vote' => 1,
+            'status' => 2,
+            'point' => $request->point,
+        ]);
+
+        $notification = array(
+            'message' => "Başarıyla onaylandı!",
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
     }
 
     /**
@@ -96,7 +117,7 @@ class UserCompetenceController extends Controller
             'location' => $request->location,
             'certificate' => $fileUrl,
             'point_id' => $request->point_id,
-            'edit_request' => 1,
+            'edit_request' => 0,
             'point' => 0,
             'vote' => 0,
             'status' => 0,
@@ -133,6 +154,7 @@ class UserCompetenceController extends Controller
         Competence::where('id', $id)->update([
             'edit_request' => 1,
             'status' => 1,
+            'point' => 0,
         ]);
 
         $notification = array(

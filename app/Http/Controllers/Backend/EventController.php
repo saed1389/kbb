@@ -36,6 +36,9 @@ class EventController extends Controller
         $request->validate([
             'title' => 'required',
             'event_body' => 'required',
+        ],[
+            'title.required' => 'Etkinlik Başlık gerekli',
+            'event_body.required' => 'Etkinlik İçeriği gerekli',
         ]);
 
         if ($request->new_page) {
@@ -90,6 +93,9 @@ class EventController extends Controller
         $request->validate([
             'title' => 'required',
             'event_body' => 'required',
+        ],[
+            'title.required' => 'Etkinlik Başlık gerekli',
+            'event_body.required' => 'Etkinlik İçeriği gerekli',
         ]);
 
         if ($request->new_page) {

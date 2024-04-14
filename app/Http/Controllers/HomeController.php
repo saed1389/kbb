@@ -9,6 +9,7 @@ use App\Models\Country;
 use App\Models\Event;
 use App\Models\News;
 use App\Models\Provinces;
+use App\Models\Setting;
 use App\Models\User;
 use App\Models\UserJob;
 use App\Models\UserTitle;
@@ -74,8 +75,9 @@ class HomeController extends Controller
         $allUsers = User::count();
         $lastNews = News::where('status', 1)->where('created_by', Auth::user()->id)->orderBy('id', 'desc')->limit(10)->get();
         $points = Competence::where('user_id', Auth::user()->id)->where('vote', 1)->sum('point');
-
-        return view('user.index', compact('activeUsers', 'myEvents', 'myNews', 'allEvents', 'allNews', 'allComments', 'allUsers', 'lastNews', 'points'));
+        $maxPoint = Setting::select('competenceMax')->where('id', 1)->first();
+        $point = $points-$maxPoint->competenceMax;
+        return view('user.index', compact('activeUsers', 'myEvents', 'myNews', 'allEvents', 'allNews', 'allComments', 'allUsers', 'lastNews', 'point'));
     }
 
     public function profileShow($id)

@@ -23,11 +23,15 @@ use App\Http\Controllers\Backend\MailListController;
 use App\Http\Controllers\Backend\BulkEmails;
 use App\Http\Controllers\Backend\MenuController;
 use App\Http\Controllers\Backend\SubMenuController;
+use App\Http\Controllers\Backend\SettingsController;
 use App\Http\Controllers\Backend\TorlakController;
 use App\Http\Controllers\Backend\User\UserNewsController;
 use App\Http\Controllers\Backend\User\UserCompetenceController;
 use App\Http\Controllers\Backend\CompetencePointController;
+use App\Http\Controllers\Backend\SchoolController;
+use App\Http\Controllers\Backend\CommitteesController;
 use App\Http\Controllers\Frontend\IndexController;
+use App\Http\Controllers\Errors;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,11 +43,24 @@ use App\Http\Controllers\Frontend\IndexController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('/', [IndexController::class, 'index'])->name('index');
-
+Route::get('419', [Errors::class, 'expire'])->name('419');
 Route::post('/province/fetch-city', [IndexController::class,'province_fetch_city'])->name('province.fetch-city');
 Route::post('/user_register', [IndexController::class,'user_register'])->name('user_register');
+
+
+Route::get('/', [IndexController::class, 'index'])->name('index');
+Route::get('dernegmz', [IndexController::class, 'dernegmz'])->name('dernegmz');
+Route::prefix('dernegmz')->group(function () {
+    Route::get('baskanlarimiz', [IndexController::class, 'baskan'])->name('baskan');
+    Route::get('yonetimkurulu', [IndexController::class, 'younetim'])->name('yonetimkurulu');
+    Route::get('kurullar', [IndexController::class, 'kurullar'])->name('kurullar');
+    Route::get('tarihce', [IndexController::class, 'tarihce'])->name('tarihce');
+    Route::get('ktisadisletme', [IndexController::class, 'ktisadisletme'])->name('ktisadisletme');
+    Route::get('kararlar', [IndexController::class, 'kararlar'])->name('kararlar');
+    Route::get('belgeler-yonetmelik-ve-yonergeler', [IndexController::class, 'yonetmelik'])->name('yonetmelik');
+    Route::get('tanitimfilmi', [IndexController::class, 'tanitimfilmi'])->name('tanitimfilmi');
+});
+
 Auth::routes();
 
 /*------------------------------------------
@@ -76,6 +93,9 @@ Route::middleware(['auth', 'user-access:user'])->group(function () {
         Route::post('userCompetences/updateModal', [UserCompetenceController::class, 'updateModal'])->name('userCompetences.updateModal');
         Route::get('userCompetences/delete/{id}', [UserCompetenceController::class, 'delete'])->name('userCompetences.delete');
         Route::get('userCompetences/request/{id}', [UserCompetenceController::class, 'request'])->name('userCompetences.request');
+
+        Route::resource('schools', SchoolController::class)->except('show', 'destroy');
+        Route::get('schools/delete/{id}', [SchoolController::class, 'delete'])->name('schools.delete');
     });
 });
 
@@ -95,6 +115,8 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
         Route::get('profile-edit-photo/{id}', [HomeController::class, 'profilePhoto'])->name('admin-profile-photo');
         Route::post('profile-webcam-store/{id}', [HomeController::class, 'webcamStore'])->name('profile-webcam-store');
         Route::post('profile-file-store/{id}', [HomeController::class, 'fileStore'])->name('profile-file-store');
+        Route::get('settings', [SettingsController::class, 'index'])->name('settings.index');
+        Route::post('settingsUpdate', [SettingsController::class, 'update'])->name('settings.update');
 
         Route::prefix('users')->group(function () {
             // User Title Routes
@@ -148,10 +170,40 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
         Route::prefix('menus/')->group(function (){
             Route::resource('presidents', PresidentController::class)->except('show', 'create', 'destroy');
             Route::post('presidents/changeStatus/{id}/{status}', [PresidentController::class, 'changeStatus']);
+            Route::post('presidents/currentPresident/{id}/{status}', [PresidentController::class, 'currentPresident']);
             Route::get('presidents/delete/{id}', [PresidentController::class, 'delete'])->name('presidents.delete');
-            Route::resource('directors', DirectorController::class)->except('show', 'create', 'destroy');
-            Route::post('directors/changeStatus/{id}/{status}', [DirectorController::class, 'changeStatus']);
-            Route::get('directors/delete/{id}', [DirectorController::class, 'delete'])->name('directors.delete');
+            Route::prefix('committees')->group(function (){
+                Route::resource('directors', DirectorController::class)->except('show', 'create', 'destroy');
+                Route::post('directors/changeStatus/{id}/{status}', [DirectorController::class, 'changeStatus']);
+                Route::get('directors/delete/{id}', [DirectorController::class, 'delete'])->name('directors.delete');
+
+                Route::get('check', [CommitteesController::class, 'checkIndex'])->name('committees.check');
+                Route::post('checkStore', [CommitteesController::class, 'checkStore'])->name('committees.checkStore');
+                Route::get('checkEdit/{id}', [CommitteesController::class, 'checkEdit'])->name('committees.checkEdit');
+                Route::post('checkUpdate/{id}', [CommitteesController::class, 'checkUpdate'])->name('committees.checkUpdate');
+                //Route::get('checkDelete/{id}', [CommitteesController::class, 'checkDelete'])->name('committees.checkDelete');
+
+                Route::get('advice', [CommitteesController::class, 'adviceIndex'])->name('committees.advice');
+                Route::post('adviceStore', [CommitteesController::class, 'adviceStore'])->name('committees.adviceStore');
+                Route::get('adviceEdit/{id}', [CommitteesController::class, 'adviceEdit'])->name('committees.adviceEdit');
+                Route::post('adviceUpdate/{id}', [CommitteesController::class, 'adviceUpdate'])->name('committees.adviceUpdate');
+                //Route::get('adviceDelete/{id}', [CommitteesController::class, 'adviceDelete'])->name('committees.adviceDelete');
+
+                Route::get('honor', [CommitteesController::class, 'honorIndex'])->name('committees.honor');
+                Route::post('honorStore', [CommitteesController::class, 'honorStore'])->name('committees.honorStore');
+                Route::get('honorEdit/{id}', [CommitteesController::class, 'honorEdit'])->name('committees.honorEdit');
+                Route::post('honorUpdate/{id}', [CommitteesController::class, 'honorUpdate'])->name('committees.honorUpdate');
+                //Route::get('honorDelete/{id}', [CommitteesController::class, 'honorDelete'])->name('committees.honorDelete');
+
+                Route::get('qualification', [CommitteesController::class, 'qualificationIndex'])->name('committees.qualification');
+                Route::post('qualificationStore', [CommitteesController::class, 'qualificationStore'])->name('committees.qualificationStore');
+                Route::get('qualificationEdit/{id}', [CommitteesController::class, 'qualificationEdit'])->name('committees.qualificationEdit');
+                Route::post('qualificationUpdate/{id}', [CommitteesController::class, 'qualificationUpdate'])->name('committees.qualificationUpdate');
+                //Route::get('qualificationDelete/{id}', [CommitteesController::class, 'qualificationDelete'])->name('committees.qualificationDelete');
+
+                Route::get('delete/{id}', [CommitteesController::class, 'delete'])->name('committees.delete');
+                Route::post('changeStatus/{id}/{status}', [CommitteesController::class, 'changeStatus']);
+            });
             /*Route::get('/delete/{id}', [MenuController::class, 'delete'])->name('menus.delete');
             Route::post('/updateAccordionOrder', [MenuController::class, 'updateAccordionOrder'])->name('manus.updateAccordionOrder');
             Route::post('/updateTableOrder', [MenuController::class, 'updateTableOrder'])->name('manus.updateTableOrder');*/
@@ -186,14 +238,21 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
         Route::get('competences-unconfirmed', [UserCompetenceController::class, 'unconfirmedList'])->name('unconfirmed-list');
         Route::get('competences-edit-request', [UserCompetenceController::class, 'editRequest'])->name('competences-edit-request');
         Route::get('competences-confirm-request/{id}', [UserCompetenceController::class, 'confirmRequest'])->name('competences-confirm-request');
+        Route::post('Competences/confirm', [UserCompetenceController::class, 'confirm'])->name('Competences.confirm');
         Route::get('Competences/editModal/{id}', [UserCompetenceController::class, 'editModal'])->name('Competences.editModal');
         Route::post('Competences/updateModal', [UserCompetenceController::class, 'point'])->name('Competences.updateModal');
         Route::get('Competences/delete/{id}', [UserCompetenceController::class, 'adminDelete'])->name('Competences.delete');
+
+        // KBB School
+        Route::get('school-list', [SchoolController::class, 'list'])->name('schools-list');
+        Route::post('school-list-change/{id}/{status}', [SchoolController::class, 'changeStatus'])->name('schools-list.status');
+        Route::get('school-list-get', [SchoolController::class, 'GetSchool'])->name('get-school');
 
         // KBB Competences Points
         Route::resource('competencesPoint', CompetencePointController::class)->except('show', 'destroy', 'create');
         Route::post('competencesPoint/changeStatus/{id}/{status}', [CompetencePointController::class, 'changeStatus']);
         Route::get('competencesPoint/delete/{id}', [CompetencePointController::class, 'delete'])->name('competencesPoint.delete');
+        Route::get('competencesPoint/member-list/', [CompetencePointController::class, 'memberList'])->name('competences.member-list');
 
         // Comment Routes
         Route::resource('comments', CommentController::class)->except('create', 'store', 'destroy', 'edit', 'update');
@@ -247,6 +306,7 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
         Route::post('news/changeConfirm/{id}/{confirm}', [NewsController::class, 'changeConfirm']);
         Route::get('get_news', [NewsController::class, 'GetNews'])->name('get_news');
         Route::get('news/confirm', [NewsController::class, 'confirm'])->name('news.confirm');
+        Route::get('news/confirmUpdate', [NewsController::class, 'confirmUpdate'])->name('news.confirmUpdate');
 
         // Event Routes
         Route::resource('events', EventController::class)->except('show', 'destroy');

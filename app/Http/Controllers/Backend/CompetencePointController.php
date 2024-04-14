@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Competence;
 use App\Models\CompetencePoint;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 
 class CompetencePointController extends Controller
@@ -73,5 +75,16 @@ class CompetencePointController extends Controller
     public function changeStatus($id, $status)
     {
         CompetencePoint::where('id', $id)->update(['status' => $status]);
+    }
+
+    public function memberList()
+    {
+        $total = Setting::select('competenceMax')->first()->competenceMax;
+        $points = Competence::groupBy('user_id')
+            ->selectRaw('user_id, SUM(point) as total_points')
+            ->orderBy('total_points', 'DESC')
+            ->get();
+        //dd($points);
+        return view('admin.competence.memberList', compact('points', 'total'));
     }
 }

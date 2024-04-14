@@ -41,22 +41,22 @@
             </ul>
         </li>
 
-        <li class="menu-item">
+        <li class="menu-item @if(Request::segment(2) == 'profile' || Request::segment(2) == 'profile-edit-photo' || Request::segment(2) == 'profile-edit') active @endif">
             <a href="{{ route('user.profile', Auth::user()->id) }}" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-user"></i>
                 <div data-i18n="Chat"><strong>Profili Düzenle </strong></div>
             </a>
         </li>
 
-        <li class="menu-item">
+        <li class="menu-item @if(Request::segment(2) == 'userCompetences') active @endif">
             <a href="{{ route('userCompetences.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-file"></i>
                 <div data-i18n="Chat"><strong>KBB Yeterlik </strong></div>
             </a>
         </li>
 
-        <li class="menu-item">
-            <a href="" class="menu-link">
+        <li class="menu-item @if(Request::segment(2) == 'schools') active @endif">
+            <a href="{{ route('schools.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-building"></i>
                 <div data-i18n="Chat"><strong>KBB Okulları </strong></div>
             </a>

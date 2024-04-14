@@ -38,10 +38,16 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request);
         $request->validate([
             'title' => 'required',
             'news_body' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ],[
+            'news_body.required' => 'Haber İçeriği gerekli',
+            'title.required' => 'Başlık gerekli',
+            'image.required' => 'Resim gerekli',
+            'image.mimes' => 'Resim Formatı Doğru Olmalı (jpeg,png,jpg,gif,svg)',
+            'image.max' => 'Maksimum resim boyutu şu şekilde olmalıdır: 2Mb',
         ]);
 
         if ($request->file('image')){
@@ -134,6 +140,13 @@ class NewsController extends Controller
         $request->validate([
             'title' => 'required',
             'news_body' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ],[
+            'news_body.required' => 'Haber İçeriği gerekli',
+            'title.required' => 'Başlık gerekli',
+            'image.required' => 'Resim gerekli',
+            'image.mimes' => 'Resim Formatı Doğru Olmalı (jpeg,png,jpg,gif,svg)',
+            'image.max' => 'Maksimum resim boyutu şu şekilde olmalıdır: 2Mb',
         ]);
 
         if ($request->file('image')){
@@ -262,41 +275,9 @@ class NewsController extends Controller
     public function GetNews()
     {
         if (\request()->ajax()) {
-            return datatables()->eloquent(
-                News::with('newsCategory:id,title')
-                    ->where('news.confirm', 1)
-            )
-                ->addColumn('id', function ($news) {
-                    return $news->id;
-                })
-                ->addColumn('title', function ($news) {
-                    return $news->title;
-                })
-                ->addColumn('news_category', function ($news) {
-                    return $news->newsCategory->title;
-                })
-                ->addColumn('hit', function ($news) {
-                    return $news->hit;
-                })
-                ->addColumn('news_body', function ($news) {
-                    return $news->news_body;
-                })
-                ->addColumn('news_href', function ($news) {
-                    return $news->news_href;
-                })
-                ->addColumn('image', function ($news) {
-                    return $news->image;
-                })
-                ->addColumn('created_at', function ($news) {
-                    return $news->created_at;
-                })
-                ->addColumn('status', function ($news) {
-                    return $news->status;
-                })
-                ->addColumn('confirm', function ($news) {
-                    return $news->confirm;
-                })
-                ->make(true);
+            return datatables()->of(News::with('newsCategory:id,title')
+                ->select('news.id', 'news.title', 'news.created_at', 'news.hit')
+            )->make(true);
         } else {
             return false;
         }

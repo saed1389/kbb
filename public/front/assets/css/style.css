@@ -1525,8 +1525,8 @@ input[type=text], input[type=email], input[type=tel], input[type=number], input[
 }
 
 .tp-breadcrumb-height {
-    padding-top: 145px;
-    padding-bottom: 145px;
+    padding-top: 75px;
+    padding-bottom: 75px;
     background-repeat: no-repeat;
     background-size: cover;
     object-fit: cover;
@@ -4881,10 +4881,6 @@ input[type=text], input[type=email], input[type=tel], input[type=number], input[
     width: 100%;
     background-color: rgb(11 26 62 / 94%);
     z-index: -1;
-}
-
-.tp-about-kbb h4 {
-    color: whitesmoke;
 }
 
 .tp-feature-2__bg {
