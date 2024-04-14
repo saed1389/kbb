@@ -85,8 +85,14 @@
                                                 <li><a href="#">Rinoloji-Rinoplasti-Alerji ve Uyku Okulu</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="#">KBB Yeterlik</a>
-
+                                        <li><a href="#">KBB Yeterlik</a></li>
+                                        <li class="has-dropdown"><a href="#">Torlak <i class="fa fa-angle-down down disable-arrow"></i></a>
+                                            <ul class="submenu tp-submenu">
+                                                <li><a href="#">Eğitim Videoları</a></li>
+                                                <li><a href="#">Kongreler</a></li>
+                                                <li><a href="#">Dersler-Ders Programı</a></li>
+                                                <li><a href="#">Sertifika katılım</a></li>
+                                            </ul>
                                         </li>
                                         <li class="has-dropdown"><a href="#">Burs - Ödüller <i class="fa fa-angle-down down disable-arrow"></i></a>
                                             <ul class="submenu tp-submenu">
@@ -97,14 +103,7 @@
                                         </li>
                                         <li><a href="#">Asistan Okulu</a></li>
                                         <li><a href="#">Değişim Programı</a></li>
-                                        <li class="has-dropdown"><a href="#">Torlak <i class="fa fa-angle-down down disable-arrow"></i></a>
-                                            <ul class="submenu tp-submenu">
-                                                <li><a href="#">Eğitim Videoları</a></li>
-                                                <li><a href="#">Kongreler</a></li>
-                                                <li><a href="#">Dersler-Ders Programı</a></li>
-                                                <li><a href="#">Sertifika katılım</a></li>
-                                            </ul>
-                                        </li>
+
 
                                     </ul>
                                 </nav>
