@@ -321,7 +321,11 @@
                                         <div data-i18n="Notifications">Yeterlik Yürütme Kurulu</div>
                                     </a>
                                 </li>
-
+                                <li class="menu-item @if(Request::segment(2) == 'menus' && Request::segment(4) == 'history-committees' || Request::segment(4) == 'history-committeesEdit') active @endif">
+                                    <a href="{{ route('history-committees.index') }}" class="menu-link">
+                                        <div data-i18n="Notifications">Geçmiş Dönemler Yönetim Kurulları</div>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                     </ul>

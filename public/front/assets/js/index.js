@@ -6,10 +6,10 @@ var swiper = new Swiper('.blog-slider', {
     effect: 'fade',
     loop: true,
     centeredSlides: true,
-    /*autoplay: {
+    autoplay: {
         delay: 5000,
         disableOnInteraction: false,
-    },*/
+    },
 
     pagination: {
         el: '.blog-slider__pagination',
@@ -62,10 +62,10 @@ var swiper = new Swiper(".mySwiper", {
         el: ".swiper-pagination",
         clickable: true,
     },
-    /*autoplay: {
+    autoplay: {
         delay: 5000,
         disableOnInteraction: false,
-    },*/
+    },
     navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
