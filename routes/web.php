@@ -53,8 +53,16 @@ Route::get('/', [IndexController::class, 'index'])->name('index');
 Route::get('dernegmz', [IndexController::class, 'dernegmz'])->name('dernegmz');
 Route::prefix('dernegmz')->group(function () {
     Route::get('baskanlarimiz', [IndexController::class, 'baskan'])->name('baskan');
-    Route::get('yonetimkurulu', [IndexController::class, 'younetim'])->name('yonetimkurulu');
-    Route::get('kurullar', [IndexController::class, 'kurullar'])->name('kurullar');
+    Route::get('kurullar-listesi', [IndexController::class, 'kurullar'])->name('kurullar');
+    Route::prefix('kurullar', )->group(function () {
+        Route::get('yonetim-kurulu', [IndexController::class, 'younetim'])->name('yonetimkurulu');
+        Route::get('denetleme-kurulu', [IndexController::class, 'denetleme'])->name('denetleme_kurulu');
+        Route::get('danisma-kurulu', [IndexController::class, 'danisma'])->name('danisma_kurulu');
+        Route::get('onur-ve-etik-kurulu', [IndexController::class, 'onur_ve_etik'])->name('onur_ve_etik_kurulu');
+        Route::get('yeterlik-yurutme-kurulu', [IndexController::class, 'yeterlik_yurutme'])->name('yeterlik_yurutme_kurulu');
+        Route::get('gecmis-donemler-yonetimkurullari', [IndexController::class, 'gecmis'])->name('gecmis_donemler_yonetimkurullari');
+    });
+
     Route::get('tarihce', [IndexController::class, 'tarihce'])->name('tarihce');
     Route::get('ktisadisletme', [IndexController::class, 'ktisadisletme'])->name('ktisadisletme');
     Route::get('kararlar', [IndexController::class, 'kararlar'])->name('kararlar');

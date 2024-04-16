@@ -45,9 +45,9 @@
                                         </li>
                                         <li class="has-dropdown"><a href="#">Derneğimiz <i class="fa fa-angle-down disable-arrow"></i></a>
                                             <ul class="submenu tp-submenu two-columns">
-                                                <li><a href="#">Başkanlarımız</a></li>
-                                                <li><a href="#">Yönetim Kurulu</a></li>
-                                                <li><a href="#">Kurullar</a></li>
+                                                <li><a href="{{ route('baskan') }}">Başkanlarımız</a></li>
+                                                <li><a href="{{ route('yonetimkurulu') }}">Yönetim Kurulu</a></li>
+                                                <li><a href="{{ route('kurullar') }}">Kurullar</a></li>
                                                 <li><a href="#">Tüzük</a></li>
                                                 <li><a href="#">Tarihçe</a></li>
                                                 <li><a href="#">İktisadi İşletme</a></li>

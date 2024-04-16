@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\City;
+use App\Models\Committees;
 use App\Models\Director;
+use App\Models\HistoryCommittee;
 use App\Models\News;
 use App\Models\President;
 use App\Models\User;
@@ -80,6 +82,51 @@ class IndexController extends Controller
         $baskan = President::where('current', 0)->where('status', 1)->orderBy('year', 'asc')->get();
         $current = President::where('current', 1)->where('status', 1)->first();
         return view('frontend.our_association.president', compact('baskan', 'current'));
+    }
+
+    public function kurullar()
+    {
+        return view('frontend.our_association.committees');
+    }
+
+    public function denetleme()
+    {
+        $baskan = Committees::where('menu_id', 1)->where('position', '=', 'Başkan')->where('status', 1)->first();
+        $directors = Committees::where('menu_id', 1)->where('id', '!=', $baskan->id)->where('status', 1)->get();
+        //dd($directors);
+        return view('frontend.our_association.check', compact('baskan', 'directors'));
+    }
+
+    public function danisma()
+    {
+        $members = Committees::where('menu_id', 2)->where('status', 1)->get();
+
+        return view('frontend.our_association.advice', compact('members'));
+    }
+
+    public function onur_ve_etik()
+    {
+        $members = Committees::where('menu_id', 3)->where('status', 1)->get();
+        return view('frontend.our_association.honor', compact('members'));
+    }
+
+    public function yeterlik_yurutme()
+    {
+        $baskan = Committees::where('menu_id', 4)->where('position', '=', 'Başkan')->where('status', 1)->first();
+        $directors = Committees::where('menu_id', 4)->where('id', '!=', $baskan->id)->where('status', 1)->get();
+
+        return view('frontend.our_association.competence', compact('baskan', 'directors'));
+    }
+
+    public function gecmis()
+    {
+        // Retrieve members from the database and group them by the 'group' attribute
+        $members = HistoryCommittee::where('status', 1)
+            ->orderBy('start_date', 'asc')
+            ->get();
+
+
+        return view('frontend.our_association.historyCommittees', compact('members'));
     }
 
     public function younetim() {
