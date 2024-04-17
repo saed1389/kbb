@@ -102,7 +102,7 @@
                                     <td>{{ $item->member }}</td>
                                     <td>
                                         <a href="{{ route('history-committees.edit', $item->id) }}" class="btn btn-label-primary btn-sm waves-effect editBtn" >Düzenle</a>
-                                        <button type="button" href="{{ route('history-committees.delete', $item->id) }}" class="btn btn-label-danger btn-sm waves-effect" id="delete">Sil</button>
+                                        <button type="button" href="{{ route('history-committees.delete', $item->id) }}" class="btn btn-label-danger btn-sm waves-effect mt-1" id="delete">Sil</button>
                                     </td>
                                 </tr>
                             @empty

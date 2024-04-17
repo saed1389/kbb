@@ -3,13 +3,6 @@
     Danışma Kurulu - Türk Kulak Burun Boğaz ve Baş Boyun Cerrahisi Derneği
 @endsection
 @section('content')
-    @push('styles')
-        <style>
-            .tp-team-2__thumb::after{
-                background-color: rgb(30 55 55 / 0%);
-            }
-        </style>
-    @endpush
     <div class="tp-breadcrumb__area p-relative fix tp-breadcrumb-height" data-background="{{ asset('assets/img/pages/so-banner.jpg') }}" style="background-image: url(&quot;{{ asset('assets/img/pages/so-banner.jpg') }}&quot;);">
         <div class="tp-breadcrumb__shape-1 z-index-5">
             <img src="{{ asset('front/assets/img/breadcrumb/breadcrumb-shape-1.png') }}" alt="">
@@ -49,7 +42,6 @@
                     @endforeach
                     </tbody>
                 </table>
-
             </div>
         </div>
     </div>

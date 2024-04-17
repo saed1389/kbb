@@ -9,10 +9,12 @@ use App\Models\Director;
 use App\Models\HistoryCommittee;
 use App\Models\News;
 use App\Models\President;
+use App\Models\Setting;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use function Laravel\Prompts\select;
 
 class IndexController extends Controller
 {
@@ -133,5 +135,21 @@ class IndexController extends Controller
         $baskan = Director::where('position', 1)->where('status', 1)->first();
         $directors = Director::where('position', '!=' , '1')->where('status', 1)->orderBy('position', 'asc')->orderBy('id', 'asc')->get();
         return view('frontend.our_association.directors', compact('directors', 'baskan'));
+    }
+
+    public function tarihce()
+    {
+        return view('frontend.our_association.history');
+    }
+
+    public function economic_business()
+    {
+        $setting = Setting::where('id', 1)->first()->economic_business;
+        return view('frontend.our_association.economicBusiness', compact('setting'));
+    }
+
+    public function kararlar()
+    {
+        return view('frontend.our_association.decisions');
     }
 }

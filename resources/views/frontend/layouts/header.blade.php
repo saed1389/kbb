@@ -48,10 +48,10 @@
                                                 <li><a href="{{ route('baskan') }}">Başkanlarımız</a></li>
                                                 <li><a href="{{ route('yonetimkurulu') }}">Yönetim Kurulu</a></li>
                                                 <li><a href="{{ route('kurullar') }}">Kurullar</a></li>
-                                                <li><a href="#">Tüzük</a></li>
-                                                <li><a href="#">Tarihçe</a></li>
-                                                <li><a href="#">İktisadi İşletme</a></li>
-                                                <li><a href="#">Kararlar</a></li>
+                                                <li><a href="{{ asset('uploads/Document/KBBC-DERNEK-TUZUK-202106291708.pdf') }}" download="">Tüzük</a></li>
+                                                <li><a href="{{ route('tarihce') }}">Tarihçe</a></li>
+                                                <li><a href="{{ route('iktisadi_isletme') }}">İktisadi İşletme</a></li>
+                                                <li><a href="{{ route('kararlar') }}">Kararlar</a></li>
                                                 <li><a href="#">Yönetmelik ve Yönergeler</a></li>
                                                 <li><a href="#">Tanıtım Filmi</a></li>
                                                 <li><a href="#">Kalite Politikası Misyon ve Vizyonumuz</a></li>

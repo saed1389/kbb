@@ -62,12 +62,27 @@ Route::prefix('dernegmz')->group(function () {
         Route::get('yeterlik-yurutme-kurulu', [IndexController::class, 'yeterlik_yurutme'])->name('yeterlik_yurutme_kurulu');
         Route::get('gecmis-donemler-yonetimkurullari', [IndexController::class, 'gecmis'])->name('gecmis_donemler_yonetimkurullari');
     });
-
+    Route::get('tarihce', [IndexController::class, 'tarihce'])->name('tarihce');
+    Route::get('iktisadi-isletme', [IndexController::class, 'economic_business'])->name('iktisadi_isletme');
     Route::get('tarihce', [IndexController::class, 'tarihce'])->name('tarihce');
     Route::get('ktisadisletme', [IndexController::class, 'ktisadisletme'])->name('ktisadisletme');
     Route::get('kararlar', [IndexController::class, 'kararlar'])->name('kararlar');
     Route::get('belgeler-yonetmelik-ve-yonergeler', [IndexController::class, 'yonetmelik'])->name('yonetmelik');
     Route::get('tanitimfilmi', [IndexController::class, 'tanitimfilmi'])->name('tanitimfilmi');
+    Route::prefix('kararlar')->group(function () {
+        Route::get('', [IndexController::class, 'kararlar'])->name('kararlar');
+        Route::get('belgeler-yonetim-kurulu-kararlari', function (){
+            return view('frontend.our_association.documents-board-decisions');
+        })->name('belgeler_yonetim_kurulu_kararlari');
+        Route::get('belgeler-etik-ve-onur-kurulu-kararlari', function (){
+            return view('frontend.our_association.documents-ethics-and-honor-board-decisions');
+        })->name('belgeler-etik-ve-onur-kurulu-kararlari');
+        Route::get('belgeler-kongre-sartnameleri', function (){
+            return view('frontend.our_association.documents-congress-specifications');
+        })->name('belgeler-kongre-sartnameleri');
+
+    });
+
 });
 
 Auth::routes();
@@ -211,6 +226,9 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
 
                 Route::get('delete/{id}', [CommitteesController::class, 'delete'])->name('committees.delete');
                 Route::post('changeStatus/{id}/{status}', [CommitteesController::class, 'changeStatus']);
+
+                Route::get('economic-business', [CommitteesController::class,'economicBusiness'])->name('committees.economicBusiness');
+                Route::post('economic-business-update', [CommitteesController::class,'economicBusinessUpdate'])->name('committees.economicBusinessUpdate');
             });
             /*Route::get('/delete/{id}', [MenuController::class, 'delete'])->name('menus.delete');
             Route::post('/updateAccordionOrder', [MenuController::class, 'updateAccordionOrder'])->name('manus.updateAccordionOrder');

@@ -328,6 +328,11 @@
                                 </li>
                             </ul>
                         </li>
+                        <li class="menu-item @if(Request::segment(2) == 'menus' && Request::segment(3) == 'economic-business') active @endif">
+                            <a href="{{ route('committees.economicBusiness') }}" class="menu-link" >
+                                <div data-i18n="Landing">İktisadi İşletme</div>
+                            </a>
+                        </li>
                     </ul>
                 </li>
 

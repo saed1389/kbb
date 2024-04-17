@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Committees;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -279,9 +280,28 @@ class CommitteesController extends Controller
         return redirect()->route('committees.qualification')->with($notification);
     }
 
+    public function economicBusiness()
+    {
+        $setting = Setting::first()->economic_business;
+        return view('admin.menus.economicBusiness', compact('setting'));
+    }
 
+    public function economicBusinessUpdate(Request $request) {
+        $request->validate([
+            'economic_business' => 'required',
+        ]);
 
+        Setting::where('id', '1')->update([
+            'economic_business' => $request->economic_business,
+        ]);
 
+        $notification = array(
+            'message' => "İktisadi İşletme başarıyla düzenlendi!",
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('committees.economicBusiness')->with($notification);
+    }
 
     public function changeStatus($id, $status)
     {

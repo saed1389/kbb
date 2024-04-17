@@ -95,7 +95,7 @@
                                 </div>
                                 <div class="tp-feature__item z-index">
                                     <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm">Tüzük</h4>
+                                        <h4 class="tp-feature__title-sm"><a href="{{ asset('uploads/Document/KBBC-DERNEK-TUZUK-202106291708.pdf') }}" download="">Tüzük</a></h4>
                                     </div>
                                 </div>
                             </div>
@@ -110,7 +110,7 @@
                                 </div>
                                 <div class="tp-feature__item z-index">
                                     <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm">Tarihçe</h4>
+                                        <h4 class="tp-feature__title-sm"><a href="{{ route('tarihce') }}">Tarihçe</a></h4>
                                     </div>
                                 </div>
                             </div>
@@ -125,7 +125,7 @@
                                 </div>
                                 <div class="tp-feature__item z-index">
                                     <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm"> İktisadi İşletme</h4>
+                                        <h4 class="tp-feature__title-sm"><a href="{{ route('iktisadi_isletme') }}">İktisadi İşletme</a></h4>
                                     </div>
                                 </div>
                             </div>

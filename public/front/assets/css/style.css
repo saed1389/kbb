@@ -1689,8 +1689,8 @@ input[type=text], input[type=email], input[type=tel], input[type=number], input[
 .tp-custom-accordion .accordion-body {
     background-color: var(--tp-common-white);
     padding-bottom: 20px;
-    padding-left: 100px;
-    padding-right: 55px;
+    padding-left: 75px;
+    padding-right: 30px;
     position: relative;
     font-size: 16px;
     font-weight: 400;

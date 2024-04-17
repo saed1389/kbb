@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 @section('title')
-    Danışma Kurulu - Türk Kulak Burun Boğaz ve Baş Boyun Cerrahisi Derneği
+    Tarihçe - Türk Kulak Burun Boğaz ve Baş Boyun Cerrahisi Derneği
 @endsection
 @section('content')
     <div class="tp-breadcrumb__area p-relative fix tp-breadcrumb-height" data-background="{{ asset('assets/img/pages/so-banner.jpg') }}" style="background-image: url(&quot;{{ asset('assets/img/pages/so-banner.jpg') }}&quot;);">
@@ -19,35 +19,26 @@
                             <span class="dvdr"><i class="fa-sharp fa-solid fa-slash-forward"></i></span>
                             <span><a href="{{ route('dernegmz') }}">Derneğimiz</a></span>
                             <span class="dvdr"><i class="fa-sharp fa-solid fa-slash-forward"></i></span>
-                            <span><a href="{{ route('kurullar') }}"> Kurullar </a></span>
-                            <span class="dvdr"><i class="fa-sharp fa-solid fa-slash-forward"></i></span>
-                            <span>Danışma Kurulu</span>
+                            <span>Tarihçe</span>
                         </div>
-                        <h3 class="tp-breadcrumb__title">Danışma Kurulu</h3>
+                        <h3 class="tp-breadcrumb__title">Tarihçe</h3>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="tp-team-2__area pt-50 pb-90">
+    <div class="tp-about__area tp-about__space">
         <div class="container">
-            <div class="row">
-                <table class="table table-striped">
-                    <thead>
-                    <th>#</th>
-                    <th>AD SOYAD</th>
-                    <th>GÖREVİ</th>
-                    </thead>
-                    <tbody>
-                    @foreach($members as $item)
-                        <tr>
-                            <td>{{ $loop->iteration }}</td>
-                            <td>{{ $item->name }}</td>
-                            <td>{{ $item->position }}</td>
-                        </tr>
-                    @endforeach
-                    </tbody>
-                </table>
+            <div class="row align-items-xl-start align-items-center">
+                <div class="col-xl-12 col-lg-12 wow tpfadeRight" data-wow-duration=".9s" data-wow-delay=".7s" style="visibility: visible; animation-duration: 0.9s; animation-delay: 0.7s; animation-name: tpfadeRight;">
+                    <div class="tp-about__right-side tp-about__right-box">
+                        <div class="tp-about__content">
+                            <div class="tp-about__text">
+                                {!! $setting !!}
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

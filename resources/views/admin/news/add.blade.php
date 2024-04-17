@@ -203,7 +203,7 @@
         <script src="{{ asset('assets/vendor/libs/bootstrap-select/bootstrap-select.js') }}"></script>
         <script src="{{ asset('assets/js/forms-selects.js') }}"></script>
         <script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/super-build/ckeditor.js"></script>
-        <script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/super-build//translations/tr.js"></script>
+        <script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/super-build/translations/tr.js"></script>
 
         <script>
             document.querySelectorAll('.editor').forEach(function (val) {
