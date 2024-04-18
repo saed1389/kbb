@@ -74,11 +74,6 @@ class IndexController extends Controller
         return view('frontend.index', compact('sliders'));
     }
 
-    public function dernegmz()
-    {
-        return view('frontend.our_association.index');
-    }
-
     public function baskan()
     {
         $baskan = President::where('current', 0)->where('status', 1)->orderBy('year', 'asc')->get();
@@ -86,23 +81,16 @@ class IndexController extends Controller
         return view('frontend.our_association.president', compact('baskan', 'current'));
     }
 
-    public function kurullar()
-    {
-        return view('frontend.our_association.committees');
-    }
-
     public function denetleme()
     {
         $baskan = Committees::where('menu_id', 1)->where('position', '=', 'Başkan')->where('status', 1)->first();
         $directors = Committees::where('menu_id', 1)->where('id', '!=', $baskan->id)->where('status', 1)->get();
-        //dd($directors);
         return view('frontend.our_association.check', compact('baskan', 'directors'));
     }
 
     public function danisma()
     {
         $members = Committees::where('menu_id', 2)->where('status', 1)->get();
-
         return view('frontend.our_association.advice', compact('members'));
     }
 
@@ -122,12 +110,9 @@ class IndexController extends Controller
 
     public function gecmis()
     {
-        // Retrieve members from the database and group them by the 'group' attribute
         $members = HistoryCommittee::where('status', 1)
             ->orderBy('start_date', 'asc')
             ->get();
-
-
         return view('frontend.our_association.historyCommittees', compact('members'));
     }
 
@@ -137,19 +122,9 @@ class IndexController extends Controller
         return view('frontend.our_association.directors', compact('directors', 'baskan'));
     }
 
-    public function tarihce()
-    {
-        return view('frontend.our_association.history');
-    }
-
     public function economic_business()
     {
         $setting = Setting::where('id', 1)->first()->economic_business;
         return view('frontend.our_association.economicBusiness', compact('setting'));
-    }
-
-    public function kararlar()
-    {
-        return view('frontend.our_association.decisions');
     }
 }

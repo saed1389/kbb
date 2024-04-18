@@ -50,10 +50,14 @@ Route::post('/user_register', [IndexController::class,'user_register'])->name('u
 
 
 Route::get('/', [IndexController::class, 'index'])->name('index');
-Route::get('dernegmz', [IndexController::class, 'dernegmz'])->name('dernegmz');
+Route::get('dernegmz', function (){
+    return view('frontend.our_association.index');
+})->name('dernegmz');
 Route::prefix('dernegmz')->group(function () {
     Route::get('baskanlarimiz', [IndexController::class, 'baskan'])->name('baskan');
-    Route::get('kurullar-listesi', [IndexController::class, 'kurullar'])->name('kurullar');
+    Route::get('kurullar-listesi', function (){
+        return view('frontend.our_association.committees');
+    })->name('kurullar');
     Route::prefix('kurullar', )->group(function () {
         Route::get('yonetim-kurulu', [IndexController::class, 'younetim'])->name('yonetimkurulu');
         Route::get('denetleme-kurulu', [IndexController::class, 'denetleme'])->name('denetleme_kurulu');
@@ -62,7 +66,9 @@ Route::prefix('dernegmz')->group(function () {
         Route::get('yeterlik-yurutme-kurulu', [IndexController::class, 'yeterlik_yurutme'])->name('yeterlik_yurutme_kurulu');
         Route::get('gecmis-donemler-yonetimkurullari', [IndexController::class, 'gecmis'])->name('gecmis_donemler_yonetimkurullari');
     });
-    Route::get('tarihce', [IndexController::class, 'tarihce'])->name('tarihce');
+    Route::get('tarihce', function (){
+        return view('frontend.our_association.history');
+    })->name('tarihce');
     Route::get('iktisadi-isletme', [IndexController::class, 'economic_business'])->name('iktisadi_isletme');
     Route::get('tarihce', [IndexController::class, 'tarihce'])->name('tarihce');
     Route::get('ktisadisletme', [IndexController::class, 'ktisadisletme'])->name('ktisadisletme');
@@ -70,7 +76,9 @@ Route::prefix('dernegmz')->group(function () {
     Route::get('belgeler-yonetmelik-ve-yonergeler', [IndexController::class, 'yonetmelik'])->name('yonetmelik');
     Route::get('tanitimfilmi', [IndexController::class, 'tanitimfilmi'])->name('tanitimfilmi');
     Route::prefix('kararlar')->group(function () {
-        Route::get('', [IndexController::class, 'kararlar'])->name('kararlar');
+        Route::get('', function (){
+            return view('frontend.our_association.decisions');
+        })->name('kararlar');
         Route::get('belgeler-yonetim-kurulu-kararlari', function (){
             return view('frontend.our_association.documents-board-decisions');
         })->name('belgeler_yonetim_kurulu_kararlari');
@@ -80,8 +88,10 @@ Route::prefix('dernegmz')->group(function () {
         Route::get('belgeler-kongre-sartnameleri', function (){
             return view('frontend.our_association.documents-congress-specifications');
         })->name('belgeler-kongre-sartnameleri');
-
     });
+    Route::get('belgeler-yonetmelik-ve-yonergeler', function () {
+        return view('frontend.our_association.regulations');
+    })->name('belgeler_yonetmelik_ve_yonergeler');
 
 });
 

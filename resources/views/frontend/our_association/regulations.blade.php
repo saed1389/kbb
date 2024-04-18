@@ -1,0 +1,446 @@
+@extends('frontend.layouts.app')
+@section('title')
+    Yönetmelik ve Yönergeler - Türk Kulak Burun Boğaz ve Baş Boyun Cerrahisi Derneği
+@endsection
+@section('content')
+    @push('styles')
+        <style>
+            .btn-slide, .btn-slide2 {
+                position: relative;
+                display: inline-block;
+                height: 30px;
+                width: 200px;
+                line-height: 50px;
+                padding: 0;
+                border-radius: 50px;
+                background: #fdfdfd;
+                border: 2px solid #0099cc;
+                margin: 10px;
+                transition: .5s;
+            }
+
+            .btn-slide2 {
+                border: 2px solid #efa666;
+            }
+
+            .btn-slide:hover {
+                background-color: #0099cc;
+            }
+
+            .btn-slide2:hover {
+                background-color: #efa666;
+            }
+
+            .btn-slide:hover span.circle, .btn-slide2:hover span.circle2 {
+                left: 100%;
+                margin-left: -45px;
+                background-color: #fdfdfd;
+                color: #0099cc;
+            }
+
+            .btn-slide2:hover span.circle2 {
+                color: #efa666;
+            }
+
+            .btn-slide:hover span.title, .btn-slide2:hover span.title2 {
+                left: 40px;
+                opacity: 0;
+            }
+
+            .btn-slide:hover span.title-hover, .btn-slide2:hover span.title-hover2 {
+                opacity: 1;
+                left: 40px;
+            }
+
+            .btn-slide span.circle, .btn-slide2 span.circle2 {
+                display: block;
+                background-color: #0099cc;
+                color: #fff;
+                position: absolute;
+                float: left;
+                margin: 5px;
+                line-height: 20px;
+                height: 20px;
+                width: 20px;
+                top: 0;
+                left: 0;
+                transition: .5s;
+                border-radius: 50%;
+            }
+
+            .btn-slide2 span.circle2 {
+                background-color: #efa666;
+            }
+
+            .btn-slide span.title,
+            .btn-slide span.title-hover, .btn-slide2 span.title2,
+            .btn-slide2 span.title-hover2 {
+                position: absolute;
+                left: 90px;
+                text-align: center;
+                margin: 0 auto;
+                font-size: 16px;
+                font-weight: bold;
+                color: #30abd5;
+                transition: .5s;
+            }
+
+            .btn-slide2 span.title2,
+            .btn-slide2 span.title-hover2 {
+                color: #efa666;
+                left: 80px;
+                bottom: -11px;
+            }
+
+            .btn-slide span.title-hover, .btn-slide2 span.title-hover2 {
+                left: 80px;
+                opacity: 0;
+            }
+
+            .btn-slide span.title-hover, .btn-slide2 span.title-hover2 {
+                color: #fff;
+            }
+            tr {
+                vertical-align: middle;
+            }
+        </style>
+    @endpush
+    <div class="tp-breadcrumb__area p-relative fix tp-breadcrumb-height" data-background="{{ asset('assets/img/pages/so-banner.jpg') }}" style="background-image: url(&quot;{{ asset('assets/img/pages/so-banner.jpg') }}&quot;);">
+        <div class="tp-breadcrumb__shape-1 z-index-5">
+            <img src="{{ asset('front/assets/img/breadcrumb/breadcrumb-shape-1.png') }}" alt="">
+        </div>
+        <div class="tp-breadcrumb__shape-2 z-index-5">
+            <img src="{{ asset('front/assets/img/breadcrumb/breadcrumb-shape-2.png') }}" alt="">
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="tp-breadcrumb__content z-index-5">
+                        <div class="tp-breadcrumb__list">
+                            <span><a href="/">Anasayfa</a></span>
+                            <span class="dvdr"><i class="fa-sharp fa-solid fa-slash-forward"></i></span>
+                            <span><a href="{{ route('dernegmz') }}">Derneğimiz</a></span>
+                            <span class="dvdr"><i class="fa-sharp fa-solid fa-slash-forward"></i></span>
+                            <span>Yönetmelik ve Yönergeler</span>
+                        </div>
+                        <h3 class="tp-breadcrumb__title">Yönetmelik ve Yönergeler</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tp-team-2__area pt-50 pb-90">
+        <div class="container">
+            <div class="row">
+                <table class="table table-striped">
+                    <thead>
+                    <th>#</th>
+                    <th>Belge Bilgileri</th>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <div id="wrap">
+                                <a href="{{ asset('uploads/Document/01-Uzman-Destek-Yonergesi-2019214174123.pdf') }}" download="" class="btn-slide2">
+                                    <span class="circle2"><i class="fa fa-download"></i></span>
+                                    <span class="title2">İndir</span>
+                                    <span class="title-hover2">Buraya Tıkla</span>
+                                </a>
+                            </div>
+                        </td>
+                        <td>01 Uzman Destek Yönergesi</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="wrap">
+                                <a href="{{ asset('uploads/Document/02-Asistan-Destek-Yonergesi-2019214174155.pdf') }}" download="" class="btn-slide2">
+                                    <span class="circle2"><i class="fa fa-download"></i></span>
+                                    <span class="title2">İndir</span>
+                                    <span class="title-hover2">Buraya Tıkla</span>
+                                </a>
+                            </div>
+                        </td>
+                        <td>02 Asistan Destek Yönergesi</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="wrap">
+                                <a href="{{ asset('uploads/Document/03-Asistan-Komisyon-Yonergesi-2019214174228.pdf') }}" download="" class="btn-slide2">
+                                    <span class="circle2"><i class="fa fa-download"></i></span>
+                                    <span class="title2">İndir</span>
+                                    <span class="title-hover2">Buraya Tıkla</span>
+                                </a>
+                            </div>
+                        </td>
+                        <td>03 Asistan Komisyon Yönergesi</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="wrap">
+                                <a href="{{ asset('uploads/Document/04-Sinav-Komisyon-Yonergesi-2019214174257.pdf') }}" download="" class="btn-slide2">
+                                    <span class="circle2"><i class="fa fa-download"></i></span>
+                                    <span class="title2">İndir</span>
+                                    <span class="title-hover2">Buraya Tıkla</span>
+                                </a>
+                            </div>
+                        </td>
+                        <td>04 Sınav Komisyon Yönergesi</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="wrap">
+                                <a href="{{ asset('uploads/Document/05-Yeniden-Belgelendirme-Yonergesi-2019214174321.pdf') }}" download="" class="btn-slide2">
+                                    <span class="circle2"><i class="fa fa-download"></i></span>
+                                    <span class="title2">İndir</span>
+                                    <span class="title-hover2">Buraya Tıkla</span>
+                                </a>
+                            </div>
+                        </td>
+                        <td>05 Yeniden Belgelendirme Yönergesi</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="wrap">
+                                <a href="{{ asset('uploads/Document/07-KBB-BBC-Dernek-Yonerge-01-2019214174352.pdf') }}" download="" class="btn-slide2">
+                                    <span class="circle2"><i class="fa fa-download"></i></span>
+                                    <span class="title2">İndir</span>
+                                    <span class="title-hover2">Buraya Tıkla</span>
+                                </a>
+                            </div>
+                        </td>
+                        <td>07 KBB BBC Dernek Yönerge 01</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="wrap">
+                                <a href="{{ asset('uploads/Document/08-KBB-BBC-Yoresel-Dernekler-Yonergesi-00-2019214174429.pdf') }}" download="" class="btn-slide2">
+                                    <span class="circle2"><i class="fa fa-download"></i></span>
+                                    <span class="title2">İndir</span>
+                                    <span class="title-hover2">Buraya Tıkla</span>
+                                </a>
+                            </div>
+                        </td>
+                        <td>08 KBB BBC Yöresel Dernekler Yönergesi</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="wrap">
+                                <a href="{{ asset('uploads/Document/09-Egitim-Komisyon-Yonergesi-2019214174458.pdf') }}" download="" class="btn-slide2">
+                                    <span class="circle2"><i class="fa fa-download"></i></span>
+                                    <span class="title2">İndir</span>
+                                    <span class="title-hover2">Buraya Tıkla</span>
+                                </a>
+                            </div>
+                        </td>
+                        <td>09 Eğitim Komisyon Yönergesi</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="wrap">
+                                <a href="{{ asset('uploads/Document/10-Bildiri-Komite-Uyesi-Secim-Yonergesi-00-2019214174523.pdf') }}" download="" class="btn-slide2">
+                                    <span class="circle2"><i class="fa fa-download"></i></span>
+                                    <span class="title2">İndir</span>
+                                    <span class="title-hover2">Buraya Tıkla</span>
+                                </a>
+                            </div>
+                        </td>
+                        <td>10 Bildiri Komite Üyesi Seçim Yönergesi</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="wrap">
+                                <a href="{{ asset('uploads/Document/11-Turk-Otorinolarengoloji-Arsivi-Yonergesi-2019214174549.pdf') }}" download="" class="btn-slide2">
+                                    <span class="circle2"><i class="fa fa-download"></i></span>
+                                    <span class="title2">İndir</span>
+                                    <span class="title-hover2">Buraya Tıkla</span>
+                                </a>
+                            </div>
+                        </td>
+                        <td>11 Türk Otorinolarengoloji Arşivi Yönergesi</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="wrap">
+                                <a href="{{ asset('uploads/Document/12-Web-Sayfasi-Yonergesi-201921417474.pdf') }}" download="" class="btn-slide2">
+                                    <span class="circle2"><i class="fa fa-download"></i></span>
+                                    <span class="title2">İndir</span>
+                                    <span class="title-hover2">Buraya Tıkla</span>
+                                </a>
+                            </div>
+                        </td>
+                        <td>12 Web Sayfası Yönergesi</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="wrap">
+                                <a href="{{ asset('uploads/Document/13-Uluslararasi-Koordinasyon-Kurulu-Yonergesi-2019214174725.pdf') }}" download="" class="btn-slide2">
+                                    <span class="circle2"><i class="fa fa-download"></i></span>
+                                    <span class="title2">İndir</span>
+                                    <span class="title-hover2">Buraya Tıkla</span>
+                                </a>
+                            </div>
+                        </td>
+                        <td>13 Uluslararası Koordinasyon Kurulu Yönergesi</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="wrap">
+                                <a href="{{ asset('uploads/Document/14-Ulusal-Kongre-Egitsel-Kurs-Yonergesi-2019214174749.pdf') }}" download="" class="btn-slide2">
+                                    <span class="circle2"><i class="fa fa-download"></i></span>
+                                    <span class="title2">İndir</span>
+                                    <span class="title-hover2">Buraya Tıkla</span>
+                                </a>
+                            </div>
+                        </td>
+                        <td>14 Ulusal Kongre Eğitsel Kurs Yönergesi</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="wrap">
+                                <a href="{{ asset('uploads/Document/15-Hakemlik-Ornegi-Veren-Hakemlerin-Secilmesi-Yonergesi-2019214175015.pdf') }}" download="" class="btn-slide2">
+                                    <span class="circle2"><i class="fa fa-download"></i></span>
+                                    <span class="title2">İndir</span>
+                                    <span class="title-hover2">Buraya Tıkla</span>
+                                </a>
+                            </div>
+                        </td>
+                        <td>15 Hakemlik Örneği Veren Hakemlerin Seçilmesi Yönergesi</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="wrap">
+                                <a href="{{ asset('uploads/Document/16-Turk-Otorinolarengoloji-Arsivi-Ozgun-Arastirma-Yonergesi-2019214175042.pdf') }}" download="" class="btn-slide2">
+                                    <span class="circle2"><i class="fa fa-download"></i></span>
+                                    <span class="title2">İndir</span>
+                                    <span class="title-hover2">Buraya Tıkla</span>
+                                </a>
+                            </div>
+                        </td>
+                        <td>16 Türk Otorinolarengoloji Arşivi Özgün Araştırma Yönergesi</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="wrap">
+                                <a href="{{ asset('uploads/Document/17-KBB-Okullari-Otoloji-ve-Norootoloji-Okulu-Yonergesi-2019214175115.pdf') }}" download="" class="btn-slide2">
+                                    <span class="circle2"><i class="fa fa-download"></i></span>
+                                    <span class="title2">İndir</span>
+                                    <span class="title-hover2">Buraya Tıkla</span>
+                                </a>
+                            </div>
+                        </td>
+                        <td>17 KBB Okulları Otoloji ve Nörootoloji Okulu Yönergesi</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="wrap">
+                                <a href="{{ asset('uploads/Document/22-Etik-Kurulu-Yonergesi-2019214175145.pdf') }}" download="" class="btn-slide2">
+                                    <span class="circle2"><i class="fa fa-download"></i></span>
+                                    <span class="title2">İndir</span>
+                                    <span class="title-hover2">Buraya Tıkla</span>
+                                </a>
+                            </div>
+                        </td>
+                        <td>22 Etik Kurulu Yönergesi</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="wrap">
+                                <a href="{{ asset('uploads/Document/aa-2019214175224.pdf') }}" download="" class="btn-slide2">
+                                    <span class="circle2"><i class="fa fa-download"></i></span>
+                                    <span class="title2">İndir</span>
+                                    <span class="title-hover2">Buraya Tıkla</span>
+                                </a>
+                            </div>
+                        </td>
+                        <td>Türk KBB ve BBC Derneği Yurtdışı Eğitim Bursları Yönergesı̇</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="wrap">
+                                <a href="{{ asset('uploads/Document/YNG-KBB-BBC-GNL-19-KBB-Okullari-Laringoloji-Foniatri-Okulu-Yonergesi-2019325114745.pdf') }}" download="" class="btn-slide2">
+                                    <span class="circle2"><i class="fa fa-download"></i></span>
+                                    <span class="title2">İndir</span>
+                                    <span class="title-hover2">Buraya Tıkla</span>
+                                </a>
+                            </div>
+                        </td>
+                        <td>KBB Okulları Laringoloji ve Foniatri Okulu Yönergesi</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="wrap">
+                                <a href="{{ asset('uploads/Document/YNG-KBB-BBC-GNL-19-Arastirma-Destekleme-ve-Danisma-Komisyonu-Yonergesi.pdf') }}" download="" class="btn-slide2">
+                                    <span class="circle2"><i class="fa fa-download"></i></span>
+                                    <span class="title2">İndir</span>
+                                    <span class="title-hover2">Buraya Tıkla</span>
+                                </a>
+                            </div>
+                        </td>
+                        <td>Araştırma Destekleme ve Danışma Komisyonu Yönergesi</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="wrap">
+                                <a href="{{ asset('uploads/Document/YNG-KBBBBC-GNL25-E-OKUL-YONERGESI-202010215032.pdf') }}" download="" class="btn-slide2">
+                                    <span class="circle2"><i class="fa fa-download"></i></span>
+                                    <span class="title2">İndir</span>
+                                    <span class="title-hover2">Buraya Tıkla</span>
+                                </a>
+                            </div>
+                        </td>
+                        <td>TÜRK KBB BBC DERNEĞİ E-OKUL YÖNERGESİ</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="wrap">
+                                <a href="{{ asset('uploads/Document/YNG-KBBBBC-GNL25-E-OKUL-YONERGESI-202010215032.pdf') }}" download="" class="btn-slide2">
+                                    <span class="circle2"><i class="fa fa-download"></i></span>
+                                    <span class="title2">İndir</span>
+                                    <span class="title-hover2">Buraya Tıkla</span>
+                                </a>
+                            </div>
+                        </td>
+                        <td>TÜRK KBB BBC DERNEĞİ E-OKUL YÖNERGESİ (19.01.2021)</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="wrap">
+                                <a href="{{ asset('uploads/Document/YNG-KBB_BBC-GNL_26_COVID_19_BILIM_VE_DANISMA_KURULU_YONERGESI-2021119102549.pdf') }}" download="" class="btn-slide2">
+                                    <span class="circle2"><i class="fa fa-download"></i></span>
+                                    <span class="title2">İndir</span>
+                                    <span class="title-hover2">Buraya Tıkla</span>
+                                </a>
+                            </div>
+                        </td>
+                        <td>TÜRK KBB BBC Derneği COVID-19 Bilim ve Danışma Kurulu Yönergesi</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="wrap">
+                                <a href="{{ asset('uploads/Document/BILIMSEL-ARASTIRMA-DESTEKLEME-KOORDINASYON-BIRIMI-CALISMA-YONERGESI-2021102514817.pdf') }}" download="" class="btn-slide2">
+                                    <span class="circle2"><i class="fa fa-download"></i></span>
+                                    <span class="title2">İndir</span>
+                                    <span class="title-hover2">Buraya Tıkla</span>
+                                </a>
+                            </div>
+                        </td>
+                        <td>BİLİMSEL ARAŞTIRMA DESTEKLEME KOORDİNASYON BİRİMİ ÇALIŞMA YÖNERGESİ</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="wrap">
+                                <a href="{{ asset('uploads/Document/AsistanOkuluYonergesi-16042024-202441613171.pdf') }}" download="" class="btn-slide2">
+                                    <span class="circle2"><i class="fa fa-download"></i></span>
+                                    <span class="title2">İndir</span>
+                                    <span class="title-hover2">Buraya Tıkla</span>
+                                </a>
+                            </div>
+                        </td>
+                        <td>Asistan Okulları Yönergesi</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+@endsection
