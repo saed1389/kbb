@@ -1,6 +1,5 @@
 <!doctype html>
 <html class="no-js" lang="zxx">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -22,25 +21,16 @@
     <link rel="stylesheet" href="{{ asset('front/assets/css/style.css') }}">
     @stack('styles')
 </head>
-
 <body>
-
-<!-- preloader -->
 <div id="preloader">
     <div class="preloader">
         <span></span>
         <span></span>
     </div>
 </div>
-<!-- preloader end  -->
-
-<!-- back-to-top-start  -->
 <button class="scroll-top scroll-to-target" data-target="html">
     <i class="far fa-angle-double-up"></i>
 </button>
-<!-- back-to-top-end  -->
-
-<!-- search popup start -->
 <div class="search__popup">
     <div class="container">
         <div class="row">
@@ -80,9 +70,6 @@
         </div>
     </div>
 </div>
-<!-- search popup end -->
-
-<!-- tp-offcanvus-area-start -->
 <div class="tpoffcanvas-area">
     <div class="tpoffcanvas">
         <div class="tpoffcanvas__close-btn">
@@ -123,17 +110,9 @@
     </div>
 </div>
 <div class="body-overlay"></div>
-<!-- tp-offcanvus-area-end -->
-
 @include('frontend.layouts.header')
-
 @yield('content')
-
 @include('frontend.layouts.footer')
-
-
-<!-- JS here -->
-
 <script src="{{ asset('front/assets/js/jquery.js') }}"></script>
 <script src="{{ asset('front/assets/js/waypoints.js') }}"></script>
 <script src="{{ asset('front/assets/js/bootstrap.bundle.min.js') }}"></script>
@@ -149,5 +128,4 @@
 <script src="{{ asset('front/assets/js/main.js') }}"></script>
 @stack('scripts')
 </body>
-
 </html>

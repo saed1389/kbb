@@ -52,9 +52,9 @@
                                                 <li><a href="{{ route('tarihce') }}">Tarihçe</a></li>
                                                 <li><a href="{{ route('iktisadi_isletme') }}">İktisadi İşletme</a></li>
                                                 <li><a href="{{ route('kararlar') }}">Kararlar</a></li>
-                                                <li><a href="#">Yönetmelik ve Yönergeler</a></li>
-                                                <li><a href="#">Tanıtım Filmi</a></li>
-                                                <li><a href="#">Kalite Politikası Misyon ve Vizyonumuz</a></li>
+                                                <li><a href="{{ route('belgeler_yonetmelik_ve_yonergeler') }}">Yönetmelik ve Yönergeler</a></li>
+                                                <li><a href="{{ route('tanitim-filmi') }}">Tanıtım Filmi</a></li>
+                                                <li><a href="{{ asset('uploads/Document/KBB-BBC-KALITE-POLITIKASI-MISYON-VE-VIZYONUMUZ.pdf') }}" download="">Kalite Politikası Misyon ve Vizyonumuz</a></li>
                                             </ul>
                                         </li>
                                         <li class="has-dropdown"><a href="#">Bilgi Merkezi <i class="fa fa-angle-down down disable-arrow"></i></a>

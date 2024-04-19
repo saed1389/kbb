@@ -93,6 +93,10 @@ Route::prefix('dernegmz')->group(function () {
         return view('frontend.our_association.regulations');
     })->name('belgeler_yonetmelik_ve_yonergeler');
 
+    Route::get('tanitim-filmi', function () {
+        return view('frontend.our_association.introFilm');
+    })->name('tanitim-filmi');
+
 });
 
 Auth::routes();

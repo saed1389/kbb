@@ -804,3 +804,19 @@
 
 
 })(jQuery);
+
+document.addEventListener('DOMContentLoaded', function () {
+    var headerSticky = document.getElementById('header-sticky');
+    var logo = headerSticky.querySelector('.logo');
+
+    window.addEventListener('scroll', function () {
+        if (window.scrollY > 100) {
+            headerSticky.classList.add('scrolled');
+            logo.style.width = '50%';
+        } else {
+            headerSticky.classList.remove('scrolled');
+
+            logo.style.width = '75%';
+        }
+    });
+});

@@ -4,11 +4,7 @@
 @endsection
 @section('content')
     @push('styles')
-        <style>
-            .tp-feature__wraper{
-                border: 1px solid;
-            }
-        </style>
+        <link rel="stylesheet" href="{{ asset('front/assets/css/other-page.css') }}" >
     @endpush
     <div class="tp-breadcrumb__area p-relative fix tp-breadcrumb-height" data-background="{{ asset('assets/img/pages/so-banner.jpg') }}" style="background-image: url(&quot;{{ asset('assets/img/pages/so-banner.jpg') }}&quot;);">
         <div class="tp-breadcrumb__shape-1 z-index-5">
@@ -33,7 +29,6 @@
         </div>
     </div>
     <div class="tp-mission-2__area tp-mission-2__space p-relative fix z-index">
-
         <div class="tp-mission-2__plr">
             <div class="container-fluid g-0">
                 <div class="col-md-12">
@@ -140,7 +135,7 @@
                                 </div>
                                 <div class="tp-feature__item z-index">
                                     <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm"> Kararlar</h4>
+                                        <h4 class="tp-feature__title-sm"><a href="{{ route('kararlar') }}">Kararlar</a> </h4>
                                     </div>
                                 </div>
                             </div>
@@ -155,7 +150,7 @@
                                 </div>
                                 <div class="tp-feature__item z-index">
                                     <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm">  Yönetmelik ve Yönergeler</h4>
+                                        <h4 class="tp-feature__title-sm"><a href="{{ route('belgeler_yonetmelik_ve_yonergeler') }}">Yönetmelik ve Yönergeler</a> </h4>
                                     </div>
                                 </div>
                             </div>
@@ -170,7 +165,7 @@
                                 </div>
                                 <div class="tp-feature__item z-index">
                                     <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm">  Tanıtım Filmi</h4>
+                                        <h4 class="tp-feature__title-sm"><a href="{{ route('tanitim-filmi') }}">Tanıtım Filmi</a></h4>
                                     </div>
                                 </div>
                             </div>
@@ -185,13 +180,12 @@
                                 </div>
                                 <div class="tp-feature__item z-index">
                                     <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h6 class="tp-feature__title-sm"> <small> Kalite Politikası Misyon ve Vizyonumuz</small></h6>
+                                        <h6 class="tp-feature__title-sm"> <small> <a href="{{ asset('uploads/Document/KBB-BBC-KALITE-POLITIKASI-MISYON-VE-VIZYONUMUZ.pdf') }}" download="">Kalite Politikası Misyon ve Vizyonumuz</a></small></h6>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
