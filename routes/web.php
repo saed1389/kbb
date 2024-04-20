@@ -32,6 +32,7 @@ use App\Http\Controllers\Backend\SchoolController;
 use App\Http\Controllers\Backend\CommitteesController;
 use App\Http\Controllers\Backend\HistoryCommitteesController;
 use App\Http\Controllers\Frontend\IndexController;
+use App\Http\Controllers\Frontend\NewsFrontController;
 use App\Http\Controllers\Errors;
 
 /*
@@ -48,12 +49,12 @@ Route::get('419', [Errors::class, 'expire'])->name('419');
 Route::post('/province/fetch-city', [IndexController::class,'province_fetch_city'])->name('province.fetch-city');
 Route::post('/user_register', [IndexController::class,'user_register'])->name('user_register');
 
-
 Route::get('/', [IndexController::class, 'index'])->name('index');
-Route::get('dernegmz', function (){
-    return view('frontend.our_association.index');
-})->name('dernegmz');
+
 Route::prefix('dernegmz')->group(function () {
+    Route::get('', function (){
+        return view('frontend.our_association.index');
+    })->name('dernegmz');
     Route::get('baskanlarimiz', [IndexController::class, 'baskan'])->name('baskan');
     Route::get('kurullar-listesi', function (){
         return view('frontend.our_association.committees');
@@ -99,6 +100,14 @@ Route::prefix('dernegmz')->group(function () {
 
 });
 
+Route::prefix('bilgi-merkezi')->group(function () {
+    Route::get('', function (){
+        return view('frontend.info-center.index');
+    })->name('bilgi-merkezi');
+    Route::prefix('haberler')->group(function () {
+        Route::get('', [NewsFrontController::class, 'index'])->name('haberler');
+    });
+});
 Auth::routes();
 
 /*------------------------------------------
