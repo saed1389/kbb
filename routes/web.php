@@ -105,7 +105,15 @@ Route::prefix('bilgi-merkezi')->group(function () {
         return view('frontend.info-center.index');
     })->name('bilgi-merkezi');
     Route::prefix('haberler')->group(function () {
+        Route::get('haber/{slug}', [NewsFrontController::class, 'show'])->name('haber');
+        Route::post('news/comment', [NewsFrontController::class, 'comment'])->name('news.comment');
+        Route::get('news/search', [NewsFrontController::class, 'search'])->name('news.search');
         Route::get('', [NewsFrontController::class, 'index'])->name('haberler');
+    });
+    Route::prefix('etkinlikler')->group( function () {
+        Route::get('etkinlik/{slug}', [NewsFrontController::class, 'eventShowEvent'])->name('etkinlik.event');
+        Route::get('{id}/{slug}', [NewsFrontController::class, 'eventShow'])->name('etkinlik');
+        Route::get('', [NewsFrontController::class, 'events'])->name('etkinlikler');
     });
 });
 Auth::routes();

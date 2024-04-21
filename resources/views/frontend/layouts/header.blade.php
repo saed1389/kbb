@@ -59,8 +59,8 @@
                                         </li>
                                         <li class="has-dropdown"><a href="#">Bilgi Merkezi <i class="fa fa-angle-down down disable-arrow"></i></a>
                                             <ul class="submenu tp-submenu three-columns">
-                                                <li><a href="#">Haberler</a></li>
-                                                <li><a href="#">Toplantılar</a></li>
+                                                <li><a href="{{ route('haberler') }}">Haberler</a></li>
+                                                <li><a href="{{ route('etkinlikler') }}">Toplantılar</a></li>
                                                 <li><a href="#">Geçmiş Kongre Program ve Bildiri Kitapları</a></li>
                                                 <li><a href="#">Dergiler</a></li>
                                                 <li><a href="#">Hasta Bilgilendirme Broşürleri</a></li>

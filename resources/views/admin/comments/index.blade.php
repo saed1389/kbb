@@ -36,9 +36,9 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->comment }}</td>
-                            <td>{{ $item->writerName->first_name .' '.$item->writerName->last_name  }}</td>
+                            <td>{{ $item->writer  }}</td>
                             <td>{{ $item->newsName->title  }}</td>
-                            <td>{{ $item->created_at }}</td>
+                            <td>{{ date('d/m/Y H:i', strtotime($item->created_at)) }}</td>
                             <td>
                                 <label class="switch switch-success">
                                     <input type="checkbox" class="switch-input active" name="status" id="status" data-id="{{ $item->id }}" value="{{ $item->id }}" @checked($item->status == 1)>
@@ -63,6 +63,9 @@
                     @endforelse
                     </tbody>
                 </table>
+                <div class="container">
+                    {{ $comments->links('pagination::bootstrap-5') }}
+                </div>
             </div>
         </div>
     </div>

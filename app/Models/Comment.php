@@ -14,7 +14,7 @@ class Comment extends Model
 
     public function writerName():BelongsTo
     {
-        return $this->belongsTo(User::class, 'writer', 'id');
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
     public function NewsName():BelongsTo

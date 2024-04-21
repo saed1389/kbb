@@ -113,4 +113,9 @@ class User extends Authenticatable
             get: fn ($value) =>  ["user", "admin", "manager"][$value],
         );
     }
+
+    public function getProfileImageAttribute($value)
+    {
+        return $value ? asset($value) : asset('front/assets/img/blog/author-1-1.png');
+    }
 }

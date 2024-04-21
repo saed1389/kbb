@@ -70,7 +70,7 @@ class IndexController extends Controller
 
     public function index()
     {
-        $sliders = News::where('status', 1)->where('slider', 1)->orderBy('created_at', 'desc')->limit(10)->get();
+        $sliders = News::where('status', 1)->where('slider', 1)->where('confirm', 1)->orderBy('created_at', 'desc')->orderBy('news_order', 'asc')->limit(10)->get();
         return view('frontend.index', compact('sliders'));
     }
 

@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 @section('title')
-    BİLGİ MERKEZİ - Türk Kulak Burun Boğaz ve Baş Boyun Cerrahisi Derneği
+    Bilgi Merkezi - Türk Kulak Burun Boğaz ve Baş Boyun Cerrahisi Derneği
 @endsection
 @section('content')
     @push('styles')
@@ -20,9 +20,9 @@
                         <div class="tp-breadcrumb__list">
                             <span><a href="/">Anasayfa</a></span>
                             <span class="dvdr"><i class="fa-sharp fa-solid fa-slash-forward"></i></span>
-                            <span>BİLGİ MERKEZİ</span>
+                            <span>Bilgi Merkezi</span>
                         </div>
-                        <h3 class="tp-breadcrumb__title">BİLGİ MERKEZİ</h3>
+                        <h3 class="tp-breadcrumb__title">Bilgi Merkezi</h3>
                     </div>
                 </div>
             </div>
@@ -43,13 +43,12 @@
                                 </div>
                                 <div class="tp-feature__item z-index">
                                     <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm"><a href="{{ route('baskan') }}">Haberler</a></h4>
+                                        <h4 class="tp-feature__title-sm"><a href="{{ route('haberler') }}">Haberler</a></h4>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 mb-30 wow tpfadeUp" data-wow-duration=".9s"
-                             data-wow-delay=".5s">
+                        <div class="col-xl-3 col-lg-3 mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".5s">
                             <div class="tp-feature__wraper">
                                 <div class="tp-feature__shape-1">
                                     <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
@@ -59,7 +58,7 @@
                                 </div>
                                 <div class="tp-feature__item z-index">
                                     <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h5 class="tp-feature__title-sm"><a href="{{ route('yonetimkurulu') }}">Toplantılar</a></h5>
+                                        <h5 class="tp-feature__title-sm"><a href="{{ route('etkinlikler') }}">Toplantılar</a></h5>
                                     </div>
                                 </div>
                             </div>

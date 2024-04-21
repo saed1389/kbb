@@ -88,7 +88,7 @@
                                 <label class="form-label" for="event_category">Etkinlik Kategorisi Seç</label>
                                 <select id="event_category" class="selectpicker w-100" name="event_category" data-style="btn-default" tabindex="null">
                                     @foreach($categories as $item)
-                                        <option value="{{ $item->id }}" @selected($event->event_category)>{{ $item->title }}</option>
+                                        <option value="{{ $item->id }}" @selected($event->event_category == $item->id)>{{ $item->title }}</option>
                                     @endforeach
                                 </select>
                             </div>
