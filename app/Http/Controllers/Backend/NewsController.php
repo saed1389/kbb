@@ -59,10 +59,10 @@ class NewsController extends Controller
             $img3 = $manager->read($request->file('image'));
 
             $imgSmall = $img2->scale(355, 124);
-            $imgMid = $img3->scale(590, 204);
+            $imgMid = $img3->scale(1180, 408);
 
             $img1->toJpeg(80)->save(base_path('public/uploads/news/original/'.$name_gen));
-            $imgMid->toJpeg(60)->save(base_path('public/uploads/news/mid/'.$name_gen));
+            $imgMid->toJpeg(80)->save(base_path('public/uploads/news/mid/'.$name_gen));
             $imgSmall->toJpeg(80)->save(base_path('public/uploads/news/small/'.$name_gen));
             $save_url = $name_gen;
         } else {

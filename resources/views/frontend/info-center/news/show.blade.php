@@ -42,7 +42,7 @@
                                 <div class="postbox__thumb-text d-none d-md-block">
                                     <span>{{ $news->created_at->translatedFormat('d M Y') }}</span>
                                 </div>
-                                <img src="{{ asset('uploads/news/mid/'.$news->image) }}" alt="{{ $news->title }}">
+                                <img src="{{ asset('uploads/news/original/'.$news->image) }}" alt="{{ $news->title }}">
                             </div>
                             <div class="postbox__content">
                                 <div class="postbox__meta">
