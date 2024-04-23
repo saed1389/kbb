@@ -101,9 +101,15 @@ Route::prefix('dernegmz')->group(function () {
 });
 
 Route::prefix('bilgi-merkezi')->group(function () {
+    Route::get('dergiler', function () {
+        return view('frontend.info-center.magazines');
+    })->name('dergiler');
     Route::get('', function (){
         return view('frontend.info-center.index');
     })->name('bilgi-merkezi');
+    Route::get('hasta-bilgilendirme-brosurleri', function (){
+        return view('frontend.info-center.patient-information');
+    })->name('hasta_bilgilendirme_brosurleri');
     Route::prefix('haberler')->group(function () {
         Route::get('haber/{slug}', [NewsFrontController::class, 'show'])->name('haber');
         Route::post('news/comment', [NewsFrontController::class, 'comment'])->name('news.comment');

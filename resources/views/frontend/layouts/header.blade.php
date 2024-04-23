@@ -62,9 +62,9 @@
                                                 <li><a href="{{ route('haberler') }}">Haberler</a></li>
                                                 <li><a href="{{ route('etkinlikler') }}">Toplantılar</a></li>
                                                 <li><a href="#">Geçmiş Kongre Program ve Bildiri Kitapları</a></li>
-                                                <li><a href="#">Dergiler</a></li>
-                                                <li><a href="#">Hasta Bilgilendirme Broşürleri</a></li>
-                                                <li><a href="#">UÇEP</a></li>
+                                                <li><a href="{{ route('dergiler') }}">Dergiler</a></li>
+                                                <li><a href="{{ route('hasta_bilgilendirme_brosurleri') }}">Hasta Bilgilendirme Broşürleri</a></li>
+                                                <li><a href="{{ asset('uploads/Document/ucep.pdf') }}" download="">UÇEP</a></li>
                                                 <li><a href="#">Tıpta Uzmanlık Eğitimi Karnesi</a></li>
                                                 <li><a href="#">Onam Formları</a></li>
                                                 <li><a href="#">Kılavuzlar</a></li>

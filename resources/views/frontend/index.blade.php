@@ -45,7 +45,6 @@
             </div>
         </div>
 
-
         <div class="tp-mission-2__area tp-mission-2__space p-relative fix z-index tp-about-kbb">
             <div class="tp-mission-2__shape">
                 <img src="{{ asset('front/assets/img/mission/mission-shape-1.png') }}" loading="lazy" alt="">

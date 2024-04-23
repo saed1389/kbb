@@ -89,7 +89,7 @@
                                 </div>
                                 <div class="tp-feature__item z-index">
                                     <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm"><a href="{{ asset('uploads/Document/KBBC-DERNEK-TUZUK-202106291708.pdf') }}" download="">Dergiler</a></h4>
+                                        <h4 class="tp-feature__title-sm"><a href="{{ route('dergiler') }}">Dergiler</a></h4>
                                     </div>
                                 </div>
                             </div>
@@ -104,7 +104,7 @@
                                 </div>
                                 <div class="tp-feature__item z-index">
                                     <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm"><a href="{{ route('tarihce') }}"><small>Hasta Bilgilendirme Broşürleri</small></a></h4>
+                                        <h4 class="tp-feature__title-sm"><a href="{{ route('hasta_bilgilendirme_brosurleri') }}"><small>Hasta Bilgilendirme Broşürleri</small></a></h4>
                                     </div>
                                 </div>
                             </div>
@@ -119,7 +119,7 @@
                                 </div>
                                 <div class="tp-feature__item z-index">
                                     <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm"><a href="{{ route('iktisadi_isletme') }}">UÇEP</a></h4>
+                                        <h4 class="tp-feature__title-sm"><a href="{{ asset('uploads/Document/ucep.pdf') }}" download="">UÇEP</a></h4>
                                     </div>
                                 </div>
                             </div>
