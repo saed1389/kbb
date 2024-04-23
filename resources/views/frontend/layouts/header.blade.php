@@ -61,12 +61,12 @@
                                             <ul class="submenu tp-submenu three-columns">
                                                 <li><a href="{{ route('haberler') }}">Haberler</a></li>
                                                 <li><a href="{{ route('etkinlikler') }}">Toplantılar</a></li>
-                                                <li><a href="#">Geçmiş Kongre Program ve Bildiri Kitapları</a></li>
+                                                <li><a href="{{ route('gecmis-kongre-program-ve-bildirikitaplari') }}">Geçmiş Kongre Program ve Bildiri Kitapları</a></li>
                                                 <li><a href="{{ route('dergiler') }}">Dergiler</a></li>
                                                 <li><a href="{{ route('hasta_bilgilendirme_brosurleri') }}">Hasta Bilgilendirme Broşürleri</a></li>
                                                 <li><a href="{{ asset('uploads/Document/ucep.pdf') }}" download="">UÇEP</a></li>
-                                                <li><a href="#">Tıpta Uzmanlık Eğitimi Karnesi</a></li>
-                                                <li><a href="#">Onam Formları</a></li>
+                                                <li><a href="{{ route('belgeler-tipta-uzmanlik-egitimi-karnesi') }}">Tıpta Uzmanlık Eğitimi Karnesi</a></li>
+                                                <li><a href="{{ route('onam_formlari') }}">Onam Formları</a></li>
                                                 <li><a href="#">Kılavuzlar</a></li>
                                                 <li><a href="#">Satın Alma Süreci</a></li>
                                                 <li><a href="#">KBB ve BBC Uzmanlık Eğitimi Kitabı - 1</a></li>

@@ -73,7 +73,7 @@
                                 </div>
                                 <div class="tp-feature__item z-index">
                                     <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h6 class="tp-feature__title-sm"><a href="{{ route('kurullar') }}"><small>Geçmiş Kongre Program ve Bildiri Kitapları</small></a></h6>
+                                        <h6 class="tp-feature__title-sm"><a href="{{ route('gecmis-kongre-program-ve-bildirikitaplari') }}"><small>Geçmiş Kongre Program ve Bildiri Kitapları</small></a></h6>
                                     </div>
                                 </div>
                             </div>
@@ -134,7 +134,7 @@
                                 </div>
                                 <div class="tp-feature__item z-index">
                                     <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm"><a href="{{ route('kararlar') }}"><small>Tıpta Uzmanlık Eğitimi Karnesi</small></a> </h4>
+                                        <h4 class="tp-feature__title-sm"><a href="{{ route('belgeler-tipta-uzmanlik-egitimi-karnesi') }}"><small>Tıpta Uzmanlık Eğitimi Karnesi</small></a> </h4>
                                     </div>
                                 </div>
                             </div>
@@ -149,7 +149,7 @@
                                 </div>
                                 <div class="tp-feature__item z-index">
                                     <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm"><a href="{{ route('belgeler_yonetmelik_ve_yonergeler') }}">Onam Formları</a> </h4>
+                                        <h4 class="tp-feature__title-sm"><a href="{{ route('onam_formlari') }}">Onam Formları</a> </h4>
                                     </div>
                                 </div>
                             </div>

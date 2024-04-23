@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 @section('title')
-    Dergiler - Türk Kulak Burun Boğaz ve Baş Boyun Cerrahisi Derneği
+    Onam Formları - Türk Kulak Burun Boğaz ve Baş Boyun Cerrahisi Derneği
 @endsection
 @section('content')
     @push('styles')
@@ -22,9 +22,9 @@
                             <span class="dvdr"><i class="fa-sharp fa-solid fa-slash-forward"></i></span>
                             <span> <a href="{{ route('bilgi-merkezi') }}">Bilgi Merkezi</a></span>
                             <span class="dvdr"><i class="fa-sharp fa-solid fa-slash-forward"></i></span>
-                            <span>Dergiler</span>
+                            <span>Onam Formları</span>
                         </div>
-                        <h3 class="tp-breadcrumb__title">Dergiler</h3>
+                        <h3 class="tp-breadcrumb__title">Onam Formları</h3>
                     </div>
                 </div>
             </div>
@@ -35,7 +35,7 @@
             <div class="container-fluid g-0">
                 <div class="col-md-12">
                     <div class="row">
-                        <div class="col-xl-4 col-lg-4 mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
+                        <div class="col-xl-3 col-lg-3 mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
                             <div class="tp-feature__wraper">
                                 <div class="tp-feature__shape-1">
                                     <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
@@ -45,12 +45,12 @@
                                 </div>
                                 <div class="tp-feature__item z-index">
                                     <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm"><a href="https://www.turkarchotolaryngol.net" target="_blank">Türk Otorinolarengoloji Arşivi</a></h4>
+                                        <h4 class="tp-feature__title-sm"><a href="{{ route('rinoloji_onam_formlari') }}" > Rinoloji</a></h4>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-4 col-lg-4 mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".5s">
+                        <div class="col-xl-3 col-lg-3 mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".5s">
                             <div class="tp-feature__wraper">
                                 <div class="tp-feature__shape-1">
                                     <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
@@ -60,12 +60,12 @@
                                 </div>
                                 <div class="tp-feature__item z-index">
                                     <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h5 class="tp-feature__title-sm"><a href="http://www.kbbihtisas.org/v02/jvi.php?pdir=kbbihtisas&plng=tur&list=pub" target="_blank">KBB İhtisas Dergisi</a></h5>
+                                        <h5 class="tp-feature__title-sm"><a href="{{ route('otoloji_onam_formlari') }}" > Otoloji</a></h5>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-4 col-lg-4 mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".7s">
+                        <div class="col-xl-3 col-lg-3 mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".7s">
                             <div class="tp-feature__wraper" style="height: 97px">
                                 <div class="tp-feature__shape-1">
                                     <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
@@ -75,12 +75,12 @@
                                 </div>
                                 <div class="tp-feature__item z-index">
                                     <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h6 class="tp-feature__title-sm"><a href="https://dergi.kbb-bbc.org.tr" target="_blank"><small>Kulak Burun Boğaz ve Baş Boyun Cerrahisi Dergisi</small></a></h6>
+                                        <h6 class="tp-feature__title-sm"><a href="{{ route('bas-boyun_onam_formlari') }}" > Baş Boyun</a></h6>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-4 col-lg-4 mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
+                        <div class="col-xl-3 col-lg-3 mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
                             <div class="tp-feature__wraper">
                                 <div class="tp-feature__shape-1">
                                     <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
@@ -90,37 +90,7 @@
                                 </div>
                                 <div class="tp-feature__item z-index">
                                     <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm"><a href="https://kbb-forum.net/journal/index.php" target="_blank">KBB-Forum</a></h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".5s">
-                            <div class="tp-feature__wraper">
-                                <div class="tp-feature__shape-1">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__shape-2">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__item z-index">
-                                    <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm"><a href="https://www.kbbuygulamalari.org/jvi.asp?pdir=kbbu&plng=tur&list=pub" target="_blank">Kulak Burun Boğaz Uygulamaları Dergisi</a></h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".7s">
-                            <div class="tp-feature__wraper">
-                                <div class="tp-feature__shape-1">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__shape-2">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__item z-index">
-                                    <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm"><a href="https://turkishclinics.com/Log/trd/anaEkran.faces" target="_blank">Türk Rinoloji Dergisi</a> </h4>
+                                        <h4 class="tp-feature__title-sm"><a href="{{ route('pediatrik_kbb_onam_formlari') }}" >Pediatrik KBB</a></h4>
                                     </div>
                                 </div>
                             </div>

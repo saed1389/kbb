@@ -110,6 +110,29 @@ Route::prefix('bilgi-merkezi')->group(function () {
     Route::get('hasta-bilgilendirme-brosurleri', function (){
         return view('frontend.info-center.patient-information');
     })->name('hasta_bilgilendirme_brosurleri');
+    Route::get('gecmis-kongre-program-ve-bildirikitaplari', function (){
+        return view('frontend.info-center.past-congress-programs');
+    })->name('gecmis-kongre-program-ve-bildirikitaplari');
+    Route::get('belgeler-tipta-uzmanlik-egitimi-karnesi', function () {
+        return view('frontend.info-center.training-report');
+    })->name('belgeler-tipta-uzmanlik-egitimi-karnesi');
+    Route::prefix('onam-formlari')->group(function () {
+        Route::get('', function (){
+            return view('frontend.info-center.consent-forms.index');
+        })->name('onam_formlari');
+        Route::get('rinoloji-onam-formlari', function (){
+            return view('frontend.info-center.consent-forms.rhinology');
+        })->name('rinoloji_onam_formlari');
+        Route::get('bas-boyun-onam-formlari', function () {
+            return view('frontend.info-center.consent-forms.head-neck');
+        })->name('bas-boyun_onam_formlari');
+        Route::get('otoloji-onam-formlari', function () {
+            return view('frontend.info-center.consent-forms.otology');
+        })->name('otoloji_onam_formlari');
+        Route::get('pediatrik-kbb-onam-formlari', function () {
+            return view('frontend.info-center.consent-forms.pediatric-KBB');
+        })->name('pediatrik_kbb_onam_formlari');
+    });
     Route::prefix('haberler')->group(function () {
         Route::get('haber/{slug}', [NewsFrontController::class, 'show'])->name('haber');
         Route::post('news/comment', [NewsFrontController::class, 'comment'])->name('news.comment');
