@@ -279,9 +279,8 @@
                 <i class='menu-icon tf-icons ti ti-menu-2'></i>
                 <div data-i18n="Front Pages"><strong>Menü Yönetimi</strong></div>
             </a>
-
             <ul class="menu-sub ">
-                <li class="menu-item @if(Request::segment(2) == 'menus') active open @endif">
+                <li class="menu-item @if(Request::segment(2) == 'menus' && Request::segment(3) == null) active open @endif">
                     <a href="javascript:void(0);" class="menu-link menu-toggle">
                         <div data-i18n="Customer"> Derneğimiz</div>
                     </a>
@@ -335,7 +334,18 @@
                         </li>
                     </ul>
                 </li>
-
+                <li class="menu-item @if(Request::segment(3) == 'assistant-school') active @endif">
+                    <a href="{{ route('menu.assistantSchool') }}" class="menu-link">
+                        <i class="menu-icon tf-icons ti ti-building"></i>
+                        <div data-i18n="Chat">Asistan Okulu</div>
+                    </a>
+                </li>
+                <li class="menu-item @if(Request::segment(3) == 'exchange-program') active @endif">
+                    <a href="{{ route('menu.exchangeProgram') }}" class="menu-link">
+                        <i class="menu-icon tf-icons ti ti-building"></i>
+                        <div data-i18n="Chat">Değişim Programı</div>
+                    </a>
+                </li>
                 {{--<li class="menu-item @if(Request::segment(2) == 'menus' && Request::segment(3) == 'create') active @endif">
                     <a href="{{ route('menus.create') }}" class="menu-link" >
                         <div data-i18n="Landing">Menü Ekle</div>

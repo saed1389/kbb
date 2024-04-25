@@ -352,7 +352,7 @@ input[type=color] {
 input[type=text], input[type=email], input[type=tel], input[type=number], input[type=password], input[type=url] {
     outline: none;
     background-color: #fff;
-    height: 60px;
+    height: 45px;
     width: 100%;
     line-height: 60px;
     font-size: 14px;

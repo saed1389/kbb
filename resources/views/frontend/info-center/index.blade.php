@@ -164,7 +164,7 @@
                                 </div>
                                 <div class="tp-feature__item z-index">
                                     <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm"><a href="{{ route('tanitim-filmi') }}">Kılavuzlar</a></h4>
+                                        <h4 class="tp-feature__title-sm"><a href="{{ route('kilavuzlar') }}">Kılavuzlar</a></h4>
                                     </div>
                                 </div>
                             </div>
@@ -179,7 +179,7 @@
                                 </div>
                                 <div class="tp-feature__item z-index">
                                     <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm">  <a href="{{ asset('uploads/Document/KBB-BBC-KALITE-POLITIKASI-MISYON-VE-VIZYONUMUZ.pdf') }}" download="">TTB Ücret Tarifesi</a></h4>
+                                        <h4 class="tp-feature__title-sm"><a href="{{ route('ttb-ucret-tarifesi') }}">TTB Ücret Tarifesi</a></h4>
                                     </div>
                                 </div>
                             </div>
@@ -194,7 +194,7 @@
                                 </div>
                                 <div class="tp-feature__item z-index">
                                     <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm">  <a href="{{ asset('uploads/Document/KBB-BBC-KALITE-POLITIKASI-MISYON-VE-VIZYONUMUZ.pdf') }}" download="">Satın Alma Süreci</a></h4>
+                                        <h4 class="tp-feature__title-sm">  <a href="{{ route('satin-alma-sureci') }}">Satın Alma Süreci</a></h4>
                                     </div>
                                 </div>
                             </div>
@@ -209,7 +209,7 @@
                                 </div>
                                 <div class="tp-feature__item z-index">
                                     <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm"><a href="{{ asset('uploads/Document/KBB-BBC-KALITE-POLITIKASI-MISYON-VE-VIZYONUMUZ.pdf') }}" download=""><small>KBB ve BBC Uzmanlık Eğitimi Kitabı - 1</small></a></h4>
+                                        <h4 class="tp-feature__title-sm"><a href="{{ route('uzmanlik_egitimi_kitablari') }}" ><small>KBB ve BBC Uzmanlık Eğitimi Kitabı - 1</small></a></h4>
                                     </div>
                                 </div>
                             </div>
@@ -224,7 +224,7 @@
                                 </div>
                                 <div class="tp-feature__item z-index">
                                     <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm">  <a href="{{ asset('uploads/Document/KBB-BBC-KALITE-POLITIKASI-MISYON-VE-VIZYONUMUZ.pdf') }}" download=""><small>KBB ve BBC Uzmanlık Eğitimi Kitabı - 2</small></a></h4>
+                                        <h4 class="tp-feature__title-sm">  <a href="{{ route('uzmanlik_egitimi_kitablari') }}"><small>KBB ve BBC Uzmanlık Eğitimi Kitabı - 2</small></a></h4>
                                     </div>
                                 </div>
                             </div>
@@ -239,7 +239,7 @@
                                 </div>
                                 <div class="tp-feature__item z-index">
                                     <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm">  <a href="{{ asset('uploads/Document/KBB-BBC-KALITE-POLITIKASI-MISYON-VE-VIZYONUMUZ.pdf') }}" download=""> Linkler</a></h4>
+                                        <h4 class="tp-feature__title-sm">  <a href="{{ route('linkler') }}" > Linkler</a></h4>
                                     </div>
                                 </div>
                             </div>
@@ -254,12 +254,12 @@
                                 </div>
                                 <div class="tp-feature__item z-index">
                                     <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm">  <a href="{{ asset('uploads/Document/KBB-BBC-KALITE-POLITIKASI-MISYON-VE-VIZYONUMUZ.pdf') }}" download=""><small>Türk KBB-BBC Derneği Etik Kitabı</small></a></h4>
+                                        <h4 class="tp-feature__title-sm">  <a href="{{ route('turk-kbb-bbc-dernegi-etik-kitabi') }}"><small>Türk KBB-BBC Derneği Etik Kitabı</small></a></h4>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".7s">
+                        {{--<div class="col-xl-3 col-lg-3 mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".7s">
                             <div class="tp-feature__wraper">
                                 <div class="tp-feature__shape-1">
                                     <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
@@ -273,7 +273,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>--}}
                     </div>
                 </div>
             </div>

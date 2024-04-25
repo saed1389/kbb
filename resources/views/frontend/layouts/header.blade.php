@@ -41,7 +41,7 @@
                                 <nav class="tp-main-menu-content">
                                     <ul>
                                         <li>
-                                            <a href="#"><i class="fa fa-home"></i></a>
+                                            <a href="/"><i class="fa fa-home"></i></a>
                                         </li>
                                         <li class="has-dropdown"><a href="#">Derneğimiz <i class="fa fa-angle-down disable-arrow"></i></a>
                                             <ul class="submenu tp-submenu two-columns">
@@ -67,44 +67,41 @@
                                                 <li><a href="{{ asset('uploads/Document/ucep.pdf') }}" download="">UÇEP</a></li>
                                                 <li><a href="{{ route('belgeler-tipta-uzmanlik-egitimi-karnesi') }}">Tıpta Uzmanlık Eğitimi Karnesi</a></li>
                                                 <li><a href="{{ route('onam_formlari') }}">Onam Formları</a></li>
-                                                <li><a href="#">Kılavuzlar</a></li>
-                                                <li><a href="#">Satın Alma Süreci</a></li>
-                                                <li><a href="#">KBB ve BBC Uzmanlık Eğitimi Kitabı - 1</a></li>
-                                                <li><a href="#">KBB ve BBC Uzmanlık Eğitimi Kitabı - 2</a></li>
-                                                <li><a href="#">Linkler</a></li>
-                                                <li><a href="#">Türk KBB-BBC Derneği Etik Kitabı</a></li>
-                                                <li><a href="#">Hukuk</a></li>
+                                                <li><a href="{{ route('kilavuzlar') }}">Kılavuzlar</a></li>
+                                                <li><a href="{{ route('ttb-ucret-tarifesi') }}">TTB Ücret Tarifesi</a></li>
+                                                <li><a href="{{ route('satin-alma-sureci') }}">Satın Alma Süreci</a></li>
+                                                <li><a href="{{ route('uzmanlik_egitimi_kitablari') }}">KBB ve BBC Uzmanlık Eğitimi Kitabı - 1</a></li>
+                                                <li><a href="{{ route('uzmanlik_egitimi_kitablari-1') }}">KBB ve BBC Uzmanlık Eğitimi Kitabı - 2</a></li>
+                                                <li><a href="{{ route('linkler') }}">Linkler</a></li>
+                                                <li><a href="{{ route('turk-kbb-bbc-dernegi-etik-kitabi') }}">Türk KBB-BBC Derneği Etik Kitabı</a></li>
+                                                {{--<li><a href="#">Hukuk</a></li>--}}
                                             </ul>
                                         </li>
                                         <li class="has-dropdown"><a href="#">KBB Okulları <i class="fa fa-angle-down down disable-arrow"></i></a>
                                             <ul class="submenu tp-submenu">
-                                                <li><a href="#">Yüz Plastik Cerrahi Okulu</a></li>
-                                                <li><a href="#">Baş Boyun ve Tiroid Cerrahisi Okulu</a></li>
-                                                <li><a href="#">Laringoloji ve Foniatri Okulu</a></li>
-                                                <li><a href="#">Otoloji ve Nörootoloji Okulu</a></li>
-                                                <li><a href="#">Rinoloji-Rinoplasti-Alerji ve Uyku Okulu</a></li>
+                                                <li><a href="http://kbbokullari.kbb.org.tr/ModuleList.aspx?module=2" target="_blank">Yüz Plastik Cerrahi Okulu</a></li>
+                                                <li><a href="http://kbbokullari.kbb.org.tr/ModuleList.aspx?module=4" target="_blank">Baş Boyun ve Tiroid Cerrahisi Okulu</a></li>
+                                                <li><a href="http://kbbokullari.kbb.org.tr/ModuleList.aspx?module=5" target="_blank">Laringoloji ve Foniatri Okulu</a></li>
+                                                <li><a href="http://kbbokullari.kbb.org.tr/ModuleList.aspx?module=3" target="_blank">Otoloji ve Nörootoloji Okulu</a></li>
+                                                <li><a href="http://kbbokullari.kbb.org.tr/ModuleList.aspx?module=6" target="_blank">Rinoloji-Rinoplasti-Alerji ve Uyku Okulu</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="#">KBB Yeterlik</a></li>
+                                        <li><a href="http://www.kbbyeterlik.org.tr/" target="_blank">KBB Yeterlik</a></li>
                                         <li class="has-dropdown"><a href="#">Torlak <i class="fa fa-angle-down down disable-arrow"></i></a>
                                             <ul class="submenu tp-submenu">
                                                 <li><a href="#">Eğitim Videoları</a></li>
                                                 <li><a href="#">Kongreler</a></li>
-                                                <li><a href="#">Dersler-Ders Programı</a></li>
-                                                <li><a href="#">Sertifika katılım</a></li>
                                             </ul>
                                         </li>
                                         <li class="has-dropdown"><a href="#">Burs - Ödüller <i class="fa fa-angle-down down disable-arrow"></i></a>
                                             <ul class="submenu tp-submenu">
-                                                <li><a href="#">Burslar</a></li>
-                                                <li><a href="#">Ödüller</a></li>
-                                                <li><a href="#">Proje Destek</a></li>
+                                                <li><a href="{{ route('burslar') }}">Burslar</a></li>
+                                                <li><a href="{{ route('oduller') }}">Ödüller</a></li>
+                                                <li><a href="{{ route('proje-destek') }}">Proje Destek</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="#">Asistan Okulu</a></li>
-                                        <li><a href="#">Değişim Programı</a></li>
-
-
+                                        <li><a href="{{ route('asistan-okulu') }}">Asistan Okulu</a></li>
+                                        <li><a href="{{ route('degisim-programi') }}">Değişim Programı</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -135,13 +132,10 @@
                                                             <li><a class="dropdown-item" href="{{ route('login') }}">Oturum aç</a></li>
                                                         @endauth
                                                     @endif
-
                                                 </ul>
                                             </div>
-
                                         </div>
                                     </li>
-
                                     <li>
                                         <div class="tp-header-2__bar d-lg-none">
                                             <button class="tp-menu-bar" type="button"><span><i class="fa-solid fa-bars-staggered"></i></span></button>
@@ -149,7 +143,6 @@
                                     </li>
                                     <li>
                                         <div class="tp-header__tel-box d-flex align-items-center">
-
 
                                         </div>
                                     </li>

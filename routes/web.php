@@ -71,7 +71,6 @@ Route::prefix('dernegmz')->group(function () {
         return view('frontend.our_association.history');
     })->name('tarihce');
     Route::get('iktisadi-isletme', [IndexController::class, 'economic_business'])->name('iktisadi_isletme');
-    Route::get('tarihce', [IndexController::class, 'tarihce'])->name('tarihce');
     Route::get('ktisadisletme', [IndexController::class, 'ktisadisletme'])->name('ktisadisletme');
     Route::get('kararlar', [IndexController::class, 'kararlar'])->name('kararlar');
     Route::get('belgeler-yonetmelik-ve-yonergeler', [IndexController::class, 'yonetmelik'])->name('yonetmelik');
@@ -133,17 +132,65 @@ Route::prefix('bilgi-merkezi')->group(function () {
             return view('frontend.info-center.consent-forms.pediatric-KBB');
         })->name('pediatrik_kbb_onam_formlari');
     });
+    Route::get('kilavuzlar', function () {
+        return view('frontend.info-center.guides');
+    })->name('kilavuzlar');
+    Route::get('ttb-ucret-tarifesi', function () {
+        return view('frontend.info-center.TTB-fee');
+    })->name('ttb-ucret-tarifesi');
+    Route::get('satin-alma-sureci', function (){
+        return view('frontend.info-center.process-buying');
+    })->name('satin-alma-sureci');
+    Route::get('uzmanlik-egitimi-kitablari', function (){
+        return view('frontend.info-center.training-books');
+    })->name('uzmanlik_egitimi_kitablari');
+    Route::get('uzmanlik-egitimi-kitablari-1', function (){
+        return view('frontend.info-center.training-books-1');
+    })->name('uzmanlik_egitimi_kitablari-1');
+    Route::get('linkler', function () {
+        return view('frontend.info-center.links');
+    })->name('linkler');
+    Route::get('turk-kbb-bbc-dernegi-etik-kitabi', function () {
+        return view('frontend.info-center.turkish-kbb-bbc');
+    })->name('turk-kbb-bbc-dernegi-etik-kitabi');
+
     Route::prefix('haberler')->group(function () {
         Route::get('haber/{slug}', [NewsFrontController::class, 'show'])->name('haber');
         Route::post('news/comment', [NewsFrontController::class, 'comment'])->name('news.comment');
         Route::get('news/search', [NewsFrontController::class, 'search'])->name('news.search');
         Route::get('', [NewsFrontController::class, 'index'])->name('haberler');
     });
+
     Route::prefix('etkinlikler')->group( function () {
         Route::get('etkinlik/{slug}', [NewsFrontController::class, 'eventShowEvent'])->name('etkinlik.event');
         Route::get('{id}/{slug}', [NewsFrontController::class, 'eventShow'])->name('etkinlik');
         Route::get('', [NewsFrontController::class, 'events'])->name('etkinlikler');
     });
+});
+
+Route::prefix('burs-oduller')->group(function () {
+    Route::get('', function (){
+        return view('frontend.scholarship.index');
+    })->name('burs_oduller');
+    Route::get('burslar', function () {
+        return view('frontend.scholarship.scholarship');
+    })->name('burslar');
+    Route::get('turk-kbb-ve-bbc-dernegi-kisa-sureli-yurtdisi', function () {
+        return view('frontend.scholarship.turk-KBB');
+    })->name('turk-kbb-ve-bbc-dernegi-kisa-sureli-yurtdisi');
+    Route::get('basvuru-yurtdisi-egitim-bursu', [IndexController::class, 'scholarshipApp'])->name('basvuru-yurtdisi-egitim-bursu');
+    Route::post('scholarshipStore', [IndexController::class, 'scholarshipAppStore'])->name('scholarship-app-store');
+    Route::get('oduller', function () {
+        return view('frontend.scholarship.awards');
+    })->name('oduller');
+    Route::get('proje-destek', function (){
+        return view('frontend.scholarship.project-support');
+    })->name('proje-destek');
+    Route::get('bilimsel-arastirma-destekleme-koordinasyon-birimi-formlari', function () {
+        return view('frontend.scholarship.scientific-research');
+    })->name('bilimsel-arastirma-destekleme-koordinasyon-birimi-formlari');
+    Route::get('asistan-okulu', [IndexController::class, 'assistantSchool'])->name('asistan-okulu');
+    Route::get('degisim-programi', [IndexController::class, 'exchangeProgram'])->name('degisim-programi');
 });
 Auth::routes();
 
@@ -256,6 +303,13 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
             Route::post('presidents/changeStatus/{id}/{status}', [PresidentController::class, 'changeStatus']);
             Route::post('presidents/currentPresident/{id}/{status}', [PresidentController::class, 'currentPresident']);
             Route::get('presidents/delete/{id}', [PresidentController::class, 'delete'])->name('presidents.delete');
+
+            Route::get('assistant-school', [MenuController::class, 'assistantSchool'])->name('menu.assistantSchool');
+            Route::post('assistant-school-update', [MenuController::class, 'assistantSchoolUpdate'])->name('menu.assistantSchoolUpdate');
+
+            Route::get('exchange-program', [MenuController::class, 'exchangeProgram'])->name('menu.exchangeProgram');
+            Route::post('exchange-program-update', [MenuController::class, 'exchangeProgramUpdate'])->name('menu.exchangeProgramUpdate');
+
             Route::prefix('committees')->group(function (){
                 Route::resource('directors', DirectorController::class)->except('show', 'create', 'destroy');
                 Route::post('directors/changeStatus/{id}/{status}', [DirectorController::class, 'changeStatus']);
@@ -289,6 +343,8 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
 
                 Route::get('economic-business', [CommitteesController::class,'economicBusiness'])->name('committees.economicBusiness');
                 Route::post('economic-business-update', [CommitteesController::class,'economicBusinessUpdate'])->name('committees.economicBusinessUpdate');
+
+
             });
             /*Route::get('/delete/{id}', [MenuController::class, 'delete'])->name('menus.delete');
             Route::post('/updateAccordionOrder', [MenuController::class, 'updateAccordionOrder'])->name('manus.updateAccordionOrder');

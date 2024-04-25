@@ -9,8 +9,10 @@ use App\Models\Director;
 use App\Models\HistoryCommittee;
 use App\Models\News;
 use App\Models\President;
+use App\Models\Scholarship;
 use App\Models\Setting;
 use App\Models\User;
+use App\Models\UserTitle;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -126,5 +128,120 @@ class IndexController extends Controller
     {
         $setting = Setting::where('id', 1)->first()->economic_business;
         return view('frontend.our_association.economicBusiness', compact('setting'));
+    }
+
+    public function scholarshipApp()
+    {
+        $titles = UserTitle::where('status', 1)->get();
+
+        return view('frontend.scholarship.education-scholarship', compact('titles'));
+    }
+
+    public function scholarshipAppStore(Request $request)
+    {
+        //dd($request);
+        $request->validate([
+            'name' => 'required',
+            'domesticCompany' => 'required',
+            'position' => 'required',
+            'title' => 'required',
+            'phoneNumber' => 'required',
+            'mobilePhone' => 'required',
+            'email' => 'required|email',
+            'address' => 'required',
+            'university' => 'required',
+            'dateOfGraduation' => 'required',
+            'expertiseTestDate' => 'required',
+            'specializedInstitution' => 'required',
+            'medicalSpecialty' => 'required|file|mimes:pdf,doc,docx,ppt,pptx,pps,ppsx,xls,xlsx|max:5120',
+            'KBBQualificationCertificate' => 'required|file|mimes:pdf,doc,docx,ppt,pptx,pps,ppsx,xls,xlsx|max:5120',
+            'personCV' => 'required|file|mimes:pdf,doc,docx,ppt,pptx,pps,ppsx,xls,xlsx|max:5120',
+            'workingArea' => 'required',
+            'foreignLanguage1' => 'required|file|mimes:pdf,doc,docx,ppt,pptx,pps,ppsx,xls,xlsx|max:5120',
+            'foreignLanguage2' => 'required|file|mimes:pdf,doc,docx,ppt,pptx,pps,ppsx,xls,xlsx|max:5120',
+            'foreignLanguage3' => 'file|mimes:pdf,doc,docx,ppt,pptx,pps,ppsx,xls,xlsx|max:5120',
+            'foreignLanguage4' => 'file|mimes:pdf,doc,docx,ppt,pptx,pps,ppsx,xls,xlsx|max:5120',
+            'currentLanguage' => 'file|mimes:pdf,doc,docx,ppt,pptx,pps,ppsx,xls,xlsx|max:5120',
+            'referenceLetter1' => 'required|file|mimes:pdf,doc,docx,ppt,pptx,pps,ppsx,xls,xlsx|max:5120',
+            'referenceLetter2' => 'required|file|mimes:pdf,doc,docx,ppt,pptx,pps,ppsx,xls,xlsx|max:5120',
+            'referenceLetter3' => 'required|file|mimes:pdf,doc,docx,ppt,pptx,pps,ppsx,xls,xlsx|max:5120',
+            'referenceLetter4' => 'required|file|mimes:pdf,doc,docx,ppt,pptx,pps,ppsx,xls,xlsx|max:5120',
+            'candidateEducation' => 'required',
+            'institutionLetter' => 'required|file|mimes:pdf,doc,docx,ppt,pptx,pps,ppsx,xls,xlsx|max:5120',
+            'educationStartDate' => 'required',
+            'educationCompletionDate' => 'required',
+            'scholarshipDuration' => 'required',
+        ]);
+
+        $fileFields = [
+            'medicalSpecialty', 'KBBQualificationCertificate', 'personCV',
+            'englishForeign', 'foreignLanguage1', 'foreignLanguage2',
+            'foreignLanguage3', 'foreignLanguage4', 'otherScholarship',
+            'referenceLetter1', 'referenceLetter2', 'referenceLetter3',
+            'referenceLetter4', 'institutionLetter', 'currentLanguage'
+        ];
+
+        foreach ($fileFields as $field) {
+            if ($request->hasFile($field)) {
+                $file = $request->file($field);
+                $fileName = uniqid('', true) . '.' . $file->getClientOriginalExtension();
+                $filePath = 'uploads/scholarship/';
+                $file->move(public_path($filePath), $fileName);
+                ${$field.'_url'} = $filePath . $fileName;
+            } else {
+                ${$field.'_url'} = null;
+            }
+        }
+
+        Scholarship::create([
+            'name' => $request->name,
+            'domesticCompany' => $request->domesticCompany,
+            'position' => $request->position,
+            'title' => $request->title,
+            'phoneNumber' => $request->phoneNumber,
+            'mobilePhone' => $request->mobilePhone,
+            'email' => $request->email,
+            'address' => $request->address,
+            'university' => $request->university,
+            'dateOfGraduation' => $request->dateOfGraduation,
+            'expertiseTestDate' => $request->expertiseTestDate,
+            'specializedInstitution' => $request->specializedInstitution,
+            'medicalSpecialty' => $medicalSpecialty_url,
+            'KBBQualificationCertificate' => $KBBQualificationCertificate_url,
+            'associationNo' => $request->associationNo,
+            'personCV' => $personCV_url,
+            'workingArea' => $request->workingArea,
+            'detailedProject' => $request->detailedProject,
+            'currentLanguage' => $currentLanguage_url,
+            'englishForeign' => $englishForeign_url,
+            'foreignLanguage1' => $foreignLanguage1_url,
+            'foreignLanguage2' => $foreignLanguage2_url,
+            'foreignLanguage3' => $foreignLanguage3_url,
+            'foreignLanguage4' => $foreignLanguage4_url,
+            'otherScholarship' => $otherScholarship_url,
+            'referenceLetter1' => $referenceLetter1_url,
+            'referenceLetter2' => $referenceLetter2_url,
+            'referenceLetter3' => $referenceLetter3_url,
+            'referenceLetter4' => $referenceLetter4_url,
+            'candidateEducation' => $request->candidateEducation,
+            'institutionLetter' => $institutionLetter_url,
+            'educationStartDate' => $request->educationStartDate,
+            'educationCompletionDate' => $request->educationCompletionDate,
+            'scholarshipDuration' => $request->scholarshipDuration,
+            'status' => 0
+        ]);
+        return redirect()->back()->with('thanks', 'Başvuru formu başarıyla gönderildi');
+    }
+
+    public function assistantSchool()
+    {
+        $setting = Setting::where('id', 1)->first()->assistant_school;
+        return view('frontend.assistant_school', compact('setting'));
+    }
+
+    public function exchangeProgram()
+    {
+        $setting = Setting::where('id', 1)->first()->exchange_program;
+        return view('frontend.exchange_program', compact('setting'));
     }
 }

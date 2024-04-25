@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\FooterMenu;
 use App\Models\Menu;
+use App\Models\Setting;
 use App\Models\SubMenu;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -229,5 +230,53 @@ class MenuController extends Controller
         );
 
         return redirect()->back()->with($notification);
+    }
+
+    public function assistantSchool()
+    {
+        $setting = Setting::first()->assistant_school;
+        return view('admin.menus.assistant_school', compact('setting'));
+    }
+
+    public function assistantSchoolUpdate(Request $request)
+    {
+        $request->validate([
+            'economic_business' => 'required',
+        ]);
+
+        Setting::where('id', '1')->update([
+            'assistant_school' => $request->economic_business,
+        ]);
+
+        $notification = array(
+            'message' => "Asistan Okulu başarıyla düzenlendi!",
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('menu.assistantSchool')->with($notification);
+    }
+
+    public function exchangeProgram()
+    {
+        $setting = Setting::first()->exchange_program;
+        return view('admin.menus.exchange-program', compact('setting'));
+    }
+
+    public function exchangeProgramUpdate(Request $request)
+    {
+        $request->validate([
+            'economic_business' => 'required',
+        ]);
+
+        Setting::where('id', '1')->update([
+            'exchange_program' => $request->economic_business,
+        ]);
+
+        $notification = array(
+            'message' => "Asistan Okulu Değişim Programı!",
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('menu.exchangeProgram')->with($notification);
     }
 }
