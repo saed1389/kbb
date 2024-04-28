@@ -42,13 +42,51 @@
         </div>
     </div>
     @push('scripts')
-        <script src="{{ asset('front/assets/css/calender/dist/index.global.js') }}" ></script>
-        <script src="{{ asset('front/assets/css/calender/dist/index.global.min.js') }}" ></script>
+        <script src="{{ asset('front/assets/css/fullcalendar/dist/index.global.js') }}" ></script>
+        <script src="{{ asset('front/assets/css/fullcalendar/dist/index.global.min.js') }}" ></script>
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 var calendarEl = document.getElementById('calendar');
 
                 var calendar = new FullCalendar.Calendar(calendarEl, {
+                    locale: "tr",
+                    initialView: 'dayGridMonth',
+                    headerToolbar: {
+                        left: 'prevYear,prev,next,nextYear today',
+                        center: 'title',
+                        right: 'dayGridMonth,dayGridWeek,dayGridDay'
+                    },
+                    events: function(info, successCallback, failureCallback) {
+                        var start = info.startStr;
+                        var end = info.endStr;
+
+                        // Make an AJAX request to fetch events within the visible range
+                        $.ajax({
+                            url: "{{ route('calenderEvents') }}",
+                            method: 'GET',
+                            data: {
+                                start: start,
+                                end: end
+                            },
+                            success: function(response) {
+                                successCallback(response.events);
+                            },
+                            error: function(xhr, status, error) {
+                                failureCallback(error);
+                            }
+                        });
+                    }
+                });
+                calendar.setOption('locale', 'tr');
+                calendar.render();
+            });
+        </script>
+        {{--<script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var calendarEl = document.getElementById('calendar');
+
+                var calendar = new FullCalendar.Calendar(calendarEl, {
+                    plugins: [ 'dayGrid' ],
                     locale: "tr",
                     headerToolbar: {
                         left: 'prevYear,prev,next,nextYear today',
@@ -59,20 +97,11 @@
                     navLinks: true, // can click day/week names to navigate views
                     editable: false,
                     dayMaxEvents: true, // allow "more" link when too many events
-                    events: [
-                        @foreach($events as $event)
-                        {
-                            title: "{{ $event->title }}",
-                            url: "{{ $event->event_href ? $event->event_href : route('etkinlik.event', $event->slug) }}",
-                            start: "{{ $event->start_date }}",
-                            end: "{{ $event->end_date }}"
-                        },
-                        @endforeach
-                    ]
+                    events: {!! json_encode($events) !!}
                 });
                 calendar.setOption('locale', 'tr');
                 calendar.render();
             });
-        </script>
+        </script>--}}
     @endpush
 @endsection

@@ -378,7 +378,32 @@ class IndexController extends Controller
 
     public function calendar()
     {
-        $events = Event::where('status', 1)->get();
-        return view('frontend.calendar', compact('events'));
+        //$events = Event::select('title', 'start_date', 'end_date', 'event_href', 'slug')->get();
+
+        // Pass the events data to the view
+        return view('frontend.calendar');
+
+    }
+
+    public function calenderEvents(Request $request)
+    {
+        $start = $request->input('start');
+        $end = $request->input('end');
+
+        $events = Event::whereBetween('start_date', [$start, $end])
+            ->orWhereBetween('end_date', [$start, $end])
+            ->get();
+
+        // Format events for FullCalendar
+        $formattedEvents = [];
+        foreach ($events as $event) {
+            $formattedEvents[] = [
+                'title' => $event->title,
+                'start' => $event->start_date,
+                'end' => $event->end_date
+            ];
+        }
+
+        return response()->json(['events' => $formattedEvents]);
     }
 }
