@@ -219,7 +219,7 @@ Route::get('bize-ulasin',function () {
 Route::post('contactStore', [IndexController::class, 'contact'])->name('contactStore');
 Route::get('uye-listesi', [IndexController::class, 'usersList'])->name('uye-listesi');
 Route::get('get-users-list', [IndexController::class, 'getUserList'])->name('get-user-list');
-/*Route::get('get-users-country', [IndexController::class, 'getUserCountry'])->name('get-user-country');*/
+Route::get('etkinlik-takvim', [IndexController::class, 'calendar'])->name('etkinlik-takvim');
 Auth::routes();
 
 /*------------------------------------------

@@ -356,7 +356,7 @@ class IndexController extends Controller
         elseif( $request->input('countryId') || $request->input('cityId')) {
 
             $cityId = $request->input('countryId') ? $request->input('countryId') : $request->input('cityId');
-            //dd($cityId);
+
             $members = User::with('titleName')
                 ->where('country', $cityId)
                 ->where('type', '!=', 1)
@@ -374,5 +374,11 @@ class IndexController extends Controller
                 'members' => $formattedMembers,
             ]);
         }
+    }
+
+    public function calendar()
+    {
+        $events = Event::where('status', 1)->get();
+        return view('frontend.calendar', compact('events'));
     }
 }

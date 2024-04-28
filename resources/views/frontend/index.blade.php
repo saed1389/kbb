@@ -114,7 +114,8 @@
                                         </div>
                                         <div class="tp-feature__item z-index">
                                             <div class="tp-feature__content d-flex align-items-center" style="height: 90px; place-content: center;">
-                                                <h4 class="tp-feature__title-sm text-white" style="background-color: rgb(29 38 73 / 61%); padding: 5px; border-radius: 5px; position: absolute; bottom: 0;">Toplantı takvimi</h4>
+                                                <h4 class="tp-feature__title-sm text-white" style="background-color: rgb(29 38 73 / 61%); padding: 5px; border-radius: 5px; position: absolute; bottom: 0;">
+                                                    <a href="{{ route('etkinlik-takvim') }}">Toplantı takvimi</a></h4>
                                             </div>
                                         </div>
                                     </div>
