@@ -8,6 +8,7 @@ use App\Models\News;
 use App\Models\NewsCategory;
 use App\Models\PhotoCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Intervention\Image\ImageManager;
@@ -282,6 +283,32 @@ class NewsController extends Controller
             return false;
         }
     }
+
+    public function order()
+    {
+        $lastMonth = Carbon::now()->subMonth();
+        $news = News::where('slider', 1)
+            /*->whereDate('created_at', '>=', $lastMonth)*/
+            ->orderBy('news_order', 'asc')
+            ->get();
+        return view('admin.news.order', compact('news'));
+    }
+
+    public function sortOrder(Request $request)
+    {
+        $posts = News::where('slider', 1)->get();
+
+        foreach ($posts as $post) {
+            foreach ($request->order as $order) {
+                if ($order['id'] == $post->id) {
+                    $post->update(['news_order' => $order['position']]);
+                }
+            }
+        }
+
+        return response(['status' => '200'], 200);
+    }
+
     private function storeBase64($imageBase64)
     {
         list($type, $imageBase64) = explode(';', $imageBase64);

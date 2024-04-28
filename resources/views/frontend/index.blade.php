@@ -1,3 +1,4 @@
+@php use Illuminate\Support\Carbon; @endphp
 @extends('frontend.layouts.app')
 @section('title') Türk Kulak Burun Boğaz ve Baş Boyun Cerrahisi Derneği | Anasayfa @endsection
 @section('content')
@@ -13,12 +14,14 @@
                             <div class="blog-slider__wrp swiper-wrapper">
                                 @foreach($sliders as $slider)
                                     <div class="blog-slider__item swiper-slide">
+                                        <a href="{{ route('haber', $slider->slug) }}">
                                         <div class="blog-slider__img">
                                             <img src="{{ asset('uploads/news/crop/'.$slider->cropImage) }}" loading="lazy" alt="">
                                             <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
                                         </div>
+                                        </a>
                                         <div class="blog-slider__content">
-                                            <div class="blog-slider__title">{{ $slider->title }}</div>
+                                            <div class="blog-slider__title"><a href="{{ route('haber', $slider->slug) }}">{{ $slider->title }}</a></div>
                                         </div>
                                     </div>
                                 @endforeach
@@ -64,7 +67,7 @@
                                         </div>
                                         <div class="tp-feature__item z-index">
                                             <div class="tp-feature__content d-flex align-items-center" style="height: 90px; place-content: center;">
-                                                <h4 class="tp-feature__title-sm text-white" style="background-color: rgb(29 38 73 / 61%); padding: 5px; border-radius: 5px; position: absolute; bottom: 0;">Online kütüphane</h4>
+                                                <h4 class="tp-feature__title-sm text-white" style="background-color: rgb(29 38 73 / 61%); padding: 5px; border-radius: 5px; position: absolute; bottom: 0;"><a href="{{ route('online-kutuphane') }}">Online kütüphane</a></h4>
                                             </div>
                                         </div>
                                     </div>
@@ -79,7 +82,8 @@
                                         </div>
                                         <div class="tp-feature__item z-index">
                                             <div class="tp-feature__content d-flex align-items-center" style="height: 90px; place-content: center;">
-                                                <h5 class="tp-feature__title-sm text-white" style="background-color: rgb(29 38 73 / 61%); padding: 5px; border-radius: 5px; position: absolute; bottom: 0;">Hasta bilgilendirme</h5>
+                                                <h5 class="tp-feature__title-sm text-white" style="background-color: rgb(29 38 73 / 61%); padding: 5px; border-radius: 5px; position: absolute; bottom: 0;">
+                                                    <a href="{{ route('hasta_bilgilendirme_brosurleri') }}">Hasta bilgilendirme</a></h5>
                                             </div>
                                         </div>
                                     </div>
@@ -94,7 +98,8 @@
                                         </div>
                                         <div class="tp-feature__item z-index">
                                             <div class="tp-feature__content d-flex align-items-center" style="height: 90px; place-content: center;">
-                                                <h6 class="tp-feature__title-sm text-white" style="background-color: rgb(29 38 73 / 61%); padding: 5px; border-radius: 5px; position: absolute; bottom: 0; text-align-last: center;">Yöresel dernekler ve alt birim dalları</h6>
+                                                <h6 class="tp-feature__title-sm text-white" style="background-color: rgb(29 38 73 / 61%); padding: 5px; border-radius: 5px; position: absolute; bottom: 0; text-align-last: center;">
+                                                    <a href="{{ route('yoresel-dernekler-ve-alt-bilimdallari') }}">Yöresel dernekler ve alt birim dalları</a></h6>
                                             </div>
                                         </div>
                                     </div>
@@ -124,7 +129,8 @@
                                         </div>
                                         <div class="tp-feature__item z-index">
                                             <div class="tp-feature__content d-flex align-items-center" style="height: 90px; place-content: center;">
-                                                <h4 class="tp-feature__title-sm text-white" style="background-color: rgb(29 38 73 / 61%); padding: 5px; border-radius: 5px; position: absolute; bottom: 0;">Başkanımızın 100.yıl mesajı</h4>
+                                                <h4 class="tp-feature__title-sm text-white" style="background-color: rgb(29 38 73 / 61%); padding: 5px; border-radius: 5px; position: absolute; bottom: 0;">
+                                                    <a href="{{ route('dernek-baskanimizdan-29-ekim-cumhuriyet-bayram') }}">Başkanımızın 100.yıl mesajı</a></h4>
                                             </div>
                                         </div>
                                     </div>
@@ -139,7 +145,8 @@
                                         </div>
                                         <div class="tp-feature__item z-index">
                                             <div class="tp-feature__content d-flex align-items-center" style="height: 90px; place-content: center; text-align: -webkit-center;">
-                                                <h4 class="tp-feature__title-sm text-white" style="background-color: rgb(29 38 73 / 61%); padding: 5px; border-radius: 5px; position: absolute; bottom: 0;">Türk KBB arşivi</h4>
+                                                <h4 class="tp-feature__title-sm text-white" style="background-color: rgb(29 38 73 / 61%); padding: 5px; border-radius: 5px; position: absolute; bottom: 0;">
+                                                    <a href="https://www.turkarchotolaryngol.net/" target="_blank">Türk KBB arşivi</a></h4>
                                             </div>
                                         </div>
                                     </div>
@@ -155,7 +162,7 @@
                                         <div class="tp-feature__wraper" style="padding: 20px 17px 20px 25px;">
                                             <div class="tp-feature__item z-index">
                                                 <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                                    <h4 class="tp-feature__title-sm">Onam formları</h4>
+                                                    <h4 class="tp-feature__title-sm"><a href="{{ route('onam_formlari') }}">Onam formları</a></h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -164,7 +171,7 @@
                                         <div class="tp-feature__wraper" style="padding: 20px 17px 20px 25px;">
                                             <div class="tp-feature__item z-index">
                                                 <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                                    <h4 class="tp-feature__title-sm">Başkana ulaş</h4>
+                                                    <h4 class="tp-feature__title-sm"><a href="{{ route('baskana-ulas') }}">Başkana ulaş</a></h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -173,7 +180,7 @@
                                         <div class="tp-feature__wraper" style="padding: 20px 17px 20px 25px;">
                                             <div class="tp-feature__item z-index">
                                                 <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                                    <h4 class="tp-feature__title-sm">Bir fikrim var</h4>
+                                                    <h4 class="tp-feature__title-sm"><a href="{{ route('bir-fikrim-var') }}">Bir fikrim var</a></h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -182,7 +189,7 @@
                                         <div class="tp-feature__wraper" style="padding: 20px 17px 20px 25px;">
                                             <div class="tp-feature__item z-index">
                                                 <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                                    <h4 class="tp-feature__title-sm">KBB doktor bul</h4>
+                                                    <h4 class="tp-feature__title-sm"><a href="{{ route('uye-listesi') }}">KBB doktor bul</a></h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -191,7 +198,7 @@
                                         <div class="tp-feature__wraper" style="padding: 20px 17px 20px 25px;">
                                             <div class="tp-feature__item z-index">
                                                 <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                                    <h4 class="tp-feature__title-sm">Bize ulaşın</h4>
+                                                    <h4 class="tp-feature__title-sm"><a href="{{ route('bize-ulasin') }}">Bize ulaşın</a></h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -276,57 +283,19 @@
                     <h3 style="color:whitesmoke; text-align-last: center;">Etkinlik Takvimi</h3>
                     <div class="swiper mySwiper1 swiper-initialized swiper-horizontal swiper-backface-hidden">
                         <div class="swiper-wrapper margin" id="swiper-wrapper-8a33a79be24f729c" aria-live="polite">
-                            <div class="swiper-slide swiper-slide-active" style="width: 389.25px; margin-right: 80px; height: 250px !important;" role="group" aria-label="1 / 9">
-                                <div class="col-12">
-                                    <a data-container="#events" data-html="true" data-placement="bottom" data-trigger="focus" data-toggle="popover" tabindex="0" title="Doğu Marmara KBB BBC Derneği Eğitim Toplantısı <hr>"
-                                       data-bs-content="<i class='fa fa-calendar' aria-hidden='true'></i> 18 Nisan 2024 Perşembe<br><i class='fa fa-map-marker' aria-hidden='true'></i>  Ramada By Wyndham Sakarya <br><i class='fa fa-link' aria-hidden='true'></i> <a href='/etkinlik/dogu-marmara-kbb-bbc-dernegi-egitimtoplantis-199' target='_blank'>Detay</a><br>">
-                                        <p class="calendar"> <em>Mart</em>7 <br><span style="font-size: 15px">2024</span></p>
-                                    </a>
+                            @foreach($events as $event)
+                                @php
+                                    $startDate = Carbon::parse($event->start_date);
+                                @endphp
+                                <div class="swiper-slide swiper-slide-active" style="width: 389.25px; margin-right: 80px; height: 250px !important;" role="group" aria-label="{{ $loop->iteration }} / {{ $events->count() }}">
+                                    <div class="col-12">
+                                        <a data-container="#events" data-html="true" data-placement="bottom" data-trigger="focus" data-toggle="popover" tabindex="0" title="{{ $event->title }} <hr>"
+                                           data-bs-content="<i class='fa fa-calendar' aria-hidden='true'></i> {{ $formattedStartDate = $startDate->translatedFormat('j F Y l') }}<br><i class='fa fa-map-marker' aria-hidden='true'></i>  {{ $event->event_place }} <br><i class='fa fa-link' aria-hidden='true'></i> <a href='{{ $event->event_href ? $event->event_href : route('etkinlik.event', $event->slug) }}' target='_blank'>Detay</a><br>">
+                                            <p class="calendar"> <em>{{ $formattedStartDate = $startDate->translatedFormat('F') }}</em>{{ date('d', strtotime($event->start_date)) }} <br><span style="font-size: 15px">{{ date('Y', strtotime($event->start_date)) }}</span></p>
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="swiper-slide swiper-slide-next" style="width: 389.25px; height: 250px !important; margin-right: 80px;" role="group" aria-label="2 / 9">
-                                <div class="col-12">
-                                    <a data-container="#events" data-html="true" data-placement="bottom" data-trigger="focus" data-toggle="popover" tabindex="0" title="Doğu Marmara KBB BBC Derneği Eğitim Toplantısı <hr>"
-                                       data-bs-content="<i class='fa fa-calendar' aria-hidden='true'></i> 18 Nisan 2024 Perşembe<br><i class='fa fa-map-marker' aria-hidden='true'></i>  Ramada By Wyndham Sakarya <br><i class='fa fa-link' aria-hidden='true'></i> <a href='/etkinlik/dogu-marmara-kbb-bbc-dernegi-egitimtoplantis-199' target='_blank'>Detay</a><br>">
-                                        <p class="calendar"> <em>Mart</em>7 <br><span style="font-size: 15px">2024</span></p>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="swiper-slide" style="width: 389.25px; margin-right: 80px; height: 250px !important;"  role="group" aria-label="3 / 9">
-                                <div class="col-12">
-                                    <p class="calendar"> <em>Mart</em>7 <br><span style="font-size: 15px">2024</span></p>
-                                </div>
-                            </div>
-                            <div class="swiper-slide" style="width: 389.25px; margin-right: 80px; height: 250px !important;" role="group" aria-label="4 / 9">
-                                <div class="col-12">
-                                    <p class="calendar"> <em>Mart</em>7 <br><span style="font-size: 15px">2024</span></p>
-                                </div>
-                            </div>
-                            <div class="swiper-slide" style="width: 389.25px; margin-right: 80px; height: 250px !important;" role="group" aria-label="5 / 9">
-                                <div class="col-12">
-                                    <p class="calendar"> <em>Mart</em>7 <br><span style="font-size: 15px">2024</span></p>
-                                </div>
-                            </div>
-                            <div class="swiper-slide" style="width: 389.25px; margin-right: 80px; height: 250px !important;" role="group" aria-label="6 / 9">
-                                <div class="col-12">
-                                    <p class="calendar"> <em>Mart</em>7 <br><span style="font-size: 15px">2024</span></p>
-                                </div>
-                            </div>
-                            <div class="swiper-slide" style="width: 389.25px; margin-right: 80px; height: 250px !important;" role="group" aria-label="7 / 9">
-                                <div class="col-12">
-                                    <p class="calendar"> <em>Mart</em>7 <br><span style="font-size: 15px">2024</span></p>
-                                </div>
-                            </div>
-                            <div class="swiper-slide" style="width: 389.25px; margin-right: 80px; height: 250px !important;" role="group" aria-label="8 / 9">
-                                <div class="col-12">
-                                    <p class="calendar"> <em>Mart</em>7 <br><span style="font-size: 15px">2024</span></p>
-                                </div>
-                            </div>
-                            <div class="swiper-slide" role="group" aria-label="9 / 9" style="width: 389.25px; margin-right: 80px; height: 250px !important;">
-                                <div class="col-12">
-                                    <p class="calendar"> <em>Mart</em>7 <br><span style="font-size: 15px">2024</span></p>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                         <div class="swiper-button-next"></div>
                         <div class="swiper-button-prev"></div>
@@ -445,11 +414,34 @@
                 </div>
             </div>
         </div>
-
     </main>
+    @if($popup->popupStatus == 1 || $popup->popupEnd_date >= \Illuminate\Support\Carbon::now() || $popup->popupEnd_date == null)
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <a href="{{ $popup->popupHref }}" target="_blank">
+                            <img src="{{ $popup->popupImage }}" style="width: 100%;">
+                        </a>
+                    </div>
+                    <div class="modal-footer text-center" style="justify-content: center;">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Kapat</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
     @push('scripts')
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
         <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script>
         <script src="{{ asset('front/assets/js/index.js') }}"></script>
+        <script>
+            $(document).ready(function(){
+                $("#staticBackdrop").modal('show');
+            });
+        </script>
     @endpush
 @endsection

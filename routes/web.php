@@ -31,6 +31,7 @@ use App\Http\Controllers\Backend\CompetencePointController;
 use App\Http\Controllers\Backend\SchoolController;
 use App\Http\Controllers\Backend\CommitteesController;
 use App\Http\Controllers\Backend\HistoryCommitteesController;
+use App\Http\Controllers\Backend\ContactsController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\NewsFrontController;
 use App\Http\Controllers\Errors;
@@ -192,6 +193,31 @@ Route::prefix('burs-oduller')->group(function () {
     Route::get('asistan-okulu', [IndexController::class, 'assistantSchool'])->name('asistan-okulu');
     Route::get('degisim-programi', [IndexController::class, 'exchangeProgram'])->name('degisim-programi');
 });
+
+Route::get('online-kutuphane', function () {
+    return view('frontend.online-library');
+})->name('online-kutuphane');
+Route::prefix('yoresel-dernekler-ve-alt-bilimdallari')->group(function () {
+    Route::get('', function () {
+        return view('frontend.regional-associations');
+    })->name('yoresel-dernekler-ve-alt-bilimdallari');
+    Route::get('yoresel-dernekler',[IndexController::class, 'localAssociations'])->name('yoresel-dernekler');
+    Route::get('alt-bilim-dallari',[IndexController::class, 'subBranches'])->name('alt-bilim-dallari');
+    Route::get('dernek-baskanimizdan-29-ekim-cumhuriyet-bayram', function () {
+        return view('frontend.president-message');
+    })->name('dernek-baskanimizdan-29-ekim-cumhuriyet-bayram');
+});
+Route::get('baskana-ulas',function () {
+    return view('frontend.contacts.president-message');
+})->name('baskana-ulas');
+Route::get('bir-fikrim-var',function () {
+    return view('frontend.contacts.idea-contact');
+})->name('bir-fikrim-var');
+Route::get('bize-ulasin',function () {
+    return view('frontend.contacts.contact');
+})->name('bize-ulasin');
+Route::post('contactStore', [IndexController::class, 'contact'])->name('contactStore');
+Route::get('uye-listesi', [IndexController::class, 'usersList'])->name('uye-listesi');
 Auth::routes();
 
 /*------------------------------------------
@@ -296,6 +322,14 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
             Route::post('send-entry-news', [BulkEmails::class, 'sendEntryNews'])->name('send-entry-news');
         });
 
+        Route::prefix('contacts')->group(function () {
+            Route::get('president-contact', [ContactsController::class, 'presidentContact'])->name('president-contact');
+            Route::get('new-idea', [ContactsController::class, 'newIdea'])->name('new-idea');
+            Route::get('contact-us', [ContactsController::class, 'contactUs'])->name('contact-us');
+            Route::get('contact-delete', [ContactsController::class, 'delete'])->name('contact-delete');
+            Route::post('/changeStatus/{id}/{status}', [ContactsController::class, 'changeStatus']);
+        });
+
         // Menu Routes
         Route::resource('menus', MenuController::class)->except('show', 'destroy');
         Route::prefix('menus/')->group(function (){
@@ -309,6 +343,12 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
 
             Route::get('exchange-program', [MenuController::class, 'exchangeProgram'])->name('menu.exchangeProgram');
             Route::post('exchange-program-update', [MenuController::class, 'exchangeProgramUpdate'])->name('menu.exchangeProgramUpdate');
+
+            Route::get('local-associations', [MenuController::class, 'localAssociations'])->name('menu.localAssociations');
+            Route::post('local-associations-update', [MenuController::class, 'localAssociationsUpdate'])->name('menu.localAssociationsUpdate');
+
+            Route::get('sub-branches', [MenuController::class, 'subBranches'])->name('menu.subBranches');
+            Route::post('sub-branches-update', [MenuController::class, 'subBranchesUpdate'])->name('menu.subBranchesUpdate');
 
             Route::prefix('committees')->group(function (){
                 Route::resource('directors', DirectorController::class)->except('show', 'create', 'destroy');
@@ -343,8 +383,6 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
 
                 Route::get('economic-business', [CommitteesController::class,'economicBusiness'])->name('committees.economicBusiness');
                 Route::post('economic-business-update', [CommitteesController::class,'economicBusinessUpdate'])->name('committees.economicBusinessUpdate');
-
-
             });
             /*Route::get('/delete/{id}', [MenuController::class, 'delete'])->name('menus.delete');
             Route::post('/updateAccordionOrder', [MenuController::class, 'updateAccordionOrder'])->name('manus.updateAccordionOrder');
@@ -439,6 +477,7 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
             Route::resource('torlak', TorlakController::class)->except('destroy', 'show');
             Route::get('torlak/delete/{id}', [TorlakController::class, 'delete'])->name('torlak.delete');
             Route::post('torlak/changeStatus/{id}/{status}', [TorlakController::class, 'changeStatus']);
+
         });
 
         // News Routes
@@ -449,6 +488,8 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
         Route::get('get_news', [NewsController::class, 'GetNews'])->name('get_news');
         Route::get('news/confirm', [NewsController::class, 'confirm'])->name('news.confirm');
         Route::get('news/confirmUpdate', [NewsController::class, 'confirmUpdate'])->name('news.confirmUpdate');
+        Route::get('news/order', [NewsController::class, 'order'])->name('news.order');
+        Route::put('sortOrder', [NewsController::class, 'sortOrder'])->name('news.sort-order');
 
         // Event Routes
         Route::resource('events', EventController::class)->except('show', 'destroy');

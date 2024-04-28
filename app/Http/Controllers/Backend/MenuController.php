@@ -273,10 +273,58 @@ class MenuController extends Controller
         ]);
 
         $notification = array(
-            'message' => "Asistan Okulu Değişim Programı!",
+            'message' => "Değişim Programı başarıyla düzenlendi!",
             'alert-type' => 'success'
         );
 
         return redirect()->route('menu.exchangeProgram')->with($notification);
+    }
+
+    public function localAssociations()
+    {
+        $setting = Setting::first()->local_associations;
+        return view('admin.menus.local_associations', compact('setting'));
+    }
+
+    public function localAssociationsUpdate(Request $request)
+    {
+        $request->validate([
+            'economic_business' => 'required',
+        ]);
+
+        Setting::where('id', '1')->update([
+            'local_associations' => $request->economic_business,
+        ]);
+
+        $notification = array(
+            'message' => "Yöresel Dernekler başarıyla düzenlendi!",
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('menu.localAssociations')->with($notification);
+    }
+
+    public function subBranches()
+    {
+        $setting = Setting::first()->sub_branches;
+        return view('admin.menus.sub-branches', compact('setting'));
+    }
+
+    public function subBranchesUpdate(Request $request)
+    {
+        $request->validate([
+            'economic_business' => 'required',
+        ]);
+
+        Setting::where('id', '1')->update([
+            'sub_branches' => $request->economic_business,
+        ]);
+
+        $notification = array(
+            'message' => "Alt Bilim Dalları başarıyla düzenlendi!",
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('menu.subBranches')->with($notification);
     }
 }

@@ -55,6 +55,11 @@
                         @endif
                     </a>
                 </li>
+                <li class="menu-item @if(Request::segment(2) == 'news' && Request::segment('3') == 'order') active @endif">
+                    <a href="{{ route('news.order') }}" class="menu-link">
+                        <div data-i18n="Content navbar">Manşeti Yönet</div>
+                    </a>
+                </li>
             </ul>
         </li>
 
@@ -160,16 +165,24 @@
 
             </ul>
         </li>
-
+        @php
+            $comments = \App\Models\Comment::where('status', 0)->count();
+        @endphp
         <li class="menu-item @if(Request::segment(2) == 'comments') active open @endif">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class='menu-icon tf-icons ti ti-no-creative-commons'></i>
                 <div data-i18n="Front Pages"><strong>Yorum Yönetimi</strong></div>
+                @if($comments > 0)
+                    <div class="badge bg-primary rounded-pill ms-auto">{{ $comments }}</div>
+                @endif
             </a>
             <ul class="menu-sub">
                 <li class="menu-item @if(Request::segment(2) == 'comments') active @endif">
                     <a href="{{ route('comments.index') }}" class="menu-link" >
                         <div data-i18n="Pricing">Yorum Listesi</div>
+                        @if($comments > 0)
+                            <div class="badge bg-primary rounded-pill ms-auto">{{ $comments }}</div>
+                        @endif
                     </a>
                 </li>
 
@@ -207,13 +220,14 @@
             $vote = \App\Models\Competence::where('vote', 0)->where('status', 0)->where('edit_request', 0)->count();
             $request = \App\Models\Competence::where('status', 1)->count();
             $school = \App\Models\School::where('status', 0)->count();
+            $contact = \App\Models\Contact::where('status', 0)->get();
         @endphp
         <li class="menu-item @if(Request::segment(2) == 'competences-unconfirmed' || Request::segment(2) == 'competencesList' || Request::segment(2) == 'competencesPoint' || Request::segment(2) == 'competences-edit-request') active open @endif">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-file"></i>
                 <div data-i18n="Layouts"><strong>KBB Yeterlik</strong></div>
                 @if($vote > 0 || $request > 0)
-                    <div class="badge bg-primary rounded-pill ms-auto">{{ $vote + $request  }}</div>
+                    <div class="badge bg-primary rounded-pill ms-auto">{{ $vote + $request }}</div>
                 @endif
             </a>
 
@@ -247,9 +261,6 @@
                 <li class="menu-item @if(Request::segment(2) == 'competencesPoint' && Request::segment(3) == 'member-list') active @endif">
                     <a href="{{ route('competences.member-list') }}" class="menu-link">
                         <div data-i18n="Content navbar">Üye Listesi</div>
-                        @if($request > 0)
-                            <div class="badge bg-primary rounded-pill ms-auto">{{ $request }}</div>
-                        @endif
                     </a>
                 </li>
             </ul>
@@ -264,10 +275,43 @@
             <a href="{{ route('schools-list') }}" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-building"></i>
                 <div data-i18n="Chat"><strong>KBB Okulları </strong></div>
-                @if($school > 0)
-                    <div class="badge bg-primary rounded-pill ms-auto">{{ $school  }}</div>
+
+            </a>
+        </li>
+        <li class="menu-item @if(Request::segment(2) == 'contacts') active open @endif">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class='menu-icon tf-icons ti ti-message'></i>
+                <div data-i18n="Front Pages"><strong>Mesajlar</strong></div>
+                @if($contact->count() > 0)
+                    <div class="badge bg-primary rounded-pill ms-auto">{{ $contact->count() }}</div>
                 @endif
             </a>
+            <ul class="menu-sub">
+                <li class="menu-item @if(Request::segment(3) == 'president-contact' && Request::segment(2) == 'contacts') active @endif">
+                    <a href="{{ route('president-contact') }}" class="menu-link" >
+                        <div data-i18n="Pricing">Başkana ulaş</div>
+                        @if($contact->count() > 0)
+                            <div class="badge bg-primary rounded-pill ms-auto">{{ $contact->where('type', 3)->count() }}</div>
+                        @endif
+                    </a>
+                </li>
+                <li class="menu-item @if(Request::segment(3) == 'new-idea' && Request::segment(2) == 'contacts') active @endif">
+                    <a href="{{ route('new-idea') }}" class="menu-link" >
+                        <div data-i18n="Pricing">Bir fikrim var</div>
+                        @if($contact->count() > 0)
+                            <div class="badge bg-primary rounded-pill ms-auto">{{ $contact->where('type', 2)->count() }}</div>
+                        @endif
+                    </a>
+                </li>
+                <li class="menu-item @if(Request::segment(3) == 'contact-us' && Request::segment(2) == 'contacts') active @endif">
+                    <a href="{{ route('contact-us') }}" class="menu-link" >
+                        <div data-i18n="Pricing">Bize ulaşın</div>
+                        @if($contact->count() > 0)
+                            <div class="badge bg-primary rounded-pill ms-auto">{{ $contact->where('type', 1)->count() }}</div>
+                        @endif
+                    </a>
+                </li>
+            </ul>
         </li>
         <!-- Apps & Pages -->
         <li class="menu-header small text-uppercase">
@@ -344,6 +388,18 @@
                     <a href="{{ route('menu.exchangeProgram') }}" class="menu-link">
                         <i class="menu-icon tf-icons ti ti-building"></i>
                         <div data-i18n="Chat">Değişim Programı</div>
+                    </a>
+                </li>
+                <li class="menu-item @if(Request::segment(3) == 'local-associations') active @endif">
+                    <a href="{{ route('menu.localAssociations') }}" class="menu-link">
+                        <i class="menu-icon tf-icons ti ti-building"></i>
+                        <div data-i18n="Chat">Yöresel Dernekler</div>
+                    </a>
+                </li>
+                <li class="menu-item @if(Request::segment(3) == 'sub-branches') active @endif">
+                    <a href="{{ route('menu.subBranches') }}" class="menu-link">
+                        <i class="menu-icon tf-icons ti ti-building"></i>
+                        <div data-i18n="Chat">Alt Bilim Dalları</div>
                     </a>
                 </li>
                 {{--<li class="menu-item @if(Request::segment(2) == 'menus' && Request::segment(3) == 'create') active @endif">

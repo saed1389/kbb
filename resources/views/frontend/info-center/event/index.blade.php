@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 @section('title')
-    Bilgi Merkezi - Türk Kulak Burun Boğaz ve Baş Boyun Cerrahisi Derneği
+    Toplantılar - Türk Kulak Burun Boğaz ve Baş Boyun Cerrahisi Derneği
 @endsection
 @section('content')
     @push('styles')
@@ -20,9 +20,11 @@
                         <div class="tp-breadcrumb__list">
                             <span><a href="/">Anasayfa</a></span>
                             <span class="dvdr"><i class="fa-sharp fa-solid fa-slash-forward"></i></span>
-                            <span>Bilgi Merkezi</span>
+                            <span><a href="{{ route('bilgi-merkezi') }}">Bilgi Merkezi</a></span>
+                            <span class="dvdr"><i class="fa-sharp fa-solid fa-slash-forward"></i></span>
+                            <span>Toplantılar</span>
                         </div>
-                        <h3 class="tp-breadcrumb__title">Bilgi Merkezi</h3>
+                        <h3 class="tp-breadcrumb__title">Toplantılar</h3>
                     </div>
                 </div>
             </div>

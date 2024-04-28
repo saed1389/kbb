@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 @section('title')
-    Etik ve Onur Kurulu Kararları - Türk Kulak Burun Boğaz ve Baş Boyun Cerrahisi Derneği
+    Kongre Şartnameleri - Türk Kulak Burun Boğaz ve Baş Boyun Cerrahisi Derneği
 @endsection
 @section('content')
     @push('styles')
@@ -24,9 +24,9 @@
                             <span class="dvdr"><i class="fa-sharp fa-solid fa-slash-forward"></i></span>
                             <span><a href="{{ route('kararlar') }}"> Kararlar </a></span>
                             <span class="dvdr"><i class="fa-sharp fa-solid fa-slash-forward"></i></span>
-                            <span>Etik ve Onur Kurulu Kararları</span>
+                            <span>Kongre Şartnameleri</span>
                         </div>
-                        <h3 class="tp-breadcrumb__title">Etik ve Onur Kurulu Kararları</h3>
+                        <h3 class="tp-breadcrumb__title">Kongre Şartnameleri</h3>
                     </div>
                 </div>
             </div>

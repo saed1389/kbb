@@ -8,17 +8,26 @@ use App\Models\Event;
 use App\Models\EventCategory;
 use App\Models\News;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class NewsFrontController extends Controller
 {
     public function index(){
-        $news = News::where('status', 1)
-            ->where('status', 1)
-            ->where('confirm', 1)
-            ->orderBy('created_at', 'desc')
-            ->take(10)
-            ->paginate(20);
+        if (Auth::guest()){
+            $news = News::where('status', 1)
+                ->where('confirm', 1)
+                ->where('OnPermission', 1)
+                ->orderBy('created_at', 'desc')
+                ->take(10)
+                ->paginate(20);
+        } else {
+            $news = News::where('status', 1)
+                ->where('confirm', 1)
+                ->orderBy('created_at', 'desc')
+                ->take(10)
+                ->paginate(20);
+        }
         return view('frontend.info-center.news.index', compact('news'));
     }
 
@@ -26,7 +35,13 @@ class NewsFrontController extends Controller
         setlocale(LC_TIME, 'Turkish');
         $news = News::where('slug', $slug)->first();
         $comments = Comment::where('news_id', $news->id)->where('status', 1)->get();
-        $lastNews = News::where('status', 1)->where('confirm', 1)->orderBy('created_at', 'desc')->take(10)->get();
+        $lastNews = News::where('status', 1)
+            ->where('confirm', 1)
+            ->orderBy('created_at', 'desc')
+            ->take(10)
+            ->get();
+        $hit = $news->hit + 1;
+        News::where('id', $news->id)->update(['hit' => $hit]);
         return view('frontend.info-center.news.show', compact('news', 'comments', 'lastNews'));
     }
 
@@ -53,12 +68,23 @@ class NewsFrontController extends Controller
     public function search(Request $request){
         $searchTerm = $request->input('ara');
 
-        $news = News::where('title', 'LIKE', '%' . $searchTerm . '%')
-            ->orWhere('news_body', 'LIKE', '%' . $searchTerm . '%')
-            ->where('status', 1)
-            ->where('confirm', 1)
-            ->orderBy('created_at', 'desc')
-            ->paginate(20);
+        if (Auth::guest()) {
+            $news = News::where('title', 'LIKE', '%' . $searchTerm . '%')
+                ->orWhere('news_body', 'LIKE', '%' . $searchTerm . '%')
+                ->where('status', 1)
+                ->where('OnPermission', 1)
+                ->where('confirm', 1)
+                ->orderBy('created_at', 'desc')
+                ->paginate(20);
+        } else {
+            $news = News::where('title', 'LIKE', '%' . $searchTerm . '%')
+                ->orWhere('news_body', 'LIKE', '%' . $searchTerm . '%')
+                ->where('status', 1)
+                ->where('confirm', 1)
+                ->orderBy('created_at', 'desc')
+                ->paginate(20);
+        }
+
 
         return view('frontend.info-center.news.search' ,compact('news', 'searchTerm'));
     }
@@ -69,7 +95,19 @@ class NewsFrontController extends Controller
     }
 
     public function eventShow($id){
-        $events = Event::where('status', 1)->where('event_category', $id )->whereYear('start_date', '=', date('Y'))->get();
+        if (Auth::guest()) {
+            $events = Event::where('status', 1)
+                ->where('event_category', $id )
+                ->where('OnPermission', 1)
+                ->whereYear('start_date', '=', date('Y'))
+                ->get();
+        } else {
+            $events = Event::where('status', 1)
+                ->where('event_category', $id )
+                ->whereYear('start_date', '=', date('Y'))
+                ->get();
+        }
+
         $category = EventCategory::where('id', $id)->first();
         return view('frontend.info-center.event.show', compact('events', 'category'));
     }
@@ -77,6 +115,9 @@ class NewsFrontController extends Controller
     public function eventShowEvent($slug){
         $event = Event::where('slug', $slug)->first();
         $category = EventCategory::where('id', $event->event_category)->first();
+
+        $hit = $event->hit + 1;
+        Event::where('id', $event->id)->update(['hit' => $hit]);
 
         return view('frontend.info-center.event.display', compact('event', 'category'));
     }

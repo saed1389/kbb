@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\City;
 use App\Models\Committees;
+use App\Models\Contact;
 use App\Models\Director;
+use App\Models\Event;
 use App\Models\HistoryCommittee;
 use App\Models\News;
 use App\Models\President;
@@ -15,6 +17,7 @@ use App\Models\User;
 use App\Models\UserTitle;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use function Laravel\Prompts\select;
 
@@ -72,8 +75,39 @@ class IndexController extends Controller
 
     public function index()
     {
-        $sliders = News::where('status', 1)->where('slider', 1)->where('confirm', 1)->orderBy('created_at', 'desc')->orderBy('news_order', 'asc')->limit(10)->get();
-        return view('frontend.index', compact('sliders'));
+        setlocale(LC_TIME, 'Turkish');
+        if (Auth::guest()) {
+            $sliders = News::where('status', 1)
+                ->where('slider', 1)
+                ->where('confirm', 1)
+                ->where('OnPermission', 1)
+                ->orderBy('news_order', 'asc')
+                ->orderBy('created_at', 'desc')
+                ->limit(10)->get();
+        } else {
+            $sliders = News::where('status', 1)
+                ->where('slider', 1)
+                ->where('confirm', 1)
+                ->orderBy('news_order', 'asc')
+                ->orderBy('created_at', 'desc')
+                ->limit(10)->get();
+        }
+
+        $fourMonthsAgo = Carbon::now()->subMonths(4);
+
+        if (Auth::guest()) {
+            $events = Event::where('status', 1)
+                ->where('OnPermission', 1)
+                ->whereDate('created_at', '>=', $fourMonthsAgo)
+                ->get();
+        } else {
+            $events = Event::where('status', 1)
+                ->whereDate('created_at', '>=', $fourMonthsAgo)
+                ->get();
+        }
+
+        $popup = Setting::select('popupImage', 'popupEnd_date', 'popupHref', 'popupStatus')->where('id', 1)->first();
+        return view('frontend.index', compact('sliders', 'popup', 'events'));
     }
 
     public function baskan()
@@ -243,5 +277,43 @@ class IndexController extends Controller
     {
         $setting = Setting::where('id', 1)->first()->exchange_program;
         return view('frontend.exchange_program', compact('setting'));
+    }
+
+    public function localAssociations()
+    {
+        $setting = Setting::where('id', 1)->first()->local_associations;
+        return view('frontend.local_associations', compact('setting'));
+    }
+
+    public function subBranches()
+    {
+        $setting = Setting::where('id', 1)->first()->sub_branches;
+        return view('frontend.sub-branches', compact('setting'));
+    }
+
+    public function contact(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required',
+            'message' => 'required'
+        ]);
+
+        Contact::create([
+            'type' => $request->contact,
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'message' => $request->message,
+            'status' => 0
+        ]);
+
+        return redirect()->back()->with('thanks', 'Mesaj Başarıyla Gönderildi');
+    }
+
+    public function usersList()
+    {
+        return view('frontend.users_list');
     }
 }
