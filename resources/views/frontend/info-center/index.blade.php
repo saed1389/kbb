@@ -224,7 +224,7 @@
                                 </div>
                                 <div class="tp-feature__item z-index">
                                     <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm">  <a href="{{ route('uzmanlik_egitimi_kitablari') }}"><small>KBB ve BBC Uzmanlık Eğitimi Kitabı - 2</small></a></h4>
+                                        <h4 class="tp-feature__title-sm">  <a href="{{ route('uzmanlik_egitimi_kitablari-1') }}"><small>KBB ve BBC Uzmanlık Eğitimi Kitabı - 2</small></a></h4>
                                     </div>
                                 </div>
                             </div>

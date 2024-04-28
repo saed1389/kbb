@@ -11,6 +11,7 @@ use App\Models\Event;
 use App\Models\HistoryCommittee;
 use App\Models\News;
 use App\Models\President;
+use App\Models\Provinces;
 use App\Models\Scholarship;
 use App\Models\Setting;
 use App\Models\User;
@@ -314,6 +315,64 @@ class IndexController extends Controller
 
     public function usersList()
     {
-        return view('frontend.users_list');
+        $cities = Provinces::get();
+        $users = User::select('title', 'first_name', 'last_name', 'company_name')->where('status', 1)->limit(50)->get();
+        return view('frontend.users_list', compact('users', 'cities'));
+    }
+
+    public function getUserList(Request $request)
+    {
+        if ($request->input('cityId') != '207' && $request->input('cityId')) {
+            if ($request->input('cityId')) {
+                $cityId = $request->input('cityId');
+
+                if ($cityId == '-1000') {
+                    $members = User::with('titleName')
+                        ->whereNotExists('work_province', $cityId)
+                        ->get();
+                } else {
+                    $members = User::with('titleName')
+                        ->where('work_province', $cityId)
+                        ->get();
+                }
+
+                $formattedMembers = $members->map(function($member) {
+                    return [
+                        'title_name' => optional($member->titleName)->title, // Assuming the title name is stored in a 'name' column
+                        'first_name' => $member->first_name,
+                        'last_name' => $member->last_name,
+                        'company_name' => $member->company_name,
+                    ];
+                });
+
+                $city = Provinces::where('province_no', $cityId)->first();
+                $cityName = $city->province_name;
+                return response()->json([
+                    'cityName' => $cityName,
+                    'members' => $formattedMembers,
+                ]);
+            }
+        }
+        elseif( $request->input('countryId') || $request->input('cityId')) {
+
+            $cityId = $request->input('countryId') ? $request->input('countryId') : $request->input('cityId');
+            //dd($cityId);
+            $members = User::with('titleName')
+                ->where('country', $cityId)
+                ->where('type', '!=', 1)
+                ->get();
+
+            $formattedMembers = $members->map(function($member) {
+                return [
+                    'title_name' => optional($member->titleName)->title, // Assuming the title name is stored in a 'name' column
+                    'first_name' => $member->first_name,
+                    'last_name' => $member->last_name,
+                    'company_name' => $member->company_name,
+                ];
+            });
+            return response()->json([
+                'members' => $formattedMembers,
+            ]);
+        }
     }
 }

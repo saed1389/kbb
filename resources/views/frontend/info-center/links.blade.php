@@ -40,7 +40,7 @@
                                 <li class="li-item">
                                     <strong class="strong">KBB Anabilim Dalları</strong>
                                     <ul class="under-list">
-                                        <li><p><a href="https://www.akdeniz.edu.tr/" target="_blank">kdeniz Üniversitesi K.B.B. ve Bas-Boyun Cerrahisi Anabilim Dali</a></p></li>
+                                        <li><p><a href="https://www.akdeniz.edu.tr/" target="_blank">Akdeniz Üniversitesi K.B.B. ve Bas-Boyun Cerrahisi Anabilim Dali</a></p></li>
                                         <li><p><a href="https://www.ankara.edu.tr/" target="_blank">Ankara Üniversitesi Kulak Burun Bogaz ve Bas-Boyun Cerrahisi Anabilim Dali</a></p></li>
                                         <li><p><a href="https://www.kentkbb.com/" target="_blank">Baskent Üniversitesi Kulak Burun Bogaz ve Bas-Boyun Cerrahisi Anabilim Dali</a></p></li>
                                         <li><p><a href="https://med.ege.edu.tr/" target="_blank">Ege Üniversitesi Kulak Burun Bogaz ve Bas-Boyun Cerrahisi Anabilim Dali</a></p></li>
