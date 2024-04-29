@@ -42,7 +42,7 @@
         </div>
     </div>
     @push('scripts')
-        <script src="{{ asset('front/assets/css/fullcalendar/dist/index.global.js') }}" ></script>
+        <script src="{{ asset('front/assets/css/fullcalendar/dist/index.global.min.js') }}" ></script>
 
         <script>
             document.addEventListener('DOMContentLoaded', function() {
@@ -81,27 +81,5 @@
                 calendar.render();
             });
         </script>
-        {{--<script>
-            document.addEventListener('DOMContentLoaded', function() {
-                var calendarEl = document.getElementById('calendar');
-
-                var calendar = new FullCalendar.Calendar(calendarEl, {
-                    plugins: [ 'dayGrid' ],
-                    locale: "tr",
-                    headerToolbar: {
-                        left: 'prevYear,prev,next,nextYear today',
-                        center: 'title',
-                        right: 'dayGridMonth,dayGridWeek,dayGridDay'
-                    },
-                    initialDate: '2023-01-12',
-                    navLinks: true, // can click day/week names to navigate views
-                    editable: false,
-                    dayMaxEvents: true, // allow "more" link when too many events
-                    events: {!! json_encode($events) !!}
-                });
-                calendar.setOption('locale', 'tr');
-                calendar.render();
-            });
-        </script>--}}
     @endpush
 @endsection
