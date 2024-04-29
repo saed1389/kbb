@@ -221,6 +221,8 @@ Route::get('uye-listesi', [IndexController::class, 'usersList'])->name('uye-list
 Route::get('get-users-list', [IndexController::class, 'getUserList'])->name('get-user-list');
 Route::get('etkinlik-takvim', [IndexController::class, 'calendar'])->name('etkinlik-takvim');
 Route::get('calenderEvents', [IndexController::class, 'calenderEvents'])->name('calenderEvents');
+
+
 Auth::routes();
 
 /*------------------------------------------

@@ -451,6 +451,8 @@
                                 row.innerHTML = "<td>"+ member.title_name+ ' '+ member.first_name + ' '+ member.last_name+ "</td><td>" + member.company_name + "</td>";
                                 currentMemberList.appendChild(row);
                             });
+                            window.scrollTo(0,
+                                findPosition(document.getElementById("menuCaption")));
                         },
                         error: function(xhr, status, error) {
                             console.error(error);
@@ -458,6 +460,15 @@
                     });
                 });
             });
+            function findPosition(obj) {
+                var currenttop = -200;
+                if (obj.offsetParent) {
+                    do {
+                        currenttop += obj.offsetTop;
+                    } while ((obj = obj.offsetParent));
+                    return [currenttop];
+                }
+            }
         </script>
     @endpush
 @endsection

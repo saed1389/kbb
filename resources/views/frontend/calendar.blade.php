@@ -43,7 +43,7 @@
     </div>
     @push('scripts')
         <script src="{{ asset('front/assets/css/fullcalendar/dist/index.global.js') }}" ></script>
-        <script src="{{ asset('front/assets/css/fullcalendar/dist/index.global.min.js') }}" ></script>
+
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 var calendarEl = document.getElementById('calendar');
