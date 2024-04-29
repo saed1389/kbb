@@ -41,7 +41,7 @@
                         <div id="menuContent">
                             <div class="panel-group" id="accordion">
                                 <div class="card mt-2">
-                                    <div class="card-header" id="headinga1"><strong><a href="#collapsea1" data-toggle="collapse">Sık sık ortaya &ccedil;ıkan ağız yaralarının nedenleri nelerdir?</a></strong></div>
+                                    <div class="card-header" id="headinga1"><strong><a href="#collapsea1" data-bs-toggle="collapse">Sık sık ortaya &ccedil;ıkan ağız yaralarının nedenleri nelerdir?</a></strong></div>
                                     <div class="collapse in panel-collapse" id="collapsea1">
                                         <div class="card-body">Herhangi bir nedenle mide i&ccedil;eriğinin yukarı ka&ccedil;ması durumunda refl&uuml; ger&ccedil;ekleşmiş olur. İki t&uuml;rl&uuml; refl&uuml; vardır.
                                             <ul>
@@ -55,7 +55,7 @@
                                     </div>
                                 </div>
                                 <div class="card mt-2">
-                                    <div class="card-header" id="headinga2"><strong><a href="#collapsea2" data-toggle="collapse">Refl&uuml; ne demektir?&nbsp;</a></strong></div>
+                                    <div class="card-header" id="headinga2"><strong><a href="#collapsea2" data-bs-toggle="collapse">Refl&uuml; ne demektir?&nbsp;</a></strong></div>
                                     <div class="collapse in panel-collapse" id="collapsea2">
                                         <div class="card-body">
                                             <ul>
@@ -82,31 +82,31 @@
                                     </div>
                                 </div>
                                 <div class="card mt-2">
-                                    <div class="card-header" id="headinga3"><strong><a href="#collapsea3" data-toggle="collapse">Refl&uuml;m&uuml; tedavi etmek i&ccedil;in neler yapmalı? Neler yapmamalıyım?</a></strong></div>
+                                    <div class="card-header" id="headinga3"><strong><a href="#collapsea3" data-bs-toggle="collapse">Refl&uuml;m&uuml; tedavi etmek i&ccedil;in neler yapmalı? Neler yapmamalıyım?</a></strong></div>
                                     <div class="collapse in panel-collapse" id="collapsea3">
                                         <div class="card-body">T&uuml;k&uuml;r&uuml;k bezi taşlarına ilişkin şik&acirc;yetler taşın yerine, tıkanıklığın dercesine, t&uuml;k&uuml;r&uuml;k salgı hızına ve bez dokusunda iltihap olup olmamasına g&ouml;re değişir. Tipik yakınma, &ouml;zellikle limon gibi t&uuml;k&uuml;r&uuml;k salgısını arttıran bir yiyecek yenildiğinde aniden taşın olduğu bezde, yani &ccedil;ene altında, dilaltında ya da kulak &ouml;n&uuml;nde ani şişme ve ağrıdır. Kanalda tam bir tıkanma yoksa s&ouml;z konusu şişlik bir iki saat i&ccedil;inde ortadan kalkar. Sonra tekrar t&uuml;k&uuml;r&uuml;k bezini uyaran bir yiyecek yenildiğinde şik&acirc;yet yeniden ortaya &ccedil;ıkar.</div>
                                     </div>
                                 </div>
                                 <div class="card mt-2">
-                                    <div class="card-header" id="headinga4"><strong><a href="#collapsea4" data-toggle="collapse">Yemek yerken &ccedil;enemin altında ağrılı şişlik oluşmasının nedeni nedir?</a></strong></div>
+                                    <div class="card-header" id="headinga4"><strong><a href="#collapsea4" data-bs-toggle="collapse">Yemek yerken &ccedil;enemin altında ağrılı şişlik oluşmasının nedeni nedir?</a></strong></div>
                                     <div class="collapse in panel-collapse" id="collapsea4">
                                         <div class="card-body">Tedavide taşla birlikte akut bakteriyel bir enfeksiyon varsa &ouml;ncelike s&ouml;z konusu enfeksiyon antibiyotikler, antienflamatuvar ila&ccedil;lar ve sıvı alımının arttırılmasıyla tedavi edilir. T&uuml;k&uuml;r&uuml;k bezi taşlarının klasik tedavisi, a&ccedil;ık cerrahi y&ouml;ntemlerdir. &Ccedil;ene altı t&uuml;k&uuml;r&uuml;k bezi kanalının i&ccedil;indeki taşlar ağız i&ccedil;indeki kanal ağzına yakınsa, ağız i&ccedil;inden &ccedil;ıkarılabilir. Ancak g&uuml;n&uuml;m&uuml;zde siyalendoskopi t&uuml;k&uuml;r&uuml;k bezi taşlarının tedavisinde yeni bir se&ccedil;enektir.</div>
                                     </div>
                                 </div>
                                 <div class="card mt-2">
-                                    <div class="card-header" id="headinga5"><strong><a href="#collapsea5" data-toggle="collapse">T&uuml;k&uuml;r&uuml;k bezi taşı nasıl tedavi edilir?</a></strong></div>
+                                    <div class="card-header" id="headinga5"><strong><a href="#collapsea5" data-bs-toggle="collapse">T&uuml;k&uuml;r&uuml;k bezi taşı nasıl tedavi edilir?</a></strong></div>
                                     <div class="collapse in panel-collapse" id="collapsea5">
                                         <div class="card-body">Atrofik glossit dil yapisinda bulunan papillarda (dil y&uuml;zeyinizde bulunan k&uuml;&ccedil;&uuml;k &ccedil;ıkıntılar) atrofiye yol a&ccedil;an dilin enflamatuar bir hastalığıdır. Bu hastalıkta dil d&uuml;zg&uuml;n y&uuml;zeyli kırmızı g&ouml;r&uuml;n&uuml;r. Atrofik glossit nedenleri: Beslenme yetersizliği&nbsp; (demir eksikliği, d&uuml;ş&uuml;k B12 ve folik asit seviyeleri ve vitamin eksiklikleri), kuru ağız, Sj&ouml;gren sendromu, ağızda mantar enfeksiyonu, &Ccedil;&ouml;lyak hastalığı.</div>
                                     </div>
                                 </div>
                                 <div class="card mt-2">
-                                    <div class="card-header" id="headinga6"><strong><a href="#collapsea6" data-toggle="collapse">Atrofik glossit nedir, nedenleri nelerdir?&nbsp;</a></strong></div>
+                                    <div class="card-header" id="headinga6"><strong><a href="#collapsea6" data-bs-toggle="collapse">Atrofik glossit nedir, nedenleri nelerdir?&nbsp;</a></strong></div>
                                     <div class="collapse in panel-collapse" id="collapsea6">
                                         <div class="card-body">Horlama, nefes alma sırasında havanın dar bir alandan ge&ccedil;erken, &ccedil;evresindeki yumuşak dokuların titreşimiyle ortaya &ccedil;ıkan sestir. Darlık arttık&ccedil;a doğal olarak horlama da şiddetlenecektir. Horlamayı oluşturan darlık, sanılanın aksine sadece burundaki bir patolojiyle değil, genellikle &uuml;st solunum yolunun dil arkasında ve yutak &ccedil;evresindeki b&ouml;l&uuml;m&uuml;n&uuml;n daralmasıyla ilişkilidir.</div>
                                     </div>
                                 </div>
                                 <div class="card mt-2">
-                                    <div class="card-header" id="headinga7"><strong><a href="#collapsea7" data-toggle="collapse">Horlama nedir?</a></strong></div>
+                                    <div class="card-header" id="headinga7"><strong><a href="#collapsea7" data-bs-toggle="collapse">Horlama nedir?</a></strong></div>
                                     <div class="collapse in panel-collapse" id="collapsea7">
                                         <div class="card-body">&nbsp;</div>
                                     </div>
