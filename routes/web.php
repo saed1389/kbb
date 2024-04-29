@@ -224,6 +224,22 @@ Route::get('calenderEvents', [IndexController::class, 'calenderEvents'])->name('
 Route::get('hastalar-icin-bilgiler', function () {
     return view('frontend.information_patient.index');
 })->name('hastalar-icin-bilgiler');
+Route::get('kulak', function () {
+    return view('frontend.information_patient.ear');
+})->name('kulak');
+Route::get('burun', function () {
+    return view('frontend.information_patient.nose');
+})->name('burun');
+Route::get('bogaz', function () {
+    return view('frontend.information_patient.throat');
+})->name('bogaz');
+Route::get('pediatrik-kbb', function () {
+    return view('frontend.information_patient.pediatric');
+})->name('pediatrikkbb');
+Route::get('kbb-tumorleri', function () {
+    return view('frontend.information_patient.tumors');
+})->name('kbbtumorleri');
+
 
 Auth::routes();
 

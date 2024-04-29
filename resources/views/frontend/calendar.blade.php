@@ -5,6 +5,7 @@
 @section('content')
     @push('styles')
         <link rel="stylesheet" href="{{ asset('front/assets/css/other-page.css') }}" >
+
     @endpush
     <div class="tp-breadcrumb__area p-relative fix tp-breadcrumb-height" data-background="{{ asset('assets/img/pages/so-banner.jpg') }}" style="background-image: url(&quot;{{ asset('assets/img/pages/so-banner.jpg') }}&quot;);">
         <div class="tp-breadcrumb__shape-1 z-index-5">

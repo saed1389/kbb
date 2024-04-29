@@ -43,7 +43,7 @@
                                 </div>
                                 <div class="tp-feature__item z-index">
                                     <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm"><a href="{{ route('haberler') }}"> Kulak</a></h4>
+                                        <h4 class="tp-feature__title-sm"><a href="{{ route('kulak') }}"> Kulak</a></h4>
                                     </div>
                                 </div>
                             </div>
@@ -58,7 +58,7 @@
                                 </div>
                                 <div class="tp-feature__item z-index">
                                     <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h5 class="tp-feature__title-sm"><a href="{{ route('etkinlikler') }}"> Burun</a></h5>
+                                        <h5 class="tp-feature__title-sm"><a href="{{ route('burun') }}"> Burun</a></h5>
                                     </div>
                                 </div>
                             </div>
@@ -73,7 +73,7 @@
                                 </div>
                                 <div class="tp-feature__item z-index">
                                     <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h6 class="tp-feature__title-sm"><a href="{{ route('gecmis-kongre-program-ve-bildirikitaplari') }}"> Boğaz</a></h6>
+                                        <h6 class="tp-feature__title-sm"><a href="{{ route('bogaz') }}"> Boğaz</a></h6>
                                     </div>
                                 </div>
                             </div>
@@ -88,7 +88,7 @@
                                 </div>
                                 <div class="tp-feature__item z-index">
                                     <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm"><a href="{{ route('dergiler') }}"> Pediatrik KBB</a></h4>
+                                        <h4 class="tp-feature__title-sm"><a href="{{ route('pediatrikkbb') }}"> Pediatrik KBB</a></h4>
                                     </div>
                                 </div>
                             </div>
@@ -103,7 +103,7 @@
                                 </div>
                                 <div class="tp-feature__item z-index">
                                     <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h5 class="tp-feature__title-sm"><a href="{{ route('etkinlikler') }}"> KBB Tümörleri</a></h5>
+                                        <h5 class="tp-feature__title-sm"><a href="{{ route('kbbtumorleri') }}"> KBB Tümörleri</a></h5>
                                     </div>
                                 </div>
                             </div>

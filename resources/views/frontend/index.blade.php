@@ -316,8 +316,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md mb-30 wow tpfadeUp" data-wow-duration=".9s"
-                         data-wow-delay=".3s">
+                    <div class="col-md mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
                         <div class="tp-service-3__item p-relative">
                             <div class="tp-service-3__thumb-box p-relative">
                                 <div class="tp-service-3__thumb">
@@ -328,15 +327,14 @@
                                 </div>
                             </div>
                             <div class="tp-service-3__content text-center">
-                                <a href="#"><h4 class="tp-service-3__title-sm">Kulak</h4></a>
+                                <a href="{{ route('kulak') }}"><h4 class="tp-service-3__title-sm">Kulak</h4></a>
                                 <div class="tp-service-3__shape">
                                     <img src="{{ asset('front/assets/img/service/service-shape.png') }}" loading="lazy" alt="">
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md mb-30 wow tpfadeUp" data-wow-duration=".9s"
-                         data-wow-delay=".3s">
+                    <div class="col-md mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
                         <div class="tp-service-3__item p-relative">
                             <div class="tp-service-3__thumb-box p-relative">
                                 <div class="tp-service-3__thumb">
@@ -347,15 +345,14 @@
                                 </div>
                             </div>
                             <div class="tp-service-3__content text-center">
-                                <a href="#"><h4 class="tp-service-3__title-sm">Burun</h4></a>
+                                <a href="{{ route('burun') }}"><h4 class="tp-service-3__title-sm">Burun</h4></a>
                                 <div class="tp-service-3__shape">
                                     <img src="{{ asset('front/assets/img/service/service-shape.png') }}" loading="lazy" alt="">
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md mb-30 wow tpfadeUp" data-wow-duration=".9s"
-                         data-wow-delay=".3s">
+                    <div class="col-md mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
                         <div class="tp-service-3__item p-relative">
                             <div class="tp-service-3__thumb-box p-relative">
                                 <div class="tp-service-3__thumb">
@@ -366,15 +363,14 @@
                                 </div>
                             </div>
                             <div class="tp-service-3__content text-center">
-                                <a href="#"><h4 class="tp-service-3__title-sm">Boğaz</h4></a>
+                                <a href="{{ route('bogaz') }}"><h4 class="tp-service-3__title-sm">Boğaz</h4></a>
                                 <div class="tp-service-3__shape">
                                     <img src="{{ asset('front/assets/img/service/service-shape.png') }}" loading="lazy" alt="">
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md mb-30 wow tpfadeUp" data-wow-duration=".9s"
-                         data-wow-delay=".3s">
+                    <div class="col-md mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
                         <div class="tp-service-3__item p-relative">
                             <div class="tp-service-3__thumb-box p-relative">
                                 <div class="tp-service-3__thumb">
@@ -385,15 +381,14 @@
                                 </div>
                             </div>
                             <div class="tp-service-3__content text-center">
-                                <a href="#"><h4 class="tp-service-3__title-sm">Pediatrik KBB</h4></a>
+                                <a href="{{ route('pediatrikkbb') }}"><h4 class="tp-service-3__title-sm">Pediatrik KBB</h4></a>
                                 <div class="tp-service-3__shape">
                                     <img src="{{ asset('front/assets/img/service/service-shape.png') }}" loading="lazy" alt="">
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md mb-30 wow tpfadeUp" data-wow-duration=".9s"
-                         data-wow-delay=".3s">
+                    <div class="col-md mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
                         <div class="tp-service-3__item p-relative">
                             <div class="tp-service-3__thumb-box p-relative">
                                 <div class="tp-service-3__thumb">
@@ -404,14 +399,13 @@
                                 </div>
                             </div>
                             <div class="tp-service-3__content text-center">
-                                <a href="#"><h4 class="tp-service-3__title-sm">KBB Tümörler</h4></a>
+                                <a href="{{ route('kbbtumorleri') }}"><h4 class="tp-service-3__title-sm">KBB Tümörler</h4></a>
                                 <div class="tp-service-3__shape">
                                     <img src="{{ asset('front/assets/img/service/service-shape.png') }}" loading="lazy" alt="">
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
