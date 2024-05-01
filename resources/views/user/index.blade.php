@@ -13,7 +13,7 @@
                                     <small>{{ Auth::user()->email }}</small>
                                 </div>
                                 <div class="row">
-                                    <div class="col-lg-7 col-md-9 col-12 order-2 order-md-1">
+                                    <div class="col-lg-9 col-md-9 col-12 order-2 order-md-1">
                                         <h6 class="text-white mt-0 mt-md-3 mb-3">&nbsp;</h6>
                                         <div class="row">
                                             <div class="col-6">
@@ -40,7 +40,7 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-5 col-md-3 col-12 order-1 order-md-2 my-4 my-md-0 text-center">
-                                        <img src="{{ Auth::user()->profile_image ? asset(Auth::user()->profile_image) : asset('assets/img/logo.png') }}" alt="" width="170" class="card-website-analytics-img rounded">
+                                        <img src="{{ Auth::user()->profile_image ? asset(Auth::user()->profile_image) : asset('assets/img/logo.png') }}" alt="" width="140" class="card-website-analytics-img rounded">
                                     </div>
                                 </div>
                             </div>

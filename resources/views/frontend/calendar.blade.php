@@ -5,7 +5,6 @@
 @section('content')
     @push('styles')
         <link rel="stylesheet" href="{{ asset('front/assets/css/other-page.css') }}" >
-
     @endpush
     <div class="tp-breadcrumb__area p-relative fix tp-breadcrumb-height" data-background="{{ asset('assets/img/pages/so-banner.jpg') }}" style="background-image: url(&quot;{{ asset('assets/img/pages/so-banner.jpg') }}&quot;);">
         <div class="tp-breadcrumb__shape-1 z-index-5">
@@ -44,7 +43,6 @@
     </div>
     @push('scripts')
         <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.11/index.global.js" integrity="sha512-f9WyGYcRzTKXCWy0pxm+qRi/yK2s4MpPEvAZMMYmHUKBERiDJ5uKVjn2Q142bpfkQ/+dE3CH5P9J3Z87kxdnNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 var calendarEl = document.getElementById('calendar');

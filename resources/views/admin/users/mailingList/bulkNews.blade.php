@@ -185,7 +185,6 @@
                             <th>#</th>
                             <th>Seç</th>
                             <th>Haber Başlığı</th>
-                            <th>HABER İÇERİK</th>
                             <th>HABER RESİM</th>
                             <th>HABER URL</th>
                         </tr>
@@ -239,13 +238,6 @@
                             },
                             "searchable": false, "orderable": false},
                         { data: 'title', name: 'title',
-                            render: function (data, type, row) {
-                                return data.length > 50 ? data.substr(0, 50) + '...' : data;
-                            },
-                            "searchable": true
-                        },
-
-                        { data: 'news_body', name: 'news_body',
                             render: function (data, type, row) {
                                 return data.length > 50 ? data.substr(0, 50) + '...' : data;
                             },

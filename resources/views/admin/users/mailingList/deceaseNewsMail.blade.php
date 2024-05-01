@@ -205,7 +205,6 @@
                                 <th>#</th>
                                 <th>Seç</th>
                                 <th>Haber Başlığı</th>
-                                <th>HABER İÇERİK</th>
                                 <th>HABER RESİM</th>
                                 <th>HABER URL</th>
                             </tr>
@@ -294,12 +293,6 @@
                             "searchable": true
                         },
 
-                        { data: 'news_body', name: 'news_body',
-                            render: function (data, type, row) {
-                                return data.length > 50 ? data.substr(0, 50) + '...' : data;
-                            },
-                            "searchable": true
-                        },
                         { data: 'image', name: 'image',
                             render: function (data, type, row) {
                                 return '<img class="rounded w-50" src="/uploads/news/small/'+data+'">'
