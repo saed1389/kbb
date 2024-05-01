@@ -355,6 +355,7 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
             Route::post('send-entry-news', [BulkEmails::class, 'sendEntryNews'])->name('send-entry-news');
         });
 
+        // Contact Routes
         Route::prefix('contacts')->group(function () {
             Route::get('president-contact', [ContactsController::class, 'presidentContact'])->name('president-contact');
             Route::get('new-idea', [ContactsController::class, 'newIdea'])->name('new-idea');

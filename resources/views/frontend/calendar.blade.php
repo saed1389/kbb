@@ -43,7 +43,7 @@
         </div>
     </div>
     @push('scripts')
-        <script src="{{ asset('front/assets/css/fullcalendar/dist/index.global.min.js') }}" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.11/index.global.js" integrity="sha512-f9WyGYcRzTKXCWy0pxm+qRi/yK2s4MpPEvAZMMYmHUKBERiDJ5uKVjn2Q142bpfkQ/+dE3CH5P9J3Z87kxdnNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
         <script>
             document.addEventListener('DOMContentLoaded', function() {
