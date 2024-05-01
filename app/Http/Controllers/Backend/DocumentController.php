@@ -34,7 +34,7 @@ class DocumentController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'user_cv' => 'mimes:doc,docx,pdf',
+            'user_cv' => 'mimes:doc,csv,xlsx,xls,docx,ppt,odt,ods,odp,pdf',
         ]);
 
         if ($request->file('file')) {
