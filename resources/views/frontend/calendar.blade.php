@@ -61,7 +61,6 @@
                         var start = info.startStr;
                         var end = info.endStr;
 
-                        // Make an AJAX request to fetch events within the visible range
                         $.ajax({
                             url: "{{ route('calenderEvents') }}",
                             method: 'GET',
