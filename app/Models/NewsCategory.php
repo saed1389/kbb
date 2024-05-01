@@ -10,8 +10,8 @@ class NewsCategory extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'title_en', 'created_by'];
-
+    //protected $fillable = ['title', 'title_en', 'created_by'];
+    protected $guarded = [];
     public function userName():BelongsTo
     {
         return $this->belongsTo(User::class, 'created_by', 'id');
