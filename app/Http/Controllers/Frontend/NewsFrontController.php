@@ -68,19 +68,22 @@ class NewsFrontController extends Controller
     public function search(Request $request){
         $searchTerm = $request->input('ara');
 
-        $news = News::where(function ($query) use ($searchTerm) {
-            $query->where('title', 'LIKE', '%' . $searchTerm . '%')
-                ->orWhere('news_body', 'LIKE', '%' . $searchTerm . '%');
-        })
-            ->where('status', 1)
-            ->where('confirm', 1);
-
         if (Auth::guest()) {
-            $news->where('OnPermission', 1);
+            $news = News::where('title', 'LIKE', '%' . $searchTerm . '%')
+                ->orWhere('news_body', 'LIKE', '%' . $searchTerm . '%')
+                ->where('status', 1)
+                ->where('OnPermission', 1)
+                ->where('confirm', 1)
+                ->orderBy('created_at', 'desc')
+                ->paginate(20);
+        } else {
+            $news = News::where('title', 'LIKE', '%' . $searchTerm . '%')
+                ->orWhere('news_body', 'LIKE', '%' . $searchTerm . '%')
+                ->where('status', 1)
+                ->where('confirm', 1)
+                ->orderBy('created_at', 'desc')
+                ->paginate(20);
         }
-
-        $news->orderBy('created_at', 'desc')
-            ->paginate(20);
 
         return view('frontend.info-center.news.search' ,compact('news', 'searchTerm'));
     }
