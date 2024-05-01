@@ -243,6 +243,7 @@ Route::get('kbb-tumorleri', function () {
 Route::get('uyelik-kosullari', function () {
     return view('frontend.information_patient.uye');
 })->name('uyelik-kosullari');
+Route::get('search', [IndexController::class, 'search'])->name('search');
 
 Auth::routes();
 

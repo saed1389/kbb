@@ -57,9 +57,9 @@
                         </div>
                     </div>
                     <div class="search__form">
-                        <form action="#">
+                        <form action="{{ route('search') }}" method="get">
                             <div class="search__input">
-                                <input class="search-input-field" type="text" placeholder="Aramak için buraya yazınız...">
+                                <input class="search-input-field" type="text" name="ara" placeholder="Aramak için buraya yazınız...">
                                 <span class="search-focus-border"></span>
                                 <button type="submit">
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">

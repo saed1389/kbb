@@ -406,4 +406,44 @@ class IndexController extends Controller
 
         return response()->json(['events' => $formattedEvents]);
     }
+
+    public function search(Request $request)
+    {
+        //dd($request->all());
+        $searchTerm = $request->input('ara');
+
+        $newsQuery = News::select('id', 'title', 'news_body', 'slug', 'status', 'created_at')
+            ->where('title', 'LIKE', '%' . $searchTerm . '%')
+            ->orWhere('news_body', 'LIKE', '%' . $searchTerm . '%')
+            ->where('status', 1)
+            ->get()
+            ->map(function ($item) {
+                $item['source'] = 'news';
+                return $item;
+            });
+
+        $eventQuery = Event::select('id', 'title', 'slug',  'event_body', 'status', 'created_at')
+            ->where('title', 'LIKE', '%' . $searchTerm . '%')
+            ->orWhere('event_body', 'LIKE', '%' . $searchTerm . '%')
+            ->where('status', 1)
+            ->get()
+            ->map(function ($item) {
+                $item['source'] = 'event';
+                return $item;
+            });
+
+        $userQuery = User::select('id', 'first_name','last_name', 'email', 'created_at')
+            ->where('first_name', 'LIKE', '%' . $searchTerm . '%')
+            ->orWhere('last_name', 'LIKE', '%' . $searchTerm . '%')
+            ->orWhere('email', 'LIKE', '%' . $searchTerm . '%')
+            ->get()
+            ->map(function ($item) {
+                $item['source'] = 'user';
+                return $item;
+            });
+
+        $results = $newsQuery->concat($eventQuery)->concat($userQuery);
+        //dd($results);
+        return view('frontend.search', compact('results', 'searchTerm'));
+    }
 }
