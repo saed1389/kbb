@@ -11,7 +11,12 @@
     <link rel="stylesheet" href="{{ asset('front/assets/css/animate.css') }}">
     <link rel="stylesheet" href="{{ asset('front/assets/css/custom-animation.css') }}">
     <link rel="stylesheet" href="{{ asset('front/assets/css/slick.css') }}">
-    <link href="https://cdn.jsdelivr.net/npm/flat-icons@1.0.0/creative.min.css" rel="stylesheet">
+    @if(!request()->is('etkinlik-takvim'))
+    <link rel="stylesheet" href="{{ asset('front/assets/css/flaticon.css') }}">
+    @else
+        <link href="https://cdn.jsdelivr.net/npm/flaticon-test-uicons@1.7.2/css/all/all.min.css" rel="stylesheet">
+    @endif
+    <link rel="stylesheet" href="{{ asset('front/assets/css/flaticon.css') }}">
     <link rel="stylesheet" href="{{ asset('front/assets/css/nice-select.css') }}">
     <link rel="stylesheet" href="{{ asset('front/assets/css/swiper-bundle.css') }}">
     <link rel="stylesheet" href="{{ asset('front/assets/css/meanmenu.css') }}">

@@ -240,6 +240,9 @@ Route::get('kbb-tumorleri', function () {
     return view('frontend.information_patient.tumors');
 })->name('kbbtumorleri');
 
+Route::get('uyelik-kosullari', function () {
+    return view('frontend.information_patient.uye');
+})->name('uyelik-kosullari');
 
 Auth::routes();
 
@@ -276,6 +279,12 @@ Route::middleware(['auth', 'user-access:user'])->group(function () {
 
         Route::resource('schools', SchoolController::class)->except('show', 'destroy');
         Route::get('schools/delete/{id}', [SchoolController::class, 'delete'])->name('schools.delete');
+
+        Route::prefix('torlak')->group(function () {
+            Route::get('videos', [TorlakController::class, 'videosUser'])->name('videos-user');
+            Route::get('congresses', [TorlakController::class, 'congressesUser'])->name('congresses-user');
+            Route::get('showVideo/{id}', [TorlakController::class, 'showVideo'])->name('show-video-user');
+        });
     });
 });
 
@@ -349,7 +358,7 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
             Route::get('president-contact', [ContactsController::class, 'presidentContact'])->name('president-contact');
             Route::get('new-idea', [ContactsController::class, 'newIdea'])->name('new-idea');
             Route::get('contact-us', [ContactsController::class, 'contactUs'])->name('contact-us');
-            Route::get('contact-delete', [ContactsController::class, 'delete'])->name('contact-delete');
+            Route::get('contact-delete/{id}', [ContactsController::class, 'delete'])->name('contact-delete');
             Route::post('/changeStatus/{id}/{status}', [ContactsController::class, 'changeStatus']);
         });
 

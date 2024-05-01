@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Torlak;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
@@ -166,5 +167,28 @@ class TorlakController extends Controller
     public function changeStatus($id, $status)
     {
         Torlak::where('id', $id)->update(['status' => $status]);
+    }
+
+    public function videosUser()
+    {
+        $header = 'Eğitim Videoları';
+        $videos = Torlak::where('type', 1)->where('status', 1)->get();
+        return view('user.torlak.index', compact('videos', 'header'));
+    }
+
+    public function congressesUser()
+    {
+        $header = 'Kongreler';
+        $videos = Torlak::where('type', 2)->where('status', 1)->get();
+        return view('user.torlak.index', compact('videos', 'header'));
+    }
+
+    public function showVideo($id)
+    {
+        $video = Torlak::where('id', $id)->first();
+        /*DB::table('torlak_visitors')->insert([
+            'user_'
+        ]);*/
+        return view('user.torlak.show', compact('video'));
     }
 }

@@ -74,7 +74,6 @@
                                                 <li><a href="{{ route('uzmanlik_egitimi_kitablari-1') }}">KBB ve BBC Uzmanlık Eğitimi Kitabı - 2</a></li>
                                                 <li><a href="{{ route('linkler') }}">Linkler</a></li>
                                                 <li><a href="{{ route('turk-kbb-bbc-dernegi-etik-kitabi') }}">Türk KBB-BBC Derneği Etik Kitabı</a></li>
-                                                {{--<li><a href="#">Hukuk</a></li>--}}
                                             </ul>
                                         </li>
                                         <li class="has-dropdown"><a href="#">KBB Okulları <i class="fa fa-angle-down down disable-arrow"></i></a>
@@ -91,6 +90,8 @@
                                             <ul class="submenu tp-submenu">
                                                 <li><a href="#">Eğitim Videoları</a></li>
                                                 <li><a href="#">Kongreler</a></li>
+                                                <li><a href="#">Vizyon</a></li>
+                                                <li><a href="#">Misyon</a></li>
                                             </ul>
                                         </li>
                                         <li class="has-dropdown"><a href="#">Burs - Ödüller <i class="fa fa-angle-down down disable-arrow"></i></a>
@@ -127,8 +128,9 @@
                                                                 @csrf
                                                             </form>
                                                         @else
-                                                            <li><a class="dropdown-item" href="">Üyelerimiz</a></li>
+                                                            <li><a class="dropdown-item" href="{{ route('uye-listesi') }}">Üyelerimiz</a></li>
                                                             <li><a class="dropdown-item" href="{{ route('register') }}">Yeni Üyelik</a></li>
+                                                            <li><a class="dropdown-item" href="{{ route('uyelik-kosullari') }}">Üyelik Koşulları</a></li>
                                                             <li><a class="dropdown-item" href="{{ route('login') }}">Oturum aç</a></li>
                                                         @endauth
                                                     @endif

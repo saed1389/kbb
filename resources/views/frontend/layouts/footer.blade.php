@@ -42,14 +42,14 @@
                             <h4 class="tp-footer__widget-title">Derneğimiz</h4>
                             <div class="tp-footer__list">
                                 <ul>
-                                    <li><a href="#">Başkanlarımız</a></li>
-                                    <li><a href="#">Yönetim Kurulu</a></li>
-                                    <li><a href="#">Kurullar</a></li>
-                                    <li><a href="#">Tüzük</a></li>
-                                    <li><a href="#">Tarihçe</a></li>
-                                    <li><a href="#">İktisadi İşletme</a></li>
-                                    <li><a href="#">Kararlar</a></li>
-                                    <li><a href="#">Yönetmelik ve Yönergeler</a></li>
+                                    <li><a href="{{ route('baskan') }}">Başkanlarımız</a></li>
+                                    <li><a href="{{ route('yonetimkurulu') }}">Yönetim Kurulu</a></li>
+                                    <li><a href="{{ route('kurullar') }}">Kurullar</a></li>
+                                    <li><a href="{{ asset('uploads/Document/KBBC-DERNEK-TUZUK-202106291708.pdf') }}" download="">Tüzük</a></li>
+                                    <li><a href="{{ route('tarihce') }}">Tarihçe</a></li>
+                                    <li><a href="{{ route('iktisadi_isletme') }}">İktisadi İşletme</a></li>
+                                    <li><a href="{{ route('kararlar') }}">Kararlar</a></li>
+                                    <li><a href="{{ route('belgeler_yonetmelik_ve_yonergeler') }}">Yönetmelik ve Yönergeler</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -60,17 +60,17 @@
                             <h4 class="tp-footer__widget-title">Bilgi Merkezi</h4>
                             <div class="tp-footer__list">
                                 <ul>
-                                    <li><a href="#">Haberler</a></li>
-                                    <li><a href="#">Toplantılar</a></li>
-                                    <li><a href="#">Geçmiş Kongre Program ve Bildiri Kitapları</a></li>
-                                    <li><a href="#">Hasta Bilgilendirme Broşürleri</a></li>
-                                    <li><a href="#">UÇEP</a></li>
-                                    <li><a href="#">Tıpta Uzmanlık Eğitimi Karnesi</a></li>
-                                    <li><a href="#">Onam Formları</a></li>
-                                    <li><a href="#">Kılavuzlar</a></li>
-                                    <li><a href="#">Satın Alma Süreci</a></li>
-                                    <li><a href="#">KBB ve BBC Uzmanlık Eğitimi Kitabı</a></li>
-                                    <li><a href="#">Linkler</a></li>
+                                    <li><a href="{{ route('haberler') }}">Haberler</a></li>
+                                    <li><a href="{{ route('etkinlikler') }}">Toplantılar</a></li>
+                                    <li><a href="{{ route('gecmis-kongre-program-ve-bildirikitaplari') }}">Geçmiş Kongre Program ve Bildiri Kitapları</a></li>
+                                    <li><a href="{{ route('hasta_bilgilendirme_brosurleri') }}">Hasta Bilgilendirme Broşürleri</a></li>
+                                    <li><a href="{{ asset('uploads/Document/ucep.pdf') }}" download="">UÇEP</a></li>
+                                    <li><a href="{{ route('belgeler-tipta-uzmanlik-egitimi-karnesi') }}">Tıpta Uzmanlık Eğitimi Karnesi</a></li>
+                                    <li><a href="{{ route('onam_formlari') }}">Onam Formları</a></li>
+                                    <li><a href="{{ route('kilavuzlar') }}">Kılavuzlar</a></li>
+                                    <li><a href="{{ route('satin-alma-sureci') }}">Satın Alma Süreci</a></li>
+                                    <li><a href="{{ route('belgeler-tipta-uzmanlik-egitimi-karnesi') }}">KBB ve BBC Uzmanlık Eğitimi Kitabı</a></li>
+                                    <li><a href="{{ route('linkler') }}">Linkler</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -82,9 +82,9 @@
                             <h4 class="tp-footer__widget-title">Üyelik</h4>
                             <div class="tp-footer__list">
                                 <ul>
-                                    <li><a href="#">Üyelerimiz</a></li>
-                                    <li><a href="#">Yeni Üyelik</a></li>
-                                    <li><a href="#">Üyelik Koşulları</a></li>
+                                    <li><a href="{{ route('uye-listesi') }}">Üyelerimiz</a></li>
+                                    <li><a href="{{ route('register') }}">Yeni Üyelik</a></li>
+                                    <li><a href="{{ route('uyelik-kosullari') }}">Üyelik Koşulları</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -101,7 +101,7 @@
             <div class="row align-items-center">
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="tp-copyright__text text-center text-sm-start">
-                        <span>© Copyright {{ date('Y') }} by <a href="https://www.digicyp.com">DigiCyp</a></span>
+                        <span>© Copyright {{ date('Y') }} by <a href="https://www.digicyp.com" target="_blank">DigiCyp</a></span>
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">

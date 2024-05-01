@@ -61,7 +61,24 @@
                 <div data-i18n="Chat"><strong>KBB Okulları </strong></div>
             </a>
         </li>
-
+        <li class="menu-item @if(Request::segment(2) == 'news') active open @endif">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons ti ti-news"></i>
+                <div data-i18n="Layouts"><strong>Torlak</strong></div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item @if(Request::segment(2) == 'news' && Request::segment(3) == 'create') active @endif">
+                    <a href="{{ route('videos-user') }}" class="menu-link">
+                        <div data-i18n="Collapsed menu">Eğitim Videoları</div>
+                    </a>
+                </li>
+                <li class="menu-item @if(Request::segment(2) == 'news' && Request::segment('3') == null) active @endif">
+                    <a href="{{ route('congresses-user') }}" class="menu-link">
+                        <div data-i18n="Content navbar">Kongreler</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
         <li class="menu-item">
             <a href="{{ route('user.logout') }}" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-logout"></i>

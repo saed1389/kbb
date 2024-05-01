@@ -33,4 +33,15 @@ class ContactsController extends Controller
     {
         Contact::where('id', $id)->update(['status' => $status]);
     }
+
+    public function delete($id)
+    {
+        Contact::where('id', $id)->delete();
+        $notification = array(
+            'message' => "Mesaj başarıyla silindi!",
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+    }
 }
