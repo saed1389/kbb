@@ -205,7 +205,7 @@
                                     default:
                                         break;
                                 }
-                                return '<select class="form-select" data-id="' + data + '">' + selectOptions + '</select>';
+                                return '<select class="form-select" data-id="' + row.id + '">' + selectOptions + '</select>';
                             },
                             searchable: false,
                             orderable: false
