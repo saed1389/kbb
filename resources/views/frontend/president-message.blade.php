@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 @section('title')
-    Başkana Ulaş - Türk Kulak Burun Boğaz ve Baş Boyun Cerrahisi Derneği
+    Dernek Başkanımızdan 29 Ekim Cumhuriyet Bayramı Kutlama Mesajı - Türk Kulak Burun Boğaz ve Baş Boyun Cerrahisi Derneği
 @endsection
 @section('content')
     @push('styles')
@@ -22,9 +22,9 @@
                         <div class="tp-breadcrumb__list">
                             <span><a href="/">Anasayfa</a></span>
                             <span class="dvdr"><i class="fa-sharp fa-solid fa-slash-forward"></i></span>
-                            <span>Başkana Ulaş</span>
+                            <span>Dernek Başkanımızdan 29 Ekim Cumhuriyet Bayramı Kutlama Mesajı</span>
                         </div>
-                        <h3 class="tp-breadcrumb__title">Başkana Ulaş</h3>
+                        <h3 class="tp-breadcrumb__title">Dernek Başkanımızdan 29 Ekim Cumhuriyet Bayramı Kutlama Mesajı</h3>
                     </div>
                 </div>
             </div>
