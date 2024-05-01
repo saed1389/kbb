@@ -173,11 +173,11 @@
                             render: function(data, type, row) {
                                 // Convert status code to text
                                 switch (data) {
-                                    case 0:
+                                    case "0":
                                         return '<span class="text-info">Bekliyor</span>';
-                                    case 1:
+                                    case "1":
                                         return '<span class="text-success">Kabul</span>';
-                                    case 2:
+                                    case "2":
                                         return '<span class="text-danger">Reddedilmiş</span>';
                                     default:
                                         return '';
@@ -193,13 +193,13 @@
                                 // Create a select element with options based on status
                                 var selectOptions = '';
                                 switch (row.status) {
-                                    case 0:
+                                    case "0":
                                         selectOptions = '<option value="0" selected>Bekliyor</option><option class="text-success" value="1">Kabul</option><option class="text-danger" value="2">Reddedilmiş</option>';
                                         break;
-                                    case 1:
+                                    case "1":
                                         selectOptions = '<option value="0">Bekliyor</option><option class="text-success" value="1" selected>Kabul</option><option class="text-danger" value="2">Reddedilmiş</option>';
                                         break;
-                                    case 2:
+                                    case "2":
                                         selectOptions = '<option value="0">Bekliyor</option><option class="text-success" value="1">Kabul</option><option class="text-danger" value="2" selected>Reddedilmiş</option>';
                                         break;
                                     default:
