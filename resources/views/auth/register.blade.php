@@ -26,7 +26,7 @@
                                     <div class="mb-3">
                                         <label for="title" class="form-label">Ünvan <span class="text-danger">*</span></label>
                                         <select id="title" name="title" class="form-control" required>
-                                            <option selected disabled value>Seçiniz...</option>
+                                            <option selected disabled value="">Seçiniz...</option>
                                             @php
                                                 $titles = \App\Models\UserTitle::where('status', 1)->get();
                                             @endphp
@@ -41,7 +41,7 @@
                                     <div class="mb-3">
                                         <label for="job" class="form-label">Meslek <span class="text-danger">*</span></label>
                                         <select id="job" name="job" class="form-control" required>
-                                            <option selected disabled value>Seçiniz...</option>
+                                            <option selected disabled value="">Seçiniz...</option>
                                             @php
                                                 $jobs = \App\Models\UserJob::where('status', 1)->get();
                                             @endphp
@@ -56,7 +56,7 @@
                                     <div class="mb-3 ">
                                         <label class="form-label" for="country">Uyruk <span class="text-danger">*</span></label>
                                         <select id="country" name="country" class="form-control" required>
-                                            <option selected disabled value>Seçiniz...</option>
+                                            <option selected disabled value="">Seçiniz...</option>
                                             @php
                                                 $countries = \App\Models\Country::all();
                                             @endphp
@@ -85,8 +85,8 @@
                                         @enderror
                                     </div>
                                     <div class="mb-3 ">
-                                        <label class="form-label" for="birthday_date">Doğum Tarihi</label>
-                                        <input type="text" name="birthday_date" id="birthday_date" class="form-control" placeholder="DD-MM-YYYY">
+                                        <label class="form-label" for="birthday_date">Doğum Tarihi <span class="text-danger">*</span></label>
+                                        <input type="text" name="birthday_date" id="birthday_date" class="form-control" placeholder="DD-MM-YYYY" required>
                                         @error('birthday_date')
                                         <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -94,9 +94,9 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="mb-3">
-                                        <label for="gender" class="form-label">Cinsiyet</label>
-                                        <select id="gender" name="gender" class="form-control">
-                                            <option selected disabled value>Seçiniz...</option>
+                                        <label for="gender" class="form-label">Cinsiyet <span class="text-danger">*</span></label>
+                                        <select id="gender" name="gender" class="form-control" required>
+                                            <option selected disabled value="">Seçiniz...</option>
                                             <option value="1">Erkek</option>
                                             <option value="2">Kadın</option>
                                         </select>
@@ -123,9 +123,9 @@
                                 <h4 class="mb-1 pt-2">İletişim & Adres Bilgileri</h4>
                                 <div class="col-md-3">
                                     <div class="mb-3">
-                                        <label for="working_status" class="form-label">Çalışma Durumu</label>
-                                        <select id="working_status" name="working_status" class="form-control">
-                                            <option selected disabled value>Seçiniz...</option>
+                                        <label for="working_status" class="form-label">Çalışma Durumu <span class="text-danger">*</span></label>
+                                        <select id="working_status" name="working_status" class="form-control" required>
+                                            <option selected disabled value="">Seçiniz...</option>
                                             <option value="1">Emekli</option>
                                             <option value="2">Aktif Çalışan</option>
                                         </select>
@@ -134,8 +134,8 @@
                                         @enderror
                                     </div>
                                     <div class="mb-3">
-                                        <label for="company_name" class="form-label">Kurum Adı </label>
-                                        <input type="text" class="form-control" id="company_name" name="company_name" placeholder="Lütfen Kurum Adını Giriniz">
+                                        <label for="company_name" class="form-label">Kurum Adı <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" id="company_name" name="company_name" placeholder="Lütfen Kurum Adını Giriniz" required>
                                         @error('company_name')
                                         <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -221,7 +221,7 @@
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label" for="mobile">Cep Telefonu <span class="text-danger">*</span></label>
-                                        <input type="text" id="mobile" name="mobile" class="form-control" placeholder="Lütfen Cep Telefonuna Girin" >
+                                        <input type="text" id="mobile" name="mobile" class="form-control" placeholder="Lütfen Cep Telefonuna Girin" required >
                                         @error('mobile')
                                         <span class="text-danger">{{ $message }}</span>
                                         @enderror

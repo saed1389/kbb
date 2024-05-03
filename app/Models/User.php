@@ -116,6 +116,6 @@ class User extends Authenticatable
 
     public function getProfileImageAttribute($value)
     {
-        return $value ? asset($value) : asset('front/assets/img/blog/author-1-1.png');
+        return $value ? asset($value) : asset('front/assets/images/defaultUser.png');
     }
 }

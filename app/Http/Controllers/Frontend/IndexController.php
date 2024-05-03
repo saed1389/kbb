@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Advertisement;
 use App\Models\City;
 use App\Models\Committees;
 use App\Models\Contact;
@@ -34,7 +35,7 @@ class IndexController extends Controller
     {
         $request->validate([
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string'],
+            'password' => ['required'],
         ],[
             'email.unique' => 'E-posta benzersiz olmalı',
         ]);
@@ -71,7 +72,7 @@ class IndexController extends Controller
             'message' => "Başvuru başarıyla kabul edildi!",
             'alert-type' => 'success'
         );
-        return redirect()->route('home')->with($notification);
+        return redirect()->route('index')->with($notification);
     }
 
     public function index()
@@ -108,7 +109,8 @@ class IndexController extends Controller
         }
 
         $popup = Setting::select('popupImage', 'popupEnd_date', 'popupHref', 'popupStatus')->where('id', 1)->first();
-        return view('frontend.index', compact('sliders', 'popup', 'events'));
+        $ads = Advertisement::where('status', 1)->get();
+        return view('frontend.index', compact('sliders', 'popup', 'events', 'ads'));
     }
 
     public function baskan()
@@ -174,7 +176,6 @@ class IndexController extends Controller
 
     public function scholarshipAppStore(Request $request)
     {
-        //dd($request);
         $request->validate([
             'name' => 'required',
             'domesticCompany' => 'required',
@@ -316,7 +317,7 @@ class IndexController extends Controller
     public function usersList()
     {
         $cities = Provinces::get();
-        $users = User::select('title', 'first_name', 'last_name', 'company_name')->where('status', 1)->limit(50)->get();
+        $users = User::select('id', 'title', 'first_name', 'last_name', 'slug', 'company_name')->where('status', 1)->limit(50)->get();
         return view('frontend.users_list', compact('users', 'cities'));
     }
 
@@ -338,7 +339,9 @@ class IndexController extends Controller
 
                 $formattedMembers = $members->map(function($member) {
                     return [
-                        'title_name' => optional($member->titleName)->title, // Assuming the title name is stored in a 'name' column
+                        'id' => $member->id,
+                        'slug' => $member->slug,
+                        'title_name' => optional($member->titleName)->title,
                         'first_name' => $member->first_name,
                         'last_name' => $member->last_name,
                         'company_name' => $member->company_name,
@@ -364,7 +367,9 @@ class IndexController extends Controller
 
             $formattedMembers = $members->map(function($member) {
                 return [
-                    'title_name' => optional($member->titleName)->title, // Assuming the title name is stored in a 'name' column
+                    'id' => $member->id,
+                    'slug' => $member->slug,
+                    'title_name' => optional($member->titleName)->title,
                     'first_name' => $member->first_name,
                     'last_name' => $member->last_name,
                     'company_name' => $member->company_name,
@@ -378,11 +383,7 @@ class IndexController extends Controller
 
     public function calendar()
     {
-        //$events = Event::select('title', 'start_date', 'end_date', 'event_href', 'slug')->get();
-
-        // Pass the events data to the view
         return view('frontend.calendar');
-
     }
 
     public function calenderEvents(Request $request)
@@ -394,7 +395,6 @@ class IndexController extends Controller
             ->orWhereBetween('end_date', [$start, $end])
             ->get();
 
-        // Format events for FullCalendar
         $formattedEvents = [];
         foreach ($events as $event) {
             $formattedEvents[] = [
@@ -409,7 +409,6 @@ class IndexController extends Controller
 
     public function search(Request $request)
     {
-        //dd($request->all());
         $searchTerm = $request->input('ara');
 
         $newsQuery = News::select('id', 'title', 'news_body', 'slug', 'status', 'created_at')
@@ -432,7 +431,7 @@ class IndexController extends Controller
                 return $item;
             });
 
-        $userQuery = User::select('id', 'first_name','last_name', 'email', 'created_at')
+        $userQuery = User::select('id', 'slug', 'first_name','last_name', 'email', 'created_at')
             ->where('first_name', 'LIKE', '%' . $searchTerm . '%')
             ->orWhere('last_name', 'LIKE', '%' . $searchTerm . '%')
             ->orWhere('email', 'LIKE', '%' . $searchTerm . '%')
@@ -445,5 +444,11 @@ class IndexController extends Controller
         $results = $newsQuery->concat($eventQuery)->concat($userQuery);
         //dd($results);
         return view('frontend.search', compact('results', 'searchTerm'));
+    }
+
+    public function user($id, string $slug)
+    {
+        $user = User::find($id);
+        return view('frontend.user', compact('user'));
     }
 }

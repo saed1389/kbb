@@ -27,7 +27,6 @@
                                     <a href="{{ route('events.index') }}">Etkinlik Yönetimi </a>
                                 </li>
                                 <li class="breadcrumb-item active">Etkinlik Ekleme</li>
-
                             </ol>
                         </nav>
                     </div>
@@ -79,12 +78,10 @@
                                 <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
-
                             <div class="col-md-12 mb-3">
                                 <label class="form-label" for="editor">Etkinlik İçeriği (en)</label>
                                 <textarea class="form-control editor" id="editor" name="event_body_en"> {{ old('event_body_en') }}</textarea>
                             </div>
-
                             <div class="col-md-3 mb-4">
                                 <label class="form-label" for="event_category">Etkinlik Kategorisi Seç</label>
                                 <select id="event_category" class="selectpicker w-100" name="event_category" data-style="btn-default" tabindex="null">
@@ -123,15 +120,12 @@
             </div>
         </div>
     </div>
-
-
     @push('scripts')
         <script src="{{ asset('assets/vendor/libs/select2/select2.js') }}"></script>
         <script src="{{ asset('assets/vendor/libs/bootstrap-select/bootstrap-select.js') }}"></script>
         <script src="{{ asset('assets/js/forms-selects.js') }}"></script>
         <script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/super-build/ckeditor.js"></script>
         <script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/super-build//translations/tr.js"></script>
-
         <script>
             document.querySelectorAll('.editor').forEach(function (val) {
                 CKEDITOR.ClassicEditor.create(val, {

@@ -348,7 +348,7 @@
                                     <tbody id="CurrentMemberList">
                                     @foreach($users as $user)
                                         <tr>
-                                            <td>{{ @$user->titleName->title.' '.$user->first_name.' '.$user->last_name }}</td>
+                                            <td><a href="{{ route('kullanici', [$user->id, $user->slug]) }}">{{ @$user->titleName->title.' '.$user->first_name.' '.$user->last_name }}</a></td>
                                             <td>{{ $user->company_name }}</td>
                                         </tr>
                                     @endforeach
@@ -368,26 +368,21 @@
                 var currentCityName = document.getElementById('currentCityName');
                 var id = button.getAttribute('id')
                 var currentMemberList = document.getElementById("CurrentMemberList");
-
                 currentMemberList.innerHTML = "";
                 $.ajax({
                     url: "{{ route('get-user-list') }}",
                     method: "GET",
                     data: { countryId: id },
                     success: function(response) {
-
                         currentCityName.textContent = nationName;
-
                         response.members.forEach(function(member) {
-
                             var row = document.createElement("tr");
                             var fullName = '';
                             if (member.title_name !== null) {
                                 fullName = member.title_name + ' ';
                             }
                             fullName += member.first_name + ' ' + member.last_name;
-
-                            row.innerHTML = "<td>" + fullName + "</td><td>" + member.company_name + "</td>";
+                            row.innerHTML = "<td><a href='/kullanici/" + member.id + "/" + member.slug + "'>" + fullName + "</td><td>" + member.company_name + "</a></td>";
                             currentMemberList.appendChild(row);
                         });
                     },
@@ -396,26 +391,20 @@
                     }
                 });
             }
-
             function ChangeCity() {
                 var cityId = document.getElementById("cityId").value;
                 var currentCityName = document.getElementById("currentCityName");
                 var currentMemberList = document.getElementById("CurrentMemberList");
-
                 currentMemberList.innerHTML = "";
-
                 $.ajax({
                     url: "{{ route('get-user-list') }}",
                     method: "GET",
                     data: { cityId: cityId },
                     success: function(response) {
-
                         currentCityName.innerText = response.cityName;
-
                         response.members.forEach(function(member) {
-                            //console.log(member);
                             var row = document.createElement("tr");
-                            row.innerHTML = "<td>"+ member.title_name+ ' '+ member.first_name + ' '+ member.last_name+ "</td><td>" + member.company_name + "</td>";
+                            row.innerHTML = "<td><a href='/kullanici/" + member.id + "/" + member.slug + "'>" + member.title_name + " " + member.first_name + " " + member.last_name + "</a></td><td>" + member.company_name + "</td>";
                             currentMemberList.appendChild(row);
                         });
                     },
@@ -432,23 +421,17 @@
                     var alanKodu = $(this).parent().attr('data-alankodu');
                     var ilAdi = $(this).parent().attr('data-iladi');
                     var currentCityName = document.getElementById("currentCityName");
-
                     var currentMemberList = document.getElementById("CurrentMemberList");
                     currentMemberList.innerHTML = "";
-                    // Prepare data to send via AJAX
-
                     $.ajax({
                         url: "{{ route('get-user-list') }}",
                         method: "GET",
                         data: { cityId: cityId },
                         success: function(response) {
-
                             currentCityName.innerText = ilAdi;
-
                             response.members.forEach(function(member) {
-                                //console.log(member);
                                 var row = document.createElement("tr");
-                                row.innerHTML = "<td>"+ member.title_name+ ' '+ member.first_name + ' '+ member.last_name+ "</td><td>" + member.company_name + "</td>";
+                                row.innerHTML = "<td><a href='/kullanici/" + member.id + "/" + member.slug + "'>" + member.title_name + " " + member.first_name + " " + member.last_name + "</a></td><td>" + member.company_name + "</td>";
                                 currentMemberList.appendChild(row);
                             });
                             window.scrollTo(0,

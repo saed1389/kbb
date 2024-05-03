@@ -317,7 +317,6 @@
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text" data-i18n="Apps & Pages">Ayarlar</span>
         </li>
-
         <li class="menu-item @if(Request::segment(2) == 'menus') active open @endif">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class='menu-icon tf-icons ti ti-menu-2'></i>
@@ -419,7 +418,6 @@
                 </li>--}}
             </ul>
         </li>
-
         <li class="menu-item @if(Request::segment(2) == 'news-categories') active open @endif">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class='menu-icon tf-icons ti ti-category'></i>
@@ -431,10 +429,21 @@
                         <div data-i18n="Pricing">Kategori Listesi</div>
                     </a>
                 </li>
-
             </ul>
         </li>
-
+        <li class="menu-item @if(Request::segment(2) == 'news-categories') active open @endif">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class='menu-icon tf-icons ti ti-ad'></i>
+                <div data-i18n="Front Pages"><strong>Reklam Yönetimi</strong></div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item @if(Request::segment(2) == 'advertisements') active @endif">
+                    <a href="{{ route('advertisements.index') }}" class="menu-link" >
+                        <div data-i18n="Pricing">Reklam Listesi</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
         <li class="menu-item @if(Request::segment(2) == 'event-categories') active open @endif">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class='menu-icon tf-icons ti ti-calendar-event'></i>
@@ -467,8 +476,5 @@
                 <div data-i18n="Chat"><strong>Oturumu kapat</strong></div>
             </a>
         </li>
-
     </ul>
-
-
 </aside>

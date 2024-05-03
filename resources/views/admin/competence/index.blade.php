@@ -103,8 +103,6 @@
         <script>
             $(document).ready(function () {
                 $(document).on('click', '.editBtn', function () {
-
-
                     var title_id = $(this).val();
                     $('#editModal').modal('show');
                     $.ajax({

@@ -30,6 +30,7 @@ use App\Http\Controllers\Backend\User\UserCompetenceController;
 use App\Http\Controllers\Backend\CompetencePointController;
 use App\Http\Controllers\Backend\SchoolController;
 use App\Http\Controllers\Backend\CommitteesController;
+use App\Http\Controllers\Backend\AdvertisementController;
 use App\Http\Controllers\Backend\HistoryCommitteesController;
 use App\Http\Controllers\Backend\ContactsController;
 use App\Http\Controllers\Frontend\IndexController;
@@ -239,11 +240,11 @@ Route::get('pediatrik-kbb', function () {
 Route::get('kbb-tumorleri', function () {
     return view('frontend.information_patient.tumors');
 })->name('kbbtumorleri');
-
 Route::get('uyelik-kosullari', function () {
-    return view('frontend.information_patient.uye');
+    return view('frontend.info-center.uye');
 })->name('uyelik-kosullari');
 Route::get('search', [IndexController::class, 'search'])->name('search');
+Route::get('kullanici/{id}/{slug}', [IndexController::class, 'user'])->name('kullanici');
 
 Auth::routes();
 
@@ -446,6 +447,11 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
         Route::get('scholarships/delete/{id}', [ScholarshipController::class, 'delete'])->name('scholarships.delete');
         Route::post('scholarships/changeStatus/{id}/{status}', [ScholarshipController::class, 'changeStatus']);
         Route::get('get_scholarships', [ScholarshipController::class, 'GetScholarships'])->name('get_scholarships');
+
+        // Advertisement Routes
+        Route::resource('advertisements', AdvertisementController::class)->except('show','destroy','create');
+        Route::get('advertisements/delete/{id}', [AdvertisementController::class, 'delete'])->name('advertisements.delete');
+        Route::post('advertisements/changeStatus/{id}/{status}', [AdvertisementController::class, 'changeStatus']);
 
         // KBB Competences
         Route::get('competencesList', [UserCompetenceController::class, 'list'])->name('competence-list');

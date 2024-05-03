@@ -33,12 +33,13 @@
                         <div class="blog-slider-1">
                             <div class="swiper mySwiper">
                                 <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                        <img src="{{ asset('front/assets/img/IFOS2026.png') }}" loading="lazy" alt="" />
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img src="{{ asset('front/assets/img/kbb_201120231317.jpg') }}" loading="lazy" alt="" />
-                                    </div>
+                                    @foreach($ads as $ad)
+                                        <div class="swiper-slide">
+                                            <a href="{{ $ad->href }}" title="{{ $ad->title }}" target="_blank">
+                                                <img src="{{ asset($ad->image) }}" loading="lazy" alt="{{ $ad->title }}" />
+                                            </a>
+                                        </div>
+                                    @endforeach
                                 </div>
                                 <div class="swiper-pagination"></div>
                             </div>

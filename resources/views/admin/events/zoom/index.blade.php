@@ -17,7 +17,6 @@
                                     <a href="{{ route('admin.home') }}">Anasayfa </a>
                                 </li>
                                 <li class="breadcrumb-item active">Zoom/Webinar Listesi</li>
-
                             </ol>
                         </nav>
                     </div>
@@ -70,7 +69,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="table-responsive text-nowrap">
                 <table class="table">
                     <thead>
@@ -113,7 +111,6 @@
                             <td colspan="5">Sonuç bulunamadı</td>
                         </tr>
                     @endforelse
-
                     </tbody>
                 </table>
             </div>
@@ -175,12 +172,9 @@
                         url: "{{ url('admin/zooms/editModal') }}/"+title_id,
                         success: function (response) {
                             console.log(response.title)
-                            // Set other values as usual
                             $('#titleEdit').val(response.title.title);
                             $('#start_timeEdit').val(response.title.start_time);
                             $('#zoom_linkEdit').val(response.title.zoom_link);
-
-                            // Set the selected option for the 'typeEdit' select element
                             $('#typeEdit option').each(function () {
                                 if ($(this).val() == response.title.type) {
                                     $(this).prop('selected', true);

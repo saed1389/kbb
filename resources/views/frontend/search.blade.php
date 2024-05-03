@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 @section('title')
-    Haberlerde ara - Türk Kulak Burun Boğaz ve Baş Boyun Cerrahisi Derneği
+    Arama - Türk Kulak Burun Boğaz ve Baş Boyun Cerrahisi Derneği
 @endsection
 @section('content')
     @push('styles')
@@ -20,11 +20,7 @@
                         <div class="tp-breadcrumb__list">
                             <span><a href="/">Anasayfa</a></span>
                             <span class="dvdr"><i class="fa-sharp fa-solid fa-slash-forward"></i></span>
-                            <span><a href="{{ route('bilgi-merkezi') }}">Bilgi Merkezi</a></span>
-                            <span class="dvdr"><i class="fa-sharp fa-solid fa-slash-forward"></i></span>
-                            <span><a href="{{ route('haberler') }}">Tüm Haberler</a></span>
-                            <span class="dvdr"><i class="fa-sharp fa-solid fa-slash-forward"></i></span>
-                            <span>Haberlerde ara</span>
+                            <span>Arama</span>
                         </div>
                         <h3 class="tp-breadcrumb__title" style="font-size: 30px">Arama Sonucu: {{ $searchTerm }}</h3>
                     </div>
@@ -36,11 +32,9 @@
         <div class="container">
             <div class="row">
                 <h5 class="mb-4">Sonuç sayısı: {{ $results->count() }}</h5>
-
                 @if ($results->isEmpty())
-                    <p>No results found.</p>
+                    <h2>Sonuç bulunamadı.</h2>
                 @else
-                    <h2>Search Results</h2>
                     <ul>
                         @foreach ($results as $result)
                             @if ($result->source === 'news')
@@ -48,13 +42,12 @@
                             @elseif ($result->source === 'event')
                                 <li>Etkinlikler: <a href="{{ $result->event_href ? $result->event_href : route('etkinlik.event', $result->slug) }}">{{ $result->title }}</a></li>
                             @elseif ($result->source === 'user')
-                                <li>Üyeler: {{ @$result->titleName->title .' '. $result->first_name. ' '.$result->last_name }}</li>
+                                <li>Üyeler: <a href="{{ route('kullanici', [$result->id, $result->slug]) }}">{{ @$result->titleName->title .' '. $result->first_name. ' '.$result->last_name }}</a></li>
                             @endif
                         @endforeach
                     </ul>
                 @endif
             </div>
-
         </div>
     </div>
 @endsection
