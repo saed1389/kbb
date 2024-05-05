@@ -38,6 +38,7 @@ class UserNewsController extends Controller
         $request->validate([
             'title' => 'required',
             'news_body' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         if ($request->file('image')){
@@ -60,14 +61,16 @@ class UserNewsController extends Controller
         }
 
         if ($request->gallery != 0) {
-            $imgGallery = $manager->read($request->file('image'));
-            $imgGallery->toJpeg(80)->save(base_path('public/uploads/photoGallery/'.$name_gen));
-            Image::create([
-                'category' => $request->gallery,
-                'image' => 'uploads/photoGallery/'.$name_gen,
-                'created_by' => Auth::user()->id,
-                'status' => 1
-            ]);
+            if ($request->file('image')) {
+                $imgGallery = $manager->read($request->file('image'));
+                $imgGallery->toJpeg(80)->save(base_path('public/uploads/photoGallery/'.$name_gen));
+                Image::create([
+                    'category' => $request->gallery,
+                    'image' => 'uploads/photoGallery/'.$name_gen,
+                    'created_by' => Auth::user()->id,
+                    'status' => 1
+                ]);
+            }
         }
 
         if ($request->new_page) {
@@ -130,6 +133,7 @@ class UserNewsController extends Controller
         $request->validate([
             'title' => 'required',
             'news_body' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         if ($request->file('image')){
@@ -154,8 +158,10 @@ class UserNewsController extends Controller
         }
 
         if ($request->gallery != 0) {
-            $imgGallery = $manager->read($request->file('image'));
-            $imgGallery->toJpeg(80)->save(base_path('public/uploads/photoGallery/'.$name_gen));
+            if ($request->file('image')) {
+                $imgGallery = $manager->read($request->file('image'));
+                $imgGallery->toJpeg(80)->save(base_path('public/uploads/photoGallery/'.$name_gen));
+            }
 
             $photo = Image::where('image', $request->oldImage)->first();
 

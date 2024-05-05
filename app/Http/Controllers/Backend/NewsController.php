@@ -71,14 +71,16 @@ class NewsController extends Controller
         }
 
         if ($request->gallery != 0) {
-            $imgGallery = $manager->read($request->file('image'));
-            $imgGallery->toJpeg(80)->save(base_path('public/uploads/photoGallery/'.$name_gen));
-            Image::create([
-                'category' => $request->gallery,
-                'image' => 'uploads/photoGallery/'.$name_gen,
-                'created_by' => Auth::user()->id,
-                'status' => 1
-            ]);
+            if ($request->file('image')) {
+                $imgGallery = $manager->read($request->file('image'));
+                $imgGallery->toJpeg(80)->save(base_path('public/uploads/photoGallery/'.$name_gen));
+                Image::create([
+                    'category' => $request->gallery,
+                    'image' => 'uploads/photoGallery/'.$name_gen,
+                    'created_by' => Auth::user()->id,
+                    'status' => 1
+                ]);
+            }
         }
 
         if ($request->new_page) {
@@ -141,11 +143,10 @@ class NewsController extends Controller
         $request->validate([
             'title' => 'required',
             'news_body' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ],[
             'news_body.required' => 'Haber İçeriği gerekli',
             'title.required' => 'Başlık gerekli',
-            'image.required' => 'Resim gerekli',
             'image.mimes' => 'Resim Formatı Doğru Olmalı (jpeg,png,jpg,gif,svg)',
             'image.max' => 'Maksimum resim boyutu şu şekilde olmalıdır: 2Mb',
         ]);
@@ -172,22 +173,24 @@ class NewsController extends Controller
         }
 
         if ($request->gallery != 0) {
-            $imgGallery = $manager->read($request->file('image'));
-            $imgGallery->toJpeg(80)->save(base_path('public/uploads/photoGallery/'.$name_gen));
+            if ($request->file('image')) {
+                $imgGallery = $manager->read($request->file('image'));
+                $imgGallery->toJpeg(80)->save(base_path('public/uploads/photoGallery/'.$name_gen));
 
-            $photo = Image::where('image', $request->oldImage)->first();
+                $photo = Image::where('image', $request->oldImage)->first();
 
-            if ($photo) {
-                @unlink('uploads/photoGallery/'.$request->oldImage);
-                $photo->delete();
+                if ($photo) {
+                    @unlink('uploads/photoGallery/'.$request->oldImage);
+                    $photo->delete();
+                }
+
+                Image::create([
+                    'category' => $request->gallery,
+                    'image' => 'uploads/photoGallery/'.$name_gen,
+                    'created_by' => Auth::user()->id,
+                    'status' => 1
+                ]);
             }
-
-            Image::create([
-                'category' => $request->gallery,
-                'image' => 'uploads/photoGallery/'.$name_gen,
-                'created_by' => Auth::user()->id,
-                'status' => 1
-            ]);
         }
 
         if ($request->image_base64) {

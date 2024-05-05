@@ -37,6 +37,15 @@ class TorlakController extends Controller
     {
         $request->validate([
             'title' => 'required',
+            'description' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'type' => 'required'
+        ],[
+            'title.required' => 'Başlık boş olamaz',
+            'description.required' => 'Açıklama boş olamaz',
+            'image.required' => 'Resimler Boş Olamaz',
+            'image.mimes' => 'Resim formatı şöyle olmalıdır: jpeg,png,jpg,gif,svg',
+            'type.required' => 'Türü Boş Olamaz'
         ]);
 
         if ($request->file('image')){

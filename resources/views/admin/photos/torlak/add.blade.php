@@ -57,6 +57,9 @@
                             <div class="col-md-12 mb-3">
                                 <label class="form-label" for="editor">Açıklama <span class="text-danger">*</span></label>
                                 <textarea class="form-control editor" id="editor" name="description">{{ old('description') }}</textarea>
+                                @error('description')
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="col-md-12 mb-3">
                                 <label class="form-label" for="editor">Açıklama (en)</label>
@@ -64,7 +67,10 @@
                             </div>
                             <div class="col-md-6 mb-4">
                                 <label class="form-label" for="image">Resim</label>
-                                <input type="file" class="form-control" name="image" id="image">
+                                <input type="file" class="form-control" name="image" id="image" required>
+                                @error('image')
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="col-md-6 mb-4">
                                 <label class="form-label" for="video">Video</label>
@@ -73,16 +79,19 @@
                             <div class="col-md-4 mb-4">
                                 <label class="form-label" for="type">Türü</label>
                                 <select id="type" class="selectpicker w-100" name="type" data-style="btn-default" tabindex="null" required>
-                                    <option disabled selected>Lütfen seçin...</option>
+                                    <option disabled selected value="">Lütfen seçin...</option>
                                     <option value="1">Eğitim videosu</option>
                                     <option value="2">Konferans ve Seminer</option>
                                 </select>
+                                @error('type')
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="col-md-4 mb-4">
                                 <label class="form-label" for="OnPermission">Herkese Açık</label>
                                 <select id="OnPermission" class="selectpicker w-100" name="OnPermission" data-style="btn-default" tabindex="null">
-                                    <option value="1" selected>Herkese Açık</option>
-                                    <option value="2">Üyelere Özel</option>
+                                    <option value="1" >Herkese Açık</option>
+                                    <option value="2" selected>Üyelere Özel</option>
                                 </select>
                             </div>
                             <div class="col-md-4 mb-4">
