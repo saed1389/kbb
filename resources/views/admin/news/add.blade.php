@@ -202,15 +202,15 @@
         <script src="{{ asset('assets/vendor/libs/select2/select2.js') }}"></script>
         <script src="{{ asset('assets/vendor/libs/bootstrap-select/bootstrap-select.js') }}"></script>
         <script src="{{ asset('assets/js/forms-selects.js') }}"></script>
-        <script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/super-build/ckeditor.js"></script>
-        <script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/super-build/translations/tr.js"></script>
+        <script src="{{ asset('assets/js/textEditor/ckeditor.js') }}"></script>
+        <script src="{{ asset('assets/js/textEditor/tr.js') }}"></script>
 
         <script>
             document.querySelectorAll('.editor').forEach(function (val) {
-                CKEDITOR.ClassicEditor.create(val, {
+                ClassicEditor.create(val, {
                     toolbar: {
                         items: [
-                            'exportPDF','exportWord', '|',
+                            'exportPDF', 'exportWord', '|',
                             'findAndReplace', 'selectAll', '|',
                             'heading', '|',
                             'bold', 'italic', 'strikethrough', 'underline', 'code', 'subscript', 'superscript', 'removeFormat', '|',
@@ -223,7 +223,7 @@
                             'link', 'uploadImage', 'blockQuote', 'insertTable', 'mediaEmbed', 'codeBlock', 'htmlEmbed', '|',
                             'specialCharacters', 'horizontalLine', 'pageBreak', '|',
                             'textPartLanguage', '|',
-                            'sourceEditing'
+                            'sourceEditing','Flmngr'
                         ],
                         shouldNotGroupWhenFull: true
                     },
@@ -262,7 +262,7 @@
                         supportAllValues: true
                     },
                     fontSize: {
-                        options: [ 10, 12, 14, 'default', 18, 20, 22 ],
+                        options: [10, 12, 14, 'default', 18, 20, 22],
                         supportAllValues: true
                     },
                     htmlSupport: {
@@ -313,12 +313,14 @@
                         'CKBox',
                         'CKFinder',
                         'EasyImage',
+                        // Remove Flmngr plugin configuration
+                        // 'Flmngr',
                         // This sample uses the Base64UploadAdapter to handle image uploads as it requires no configuration.
                         // https://ckeditor.com/docs/ckeditor5/latest/features/images/image-upload/base64-upload-adapter.html
                         // Storing images as Base64 is usually a very bad idea.
                         // Replace it on production website with other solutions:
                         // https://ckeditor.com/docs/ckeditor5/latest/features/images/image-upload/image-upload.html
-                        // 'Base64UploadAdapter',
+                        'Base64UploadAdapter',
                         'RealTimeCollaborativeComments',
                         'RealTimeCollaborativeTrackChanges',
                         'RealTimeCollaborativeRevisionHistory',
