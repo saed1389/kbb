@@ -297,6 +297,7 @@ All Admin Routes List
 --------------------------------------------*/
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
 
+
     Route::prefix('/admin')->group(function () {
         Route::get('home', [HomeController::class, 'adminHome'])->name('admin.home');
         Route::get('/logout', [HomeController::class, 'AdminLogout'])->name('admin.logout');

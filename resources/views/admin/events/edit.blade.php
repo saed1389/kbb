@@ -6,6 +6,9 @@
     @push('styles')
         <link rel="stylesheet" href="{{ asset('assets/vendor/libs/select2/select2.css') }}" />
         <link rel="stylesheet" href="{{ asset('assets/vendor/libs/bootstrap-select/bootstrap-select.css') }}" />
+        <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('/packages/barryvdh/elfinder/css/elfinder.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('/packages/barryvdh/elfinder/css/theme.css') }}">
         <style>
             .ck-editor__editable {
                 min-height: 300px;
@@ -62,8 +65,6 @@
                                 <label for="end_date" class="form-label">Bitiş Tarihi</label>
                                 <input type="date" id="end_date" value="{{ $event->end_date }}" name="end_date" class="form-control" >
                             </div>
-
-
                             <div class="col-md-3 mb-3">
                                 <div class="form-label mb-3">Yeni Sayfa Açılış Durumu</div>
                                 <label class="switch switch-square">
@@ -77,13 +78,12 @@
                             </div>
                             <div class="col-md-12 mb-3">
                                 <label class="form-label" for="editor">Etkinlik İçeriği <span class="text-danger">*</span></label>
-                                <textarea class="form-control editor" id="editor" name="event_body">{!! $event->event_body !!}</textarea>
+                                <textarea class="form-control ckeditor" id="ckeditor" name="event_body">{!! $event->event_body !!}</textarea>
                             </div>
                             <div class="col-md-12 mb-3">
                                 <label class="form-label" for="editor">Etkinlik İçeriği (en)</label>
-                                <textarea class="form-control editor" id="editor" name="event_body_en">{!! $event->event_body_en !!}</textarea>
+                                <textarea class="form-control ckeditor" id="ckeditor" name="event_body_en">{!! $event->event_body_en !!}</textarea>
                             </div>
-
                             <div class="col-md-3 mb-4">
                                 <label class="form-label" for="event_category">Etkinlik Kategorisi Seç</label>
                                 <select id="event_category" class="selectpicker w-100" name="event_category" data-style="btn-default" tabindex="null">
@@ -129,141 +129,12 @@
         <script src="{{ asset('assets/vendor/libs/select2/select2.js') }}"></script>
         <script src="{{ asset('assets/vendor/libs/bootstrap-select/bootstrap-select.js') }}"></script>
         <script src="{{ asset('assets/js/forms-selects.js') }}"></script>
-        <script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/super-build/ckeditor.js"></script>
-        <script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/super-build//translations/tr.js"></script>
-
-        <script>
-            document.querySelectorAll('.editor').forEach(function (val) {
-                CKEDITOR.ClassicEditor.create(val, {
-                    toolbar: {
-                        items: [
-                            'exportPDF','exportWord', '|',
-                            'findAndReplace', 'selectAll', '|',
-                            'heading', '|',
-                            'bold', 'italic', 'strikethrough', 'underline', 'code', 'subscript', 'superscript', 'removeFormat', '|',
-                            'bulletedList', 'numberedList', 'todoList', '|',
-                            'outdent', 'indent', '|',
-                            'undo', 'redo',
-                            '-',
-                            'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', 'highlight', '|',
-                            'alignment', '|',
-                            'link', 'uploadImage', 'blockQuote', 'insertTable', 'mediaEmbed', 'codeBlock', 'htmlEmbed', '|',
-                            'specialCharacters', 'horizontalLine', 'pageBreak', '|',
-                            'textPartLanguage', '|',
-                            'sourceEditing'
-                        ],
-                        shouldNotGroupWhenFull: true
-                    },
-                    language: 'tr',
-                    list: {
-                        properties: {
-                            styles: true,
-                            startIndex: true,
-                            reversed: true
-                        }
-                    },
-                    heading: {
-                        options: [
-                            { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
-                            { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
-                            { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' },
-                            { model: 'heading3', view: 'h3', title: 'Heading 3', class: 'ck-heading_heading3' },
-                            { model: 'heading4', view: 'h4', title: 'Heading 4', class: 'ck-heading_heading4' },
-                            { model: 'heading5', view: 'h5', title: 'Heading 5', class: 'ck-heading_heading5' },
-                            { model: 'heading6', view: 'h6', title: 'Heading 6', class: 'ck-heading_heading6' }
-                        ]
-                    },
-                    placeholder: 'Etkinlik İçeriği',
-                    fontFamily: {
-                        options: [
-                            'default',
-                            'Arial, Helvetica, sans-serif',
-                            'Courier New, Courier, monospace',
-                            'Georgia, serif',
-                            'Lucida Sans Unicode, Lucida Grande, sans-serif',
-                            'Tahoma, Geneva, sans-serif',
-                            'Times New Roman, Times, serif',
-                            'Trebuchet MS, Helvetica, sans-serif',
-                            'Verdana, Geneva, sans-serif'
-                        ],
-                        supportAllValues: true
-                    },
-                    fontSize: {
-                        options: [ 10, 12, 14, 'default', 18, 20, 22 ],
-                        supportAllValues: true
-                    },
-                    htmlSupport: {
-                        allow: [
-                            {
-                                name: /.*/,
-                                attributes: true,
-                                classes: true,
-                                styles: true
-                            }
-                        ]
-                    },
-                    htmlEmbed: {
-                        showPreviews: true
-                    },
-                    link: {
-                        decorators: {
-                            addTargetToExternalLinks: true,
-                            defaultProtocol: 'https://',
-                            toggleDownloadable: {
-                                mode: 'manual',
-                                label: 'Downloadable',
-                                attributes: {
-                                    download: 'file'
-                                }
-                            }
-                        }
-                    },
-                    mention: {
-                        feeds: [
-                            {
-                                marker: '@',
-                                feed: [
-                                    '@apple', '@bears', '@brownie', '@cake', '@cake', '@candy', '@canes', '@chocolate', '@cookie', '@cotton', '@cream',
-                                    '@cupcake', '@danish', '@donut', '@dragée', '@fruitcake', '@gingerbread', '@gummi', '@ice', '@jelly-o',
-                                    '@liquorice', '@macaroon', '@marzipan', '@oat', '@pie', '@plum', '@pudding', '@sesame', '@snaps', '@soufflé',
-                                    '@sugar', '@sweet', '@topping', '@wafer'
-                                ],
-                                minimumCharacters: 1
-                            }
-                        ]
-                    },
-                    removePlugins: [
-                        // 'ExportPdf',
-                        // 'ExportWord',
-                        'AIAssistant',
-                        'CKBox',
-                        'CKFinder',
-                        'EasyImage',
-                        // 'Base64UploadAdapter',
-                        'RealTimeCollaborativeComments',
-                        'RealTimeCollaborativeTrackChanges',
-                        'RealTimeCollaborativeRevisionHistory',
-                        'PresenceList',
-                        'Comments',
-                        'TrackChanges',
-                        'TrackChangesData',
-                        'RevisionHistory',
-                        'Pagination',
-                        'WProofreader',
-                        'MathType',
-                        'SlashCommand',
-                        'Template',
-                        'DocumentOutline',
-                        'FormatPainter',
-                        'TableOfContents',
-                        'PasteFromOfficeEnhanced',
-                        'CaseChange'
-                    ]
-                })
-                    .catch(error => {
-                        console.log(error);
-                    });
-            });
+        <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+        <script src="{{ asset('/packages/barryvdh/elfinder/js/elfinder.min.js') }}"></script>
+        <script type="text/javascript">
+            CKEDITOR.replace( 'ckeditor' );
         </script>
     @endpush
 @endsection
