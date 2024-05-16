@@ -156,7 +156,7 @@
                                         <div class="rc__post mb-10 d-flex align-items-center">
                                             <div class="rc__post-content">
                                                 <h3 class="rc__post-title" style="font-size: 14px">
-                                                    <a href="{{ $item->news_href ? $item->news_href :route('haber', $item->slug) }}">{{ $item->title }}</a>
+                                                    <a href="{{ $item->news_href ? $item->news_href :route('haber', $item->slug) }}" @if($item->new_page == 1) target="_blank" @endif>{{ $item->title }}</a>
                                                 </h3>
                                             </div>
                                         </div>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\API\NewsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,9 +16,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::post('login', [AuthController::class, 'login']);
+
+Route::middleware('auth:sanctum')->group(function () {
+    // Fetch all news
 });
 
-Route::post('register', [AuthController::class, 'register']);
-Route::post('login', [AuthController::class, 'login']);
+Route::get('allNews', [NewsController::class, 'index']);
+Route::get('sliders', [NewsController::class, 'slider']);
+Route::get('news-detail/{id}', [NewsController::class, 'show']);
+Route::get('events', [NewsController::class, 'events']);
+Route::get('event-detail/{id}', [NewsController::class, 'eventDetail']);
+
+

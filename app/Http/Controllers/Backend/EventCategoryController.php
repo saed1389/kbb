@@ -21,8 +21,6 @@ class EventCategoryController extends Controller
         EventCategory::create([
             'title' => $request->title,
             'title_en' => $request->title_en,
-            'slug' => Str::slug($request->title),
-            'slug_en' => Str::slug($request->title_en),
             'order' => 0,
             'status' => 1,
             'created_by' => Auth::user()->id,
@@ -51,8 +49,6 @@ class EventCategoryController extends Controller
         EventCategory::where('id', $request->title_id)->update([
             'title' => $request->title,
             'title_en' => $request->title_en,
-            'slug' => Str::slug($request->title),
-            'slug_en' => Str::slug($request->title_en),
             'created_by' => Auth::user()->id,
             'updated_at' => Carbon::now()
         ]);

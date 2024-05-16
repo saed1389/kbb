@@ -92,8 +92,6 @@ class NewsController extends Controller
         News::create([
             'title' => $request->title,
             'title_en' => $request->title_en,
-            'slug' => Str::slug($request->title),
-            'slug_en' => Str::slug($request->title_en),
             'start_date' => $request->start_date,
             'end_date' => $request->end_date,
             'short_description' => $request->short_description,
@@ -215,8 +213,6 @@ class NewsController extends Controller
         News::where('id', $id)->update([
             'title' => $request->title,
             'title_en' => $request->title_en,
-            'slug' => Str::slug($request->title),
-            'slug_en' => Str::slug($request->title_en),
             'start_date' => $request->start_date,
             'end_date' => $request->end_date,
             'short_description' => $request->short_description,
@@ -281,6 +277,7 @@ class NewsController extends Controller
         if (\request()->ajax()) {
             return datatables()->of(News::with('newsCategory:id,title')
                 ->select('news.id', 'news.title', 'news.created_at', 'news.hit')
+                ->orderBy('created_at', 'DESC')
             )->make(true);
         } else {
             return false;

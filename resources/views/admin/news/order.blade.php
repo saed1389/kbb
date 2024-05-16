@@ -108,9 +108,9 @@
                             _token: token
                         },
                         success: function (response) {
-                            console.log(response.status);
                             if (response.status === "200") {
                                 toastr.success("Order Change Successfully");
+
                             } else {
                                 toastr.error("Something was wrong");
                             }

@@ -177,8 +177,8 @@
                                 </select>
                             </div>
                             <div class="col-md-3 mb-3">
-                                <label for="mobile" class="form-label">Cep Telefonu </label>
-                                <input type="tel" id="mobile" name="mobile" class="form-control" placeholder="Örn: 05331234567" value="{{ old('mobile') }}" >
+                                <label for="mobile" class="form-label">Cep Telefonu <span class="text-danger">*</span> </label>
+                                <input type="tel" id="mobile" name="mobile" class="form-control" placeholder="Örn: 05331234567" value="{{ old('mobile') }}" required>
                                 @error('mobile')
                                 <span class="text-danger">{{ $message }}</span>
                                 @enderror

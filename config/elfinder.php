@@ -27,7 +27,7 @@ return array(
     */
     'disks' => [
         'my-disk' => [
-            'URL' => url('uploads'),
+            'URL' => '/uploads',
             'alias' => 'Local storage',
         ]
     ],

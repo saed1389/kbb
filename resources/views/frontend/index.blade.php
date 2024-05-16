@@ -14,14 +14,14 @@
                             <div class="blog-slider__wrp swiper-wrapper">
                                 @foreach($sliders as $slider)
                                     <div class="blog-slider__item swiper-slide">
-                                        <a href="{{ route('haber', $slider->slug) }}">
+                                        <a href="{{ route('haber', $slider->slug) }}" @if($slider->new_page == 1) target="_blank" @endif>
                                         <div class="blog-slider__img">
                                             <img src="{{ asset('uploads/news/crop/'.$slider->cropImage) }}" loading="lazy" alt="">
                                             <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
                                         </div>
                                         </a>
                                         <div class="blog-slider__content">
-                                            <div class="blog-slider__title"><a href="{{ route('haber', $slider->slug) }}">{{ $slider->title }}</a></div>
+                                            <div class="blog-slider__title"><a href="{{ route('haber', $slider->slug) }}" @if($slider->new_page == 1) target="_blank" @endif>{{ $slider->title }}</a></div>
                                         </div>
                                     </div>
                                 @endforeach

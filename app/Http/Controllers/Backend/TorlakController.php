@@ -70,8 +70,6 @@ class TorlakController extends Controller
         Torlak::create([
             'title' => $request->title,
             'title_en' => $request->title_en,
-            'slug' => Str::slug($request->title),
-            'slug_en' => Str::slug($request->title_en),
             'start_date' => $request->start_date,
             'end_date' => $request->end_date,
             'description' => $request->description,
@@ -133,8 +131,6 @@ class TorlakController extends Controller
         Torlak::where('id', $id)->update([
             'title' => $request->title,
             'title_en' => $request->title_en,
-            'slug' => Str::slug($request->title),
-            'slug_en' => Str::slug($request->title_en),
             'start_date' => $request->start_date,
             'end_date' => $request->end_date,
             'description' => $request->description,

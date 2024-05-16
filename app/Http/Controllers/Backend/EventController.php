@@ -50,8 +50,6 @@ class EventController extends Controller
         Event::create([
             'title' => $request->title,
             'title_en' => $request->title_en,
-            'slug' => Str::slug($request->title),
-            'slug_en' => Str::slug($request->title_en),
             'event_place' => $request->event_place,
             'start_date' => $request->start_date,
             'end_date' => $request->end_date,
@@ -107,8 +105,6 @@ class EventController extends Controller
         Event::where('id', $id)->update([
             'title' => $request->title,
             'title_en' => $request->title_en,
-            'slug' => Str::slug($request->title),
-            'slug_en' => Str::slug($request->title_en),
             'event_place' => $request->event_place,
             'start_date' => $request->start_date,
             'end_date' => $request->end_date,
@@ -153,6 +149,7 @@ class EventController extends Controller
         if (\request()->ajax()) {
             return datatables()->of(Event::with('eventCategory:id,title')
                 ->select('events.id', 'events.title', 'events.event_category', 'events.event_place' , 'events.created_at', 'events.status'))
+                ->orderBy('created_at', 'desc')
                 ->make(true);
 
         } else {

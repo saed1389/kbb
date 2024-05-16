@@ -33,9 +33,7 @@ class VideoController extends Controller
 
         Video::create([
             'title' => $request->title,
-            'slug' => Str::slug($request->title),
             'title_en' => $request->title_en,
-            'slug_en' => Str::slug($request->title_en),
             'link' => $request->link,
             'created_by' => Auth::user()->id
         ]);
@@ -70,9 +68,7 @@ class VideoController extends Controller
 
         Video::where('id', $request->title_id)->update([
             'title' => $request->title,
-            'slug' => Str::slug($request->title),
             'title_en' => $request->title_en,
-            'slug_en' => Str::slug($request->title_en),
             'link' => $request->link,
             'created_by' => Auth::user()->id
         ]);

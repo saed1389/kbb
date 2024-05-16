@@ -9,11 +9,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
-
+    use Sluggable;
     /**
      * The attributes that are mass assignable.
      *
@@ -71,6 +72,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function Sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'first_name'. '-' .'last_name',
+            ],
+        ];
+    }
 
     public function titleName():BelongsTo
     {
