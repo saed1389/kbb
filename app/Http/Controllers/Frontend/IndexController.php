@@ -399,6 +399,7 @@ class IndexController extends Controller
         foreach ($events as $event) {
             $formattedEvents[] = [
                 'title' => $event->title,
+                'url' => $event->event_href,
                 'start' => $event->start_date,
                 'end' => $event->end_date
             ];
