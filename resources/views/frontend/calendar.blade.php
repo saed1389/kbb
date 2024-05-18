@@ -76,8 +76,8 @@
                     },
                     eventClick: function(info) {
                         info.jsEvent.preventDefault(); // prevent browser's default click action
-
-                        if (info.event.url === null) {
+                        console.log(info.event.url);
+                        if (info.event.url !== "null") {
                             window.open(info.event.url, '_blank'); // open the event's URL in a new tab
                         } else {
                             alert('Bu etkinliğin URL\'si yok'); // handle cases where there is no URL
