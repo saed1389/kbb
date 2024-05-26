@@ -46,7 +46,7 @@
                             </div>
                             <div class="postbox__content">
                                 <div class="postbox__meta">
-                                    <span><a><i class="flaticon-user"></i>{{ $news->created_by == 1 ? 'Yönetici' : $news->getAuthorName->titleName->title.' '.$news->getAuthorName->first_name.' '.$news->getAuthorName->last_name }}</a></span>
+                                    <span><a><i class="flaticon-user"></i>{{ $news->created_by == 1 ? 'Yönetici' : @$news->getAuthorName->titleName->title.' '.@$news->getAuthorName->first_name.' '.@$news->getAuthorName->last_name }}</a></span>
                                     <span><i class="flaticon-comment"></i>{{ $comments->count() }} Yorumlar</span>
                                 </div>
                                 <h3 class="postbox__title" style="font-size: 21px">{{ $news->title }}</h3>

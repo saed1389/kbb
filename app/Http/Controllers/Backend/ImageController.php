@@ -18,27 +18,27 @@ class ImageController extends Controller
      */
     public function index()
     {
-        $galleries = PhotoCategory::where('status', 1)->get();
+        $galleries = PhotoCategory::where('status', 1)->orderBy('created_at', 'desc')->get();
         return view('admin.photos.image.index', compact('galleries'));
     }
 
     public function add(Request $request)
     {
-
+        $cat = PhotoCategory::where('id', $request->category)->first();
         if ($request->hasFile('file')) {
 
-            /*$image = $request->file('file');
+            $image = $request->file('file');
             $manager = new ImageManager(new Driver());
+
             $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
             $img = $manager->read($image);
-            $img = $img->resize(360, 250);
-            $img->toJpeg(80)->save(base_path('public/uploads/photoGallery/'.$name_gen));*/
+            $watermarkPath = public_path('assets/img/tr-logo-n.png');
 
+            $img->place($watermarkPath, 'top-left', 10, 10, 50);
 
-            $file = $request->file('file');
-            $fileName = hexdec(uniqid()) . '.' . $file->getClientOriginalExtension();
-            $file->move(public_path('/uploads/photoGallery/'), $fileName);
-            $image_url = 'uploads/photoGallery/'.$fileName;
+            $img->save(base_path('public/uploads/photoGallery/'.$cat->title.'/'.$name_gen));
+
+            $image_url = 'uploads/photoGallery/'.$cat->title.'/'.$name_gen;
 
             Image::create([
                 'category' => $request->category,
@@ -49,14 +49,12 @@ class ImageController extends Controller
             ]);
         }
 
-        // Add your logic to store the description and file details in the database or perform other actions
         $notification = array(
             'message' => "Dosya başarıyla yüklendi!",
             'alert-type' => 'success'
         );
-        // Redirect or respond as needed
-        return redirect()->back()->with($notification);
 
+        return redirect()->back()->with($notification);
     }
 
     public function delete($id)

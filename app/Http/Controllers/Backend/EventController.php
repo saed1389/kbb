@@ -149,7 +149,8 @@ class EventController extends Controller
         if (\request()->ajax()) {
             return datatables()->of(Event::with('eventCategory:id,title')
                 ->select('events.id', 'events.title', 'events.event_category', 'events.event_place' , 'events.created_at', 'events.status'))
-                ->orderBy('created_at', 'desc')
+               /* ->where('events.status', 1)
+                ->orderBy('events.id', 'DESC')*/
                 ->make(true);
 
         } else {

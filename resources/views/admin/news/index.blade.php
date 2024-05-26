@@ -129,6 +129,7 @@
                                     '</label></td>';
                             }, "searchable": false, "orderable": false
                         },
+
                         { data: null,
                             render: function (data, type, row) {
                                 return '<a href="{{ url("admin/news") }}/' + row.id + '/edit" class="btn btn-primary btn-sm">Düzenle</a> ' +

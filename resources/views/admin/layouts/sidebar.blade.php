@@ -188,10 +188,10 @@
 
             </ul>
         </li>
-        <li class="menu-item @if(Request::segment(2) == 'photos') active open @endif">
+        <li class="menu-item @if(Request::segment(2) == 'photos' && Request::segment(3) == 'images' || Request::segment(3) == 'galleries') active open @endif">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class='menu-icon tf-icons ti ti-photo'></i>
-                <div data-i18n="Front Pages"><strong>Torlak</strong></div>
+                <div data-i18n="Front Pages"><strong>Foto Galeri</strong></div>
             </a>
             <ul class="menu-sub">
                 <li class="menu-item @if(Request::segment(3) == 'images' && Request::segment(2) == 'photos') active @endif">
@@ -204,6 +204,14 @@
                         <div data-i18n="Pricing">Fotoğraf Galerileri</div>
                     </a>
                 </li>
+            </ul>
+        </li>
+        <li class="menu-item @if(Request::segment(2) == 'photos' && Request::segment(3) == 'videos' || Request::segment(3) == 'torlak' ) active open @endif">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class='menu-icon tf-icons ti ti-photo'></i>
+                <div data-i18n="Front Pages"><strong>Torlak</strong></div>
+            </a>
+            <ul class="menu-sub">
                 <li class="menu-item @if(Request::segment(3) == 'videos' && Request::segment(2) == 'photos') active @endif">
                     <a href="{{ route('videos.index') }}" class="menu-link" >
                         <div data-i18n="Pricing">Eğitim Videoları</div>

@@ -26,7 +26,7 @@
     @endpush
     <div class="container-xxl flex-grow-1 container-p-y">
         <div class="card">
-            <h5 class="card-header">KBB Okuler Başvuru Listesi</h5>
+            <h5 class="card-header">KBB Okulları Başvuru Listesi</h5>
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-8">

@@ -229,6 +229,7 @@ class NewsController extends Controller
             'status' => $request->status,
             'image' => $save_url,
             'cropImage' => $crop,
+            'confirm' => $request->confirm,
             'news_order' => $confirm,
         ]);
 
@@ -276,7 +277,8 @@ class NewsController extends Controller
     {
         if (\request()->ajax()) {
             return datatables()->of(News::with('newsCategory:id,title')
-                ->select('news.id', 'news.title', 'news.created_at', 'news.hit')
+                ->select('news.id', 'news.title', 'news.created_at', 'news.cropImage', 'news.hit', 'news.status')
+                ->where('news.confirm', 1)
                 ->orderBy('created_at', 'DESC')
             )->make(true);
         } else {

@@ -222,6 +222,7 @@
                         {
                             data: null,
                             render: function(data, type, row, meta) {
+                                //console.log(data.cropImage);
                                 return meta.row + 1;
                             },
                             "searchable": false,
@@ -243,9 +244,10 @@
                             },
                             "searchable": true
                         },
-                        { data: 'image', name: 'image',
+                        { data: 'cropImage', name: 'cropImage',
                             render: function (data, type, row) {
-                                return '<img class="rounded w-50" src="/uploads/news/small/'+data+'">'
+                            console.log(data)
+                                return '<img class="rounded w-50" src="/uploads/news/crop/'+data+'">'
                             },
                             "searchable": true
                         },
@@ -379,7 +381,7 @@
                                 emailTemplate += '<tbody>';
                                 emailTemplate += '<tr>';
                                 emailTemplate += '<td>';
-                                emailTemplate += '<img width="200px" src="{{ env('APP_URL') }}/uploads/news/small/' + newsData.image + '" alt="' + newsData.title + '">';
+                                emailTemplate += '<img width="200px" src="{{ env('APP_URL') }}/uploads/news/crop/' + newsData.cropImage + '" alt="' + newsData.title + '">';
                                 emailTemplate += '</td>';
                                 emailTemplate += '<td style="border-left:1px solid #ccc; padding:5px; color: #00498f; font-size: 14px; font-family: Arial; margin: 0px; width: 406px;">';
                                 emailTemplate += '<p>';

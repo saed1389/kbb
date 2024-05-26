@@ -552,7 +552,6 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
         Route::post('member-types/updateModal', [MemberTypeController::class, 'updateModal'])->name('member-types.updateModal');
         Route::post('member-types/changeStatus/{id}/{status}', [MemberTypeController::class, 'changeStatus']);
     });
-
 });
 
 /*------------------------------------------
@@ -561,7 +560,6 @@ All Admin Routes List
 --------------------------------------------
 --------------------------------------------*/
 Route::middleware(['auth', 'user-access:manager'])->group(function () {
-
     Route::get('/manager/home', [HomeController::class, 'managerHome'])->name('manager.home');
 });
 

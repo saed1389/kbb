@@ -162,7 +162,6 @@
                                     <a href="{{ route('admin.home') }}">Anasayfa </a>
                                 </li>
                                 <li class="breadcrumb-item active">Fotoğraf Yükle</li>
-
                             </ol>
                         </nav>
                     </div>
@@ -177,8 +176,6 @@
                                 <option value="{{ $gallery->id }}">{{ $gallery->title }}</option>
                             @endforeach
                         </select>
-
-                        <!-- Dropzone Area -->
                         <div class="fallback">
                             <input name="file" type="file" multiple />
                         </div>
@@ -186,7 +183,6 @@
                             <button type="submit" class="btn btn-success">Resim Ekle</button>
                         </div>
                     </form>
-
                 </div>
             </div>
         </div>
@@ -195,19 +191,15 @@
     <script src="{{ asset('assets/vendor/libs/select2/select2.js') }}"></script>
     <script src="{{ asset('assets/vendor/libs/bootstrap-select/bootstrap-select.js') }}"></script>
     <script src="{{ asset('assets/vendor/libs/bloodhound/bloodhound.js') }}"></script>
-
-
     <script src="{{ asset('assets/js/forms-selects.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/min/dropzone.min.js"></script>
-
-    <!-- Dropzone Initialization Script -->
     <script>
         Dropzone.options.myDropzone = {
             url: "{{ route('images.add') }}",
             paramName: "file",
             autoProcessQueue: false,
-            maxFilesize: 5,
-            parallelUploads: 5,
+            maxFilesize: 10,
+            parallelUploads: 10,
             acceptedFiles: '.jpeg,.jpg,.png,.gif,.gif,.svg',
             addRemoveLinks: !0,
             dictRemoveFile  : "Fotoğrafı sil",
@@ -222,22 +214,17 @@
                     }
                 });
             },
-
             queuecomplete : function(file, response){
                 var successMessage = "Fotoğraf başarıyla yüklendi!";
                 toastr.success(" Fotoğraf başarıyla yüklendi! ");
                 window.location = "{{ route('galleries.index') }}?message=" + encodeURIComponent(successMessage);
-
             }
-
         };
-
         document.querySelector('form').addEventListener('submit', function (e) {
             e.preventDefault();
             var myDropzone = Dropzone.forElement('#myDropzone');
             myDropzone.processQueue();
         });
-
     </script>
 @endpush
 @endsection

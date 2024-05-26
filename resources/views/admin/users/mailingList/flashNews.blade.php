@@ -274,9 +274,9 @@
                             },
                             "searchable": true
                         },
-                        { data: 'image', name: 'image',
+                        { data: 'cropImage', name: 'cropImage',
                             render: function (data, type, row) {
-                                return '<img class="rounded w-50" src="/uploads/news/small/'+data+'">'
+                                return '<img class="rounded w-50" src="/uploads/news/crop/'+data+'">'
                             },
                             "searchable": true
                         },

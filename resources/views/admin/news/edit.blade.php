@@ -136,20 +136,31 @@
                                     <option value="2" @selected($news->slider == 2)>Manşet Olmasın</option>
                                 </select>
                             </div>
-                            <div class="col-md-3 mb-4">
+                            <div class="{{ $news->confirm == 0 ? 'col-md-2' : 'col-md-3' }} mb-4">
                                 <label class="form-label" for="OnPermission">Herkese Açık</label>
                                 <select id="OnPermission" class="selectpicker w-100" name="OnPermission" data-style="btn-default" tabindex="null">
                                     <option value="1" @selected($news->OnPermission == 1)>Herkese Açık</option>
                                     <option value="2" @selected($news->OnPermission == 2)>Üyelere Özel</option>
                                 </select>
                             </div>
-                            <div class="col-md-3 mb-4">
+                            <div class="{{ $news->confirm == 0 ? 'col-md-2' : 'col-md-3' }} mb-4">
                                 <label class="form-label" for="status">Yayınla</label>
                                 <select id="status" class="selectpicker w-100" name="status" data-style="btn-default" tabindex="null">
                                     <option value="1" class="text-success" @selected($news->status == 1)>Yayınla</option>
                                     <option value="0" class="text-danger" @selected($news->status == 0)>Taslak olarak kaydet</option>
                                 </select>
                             </div>
+                            @if($news->confirm == 0)
+                                <div class="col-md-2 mb-4">
+                                    <label class="form-label" for="status">Onay</label>
+                                    <select id="status" class="selectpicker w-100" name="confirm" data-style="btn-default" tabindex="null">
+                                        <option value="1" class="text-success" >Evet</option>
+                                        <option value="0" class="text-danger" >Hayır</option>
+                                    </select>
+                                </div>
+                            @else
+                                <input type="hidden" name="confirm" value="{{ $news->confirm }}">
+                            @endif
                             <div class="col-md-12 mb-4">
                                 <div class="row">
                                     <div class="col-md-6">

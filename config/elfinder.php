@@ -91,7 +91,8 @@ return array(
     |
     */
     'root_options' => array(
-
+        'tmbURL' => '/uploads/',
+        'tmbPath' => public_path('uploads'),
     ),
 
 );

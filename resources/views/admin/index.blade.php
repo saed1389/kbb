@@ -1,9 +1,7 @@
 @extends('admin.layouts.app')
 @section('title') @endsection
 @section('content')
-
     <div class="container-xxl flex-grow-1 container-p-y">
-
         <div class="row">
             <div class="col-lg-6 mb-4">
                 <div class="swiper-container swiper-container-horizontal swiper swiper-card-advance-bg" id="swiper-with-pagination-cards">
@@ -92,7 +90,6 @@
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -101,7 +98,6 @@
                 </div>
             </div>
         </div>
-
         <div class="row">
             <div class="col-sm-6 col-lg-3 mb-4">
                 <div class="card card-border-shadow-primary">
@@ -156,7 +152,6 @@
                 </div>
             </div>
         </div>
-
         <div class="row">
             <div class="col-md-6 mb-4">
                 <div class="card">
@@ -172,7 +167,6 @@
                             </tr>
                             </thead>
                             <tbody>
-
                             @foreach($lastNews as $item)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
@@ -200,11 +194,10 @@
                             </tr>
                             </thead>
                             <tbody>
-
                             @foreach($lastEvents as $item)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td><a href="{{ route('news.edit', $item->id) }}">{{ $item->title }}</a></td>
+                                    <td><a href="{{ route('events.edit', $item->id) }}">{{ $item->title }}</a></td>
                                     <td>{{ $item->created_at }}</td>
                                     <td>{{ $item->hit }}</td>
                                 </tr>
@@ -216,5 +209,4 @@
             </div>
         </div>
     </div>
-
 @endsection

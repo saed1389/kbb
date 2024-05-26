@@ -21,23 +21,24 @@
                         </div>
                     </div>
                 </div>
-
             @endif
             <div class="card-body">
                 <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-md-7">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
                                     <a href="{{ route('admin.home') }}">Anasayfa </a>
                                 </li>
                                 <li class="breadcrumb-item active">Fotoğraf Galeri Listesi</li>
-
                             </ol>
                         </nav>
                     </div>
-                    <div class="col-md-4 ">
-                        <button type="button" class="btn btn-primary waves-effect waves-light float-end " data-bs-toggle="modal" data-bs-target="#backDropModal">
+                    <div class="col-md-5 ">
+                        <a href="{{ route('images.index') }}" class="btn btn-success waves-effect waves-light float-end " style="margin-left: 10px" >
+                            Yeni Fotoğraf Ekle
+                        </a>
+                        <button type="button" class="btn btn-primary waves-effect waves-light float-end" data-bs-toggle="modal" data-bs-target="#backDropModal">
                             Yeni Fotoğraf Galeri Ekle
                         </button>
                         <div class="modal fade" id="backDropModal" data-bs-backdrop="static" tabindex="-1">
@@ -53,10 +54,6 @@
                                             <div class="col mb-3">
                                                 <label for="title" class="form-label">Fotoğraf Galeri Adı</label>
                                                 <input type="text" id="title" name="title" class="form-control" placeholder="Fotoğraf Galeri Giriniz" required>
-                                            </div>
-                                            <div class="col mb-3">
-                                                <label for="title_en" class="form-label">Fotoğraf Galeri Adı (en)</label>
-                                                <input type="text" id="title_en" name="title_en" class="form-control" placeholder="Fotoğraf Galeri Adı (en) Giriniz" >
                                             </div>
                                         </div>
                                     </div>
@@ -77,7 +74,6 @@
                     <tr>
                         <th>#</th>
                         <th>Galeri Adı</th>
-                        <th>Galeri Adı (en)</th>
                         <th>Oluşturma</th>
                         <th>Durum</th>
                         <th>İşlemler</th>
@@ -88,7 +84,6 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td><a href="{{ route('galleries.show', $item->id) }}">{{ $item->title }}</a></td>
-                            <td>{{ $item->title_en ? $item->title_en : '-' }}</td>
                             <td>{{ $item->userName->first_name. ' '. $item->userName->last_name }}</td>
                             <td>
                                 <label class="switch switch-success">
@@ -120,7 +115,6 @@
             </div>
         </div>
     </div>
-    {{-- Edit Modal --}}
     <div class="modal fade" id="editModal" data-bs-backdrop="static" tabindex="-1">
         <div class="modal-dialog">
             <form class="modal-content" action="{{ route('galleries.updateModal') }}" method="post" >
@@ -135,10 +129,6 @@
                         <div class="col mb-3">
                             <label for="titleEdit" class="form-label">Fotoğraf Galeri Adı</label>
                             <input type="text" id="titleEdit" name="title" class="form-control" placeholder="Fotoğraf Galeri Adı Giriniz" required>
-                        </div>
-                        <div class="col mb-3">
-                            <label for="title_enEdit" class="form-label">Fotoğraf Galeri Adı (en)</label>
-                            <input type="text" id="title_enEdit" name="title_en" class="form-control" placeholder="Fotoğraf Galeri Adı (en) Giriniz" >
                         </div>
                     </div>
                 </div>
@@ -190,6 +180,4 @@
             });
         </script>
     @endpush
-
-
 @endsection
