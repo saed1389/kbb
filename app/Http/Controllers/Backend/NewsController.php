@@ -70,19 +70,6 @@ class NewsController extends Controller
             $save_url = '';
         }
 
-        if ($request->gallery != 0) {
-            if ($request->file('image')) {
-                $imgGallery = $manager->read($request->file('image'));
-                $imgGallery->toJpeg(80)->save(base_path('public/uploads/photoGallery/'.$name_gen));
-                Image::create([
-                    'category' => $request->gallery,
-                    'image' => 'uploads/photoGallery/'.$name_gen,
-                    'created_by' => Auth::user()->id,
-                    'status' => 1
-                ]);
-            }
-        }
-
         if ($request->new_page) {
             $new_page = $request->new_page;
         } else {
@@ -168,27 +155,6 @@ class NewsController extends Controller
             $save_url = $name_gen;
         } else {
             $save_url = $request->oldImage;
-        }
-
-        if ($request->gallery != 0) {
-            if ($request->file('image')) {
-                $imgGallery = $manager->read($request->file('image'));
-                $imgGallery->toJpeg(80)->save(base_path('public/uploads/photoGallery/'.$name_gen));
-
-                $photo = Image::where('image', $request->oldImage)->first();
-
-                if ($photo) {
-                    @unlink('uploads/photoGallery/'.$request->oldImage);
-                    $photo->delete();
-                }
-
-                Image::create([
-                    'category' => $request->gallery,
-                    'image' => 'uploads/photoGallery/'.$name_gen,
-                    'created_by' => Auth::user()->id,
-                    'status' => 1
-                ]);
-            }
         }
 
         if ($request->image_base64) {

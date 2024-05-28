@@ -101,10 +101,12 @@ class IndexController extends Controller
             $events = Event::where('status', 1)
                 ->where('OnPermission', 1)
                 ->whereDate('created_at', '>=', $fourMonthsAgo)
+                ->orderBy('start_date', 'asc')
                 ->get();
         } else {
             $events = Event::where('status', 1)
                 ->whereDate('created_at', '>=', $fourMonthsAgo)
+                ->orderBy('start_date', 'asc')
                 ->get();
         }
 

@@ -54,6 +54,37 @@
                                     <p>
                                         {!! $news->news_body !!}
                                     </p>
+                                    @if($news->gallery != 0)
+                                        @php
+                                            $images = \App\Models\Image::where('category', $news->gallery)->get();
+                                        @endphp
+                                        <div class="tp-gallery-3__area pt-120 pb-120">
+                                            <div class="container">
+                                                <div class="row">
+                                                    @foreach($images as $image)
+                                                        <div class="col-xl-4 col-lg-4 col-md-6 mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".3s" style="visibility: visible; animation-duration: 0.9s; animation-delay: 0.3s; animation-name: tpfadeUp;">
+                                                            <div class="tp-gallery-3__item p-relative">
+                                                                <img src="{{ asset($image->image) }}" alt="">
+                                                                <div class="tp-gallery-3__icon">
+                                                                    <a class="popup-image" href="{{ asset($image->image) }}">
+                                                                        <svg id="body" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="49" height="51" viewBox="0 0 49 51">
+                                                                            <g id="gallery">
+                                                                                <g id="_02_hover" data-name="02 + hover">
+                                                                                    <g id="go_icon" data-name="go icon">
+                                                                                        <image id="right-arrow" width="49" height="51" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAADEAAAAzCAYAAAA+VOAXAAAD3klEQVRogdWa24tWZRTGf/PNOH5MY2VREXagojOohNpEh8nEylDRP6XoRugiIagbb7LTRaRmmUVpSVSEFRFFanlAAqOLqCghFZrRrxlnHB9Z9Wx4+XJqZtqnb8EHL/ju7frxrPWuZ+/ZXZKoMLqALIEmMOpUZgHjSVq9wBj/3PdX9FRJANwGXAFcBXzv5G4FhoGfgeuAi4DvnGvs/wX4HbgZeKdqiEhoK3A9cMKJxXrCic4BrgSOAUPAjYb7AbgGuASYC7xcZTmtBXZ4LZdWFuMuKdrWaWTXzK9Sid3AdqAF/ArcBPQB37rErgV+An4EbnBfRKnd5esz6DVVQpwEHgOOApcBlwJH/G+3AMf9i7LqNuBbbfcINXoaFSSfxlGvjyUAeH3c6ziVbgfeBO4GfgMOJHvHq4aYSgwAG4B7fHq9DbwE/OFrR+sMEfPgYeApYJHLL3poE7Ar2ddVZ4hlwDNW4AzwIfACcNA9dLH3NasedpPFoJt+AXDKR/HzwCHvvzy9rm4QFwDLgfVx/vv4fRd4DtiX7Evzrl1P3AE8boBo4vcMcLhtX+qdVBcl+oGlwBNu4rAXO4EXgT3n2T+WrHvqAhHH6JNWIhL8yE38zST707wbdYAIBdYBC32M7rACYT/OTnJNX7IerxIivNAKKxAAI8D7wEYD/Ftk5dRVtRJLgEcTgFDgWT87/Fdk5k9V9cSFLqH1ngNRQjs9B/ZO8R6txKK3iOeJkn9LJe3R33Fa0nZJd0qaNY08mpJ2SXpa0tVlAvRKekjS55LOSDopaZOkgRneb162LgugIWmVpINWYNQKLMrj/mVBDEr61ACnJL0qabGk2Z0A0S9pbaJAlNCWvBQoCyIU+DIpodfdxLkoUDREn6SVkr6SNCFpSNIrBsj9/ysKYoWk/W3H6OKiFC/ipg8kTZwdo6FATydAxABakzRxS9JreTdx0RD3epBF/ClpqxVodgLEHCuQ9cCQS2hJ0cnnCbFc0r6kid8wQHcnQESSD0r6LPFChR2jRUB02wsdsgIjkraV0cR5QkQTf5J4oS15eqGiIbImPmCAYUmbixxkRUCkXuh04oV6OwGiaSvxhZt4OJnElSU/XYhHyvRCRUDcL2l3WxNP95m4Moi+SbxQbRSYCkTqhUbcxANleKE8IPo9yOK1ytnEC830rUQlEOGF9lqBseS9UGle6P9AxB/ml3kST7iJN1uBRl0BUogYVquTSTxiN1qJF5opxH3JI2WrzAeavCAGz+OFajGJp/pr+LuJhX7b/IH/wLG/wLfiuUc0c78/M4jPdj4Gvu4kgIjsU6F5/tKl8wI4B64Oiv+C2BAeAAAAAElFTkSuQmCC"></image>
+                                                                                    </g>
+                                                                                </g>
+                                                                            </g>
+                                                                        </svg>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    @endforeach
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
                                     <div class="postbox__thumb m-img p-relative">
                                         <div class="postbox__details-share-wrapper">
                                             <div class="row">

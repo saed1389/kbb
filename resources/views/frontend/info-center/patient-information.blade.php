@@ -45,7 +45,7 @@
                                 </div>
                                 <div class="tp-feature__item z-index">
                                     <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm"><a href="{{ asset('uploads/Document/otoskleroz.pdf') }}" download="">Otoskleroz</a></h4>
+                                        <h4 class="tp-feature__title-sm"><a href="{{ asset('uploads/Document/otoskleroz.pdf') }}" target="_blank">Otoskleroz</a></h4>
                                     </div>
                                 </div>
                             </div>
@@ -60,7 +60,7 @@
                                 </div>
                                 <div class="tp-feature__item z-index">
                                     <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h5 class="tp-feature__title-sm"><a href="{{ asset('uploads/Document/bademcik-geniz-eti-ve-kulak-tupu.pdf') }}" download=""> Bademcik, Geniz Eti ve Kulak Tüpü</a></h5>
+                                        <h5 class="tp-feature__title-sm"><a href="{{ asset('uploads/Document/bademcik-geniz-eti-ve-kulak-tupu.pdf') }}" target="_blank"> Bademcik, Geniz Eti ve Kulak Tüpü</a></h5>
                                     </div>
                                 </div>
                             </div>
@@ -75,7 +75,7 @@
                                 </div>
                                 <div class="tp-feature__item z-index">
                                     <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h6 class="tp-feature__title-sm"><a href="{{ asset('uploads/Document/septoplasti.pdf') }}" download=""> Septoplasti</a></h6>
+                                        <h6 class="tp-feature__title-sm"><a href="{{ asset('uploads/Document/septoplasti.pdf') }}" target="_blank"> Septoplasti</a></h6>
                                     </div>
                                 </div>
                             </div>
@@ -90,7 +90,7 @@
                                 </div>
                                 <div class="tp-feature__item z-index">
                                     <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm"><a href="{{ asset('uploads/Document/rinoplasti.pdf') }}" download=""> Rinoplasti</a></h4>
+                                        <h4 class="tp-feature__title-sm"><a href="{{ asset('uploads/Document/rinoplasti.pdf') }}" target="_blank"> Rinoplasti</a></h4>
                                     </div>
                                 </div>
                             </div>
@@ -105,7 +105,7 @@
                                 </div>
                                 <div class="tp-feature__item z-index">
                                     <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm"><a href="{{ asset('uploads/Document/troid-cerrahisi.pdf') }}" download=""> Tiroid Cerrahisi</a></h4>
+                                        <h4 class="tp-feature__title-sm"><a href="{{ asset('uploads/Document/troid-cerrahisi.pdf') }}" target="_blank"> Tiroid Cerrahisi</a></h4>
                                     </div>
                                 </div>
                             </div>
@@ -120,7 +120,7 @@
                                 </div>
                                 <div class="tp-feature__item z-index">
                                     <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm"><a href="{{ asset('uploads/Document/endoskopik-sinus-cerrahisi.pdf') }}" download=""> Endoskopik Sinüs Cerrahisi</a> </h4>
+                                        <h4 class="tp-feature__title-sm"><a href="{{ asset('uploads/Document/endoskopik-sinus-cerrahisi.pdf') }}" target="_blank"> Endoskopik Sinüs Cerrahisi</a> </h4>
                                     </div>
                                 </div>
                             </div>
@@ -135,7 +135,7 @@
                                 </div>
                                 <div class="tp-feature__item z-index">
                                     <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm"><a href="{{ asset('uploads/Document/mikrolarengoskopi-ve-ses-teli-cerrahisi.pdf') }}" download=""><small> Mikrolarengoskopi ve Ses Teli Cerrahisi</small></a></h4>
+                                        <h4 class="tp-feature__title-sm"><a href="{{ asset('uploads/Document/mikrolarengoskopi-ve-ses-teli-cerrahisi.pdf') }}" target="_blank"><small> Mikrolarengoskopi ve Ses Teli Cerrahisi</small></a></h4>
                                     </div>
                                 </div>
                             </div>
@@ -150,7 +150,7 @@
                                 </div>
                                 <div class="tp-feature__item z-index">
                                     <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm"><a href="{{ asset('uploads/Document/kronik-otitis-media-cerrahileri.pdf') }}" download=""> Kronik Otitis Media Cerrahileri</a></h4>
+                                        <h4 class="tp-feature__title-sm"><a href="{{ asset('uploads/Document/kronik-otitis-media-cerrahileri.pdf') }}" target="_blank"> Kronik Otitis Media Cerrahileri</a></h4>
                                     </div>
                                 </div>
                             </div>
@@ -165,7 +165,7 @@
                                 </div>
                                 <div class="tp-feature__item z-index">
                                     <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm"><a href="{{ asset('uploads/Document/larenjektomi-ve-boyun-diseksiyonu.pdf') }}" download=""> Larenjektomi ve Boyun Diseksiyonu</a> </h4>
+                                        <h4 class="tp-feature__title-sm"><a href="{{ asset('uploads/Document/larenjektomi-ve-boyun-diseksiyonu.pdf') }}" target="_blank"> Larenjektomi ve Boyun Diseksiyonu</a> </h4>
                                     </div>
                                 </div>
                             </div>
@@ -180,7 +180,7 @@
                                 </div>
                                 <div class="tp-feature__item z-index">
                                     <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm"><a href="{{ asset('uploads/Document/parotidektomi.pdf') }}" download=""> Parotidektomi</a></h4>
+                                        <h4 class="tp-feature__title-sm"><a href="{{ asset('uploads/Document/parotidektomi.pdf') }}" target="_blank"> Parotidektomi</a></h4>
                                     </div>
                                 </div>
                             </div>
