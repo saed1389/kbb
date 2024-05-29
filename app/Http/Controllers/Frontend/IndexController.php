@@ -95,20 +95,21 @@ class IndexController extends Controller
                 ->limit(10)->get();
         }
 
-        $fourMonthsAgo = Carbon::now()->subMonths(4);
+        $fourMonthsAgo = Carbon::now()->addMonths(3);
         $now = Carbon::now();
 
         if (Auth::guest()) {
             $events = Event::where('status', 1)
                 ->where('OnPermission', 1)
-                ->whereDate('start_date', '<=', $now)
-                ->whereDate('start_date', '>=', $fourMonthsAgo)
+                ->where('start_date', '>=', $now)
+                ->where('start_date', '<=', $fourMonthsAgo)
                 ->orderBy('start_date', 'asc')
                 ->get();
+
         } else {
             $events = Event::where('status', 1)
-                ->whereDate('start_date', '<=', $now)
-                ->whereDate('start_date', '>=', $fourMonthsAgo)
+                ->where('start_date', '>=', $now)
+                ->where('start_date', '<=', $fourMonthsAgo)
                 ->orderBy('start_date', 'asc')
                 ->get();
         }
