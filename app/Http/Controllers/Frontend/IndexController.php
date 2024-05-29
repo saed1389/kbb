@@ -96,16 +96,19 @@ class IndexController extends Controller
         }
 
         $fourMonthsAgo = Carbon::now()->subMonths(4);
+        $now = Carbon::now();
 
         if (Auth::guest()) {
             $events = Event::where('status', 1)
                 ->where('OnPermission', 1)
-                ->whereDate('start_date', '>=', $fourMonthsAgo)
+                ->whereDate('start_date', '>=', $now)
+                ->whereDate('start_date', '<=', $fourMonthsAgo)
                 ->orderBy('start_date', 'asc')
                 ->get();
         } else {
             $events = Event::where('status', 1)
-                ->whereDate('start_date', '>=', $fourMonthsAgo)
+                ->whereDate('start_date', '>=', $now)
+                ->whereDate('start_date', '<=', $fourMonthsAgo)
                 ->orderBy('start_date', 'asc')
                 ->get();
         }
