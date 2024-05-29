@@ -100,12 +100,12 @@ class IndexController extends Controller
         if (Auth::guest()) {
             $events = Event::where('status', 1)
                 ->where('OnPermission', 1)
-                ->whereDate('created_at', '>=', $fourMonthsAgo)
+                ->whereDate('start_date', '>=', $fourMonthsAgo)
                 ->orderBy('start_date', 'asc')
                 ->get();
         } else {
             $events = Event::where('status', 1)
-                ->whereDate('created_at', '>=', $fourMonthsAgo)
+                ->whereDate('start_date', '>=', $fourMonthsAgo)
                 ->orderBy('start_date', 'asc')
                 ->get();
         }
