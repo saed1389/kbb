@@ -185,7 +185,7 @@ class NewsController extends Controller
             ->where('user_id', Auth::user()->id)
             ->where('vote', 1)
             ->where('status', 2)
-            ->count();
+            ->sum('point');
 
         return response()->json(['points' => $points], 200);
     }
