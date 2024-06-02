@@ -29,14 +29,15 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('profile', [NewsController::class, 'profile']);
     Route::post('profileStore', [NewsController::class, 'profileStore']);
     Route::post('kbbSchool', [NewsController::class, 'kbbSchool']);
+    Route::get('kbbSchoolGet', [NewsController::class, 'kbbSchoolGet']);
     Route::post('kbbCompetenceStore', [NewsController::class, 'kbbCompetenceStore']);
     Route::get('kbbCompetenceList', [NewsController::class, 'kbbCompetenceList']);
 
     Route::get('kbbCompetenceTotal', [NewsController::class, 'kbbCompetenceTotal']);
     Route::get('notification', [NewsController::class, 'notification']);
 
-    Route::post("SendMessage", [NewsController::class, "SendMessage"]);
-    Route::get("load", [NewsController::class, "LoadThePreviousMessages"]);
+    /*Route::post("SendMessage", [ChatController::class, "SendMessage"]);
+    Route::get("load", [ChatController::class, "LoadThePreviousMessages"]);*/
 });
 
 

@@ -140,6 +140,16 @@ class NewsController extends Controller
         return response()->json(['message' => 'Form başarıyla gönderildi.'], 200);
     }
 
+    public function kbbSchoolGet()
+    {
+        $schools = School::select('created_at', 'status')
+            ->where('created_by', Auth::user()->id)
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        return response()->json(['schools' => $schools], 200);
+    }
+
     public function kbbCompetenceStore(Request $request)
     {
         $request->validate([
