@@ -32,9 +32,17 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('kbbSchoolGet', [NewsController::class, 'kbbSchoolGet']);
     Route::post('kbbCompetenceStore', [NewsController::class, 'kbbCompetenceStore']);
     Route::get('kbbCompetenceList', [NewsController::class, 'kbbCompetenceList']);
-
+    Route::get('kbbCompetenceEdit/{id}', [NewsController::class, 'kbbCompetenceEdit']);
+    Route::post('kbbCompetenceUpdate/{id}', [NewsController::class, 'kbbCompetenceUpdate']);
+    Route::get('kbbCompetenceDelete/{id}', [NewsController::class, 'kbbCompetenceDelete']);
+    Route::get('titles', [NewsController::class, 'titles']);
     Route::get('kbbCompetenceTotal', [NewsController::class, 'kbbCompetenceTotal']);
     Route::get('notification', [NewsController::class, 'notification']);
+    Route::get('newsCreate', [NewsController::class, 'newsCreate']);
+    Route::post('newsStore', [NewsController::class, 'newsStore']);
+    Route::get('newsEdit/{id}', [NewsController::class, 'newsEdit']);
+    Route::post('newsUpdate/{id}', [NewsController::class, 'newsUpdate']);
+    Route::get('newsDelete/{id}', [NewsController::class, 'newsDelete']);
 
     /*Route::post("SendMessage", [ChatController::class, "SendMessage"]);
     Route::get("load", [ChatController::class, "LoadThePreviousMessages"]);*/

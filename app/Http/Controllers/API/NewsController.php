@@ -6,15 +6,20 @@ use App\Http\Controllers\Controller;
 use App\Models\Competence;
 use App\Models\CompetencePoint;
 use App\Models\Event;
+use App\Models\Image;
 use App\Models\News;
+use App\Models\PhotoCategory;
 use App\Models\School;
 use App\Models\Setting;
 use App\Models\User;
+use App\Models\UserTitle;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Intervention\Image\Drivers\Gd\Driver;
+use Intervention\Image\ImageManager;
 
 class NewsController extends Controller
 {
@@ -207,9 +212,252 @@ class NewsController extends Controller
         return response()->json(['totalPoint' => $totalPoint], 200);
     }
 
+    public function kbbCompetenceEdit($id)
+    {
+        $jobs = Competence::where('competences.id', $id)
+            ->join('competence_points', 'competence_points.id', '=', 'competences.point_id')
+            ->select('competence_points.title as point_name', 'competence_points.point as point_max', 'competences.*')
+            ->first();
+        return response()->json(['jobs' => $jobs], 200);
+    }
+
+    public function kbbCompetenceUpdate(Request $request,$id)
+    {
+        if ($request->hasFile('certificate')) {
+            $path = 'uploads/users/certificate/';
+            $fileName = $request->file('certificate')->getClientOriginalName();
+            $request->file('certificate')->move($path, $fileName);
+            $fileUrl = $path .$fileName;
+        } else {
+            $fileUrl = $request->certificateOld;
+        }
+
+        Competence::where('id', $id)->update([
+            'title' => $request->title,
+            'start_date' => $request->start_date,
+            'end_date' => $request->end_date,
+            'location' => $request->location,
+            'certificate' => $fileUrl,
+            'point_id' => $request->point_id,
+            'edit_request' => 0,
+            'point' => 0,
+            'vote' => 0,
+            'status' => 0,
+            'updated_at' => Carbon::now()
+        ]);
+
+        return response()->json(status: 200);
+    }
+
+    public function kbbCompetenceDelete($id){
+        Competence::where('id', $id)->delete();
+        return response()->json(status: 200);
+    }
+
+    public function titles()
+    {
+        $titles = UserTitle::where('status', 1)->get();
+        return response()->json(['titles' => $titles], 200);
+    }
+
+    public function newsCreate()
+    {
+        $galleries = PhotoCategory::where('status', 1)->get();
+        return response()->json(['galleries' => $galleries], 200);
+    }
+
+    public function newsStore(Request $request)
+    {
+        $request->validate([
+            'title' => 'required',
+            'news_body' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        if ($request->file('image')){
+
+            $manager = new ImageManager(new Driver());
+            $name_gen = hexdec(uniqid()).'.'.$request->file('image')->getClientOriginalExtension();
+            $img1 = $manager->read($request->file('image'));
+            $img2 = $manager->read($request->file('image'));
+            $img3 = $manager->read($request->file('image'));
+
+            $imgSmall = $img2->scale(355, 124);
+            $imgMid = $img3->scale(590, 204);
+
+            $img1->toJpeg(80)->save(base_path('public/uploads/news/original/'.$name_gen));
+            $imgMid->toJpeg(60)->save(base_path('public/uploads/news/mid/'.$name_gen));
+            $imgSmall->toJpeg(80)->save(base_path('public/uploads/news/small/'.$name_gen));
+            $save_url = $name_gen;
+        } else {
+            $save_url = '';
+        }
+
+        if ($request->gallery != 0) {
+            if ($request->file('image')) {
+                $imgGallery = $manager->read($request->file('image'));
+                $imgGallery->toJpeg(80)->save(base_path('public/uploads/photoGallery/'.$name_gen));
+                Image::create([
+                    'category' => $request->gallery,
+                    'image' => 'uploads/photoGallery/'.$name_gen,
+                    'created_by' => Auth::user()->id,
+                    'status' => 1
+                ]);
+            }
+        }
+
+        if ($request->new_page) {
+            $new_page = $request->new_page;
+        } else {
+            $new_page = 0;
+        }
+
+        News::create([
+            'title' => $request->title,
+            'title_en' => $request->title_en,
+            'start_date' => $request->start_date,
+            'end_date' => $request->end_date,
+            'short_description' => $request->short_description,
+            'short_description_en' => $request->short_description_en,
+            'news_href' => $request->news_href,
+            'gallery' => $request->gallery,
+            'new_page' => $new_page,
+            'news_body' => $request->news_body,
+            'news_body_en' => $request->news_body_en,
+            'placeId' => $request->placeId,
+            'news_category' => $request->news_category,
+            'slider' => $request->slider,
+            'OnPermission' => $request->OnPermission,
+            'status' => 0,
+            'image' => $save_url,
+            'cropImage' => $this->storeBase64($request->image_base64),
+            'created_by' => Auth::user()->id,
+            'news_order' => 0,
+            'confirm' => 0
+        ]);
+    }
+
+    public function newsEdit(string $id)
+    {
+        $news = News::where('id', $id)->first();
+        $galleries = PhotoCategory::where('status', 1)->get();
+
+        return response()->json(['news' => $news, 'galleries' => $galleries], 200);
+    }
+
+    public function newsUpdate(Request $request, string $id)
+    {
+        $request->validate([
+            'title' => 'required',
+            'news_body' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        if ($request->file('image')){
+            $manager = new ImageManager(new Driver());
+            $name_gen = hexdec(uniqid()).'.'.$request->file('image')->getClientOriginalExtension();
+            $img1 = $manager->read($request->file('image'));
+            $img2 = $manager->read($request->file('image'));
+            $img3 = $manager->read($request->file('image'));
+
+            $imgSmall = $img2->scale(355, 124);
+            $imgMid = $img3->scale(590, 204);
+
+            $img1->toJpeg(80)->save(base_path('public/uploads/news/original/'.$name_gen));
+            $imgMid->toJpeg(60)->save(base_path('public/uploads/news/mid/'.$name_gen));
+            $imgSmall->toJpeg(80)->save(base_path('public/uploads/news/small/'.$name_gen));
+            @unlink('uploads/news/original/'.$request->oldImage);
+            @unlink('uploads/news/mid/'.$request->oldImage);
+            @unlink('uploads/news/small/'.$request->oldImage);
+            $save_url = $name_gen;
+        } else {
+            $save_url = $request->oldImage;
+        }
+
+        if ($request->gallery != 0) {
+            if ($request->file('image')) {
+                $imgGallery = $manager->read($request->file('image'));
+                $imgGallery->toJpeg(80)->save(base_path('public/uploads/photoGallery/'.$name_gen));
+            }
+
+            $photo = Image::where('image', $request->oldImage)->first();
+
+            if ($photo) {
+                @unlink('uploads/photoGallery/'.$request->oldImage);
+                $photo->delete();
+            }
+
+            Image::create([
+                'category' => $request->gallery,
+                'image' => 'uploads/photoGallery/'.$name_gen,
+                'created_by' => Auth::user()->id,
+                'status' => 1
+            ]);
+        }
+
+        if ($request->image_base64) {
+            $crop = $this->storeBase64($request->image_base64);
+            @unlink('uploads/news/crop/'.$request->oldCrop);
+        } else {
+            $crop = $request->oldCrop;
+        }
+
+        if ($request->new_page) {
+            $new_page = $request->new_page;
+        } else {
+            $new_page = 0;
+        }
+
+        News::where('id', $id)->update([
+            'title' => $request->title,
+            'title_en' => $request->title_en,
+            'start_date' => $request->start_date,
+            'end_date' => $request->end_date,
+            'short_description' => $request->short_description,
+            'short_description_en' => $request->short_description_en,
+            'news_href' => $request->news_href,
+            'gallery' => $request->gallery,
+            'new_page' => $new_page,
+            'news_body' => $request->news_body,
+            'news_body_en' => $request->news_body_en,
+            'placeId' => $request->placeId,
+            'news_category' => $request->news_category,
+            'slider' => $request->slider,
+            'OnPermission' => $request->OnPermission,
+            'image' => $save_url,
+            'cropImage' => $crop,
+        ]);
+
+        return response()->json(status: 200);
+    }
+
+    public function newsDelete(string $id){
+        $news = News::findOrFail($id);
+        @unlink('uploads/news/original/'.$news->image);
+        @unlink('uploads/news/mid/'.$news->image);
+        @unlink('uploads/news/small/'.$news->image);
+        @unlink('uploads/news/crop/'.$news->cropImage);
+        $news->delete();
+
+        return response()->json(status: 200);
+    }
+
     public function notification()
     {
 
+    }
+
+    private function storeBase64($imageBase64)
+    {
+        list($type, $imageBase64) = explode(';', $imageBase64);
+        list(, $imageBase64)      = explode(',', $imageBase64);
+        $imageBase64 = base64_decode($imageBase64);
+        $imageName= time().'.jpg';
+        $path = public_path() . "/uploads/news/crop/" . $imageName;
+
+        file_put_contents($path, $imageBase64);
+
+        return $imageName;
     }
 
 }
