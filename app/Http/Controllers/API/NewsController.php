@@ -442,6 +442,12 @@ class NewsController extends Controller
         return response()->json(status: 200);
     }
 
+    public function activityList()
+    {
+        $activities = CompetencePoint::where('status', 1)->get();
+        return response()->json(['activities' => $activities], 200);
+    }
+
     public function notification()
     {
 
