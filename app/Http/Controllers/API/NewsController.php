@@ -8,6 +8,7 @@ use App\Models\CompetencePoint;
 use App\Models\Event;
 use App\Models\Image;
 use App\Models\News;
+use App\Models\NewsCategory;
 use App\Models\PhotoCategory;
 use App\Models\School;
 use App\Models\Setting;
@@ -263,7 +264,8 @@ class NewsController extends Controller
     public function newsCreate()
     {
         $galleries = PhotoCategory::where('status', 1)->get();
-        return response()->json(['galleries' => $galleries], 200);
+        $categories = NewsCategory::where('status', 1)->get();
+        return response()->json(['galleries' => $galleries, 'categories' => $categories], 200);
     }
 
     public function newsStore(Request $request)
