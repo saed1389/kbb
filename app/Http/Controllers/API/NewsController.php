@@ -160,7 +160,7 @@ class NewsController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'certificate' => 'file'
+            'certificate' => 'required'
         ]);
 
         if ($request->hasFile('certificate')) {
@@ -457,39 +457,5 @@ class NewsController extends Controller
     {
 
     }
-
-    /*private function storeBase64($imageBase64)
-    {
-        // Split the base64 string on ';' and check if the result has two parts
-        $parts = explode(';', $imageBase64);
-        if (count($parts) !== 2) {
-            throw new \Exception('Invalid base64 string format');
-        }
-        list($type, $imageBase64) = $parts;
-
-        // Split the second part on ',' and check if the result has two parts
-        $parts = explode(',', $imageBase64);
-        if (count($parts) !== 2) {
-            throw new \Exception('Invalid base64 string format');
-        }
-        list(, $imageBase64) = $parts;
-
-        // Decode the base64 string
-        $imageBase64 = base64_decode($imageBase64);
-        if ($imageBase64 === false) {
-            throw new \Exception('Base64 decode failed');
-        }
-
-        // Generate the image name and path
-        $imageName = time() . '.jpg';
-        $path = public_path() . "/uploads/news/crop/" . $imageName;
-
-        // Write the decoded image data to the file
-        if (file_put_contents($path, $imageBase64) === false) {
-            throw new \Exception('Failed to write image to file');
-        }
-
-        return $imageName;
-    }*/
 
 }

@@ -38,17 +38,17 @@
                 <div class="col-xxl-8 col-xl-8 col-lg-8">
                     <div class="postbox__wrapper">
                         <article class="postbox__item format-image mb-50 transition-3">
-                            <div class="postbox__thumb p-relative m-img">
+                            {{--<div class="postbox__thumb p-relative m-img">
                                 <div class="postbox__thumb-text d-none d-md-block">
                                     <span>{{ $news->created_at->translatedFormat('d M Y') }}</span>
                                 </div>
                                 <img src="{{ asset('uploads/news/original/'.$news->image) }}" alt="{{ $news->title }}">
-                            </div>
+                            </div>--}}
                             <div class="postbox__content">
-                                <div class="postbox__meta">
+                                {{--<div class="postbox__meta">
                                     <span><a><i class="flaticon-user"></i>{{ $news->created_by == 1 ? 'Yönetici' : @$news->getAuthorName->titleName->title.' '.@$news->getAuthorName->first_name.' '.@$news->getAuthorName->last_name }}</a></span>
                                     <span><i class="flaticon-comment"></i>{{ $comments->count() }} Yorumlar</span>
-                                </div>
+                                </div>--}}
                                 <h3 class="postbox__title" style="font-size: 21px">{{ $news->title }}</h3>
                                 <div class="postbox__text">
                                     <p>
