@@ -332,7 +332,7 @@ class NewsController extends Controller
             'OnPermission' => $request->OnPermission,
             'status' => 0,
             'image' => $save_url,
-            'cropImage' => $this->storeBase64($request->image_base64),
+            'cropImage' => $save_url,
             'created_by' => Auth::user()->id,
             'news_order' => 0,
             'confirm' => 0
@@ -455,7 +455,7 @@ class NewsController extends Controller
 
     }
 
-    private function storeBase64($imageBase64)
+    /*private function storeBase64($imageBase64)
     {
         // Split the base64 string on ';' and check if the result has two parts
         $parts = explode(';', $imageBase64);
@@ -487,6 +487,6 @@ class NewsController extends Controller
         }
 
         return $imageName;
-    }
+    }*/
 
 }
