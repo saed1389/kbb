@@ -35,7 +35,7 @@ class ScholarshipController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function display(string $id)
     {
         $scholarship = Scholarship::where('id', $id)->first();
         return view('admin.scholarships.show', compact('scholarship'));

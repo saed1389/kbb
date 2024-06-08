@@ -51,6 +51,7 @@ class User extends Authenticatable
         'user_type',
         'profile_image',
         'user_cv',
+        'apply',
         'status',
     ];
 

@@ -1,5 +1,5 @@
 @extends('admin.layouts.app')
-@section('title') Üye Listesi @endsection
+@section('title') Burs Başvuruları @endsection
 @section('content')
     @push('styles')
         <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
@@ -49,7 +49,6 @@
                                 <th>Name Surname</th>
                                 <th>Domestic Company</th>
                                 <th>Position</th>
-                                <th>Title</th>
                                 <th>Phone Number</th>
                                 <th>Mobile Phone</th>
                                 <th>Email</th>
@@ -93,10 +92,17 @@
                             "orderable": false
                         },
 
-                        { data: 'name', name: 'name', "searchable": true,  "orderable": true},
+                        {
+                            data: 'name',
+                            name: 'name',
+                            render: function(data, type, row) {
+                                return '<a href="{{ url("admin/scholarships") }}/' + row.id + '/display" >' + data + '</a>';
+                            },
+                            "searchable": true,
+                            "orderable": true
+                        },
                         { data: 'domesticCompany', name: 'domesticCompany', "searchable": true,  "orderable": true},
                         { data: 'position', name: 'position', "searchable": true,  "orderable": true},
-                        { data: 'title', name: 'title', "searchable": true,  "orderable": true},
                         { data: 'phoneNumber', name: 'phoneNumber', "searchable": true,  "orderable": true},
                         { data: 'mobilePhone', name: 'mobilePhone', "searchable": true,  "orderable": true},
                         { data: 'email', name: 'email', "searchable": true,  "orderable": true},
@@ -172,28 +178,7 @@
                     }
 
                 });
-                $(document).ready(function(){
-                    $(document).on('change', 'input.switch-input.active', function() {
-                        var check_active = $(this).is(':checked') ? 1 : 0;
-                        var check_id = $(this).attr('data-id');
-                        var $dataTable = $('#example').DataTable()
-                        $.ajax({
-                            type: "POST",
-                            headers: {
-                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                            },
-                            url: "{{ url('/admin/scholarships/changeStatus') }}/"+check_id+"/"+check_active,
-                            data: { _token : $('meta[name="csrf-token"]').attr('content'), id: check_id, active: check_active},
-                            success: function(response){
-                                toastr.success("Durumu başarıyla değiştir!");
-                                $dataTable.ajax.reload();
-                            },
-                            error: function(error) {
-                                console.error("AJAX Error:", error);
-                            }
-                        });
-                    });
-                });
+
             });
 
             function newexportaction(e, dt, button, config) {

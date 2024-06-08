@@ -143,16 +143,14 @@ class EventController extends Controller
     {
         Event::where('id', $id)->update(['status' => $status]);
     }
-
-    public function GetEvents ()
+    public function GetEvents()
     {
         if (\request()->ajax()) {
-            return datatables()->of(Event::with('eventCategory:id,title')
-                ->select('events.id', 'events.title', 'events.event_category', 'events.event_place' , 'events.created_at', 'events.status'))
-               /* ->where('events.status', 1)
-                ->orderBy('events.id', 'DESC')*/
-                ->make(true);
+            $query = Event::with('eventCategory:id,title')
+                ->select('events.id', 'events.title', 'events.event_category', 'events.event_place', 'events.created_at', 'events.status')
+                ->orderBy('events.id', 'desc');
 
+            return datatables()->of($query)->make(true);
         } else {
             return false;
         }

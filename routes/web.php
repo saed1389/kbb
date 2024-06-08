@@ -444,8 +444,9 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
         Route::get('get_documents', [DocumentController::class, 'GetDocuments'])->name('get_documents');
 
         // Scholarship Routes
-        Route::resource('scholarships', ScholarshipController::class)->except('destroy');
+        Route::resource('scholarships', ScholarshipController::class)->except('destroy', 'show');
         Route::get('scholarships/delete/{id}', [ScholarshipController::class, 'delete'])->name('scholarships.delete');
+        Route::get('scholarships/{id}/display', [ScholarshipController::class, 'display'])->name('scholarships.display');
         Route::post('scholarships/changeStatus/{id}/{status}', [ScholarshipController::class, 'changeStatus']);
         Route::get('get_scholarships', [ScholarshipController::class, 'GetScholarships'])->name('get_scholarships');
 

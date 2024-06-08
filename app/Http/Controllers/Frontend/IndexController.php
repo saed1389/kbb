@@ -33,6 +33,7 @@ class IndexController extends Controller
 
     public function user_register(Request $request)
     {
+        //dd($request->all());
         $request->validate([
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required'],
@@ -64,6 +65,8 @@ class IndexController extends Controller
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
             'type' => 0,
+            'user_type' => 1,
+            'apply' => 0,
             'status' => 0,
             'created_at' => Carbon::now()
         ]);
@@ -195,21 +198,21 @@ class IndexController extends Controller
             'dateOfGraduation' => 'required',
             'expertiseTestDate' => 'required',
             'specializedInstitution' => 'required',
-            'medicalSpecialty' => 'required|file|mimes:pdf,doc,docx,ppt,pptx,pps,ppsx,xls,xlsx|max:5120',
-            'KBBQualificationCertificate' => 'required|file|mimes:pdf,doc,docx,ppt,pptx,pps,ppsx,xls,xlsx|max:5120',
-            'personCV' => 'required|file|mimes:pdf,doc,docx,ppt,pptx,pps,ppsx,xls,xlsx|max:5120',
+            'medicalSpecialty' => 'required|file|mimes:jpg,jpeg,png,pdf,doc,docx,ppt,pptx,pps,ppsx,xls,xlsx|max:5120',
+            'KBBQualificationCertificate' => 'required|file|mimes:jpg,jpeg,png,pdf,doc,docx,ppt,pptx,pps,ppsx,xls,xlsx|max:5120',
+            'personCV' => 'required|file|mimes:jpg,jpeg,png,pdf,doc,docx,ppt,pptx,pps,ppsx,xls,xlsx|max:5120',
             'workingArea' => 'required',
-            'foreignLanguage1' => 'required|file|mimes:pdf,doc,docx,ppt,pptx,pps,ppsx,xls,xlsx|max:5120',
-            'foreignLanguage2' => 'required|file|mimes:pdf,doc,docx,ppt,pptx,pps,ppsx,xls,xlsx|max:5120',
-            'foreignLanguage3' => 'file|mimes:pdf,doc,docx,ppt,pptx,pps,ppsx,xls,xlsx|max:5120',
-            'foreignLanguage4' => 'file|mimes:pdf,doc,docx,ppt,pptx,pps,ppsx,xls,xlsx|max:5120',
-            'currentLanguage' => 'file|mimes:pdf,doc,docx,ppt,pptx,pps,ppsx,xls,xlsx|max:5120',
-            'referenceLetter1' => 'required|file|mimes:pdf,doc,docx,ppt,pptx,pps,ppsx,xls,xlsx|max:5120',
-            'referenceLetter2' => 'required|file|mimes:pdf,doc,docx,ppt,pptx,pps,ppsx,xls,xlsx|max:5120',
-            'referenceLetter3' => 'required|file|mimes:pdf,doc,docx,ppt,pptx,pps,ppsx,xls,xlsx|max:5120',
-            'referenceLetter4' => 'required|file|mimes:pdf,doc,docx,ppt,pptx,pps,ppsx,xls,xlsx|max:5120',
+            'foreignLanguage1' => 'required|file|mimes:jpg,jpeg,png,pdf,doc,docx,ppt,pptx,pps,ppsx,xls,xlsx|max:5120',
+            'foreignLanguage2' => 'required|file|mimes:jpg,jpeg,png,pdf,doc,docx,ppt,pptx,pps,ppsx,xls,xlsx|max:5120',
+            'foreignLanguage3' => 'file|mimes:jpg,jpeg,png,pdf,doc,docx,ppt,pptx,pps,ppsx,xls,xlsx|max:5120',
+            'foreignLanguage4' => 'file|mimes:jpg,jpeg,png,pdf,doc,docx,ppt,pptx,pps,ppsx,xls,xlsx|max:5120',
+            'currentLanguage' => 'file|mimes:jpg,jpeg,png,pdf,doc,docx,ppt,pptx,pps,ppsx,xls,xlsx|max:5120',
+            'referenceLetter1' => 'required|file|mimes:jpg,jpeg,png,pdf,doc,docx,ppt,pptx,pps,ppsx,xls,xlsx|max:5120',
+            'referenceLetter2' => 'required|file|mimes:jpg,jpeg,png,pdf,doc,docx,ppt,pptx,pps,ppsx,xls,xlsx|max:5120',
+            'referenceLetter3' => 'required|file|mimes:jpg,jpeg,png,pdf,doc,docx,ppt,pptx,pps,ppsx,xls,xlsx|max:5120',
+            'referenceLetter4' => 'required|file|mimes:jpg,jpeg,png,pdf,doc,docx,ppt,pptx,pps,ppsx,xls,xlsx|max:5120',
             'candidateEducation' => 'required',
-            'institutionLetter' => 'required|file|mimes:pdf,doc,docx,ppt,pptx,pps,ppsx,xls,xlsx|max:5120',
+            'institutionLetter' => 'required|file|mimes:jpg,jpeg,png,pdf,doc,docx,ppt,pptx,pps,ppsx,xls,xlsx|max:5120',
             'educationStartDate' => 'required',
             'educationCompletionDate' => 'required',
             'scholarshipDuration' => 'required',

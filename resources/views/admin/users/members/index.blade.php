@@ -150,7 +150,7 @@
                         { data: null,
                             render: function (data, type, row) {
                                 return '<td><label class="switch switch-danger">' +
-                                    '<input type="checkbox" class="switch-input active" name="status" id="status" data-id="' + row.id + '" value="' + row.id + '" ' + (row.status == 1 ? 'checked' : '') + '>' +
+                                    '<input type="checkbox" class="switch-input active" name="status" id="status" data-id="' + row.id + '" value="' + row.id + '" ' + (row.status == 0 ? 'checked' : '') + '>' +
                                     '<span class="switch-toggle-slider">' +
                                     '<span class="switch-on">' +
                                     '<i class="ti ti-check"></i>' +
@@ -233,7 +233,7 @@
                 });
                 $(document).ready(function(){
                     $(document).on('change', 'input.switch-input.active', function() {
-                        var check_active = $(this).is(':checked') ? 1 : 0;
+                        var check_active = $(this).is(':checked') ? 0 : 1;
                         var check_id = $(this).attr('data-id');
                         var $dataTable = $('#example').DataTable()
                         $.ajax({
