@@ -36,49 +36,55 @@
                 <div class="col-md-12">
                     <div class="row">
                         <div class="col-xl-4 col-lg-4 mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
-                            <div class="tp-feature__wraper">
-                                <div class="tp-feature__shape-1">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__shape-2">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__item z-index">
-                                    <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm"><a href="{{ route('belgeler_yonetim_kurulu_kararlari') }}"> Yönetim Kurulu Kararları</a></h4>
+                            <a href="{{ route('belgeler_yonetim_kurulu_kararlari') }}">
+                                <div class="tp-feature__wraper">
+                                    <div class="tp-feature__shape-1">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__shape-2">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__item z-index">
+                                        <div class="tp-feature__content d-flex align-items-center justify-content-between">
+                                            <h4 class="tp-feature__title-sm"> Yönetim Kurulu Kararları</h4>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-xl-4 col-lg-4 mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
-                            <div class="tp-feature__wraper">
-                                <div class="tp-feature__shape-1">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__shape-2">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__item z-index">
-                                    <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm"><a href="{{ route('belgeler-etik-ve-onur-kurulu-kararlari') }}">Etik ve Onur Kurulu Kararları</a></h4>
+                            <a href="{{ route('belgeler-etik-ve-onur-kurulu-kararlari') }}">
+                                <div class="tp-feature__wraper">
+                                    <div class="tp-feature__shape-1">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__shape-2">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__item z-index">
+                                        <div class="tp-feature__content d-flex align-items-center justify-content-between">
+                                            <h4 class="tp-feature__title-sm">Etik ve Onur Kurulu Kararları</h4>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-xl-4 col-lg-4 mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
-                            <div class="tp-feature__wraper">
-                                <div class="tp-feature__shape-1">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__shape-2">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__item z-index">
-                                    <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm"><a href="{{ route('belgeler-kongre-sartnameleri') }}">Kongre Şartnameleri</a></h4>
+                            <a href="{{ route('belgeler-kongre-sartnameleri') }}">
+                                <div class="tp-feature__wraper">
+                                    <div class="tp-feature__shape-1">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__shape-2">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__item z-index">
+                                        <div class="tp-feature__content d-flex align-items-center justify-content-between">
+                                            <h4 class="tp-feature__title-sm">Kongre Şartnameleri</h4>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                     </div>
                 </div>

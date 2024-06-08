@@ -83,6 +83,7 @@ class UserController extends Controller
             'occupation' => $request['occupation'],
             'first_name' => $request['first_name'],
             'last_name' => $request['last_name'],
+            'slug' => Str::slug($request->first_name.'-'.$request->last_name),
             'country' => $request['country'],
             'tc_card_no' => $request['tc_card_no'],
             'birthday_date' => $request['birthday_date'],
@@ -183,6 +184,7 @@ class UserController extends Controller
             'occupation' => $request['occupation'],
             'first_name' => $request['first_name'],
             'last_name' => $request['last_name'],
+            'slug' => Str::slug($request->first_name.'-'.$request->last_name),
             'country' => $request['country'],
             'tc_card_no' => $request['tc_card_no'],
             'birthday_date' => $request['birthday_date'],
@@ -280,15 +282,22 @@ class UserController extends Controller
         User::where('id', $id)->update(['status' => $status]);
     }
 
+    public function ChangeConfirm($id, $status)
+    {
+        User::where('id', $id)->update(['status' => $status, 'apply' => 1]);
+    }
+
     public function GetMembers()
     {
         if (\request()->ajax()) {
-            return datatables()->of(User::with(['titleName'])
+            $query = User::with(['titleName'])
                 ->where('type', '!=', 1)
                 ->where('status', 1)
                 ->where('apply', 1)
-                ->select('users.*'))
+                ->select('users.*')
+                ->orderBy('id', 'desc');
 
+            return datatables()->of($query)
                 ->addColumn('titleName', function (User $user) {
                     return optional($user->titleName)->title;
                 })
@@ -301,12 +310,14 @@ class UserController extends Controller
     public function getSuspends()
     {
         if (\request()->ajax()) {
-            return datatables()->of(User::with(['titleName'])
+            $query = User::with(['titleName'])
                 ->where('type', '!=', 1)
                 ->where('status', 0)
                 ->where('apply', 1)
-                ->select('users.*'))
+                ->select('users.*')
+                ->orderBy('id', 'desc');
 
+            return datatables()->of($query)
                 ->addColumn('titleName', function (User $user) {
                     return optional($user->titleName)->title;
                 })
@@ -319,12 +330,14 @@ class UserController extends Controller
     public function getApplications()
     {
         if (\request()->ajax()) {
-            return datatables()->of(User::with(['titleName'])
+            $query = User::with(['titleName'])
                 ->where('type', '!=', 1)
                 ->where('apply', 0)
                 ->where('status', 0)
-                ->select('users.*'))
+                ->select('users.*')
+                ->orderBy('id', 'desc');
 
+            return datatables()->of($query)
                 ->addColumn('titleName', function (User $user) {
                     return optional($user->titleName)->title;
                 })

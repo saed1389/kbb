@@ -21,6 +21,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 use function Laravel\Prompts\select;
 
 class IndexController extends Controller
@@ -46,6 +47,7 @@ class IndexController extends Controller
             'occupation' => $request['job'],
             'first_name' => $request['first_name'],
             'last_name' => $request['last_name'],
+            'slug' => Str::slug($request->first_name.'-'.$request->last_name),
             'country' => $request['country'],
             'birthday_date' => $request['birthday_date'],
             'gender' => $request['gender'],

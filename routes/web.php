@@ -334,6 +334,7 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
             Route::get('members/applications', [UserController::class, 'applications'])->name('members.applications');
             Route::get('members/applications/{id}/show', [UserController::class, 'show'])->name('members.show');
             Route::post('members/changeStatus/{id}/{status}', [UserController::class, 'changeStatus']);
+            Route::post('members/ChangeConfirm/{id}/{status}', [UserController::class, 'ChangeConfirm']);
             Route::get('get_members', [UserController::class, 'GetMembers'])->name('get_members');
             Route::get('get_suspends', [UserController::class, 'getSuspends'])->name('get_suspends');
             Route::get('get_applications', [UserController::class, 'getApplications'])->name('get_applications');

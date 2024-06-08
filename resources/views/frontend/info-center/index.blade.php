@@ -34,230 +34,259 @@
                 <div class="col-md-12">
                     <div class="row">
                         <div class="col-xl-3 col-lg-3 mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
-                            <div class="tp-feature__wraper">
-                                <div class="tp-feature__shape-1">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__shape-2">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__item z-index">
-                                    <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm"><a href="{{ route('haberler') }}">Haberler</a></h4>
+                            <a href="{{ route('haberler') }}">
+                                <div class="tp-feature__wraper">
+                                    <div class="tp-feature__shape-1">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__shape-2">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__item z-index">
+                                        <div class="tp-feature__content d-flex align-items-center justify-content-between">
+                                            <h4 class="tp-feature__title-sm">Haberler</h4>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-xl-3 col-lg-3 mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".5s">
-                            <div class="tp-feature__wraper">
-                                <div class="tp-feature__shape-1">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__shape-2">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__item z-index">
-                                    <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h5 class="tp-feature__title-sm"><a href="{{ route('etkinlikler') }}">Toplantılar</a></h5>
+                            <a href="{{ route('etkinlikler') }}">
+                                <div class="tp-feature__wraper">
+                                    <div class="tp-feature__shape-1">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__shape-2">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__item z-index">
+                                        <div class="tp-feature__content d-flex align-items-center justify-content-between">
+                                            <h5 class="tp-feature__title-sm">Toplantılar</h5>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-xl-3 col-lg-3 mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".7s">
-                            <div class="tp-feature__wraper" style="height: 97px">
-                                <div class="tp-feature__shape-1">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__shape-2">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__item z-index">
-                                    <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h6 class="tp-feature__title-sm"><a href="{{ route('gecmis-kongre-program-ve-bildirikitaplari') }}"><small>Geçmiş Kongre Program ve Bildiri Kitapları</small></a></h6>
+                            <a href="{{ route('gecmis-kongre-program-ve-bildirikitaplari') }}">
+                                <div class="tp-feature__wraper" style="height: 97px">
+                                    <div class="tp-feature__shape-1">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__shape-2">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__item z-index">
+                                        <div class="tp-feature__content d-flex align-items-center justify-content-between">
+                                            <h6 class="tp-feature__title-sm"><small>Geçmiş Kongre Program ve Bildiri Kitapları</small></h6>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
-                        <div class="col-xl-3 col-lg-3 mb-30 wow tpfadeUp" data-wow-duration=".9s"
-                             data-wow-delay=".3s">
-                            <div class="tp-feature__wraper">
-                                <div class="tp-feature__shape-1">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__shape-2">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__item z-index">
-                                    <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm"><a href="{{ route('dergiler') }}">Dergiler</a></h4>
+                        <div class="col-xl-3 col-lg-3 mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
+                            <a href="{{ route('dergiler') }}">
+                                <div class="tp-feature__wraper">
+                                    <div class="tp-feature__shape-1">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__shape-2">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__item z-index">
+                                        <div class="tp-feature__content d-flex align-items-center justify-content-between">
+                                            <h4 class="tp-feature__title-sm">Dergiler</h4>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-xl-3 col-lg-3 mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".5s">
-                            <div class="tp-feature__wraper">
-                                <div class="tp-feature__shape-1">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__shape-2">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__item z-index">
-                                    <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm"><a href="{{ route('hasta_bilgilendirme_brosurleri') }}"><small>Hasta Bilgilendirme Broşürleri</small></a></h4>
+                            <a href="{{ route('hasta_bilgilendirme_brosurleri') }}">
+                                <div class="tp-feature__wraper">
+                                    <div class="tp-feature__shape-1">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__shape-2">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__item z-index">
+                                        <div class="tp-feature__content d-flex align-items-center justify-content-between">
+                                            <h4 class="tp-feature__title-sm"><small>Hasta Bilgilendirme Broşürleri</small></h4>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-xl-3 col-lg-3 mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".7s">
-                            <div class="tp-feature__wraper">
-                                <div class="tp-feature__shape-1">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__shape-2">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__item z-index">
-                                    <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm"><a href="{{ asset('uploads/Document/ucep.pdf') }}" download="">UÇEP</a></h4>
+                            <a href="{{ asset('uploads/Document/ucep.pdf') }}">
+                                <div class="tp-feature__wraper">
+                                    <div class="tp-feature__shape-1">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__shape-2">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__item z-index">
+                                        <div class="tp-feature__content d-flex align-items-center justify-content-between">
+                                            <h4 class="tp-feature__title-sm">UÇEP</h4>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-xl-3 col-lg-3 mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".7s">
-                            <div class="tp-feature__wraper">
-                                <div class="tp-feature__shape-1">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__shape-2">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__item z-index">
-                                    <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm"><a href="{{ route('belgeler-tipta-uzmanlik-egitimi-karnesi') }}"><small>Tıpta Uzmanlık Eğitimi Karnesi</small></a> </h4>
+                            <a href="{{ route('belgeler-tipta-uzmanlik-egitimi-karnesi') }}">
+                                <div class="tp-feature__wraper">
+                                    <div class="tp-feature__shape-1">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__shape-2">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__item z-index">
+                                        <div class="tp-feature__content d-flex align-items-center justify-content-between">
+                                            <h4 class="tp-feature__title-sm"><small>Tıpta Uzmanlık Eğitimi Karnesi</small> </h4>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-xl-3 col-lg-3 mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".7s">
-                            <div class="tp-feature__wraper">
-                                <div class="tp-feature__shape-1">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__shape-2">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__item z-index">
-                                    <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm"><a href="{{ route('onam_formlari') }}">Onam Formları</a> </h4>
+                            <a href="{{ route('onam_formlari') }}">
+                                <div class="tp-feature__wraper">
+                                    <div class="tp-feature__shape-1">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__shape-2">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__item z-index">
+                                        <div class="tp-feature__content d-flex align-items-center justify-content-between">
+                                            <h4 class="tp-feature__title-sm">Onam Formları </h4>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-xl-3 col-lg-3 mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".7s">
-                            <div class="tp-feature__wraper">
-                                <div class="tp-feature__shape-1">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__shape-2">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__item z-index">
-                                    <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm"><a href="{{ route('kilavuzlar') }}">Kılavuzlar</a></h4>
+                            <a href="{{ route('kilavuzlar') }}">
+                                <div class="tp-feature__wraper">
+                                    <div class="tp-feature__shape-1">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__shape-2">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__item z-index">
+                                        <div class="tp-feature__content d-flex align-items-center justify-content-between">
+                                            <h4 class="tp-feature__title-sm">Kılavuzlar</h4>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-xl-3 col-lg-3 mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".7s">
-                            <div class="tp-feature__wraper">
-                                <div class="tp-feature__shape-1">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__shape-2">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__item z-index">
-                                    <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm"><a href="{{ route('ttb-ucret-tarifesi') }}">TTB Ücret Tarifesi</a></h4>
+                            <a href="{{ route('ttb-ucret-tarifesi') }}">
+                                <div class="tp-feature__wraper">
+                                    <div class="tp-feature__shape-1">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__shape-2">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__item z-index">
+                                        <div class="tp-feature__content d-flex align-items-center justify-content-between">
+                                            <h4 class="tp-feature__title-sm">TTB Ücret Tarifesi</h4>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-xl-3 col-lg-3 mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".7s">
-                            <div class="tp-feature__wraper">
-                                <div class="tp-feature__shape-1">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__shape-2">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__item z-index">
-                                    <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm">  <a href="{{ route('satin-alma-sureci') }}">Satın Alma Süreci</a></h4>
+                            <a href="{{ route('satin-alma-sureci') }}">
+                                <div class="tp-feature__wraper">
+                                    <div class="tp-feature__shape-1">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__shape-2">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__item z-index">
+                                        <div class="tp-feature__content d-flex align-items-center justify-content-between">
+                                            <h4 class="tp-feature__title-sm">  Satın Alma Süreci</h4>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-xl-3 col-lg-3 mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".7s">
-                            <div class="tp-feature__wraper" style="height: 97px">
-                                <div class="tp-feature__shape-1">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__shape-2">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__item z-index">
-                                    <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm"><a href="{{ route('uzmanlik_egitimi_kitablari') }}" ><small>KBB ve BBC Uzmanlık Eğitimi Kitabı - 1</small></a></h4>
+                            <a href="{{ route('uzmanlik_egitimi_kitablari') }}" >
+                                <div class="tp-feature__wraper" style="height: 97px">
+                                    <div class="tp-feature__shape-1">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__shape-2">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__item z-index">
+                                        <div class="tp-feature__content d-flex align-items-center justify-content-between">
+                                            <h4 class="tp-feature__title-sm"><small>KBB ve BBC Uzmanlık Eğitimi Kitabı - 1</small></h4>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-xl-3 col-lg-3 mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".7s">
-                            <div class="tp-feature__wraper" style="height: 97px">
-                                <div class="tp-feature__shape-1">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__shape-2">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__item z-index">
-                                    <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm">  <a href="{{ route('uzmanlik_egitimi_kitablari-1') }}"><small>KBB ve BBC Uzmanlık Eğitimi Kitabı - 2</small></a></h4>
+                            <a href="{{ route('uzmanlik_egitimi_kitablari-1') }}">
+                                <div class="tp-feature__wraper" style="height: 97px">
+                                    <div class="tp-feature__shape-1">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__shape-2">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__item z-index">
+                                        <div class="tp-feature__content d-flex align-items-center justify-content-between">
+                                            <h4 class="tp-feature__title-sm">  <small>KBB ve BBC Uzmanlık Eğitimi Kitabı - 2</small></h4>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-xl-3 col-lg-3 mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".7s">
-                            <div class="tp-feature__wraper">
-                                <div class="tp-feature__shape-1">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__shape-2">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__item z-index">
-                                    <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm">  <a href="{{ route('linkler') }}" > Linkler</a></h4>
+                            <a href="{{ route('linkler') }}" >
+                                <div class="tp-feature__wraper">
+                                    <div class="tp-feature__shape-1">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__shape-2">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__item z-index">
+                                        <div class="tp-feature__content d-flex align-items-center justify-content-between">
+                                            <h4 class="tp-feature__title-sm">   Linkler</h4>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-xl-3 col-lg-3 mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".7s">
-                            <div class="tp-feature__wraper">
-                                <div class="tp-feature__shape-1">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__shape-2">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__item z-index">
-                                    <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm">  <a href="{{ route('turk-kbb-bbc-dernegi-etik-kitabi') }}"><small>Türk KBB-BBC Derneği Etik Kitabı</small></a></h4>
+                            <a href="{{ route('turk-kbb-bbc-dernegi-etik-kitabi') }}">
+                                <div class="tp-feature__wraper">
+                                    <div class="tp-feature__shape-1">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__shape-2">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__item z-index">
+                                        <div class="tp-feature__content d-flex align-items-center justify-content-between">
+                                            <h4 class="tp-feature__title-sm">  <small>Türk KBB-BBC Derneği Etik Kitabı</small></h4>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         {{--<div class="col-xl-3 col-lg-3 mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".7s">
                             <div class="tp-feature__wraper">

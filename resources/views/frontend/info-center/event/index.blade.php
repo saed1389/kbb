@@ -37,19 +37,21 @@
                     <div class="row">
                         @foreach($eventsCategories as $item)
                             <div class="col-xl-5 col-lg-5 mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
-                                <div class="tp-feature__wraper">
-                                    <div class="tp-feature__shape-1">
-                                        <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
-                                    </div>
-                                    <div class="tp-feature__shape-2">
-                                        <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
-                                    </div>
-                                    <div class="tp-feature__item z-index">
-                                        <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                            <h4 class="tp-feature__title-sm"><a href="{{ route('etkinlik', [$item->id, $item->slug]) }}">{{ $item->title }}</a></h4>
+                                <a href="{{ route('etkinlik', [$item->id, $item->slug]) }}">
+                                    <div class="tp-feature__wraper">
+                                        <div class="tp-feature__shape-1">
+                                            <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
+                                        </div>
+                                        <div class="tp-feature__shape-2">
+                                            <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
+                                        </div>
+                                        <div class="tp-feature__item z-index">
+                                            <div class="tp-feature__content d-flex align-items-center justify-content-between">
+                                                <h4 class="tp-feature__title-sm">{{ $item->title }}</h4>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                </a>
                             </div>
                         @endforeach
 

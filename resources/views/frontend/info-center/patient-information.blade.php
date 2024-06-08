@@ -36,154 +36,174 @@
                 <div class="col-md-12">
                     <div class="row">
                         <div class="col-xl-4 col-lg-4 mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
-                            <div class="tp-feature__wraper">
-                                <div class="tp-feature__shape-1">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__shape-2">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__item z-index">
-                                    <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm"><a href="{{ asset('uploads/Document/otoskleroz.pdf') }}" target="_blank">Otoskleroz</a></h4>
+                            <a href="{{ asset('uploads/Document/otoskleroz.pdf') }}" target="_blank">
+                                <div class="tp-feature__wraper">
+                                    <div class="tp-feature__shape-1">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__shape-2">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__item z-index">
+                                        <div class="tp-feature__content d-flex align-items-center justify-content-between">
+                                            <h4 class="tp-feature__title-sm">Otoskleroz</h4>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-xl-4 col-lg-4 mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".5s">
-                            <div class="tp-feature__wraper">
-                                <div class="tp-feature__shape-1">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__shape-2">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__item z-index">
-                                    <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h5 class="tp-feature__title-sm"><a href="{{ asset('uploads/Document/bademcik-geniz-eti-ve-kulak-tupu.pdf') }}" target="_blank"> Bademcik, Geniz Eti ve Kulak Tüpü</a></h5>
+                            <a href="{{ asset('uploads/Document/bademcik-geniz-eti-ve-kulak-tupu.pdf') }}" target="_blank">
+                                <div class="tp-feature__wraper">
+                                    <div class="tp-feature__shape-1">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__shape-2">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__item z-index">
+                                        <div class="tp-feature__content d-flex align-items-center justify-content-between">
+                                            <h5 class="tp-feature__title-sm">Bademcik, Geniz Eti ve Kulak Tüpü</h5>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-xl-4 col-lg-4 mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".7s">
-                            <div class="tp-feature__wraper" style="height: 97px">
-                                <div class="tp-feature__shape-1">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__shape-2">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__item z-index">
-                                    <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h6 class="tp-feature__title-sm"><a href="{{ asset('uploads/Document/septoplasti.pdf') }}" target="_blank"> Septoplasti</a></h6>
+                            <a href="{{ asset('uploads/Document/septoplasti.pdf') }}" target="_blank">
+                                <div class="tp-feature__wraper" style="height: 97px">
+                                    <div class="tp-feature__shape-1">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__shape-2">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__item z-index">
+                                        <div class="tp-feature__content d-flex align-items-center justify-content-between">
+                                            <h6 class="tp-feature__title-sm">Septoplasti</h6>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-xl-4 col-lg-4 mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
-                            <div class="tp-feature__wraper">
-                                <div class="tp-feature__shape-1">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__shape-2">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__item z-index">
-                                    <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm"><a href="{{ asset('uploads/Document/rinoplasti.pdf') }}" target="_blank"> Rinoplasti</a></h4>
+                            <a href="{{ asset('uploads/Document/rinoplasti.pdf') }}" target="_blank">
+                                <div class="tp-feature__wraper">
+                                    <div class="tp-feature__shape-1">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__shape-2">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__item z-index">
+                                        <div class="tp-feature__content d-flex align-items-center justify-content-between">
+                                            <h4 class="tp-feature__title-sm"> Rinoplasti</h4>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-xl-4 col-lg-4 mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".5s">
-                            <div class="tp-feature__wraper">
-                                <div class="tp-feature__shape-1">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__shape-2">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__item z-index">
-                                    <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm"><a href="{{ asset('uploads/Document/troid-cerrahisi.pdf') }}" target="_blank"> Tiroid Cerrahisi</a></h4>
+                            <a href="{{ asset('uploads/Document/troid-cerrahisi.pdf') }}" target="_blank">
+                                <div class="tp-feature__wraper">
+                                    <div class="tp-feature__shape-1">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__shape-2">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__item z-index">
+                                        <div class="tp-feature__content d-flex align-items-center justify-content-between">
+                                            <h4 class="tp-feature__title-sm"> Tiroid Cerrahisi</h4>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-xl-4 col-lg-4 mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".7s">
-                            <div class="tp-feature__wraper">
-                                <div class="tp-feature__shape-1">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__shape-2">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__item z-index">
-                                    <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm"><a href="{{ asset('uploads/Document/endoskopik-sinus-cerrahisi.pdf') }}" target="_blank"> Endoskopik Sinüs Cerrahisi</a> </h4>
+                            <a href="{{ asset('uploads/Document/endoskopik-sinus-cerrahisi.pdf') }}" target="_blank">
+                                <div class="tp-feature__wraper">
+                                    <div class="tp-feature__shape-1">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__shape-2">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__item z-index">
+                                        <div class="tp-feature__content d-flex align-items-center justify-content-between">
+                                            <h4 class="tp-feature__title-sm"> Endoskopik Sinüs Cerrahisi </h4>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-xl-4 col-lg-4 mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
-                            <div class="tp-feature__wraper">
-                                <div class="tp-feature__shape-1">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__shape-2">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__item z-index">
-                                    <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm"><a href="{{ asset('uploads/Document/mikrolarengoskopi-ve-ses-teli-cerrahisi.pdf') }}" target="_blank"><small> Mikrolarengoskopi ve Ses Teli Cerrahisi</small></a></h4>
+                            <a href="{{ asset('uploads/Document/mikrolarengoskopi-ve-ses-teli-cerrahisi.pdf') }}" target="_blank">
+                                <div class="tp-feature__wraper">
+                                    <div class="tp-feature__shape-1">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__shape-2">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__item z-index">
+                                        <div class="tp-feature__content d-flex align-items-center justify-content-between">
+                                            <h4 class="tp-feature__title-sm"><small> Mikrolarengoskopi ve Ses Teli Cerrahisi</small></h4>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-xl-4 col-lg-4 mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".5s">
-                            <div class="tp-feature__wraper">
-                                <div class="tp-feature__shape-1">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__shape-2">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__item z-index">
-                                    <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm"><a href="{{ asset('uploads/Document/kronik-otitis-media-cerrahileri.pdf') }}" target="_blank"> Kronik Otitis Media Cerrahileri</a></h4>
+                            <a href="{{ asset('uploads/Document/kronik-otitis-media-cerrahileri.pdf') }}" target="_blank">
+                                <div class="tp-feature__wraper">
+                                    <div class="tp-feature__shape-1">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__shape-2">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__item z-index">
+                                        <div class="tp-feature__content d-flex align-items-center justify-content-between">
+                                            <h4 class="tp-feature__title-sm"> Kronik Otitis Media Cerrahileri</h4>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-xl-4 col-lg-4 mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".7s">
-                            <div class="tp-feature__wraper">
-                                <div class="tp-feature__shape-1">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__shape-2">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__item z-index">
-                                    <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm"><a href="{{ asset('uploads/Document/larenjektomi-ve-boyun-diseksiyonu.pdf') }}" target="_blank"> Larenjektomi ve Boyun Diseksiyonu</a> </h4>
+                            <a href="{{ asset('uploads/Document/larenjektomi-ve-boyun-diseksiyonu.pdf') }}" target="_blank">
+                                <div class="tp-feature__wraper">
+                                    <div class="tp-feature__shape-1">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__shape-2">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__item z-index">
+                                        <div class="tp-feature__content d-flex align-items-center justify-content-between">
+                                            <h4 class="tp-feature__title-sm"> Larenjektomi ve Boyun Diseksiyonu </h4>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-xl-4 col-lg-4 mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
-                            <div class="tp-feature__wraper">
-                                <div class="tp-feature__shape-1">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__shape-2">
-                                    <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
-                                </div>
-                                <div class="tp-feature__item z-index">
-                                    <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm"><a href="{{ asset('uploads/Document/parotidektomi.pdf') }}" target="_blank"> Parotidektomi</a></h4>
+                            <a href="{{ asset('uploads/Document/parotidektomi.pdf') }}" target="_blank">
+                                <div class="tp-feature__wraper">
+                                    <div class="tp-feature__shape-1">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__shape-2">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__item z-index">
+                                        <div class="tp-feature__content d-flex align-items-center justify-content-between">
+                                            <h4 class="tp-feature__title-sm"> Parotidektomi</h4>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                     </div>
                 </div>

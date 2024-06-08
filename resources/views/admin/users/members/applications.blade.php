@@ -238,7 +238,7 @@
                             headers: {
                                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                             },
-                            url: "{{ url('/admin/users/members/changeStatus') }}/"+check_id+"/"+check_active,
+                            url: "{{ url('/admin/users/members/ChangeConfirm') }}/"+check_id+"/"+check_active,
                             data: { _token : $('meta[name="csrf-token"]').attr('content'), id: check_id, active: check_active},
                             success: function(response){
                                 toastr.success("Başvuru Başarıyla Onaylandı!");
