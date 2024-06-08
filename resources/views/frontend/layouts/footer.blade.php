@@ -83,7 +83,12 @@
                             <div class="tp-footer__list">
                                 <ul>
                                     <li><a href="{{ route('uye-listesi') }}">Üyelerimiz</a></li>
-                                    <li><a href="{{ route('register') }}">Yeni Üyelik</a></li>
+                                    @if(Route::has('login'))
+                                        @auth
+                                        @else
+                                            <li><a href="{{ route('register') }}">Yeni Üyelik</a></li>
+                                        @endauth
+                                    @endif
                                     <li><a href="{{ route('uyelik-kosullari') }}">Üyelik Koşulları</a></li>
                                 </ul>
                             </div>
