@@ -50,6 +50,12 @@ class NewsController extends Controller
         return response()->json(['news' => $news], 200);
     }
 
+    public function showImage($id)
+    {
+        $image = Image::where($id)->get();
+        return response()->json(['image' => $image], 200);
+    }
+
     public function events() {
         $news = Event::where('status', 1)
             ->orderBy('created_at', 'desc')
