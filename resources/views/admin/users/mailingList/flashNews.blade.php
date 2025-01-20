@@ -381,13 +381,14 @@
             }
         </script>
         <script>
-            var selectedMembers = [];
             $(document).ready(function () {
                 var selectedNews = [];
 
+                // Listen for changes on the checkbox
                 $(document).on('change', 'input[name="mail"]', function () {
                     var newsId = $(this).val();
 
+                    // If checked, add to the selectedNews array, otherwise remove it
                     if ($(this).is(':checked')) {
                         selectedNews.push(newsId);
                     } else {
@@ -395,23 +396,27 @@
                             return id !== newsId;
                         });
                     }
+
+                    // Regenerate the email template with the selected order
                     generateEmailTemplate();
                 });
 
                 function generateEmailTemplate() {
                     var emailTemplate = '';
 
-                    emailTemplate += '&nbsp;&nbsp;&nbsp;';
+                    // Clear the news list before building the new content
+                    $('#newslist').html('');
 
                     if (selectedNews.length > 0) {
-
+                        // Loop through the selected news IDs in the order they were selected
                         selectedNews.forEach(function (newsId) {
                             fetchNewsData(newsId, function (newsData) {
+                                // Append each news item to the email template in the same order
                                 emailTemplate += '<table id="' + newsData.id + '" align="center" cellpadding="0" cellspacing="0" bgcolor="#fff" style="max-width: 558px; margin: 0 auto; display: block; border: 1px solid #ccc;">';
                                 emailTemplate += '<tbody>';
                                 emailTemplate += '<tr>';
                                 emailTemplate += '<td>';
-                                emailTemplate += '<img width="200px" src="{{ env('APP_URL') }}/uploads/news/small/' + newsData.image + '" alt="' + newsData.title + '">';
+                                emailTemplate += '<img width="200px" src="{{ env('APP_URL') }}/uploads/news/crop/' + newsData.cropImage + '" alt="' + newsData.title + '">';
                                 emailTemplate += '</td>';
                                 emailTemplate += '<td style="border-left:1px solid #ccc; padding:5px; color: #00498f; font-size: 14px; font-family: Arial; margin: 0px; width: 406px;">';
                                 emailTemplate += '<p>';
@@ -423,16 +428,17 @@
                                 emailTemplate += '</tr>';
                                 emailTemplate += '</tbody>';
                                 emailTemplate += '</table>';
-
-                                $('#newslist').html(emailTemplate);
                             });
                         });
 
+                        // Once all data is fetched, update the news list with the template
+                        setTimeout(function () {
+                            $('#newslist').html(emailTemplate);
+                        }, 500);
                     } else {
-                        emailTemplate += '<p style="color: white">No news selected</p>';
+                        // If no news is selected, show a "No news selected" message
+                        $('#newslist').html('<p style="color: white">No news selected</p>');
                     }
-
-                    $('#newslist').append(emailTemplate);
                 }
 
                 function fetchNewsData(newsId, callback) {
@@ -451,88 +457,6 @@
                         }
                     });
                 }
-            });
-
-
-            $('#useThemeBtn').click(function () {
-                var newTemplate = $("#newstemplate")[0].innerHTML;
-                var e = document.getElementById("memberList");
-                var member = e.value;
-                $('#loadingSpinner').show();
-
-                $.ajax({
-                    url: "{{ route('send-flash-news') }}",
-                    method: 'POST',
-                    data: { content: newTemplate, selectedMembers: selectedMembers, member:member },
-                    success: function (response) {
-                        $('#loadingSpinner').hide();
-                        $('#finish').show();
-                        toastr.success("E-postaları başarıyla gönderdi");
-                    },
-                    error: function (error) {
-                        toastr.error("Bir hata var!!!");
-                        console.error('Error sending email:', error);
-                        $('#loadingSpinner').hide();
-                    }
-                });
-            });
-
-            $(document).ready(function () {
-                $('#memberList').change(function () {
-                    var selectedValue = $(this).val();
-                    if (selectedValue === '0') {
-                        $('#memberTotal').show();
-                        $('#userTotal').hide();
-
-                    } else if (selectedValue === '1') {
-                        $('#memberTotal').hide();
-                        $('#userTotal').show();
-
-                    } else if (selectedValue === '2') {
-                        $('#memberTotal').hide();
-                        $('#userTotal').hide();
-                        $('#myModal').modal('show');
-
-                        $.ajaxSetup({
-                            headers: {
-                                'X-CSRF-TOKEN' : $(`meta[name="csrf-token"]`).attr('content')
-                            }
-                        });
-
-                        var table = $('#memberListModal').DataTable({
-                            processing: true,
-                            serverSide: true,
-                            responsive: true,
-                            ajax: "{{ route('get_members') }}",
-                            columns: [
-                                {
-                                    data: null,
-                                    render: function (data, type, row) {
-                                        return '<td>' +
-                                            '<div class="form-check form-check-success">' +
-                                            '<input class="form-check-input customMember" type="checkbox" name="memberList" value="' + row.id + '" data-member-id="' + row.id + '" id="customMember">' +
-                                            '</div>' +
-                                            '</td>';
-                                    },
-                                    searchable: false,
-                                    orderable: false
-                                },
-                                { data: 'first_name', name: 'first_name', searchable: true },
-                                { data: 'last_name', name: 'last_name', searchable: true },
-                                { data: 'email', name: 'email', searchable: true },
-                            ]
-                        });
-
-                        $('#memberListModal').on('change', '.customMember', function () {
-                            var memberId = $(this).data('member-id');
-                            if ($(this).prop('checked')) {
-                                selectedMembers.push(memberId);
-                            } else {
-                                selectedMembers = selectedMembers.filter(id => id !== memberId);
-                            }
-                        });
-                    }
-                });
             });
         </script>
     @endpush

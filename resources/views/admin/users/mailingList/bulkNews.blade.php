@@ -222,7 +222,6 @@
                         {
                             data: null,
                             render: function(data, type, row, meta) {
-                                //console.log(data.cropImage);
                                 return meta.row + 1;
                             },
                             "searchable": false,
@@ -355,9 +354,11 @@
             $(document).ready(function () {
                 var selectedNews = [];
 
+                // Listen for changes on the checkbox
                 $(document).on('change', 'input[name="mail"]', function () {
                     var newsId = $(this).val();
 
+                    // If checked, add to the selectedNews array, otherwise remove it
                     if ($(this).is(':checked')) {
                         selectedNews.push(newsId);
                     } else {
@@ -365,18 +366,22 @@
                             return id !== newsId;
                         });
                     }
+
+                    // Regenerate the email template with the selected order
                     generateEmailTemplate();
                 });
 
                 function generateEmailTemplate() {
                     var emailTemplate = '';
 
-                    emailTemplate += '&nbsp;&nbsp;&nbsp;';
+                    // Clear the news list before building the new content
+                    $('#newslist').html('');
 
                     if (selectedNews.length > 0) {
-
+                        // Loop through the selected news IDs in the order they were selected
                         selectedNews.forEach(function (newsId) {
                             fetchNewsData(newsId, function (newsData) {
+                                // Append each news item to the email template in the same order
                                 emailTemplate += '<table id="' + newsData.id + '" align="center" cellpadding="0" cellspacing="0" bgcolor="#fff" style="max-width: 558px; margin: 0 auto; display: block; border: 1px solid #ccc;">';
                                 emailTemplate += '<tbody>';
                                 emailTemplate += '<tr>';
@@ -393,17 +398,17 @@
                                 emailTemplate += '</tr>';
                                 emailTemplate += '</tbody>';
                                 emailTemplate += '</table>';
-
-                                $('#newslist').html(emailTemplate);
                             });
                         });
 
-
+                        // Once all data is fetched, update the news list with the template
+                        setTimeout(function () {
+                            $('#newslist').html(emailTemplate);
+                        }, 500);
                     } else {
-                        emailTemplate += '<p style="color: white">No news selected</p>';
+                        // If no news is selected, show a "No news selected" message
+                        $('#newslist').html('<p style="color: white">No news selected</p>');
                     }
-
-                    $('#newslist').append(emailTemplate);
                 }
 
                 function fetchNewsData(newsId, callback) {

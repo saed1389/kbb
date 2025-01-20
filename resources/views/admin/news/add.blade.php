@@ -165,7 +165,7 @@
                                     @enderror
                                     <div class="col-md-6">
                                         <input type="hidden" name="image_base64">
-                                        <img src="{{ asset('assets/img/images.png') }}" style="width: 200px;" class="show-image" alt="">
+                                        <img src="{{ asset('assets/img/kbb.jpg') }}" style="width: 200px;" class="show-image" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -204,7 +204,6 @@
             </div>
         </div>
     </div>
-
     @push('scripts')
         <script src="{{ asset('assets/vendor/libs/select2/select2.js') }}"></script>
         <script src="{{ asset('assets/vendor/libs/bootstrap-select/bootstrap-select.js') }}"></script>

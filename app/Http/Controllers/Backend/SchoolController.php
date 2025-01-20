@@ -37,43 +37,43 @@ class SchoolController extends Controller
             'european_board_doc' => 'file',
             'expertise_doc' => 'file'
         ]);
-        
+
         if ($request->hasFile('certificate_proficiency_doc')) {
             $path = 'uploads/school/';
             $originalExtension = $request->file('certificate_proficiency_doc')->getClientOriginalExtension();
             $slugifiedName = Str::slug($request->name).'-Yeterlik';
-            $timestamp = time(); 
+            $timestamp = time();
             $fileName = $slugifiedName . '-' . $timestamp . '.' . $originalExtension;
             $request->file('certificate_proficiency_doc')->move(public_path($path), $fileName);
             $fileUrl1 = $path . $fileName;
         } else {
             $fileUrl1 = '';
         }
-        
+
         if ($request->hasFile('european_board_doc')) {
             $path = 'uploads/school/';
             $originalExtension = $request->file('european_board_doc')->getClientOriginalExtension();
             $slugifiedName = Str::slug($request->name).'-Avrupa-Board';
-            $timestamp = time(); 
+            $timestamp = time();
             $fileName = $slugifiedName . '-' . $timestamp . '.' . $originalExtension;
             $request->file('european_board_doc')->move(public_path($path), $fileName);
             $fileUrl2 = $path . $fileName;
         } else {
             $fileUrl2 = '';
         }
-        
+
         if ($request->hasFile('expertise_doc')) {
             $path = 'uploads/school/';
             $originalExtension = $request->file('expertise_doc')->getClientOriginalExtension();
             $slugifiedName = Str::slug($request->name).'-Uzmanlik';
-            $timestamp = time(); 
+            $timestamp = time();
             $fileName = $slugifiedName . '-' . $timestamp . '.' . $originalExtension;
             $request->file('expertise_doc')->move(public_path($path), $fileName);
             $fileUrl3 = $path . $fileName;
         } else {
             $fileUrl3 = '';
         }
-        
+
         School::create([
             'name' => $request->name,
             'specialty_date' => $request->specialty_date,
@@ -120,8 +120,17 @@ class SchoolController extends Controller
         }
     }
 
-    public function changeStatus($id, $status)
+    public function changeStatus(Request $request, $id, $status)
     {
-        School::where('id', $id)->update(['status' => $status]);
+        $school = School::findOrFail($id);
+        $school->status = $status;
+
+        if ($status == 2) {
+            $school->rejection_reason = $request->input('reason');
+        } else {
+            $school->rejection_reason = null;
+        }
+
+        $school->save();
     }
 }

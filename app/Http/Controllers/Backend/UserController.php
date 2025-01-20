@@ -46,10 +46,12 @@ class UserController extends Controller
         $request->validate([
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string'],
+            'title' => ['required'],
             'profile_image' => 'mimes:jpeg,jpg,png,gif,svg',
             'user_cv' => 'mimes:doc,docx,pdf',
         ],[
             'email.unique' => 'E-posta benzersiz olmalı',
+            'title.required' => 'Üyelik Ünvanı Gerekli'
         ]);
 
         if ($request->file('profile_image')) {

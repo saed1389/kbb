@@ -133,6 +133,23 @@
             </div>
         </div>
     </div>
+    <div id="rejectionModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="rejectionModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="rejectionModalLabel">Reddetme Nedeni</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <textarea id="rejectionReason" class="form-control" rows="4" placeholder="Reddetme nedenini buraya girin..."></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                    <button id="rejectionReasonSubmit" type="button" class="btn btn-primary">Gönder</button>
+                </div>
+            </div>
+        </div>
+    </div>
     @push('scripts')
         <script src="{{ asset('assets/js/code.js') }}"></script>
         <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
@@ -301,21 +318,21 @@
                 $('#complete_school').text(rowData.complete_school);
                 $('#telephone').text(rowData.telephone);
                 $('#email').text(rowData.email);
-                
-                const basePath = '{{ asset("/") }}'; 
+
+                const basePath = '{{ asset("/") }}';
                     $('#certificate_proficiency_link').html(
-                        rowData.certificate_proficiency_doc 
-                        ? `<a href="${basePath}/${rowData.certificate_proficiency_doc}" target="_blank" download>Sertifika Yeterlilik İndir</a>` 
+                        rowData.certificate_proficiency_doc
+                        ? `<a href="${basePath}/${rowData.certificate_proficiency_doc}" target="_blank" download>Sertifika Yeterlilik İndir</a>`
                         : 'Dosya yüklenmedi'
                     );
                     $('#european_board_link').html(
-                        rowData.european_board_doc 
-                        ? `<a href="${basePath}/${rowData.european_board_doc}" target="_blank" download>Avrupa Board İndirin</a>` 
+                        rowData.european_board_doc
+                        ? `<a href="${basePath}/${rowData.european_board_doc}" target="_blank" download>Avrupa Board İndirin</a>`
                         : 'Dosya yüklenmedi'
                     );
                     $('#expertise_doc_link').html(
-                        rowData.expertise_doc 
-                        ? `<a href="${basePath}/${rowData.expertise_doc}" target="_blank" download>Uzmanlık Belgesini İndirin</a>` 
+                        rowData.expertise_doc
+                        ? `<a href="${basePath}/${rowData.expertise_doc}" target="_blank" download>Uzmanlık Belgesini İndirin</a>`
                         : 'Dosya yüklenmedi'
                     );
             });
@@ -366,26 +383,57 @@
                 window.print();
             });
 
-            $('#example').on('change', 'select', function() {
+            $('#example').on('change', 'select', function () {
                 var id = $(this).data('id');
                 var status = $(this).val();
 
-                $.ajax({
-                    url: "{{ route('schools-list.status', ['id' => ':id', 'status' => ':status']) }}".replace(':id', id).replace(':status', status),
-                    method: 'POST',
-                    data: {
-                        _token: '{{ csrf_token() }}', 
-                        id: id,
-                        status: status
-                    },
-                    success: function(response) {
-                        $('#example').DataTable().ajax.reload();
-                        toastr.success("Durumu başarıyla değiştir!");
-                    },
-                    error: function(xhr, status, error) {
-                        // Handle error
-                    }
-                });
+                if (status === 2) {
+                    $('#rejectionModal').modal('show');
+                    $('#rejectionReasonSubmit').off('click').on('click', function () {
+                        var reason = $('#rejectionReason').val();
+                        if (!reason) {
+                            toastr.error("Lütfen reddetme nedeni girin.");
+                            return;
+                        }
+
+                        $.ajax({
+                            url: "{{ route('schools-list.status', [':id', ':status']) }}".replace(':id', id).replace(':status', status),
+                            method: 'POST',
+                            data: {
+                                _token: '{{ csrf_token() }}',
+                                id: id,
+                                status: status,
+                                reason: reason
+                            },
+                            success: function (response) {
+                                $('#example').DataTable().ajax.reload();
+                                toastr.success("Durum ve neden başarıyla kaydedildi.");
+                                $('#rejectionModal').modal('hide');
+                                $('#rejectionReason').val('');
+                            },
+                            error: function (xhr, status, error) {
+                                toastr.error("Bir hata oluştu. Lütfen tekrar deneyin.");
+                            }
+                        });
+                    });
+                } else {
+                    $.ajax({
+                        url: "{{ route('schools-list.status', [':id', ':status']) }}".replace(':id', id).replace(':status', status),
+                        method: 'POST',
+                        data: {
+                            _token: '{{ csrf_token() }}',
+                            id: id,
+                            status: status
+                        },
+                        success: function (response) {
+                            $('#example').DataTable().ajax.reload();
+                            toastr.success("Durum başarıyla değiştirildi.");
+                        },
+                        error: function (xhr, status, error) {
+                            toastr.error("Bir hata oluştu. Lütfen tekrar deneyin.");
+                        }
+                    });
+                }
             });
         </script>
     @endpush

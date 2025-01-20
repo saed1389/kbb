@@ -55,12 +55,15 @@
                             </div>
                             <div class="col-md-3 mb-3">
                                 <label class="form-label" for="title">Üyelik Ünvanı</label>
-                                <select id="title" class="selectpicker w-100" name="title" data-style="btn-default" tabindex="null">
+                                <select id="title" class="selectpicker w-100" name="title" data-style="btn-default" tabindex="null" required>
                                     <option disabled selected>Üyelik Ünvanı Seç</option>
                                     @foreach($titles as $item)
                                         <option value="{{ $item->id }}" {{ old('title') == $item->id ? 'selected' : '' }}>{{ $item->title }}</option>
                                     @endforeach
                                 </select>
+                                @error('title')
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="col-md-3 mb-3">
                                 <label for="mother_name" class="form-label">Anne Adı <span class="text-danger">*</span></label>
@@ -78,7 +81,7 @@
                             </div>
                             <div class="col-md-3 mb-3">
                                 <label class="form-label" for="gender">Cinsiyet</label>
-                                <select id="gender" class="selectpicker w-100" name="gender" data-style="btn-default" tabindex="null">
+                                <select id="gender" class="selectpicker w-100" name="gender" data-style="btn-default" tabindex="null" required>
                                     <option disabled selected>Cinsiyet Seç</option>
                                     <option value="1" @selected(old('gender') == 1 ) >Erkek</option>
                                     <option value="2" @selected(old('gender') == 2 ) >Kadın</option>

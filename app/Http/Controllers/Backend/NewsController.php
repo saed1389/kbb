@@ -41,37 +41,24 @@ class NewsController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ],[
             'title.required' => 'Başlık gerekli',
-            'image.required' => 'Resim gerekli',
             'image.mimes' => 'Resim Formatı Doğru Olmalı (jpeg,png,jpg,gif,svg)',
             'image.max' => 'Maksimum resim boyutu şu şekilde olmalıdır: 2Mb',
         ]);
 
-        if ($request->file('image')){
-
-            $manager = new ImageManager(new Driver());
-            $name_gen = hexdec(uniqid()).'.'.$request->file('image')->getClientOriginalExtension();
-            $img1 = $manager->read($request->file('image'));
-            $img2 = $manager->read($request->file('image'));
-            $img3 = $manager->read($request->file('image'));
-
-            $imgSmall = $img2->scale(355, 124);
-            $imgMid = $img3->scale(1180, 408);
-
-            $img1->toJpeg(80)->save(base_path('public/uploads/news/original/'.$name_gen));
-            $imgMid->toJpeg(80)->save(base_path('public/uploads/news/mid/'.$name_gen));
-            $imgSmall->toJpeg(80)->save(base_path('public/uploads/news/small/'.$name_gen));
-            $save_url = $name_gen;
-        } else {
-            $save_url = '';
-        }
 
         if ($request->new_page) {
             $new_page = $request->new_page;
         } else {
             $new_page = 0;
+        }
+
+        if ($request->image_base64) {
+            $image_base64 = $this->storeBase64($request->image_base64);
+        } else {
+            $image_base64 = 'kbb.jpg';
         }
 
         News::create([
@@ -91,8 +78,7 @@ class NewsController extends Controller
             'slider' => $request->slider,
             'OnPermission' => $request->OnPermission,
             'status' => $request->status,
-            'image' => $save_url,
-            'cropImage' => $this->storeBase64($request->image_base64),
+            'cropImage' => $image_base64,
             'created_by' => Auth::user()->id,
             'news_order' => 1,
             'confirm' => 1
@@ -132,26 +118,6 @@ class NewsController extends Controller
             'image.max' => 'Maksimum resim boyutu şu şekilde olmalıdır: 2Mb',
         ]);
 
-        if ($request->file('image')){
-            $manager = new ImageManager(new Driver());
-            $name_gen = hexdec(uniqid()).'.'.$request->file('image')->getClientOriginalExtension();
-            $img1 = $manager->read($request->file('image'));
-            $img2 = $manager->read($request->file('image'));
-            $img3 = $manager->read($request->file('image'));
-
-            $imgSmall = $img2->scale(355, 124);
-            $imgMid = $img3->scale(590, 204);
-
-            $img1->toJpeg(80)->save(base_path('public/uploads/news/original/'.$name_gen));
-            $imgMid->toJpeg(60)->save(base_path('public/uploads/news/mid/'.$name_gen));
-            $imgSmall->toJpeg(80)->save(base_path('public/uploads/news/small/'.$name_gen));
-            @unlink('uploads/news/original/'.$request->oldImage);
-            @unlink('uploads/news/mid/'.$request->oldImage);
-            @unlink('uploads/news/small/'.$request->oldImage);
-            $save_url = $name_gen;
-        } else {
-            $save_url = $request->oldImage;
-        }
 
         if ($request->image_base64) {
             $crop = $this->storeBase64($request->image_base64);
@@ -189,7 +155,6 @@ class NewsController extends Controller
             'slider' => $request->slider,
             'OnPermission' => $request->OnPermission,
             'status' => $request->status,
-            'image' => $save_url,
             'cropImage' => $crop,
             'confirm' => $request->confirm,
             'news_order' => $confirm,
@@ -206,9 +171,6 @@ class NewsController extends Controller
     public function delete($id)
     {
         $news = News::findOrFail($id);
-        @unlink('uploads/news/original/'.$news->image);
-        @unlink('uploads/news/mid/'.$news->image);
-        @unlink('uploads/news/small/'.$news->image);
         @unlink('uploads/news/crop/'.$news->cropImage);
         $news->delete();
         $notification = array(
@@ -252,7 +214,6 @@ class NewsController extends Controller
     {
         $lastMonth = Carbon::now()->subMonth();
         $news = News::where('slider', 1)
-            /*->whereDate('created_at', '>=', $lastMonth)*/
             ->orderBy('news_order', 'asc')
             ->get();
         return view('admin.news.order', compact('news'));
