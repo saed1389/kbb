@@ -10,6 +10,10 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('/packages/barryvdh/elfinder/css/elfinder.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('/packages/barryvdh/elfinder/css/theme.css') }}">
         <style>
+        .cke_notifications_area {
+                pointer-events: none;
+                display: none;
+            }
             .ck-editor__editable {
                 min-height: 300px;
             }
@@ -132,7 +136,28 @@
         <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
         <script src="{{ asset('/packages/barryvdh/elfinder/js/elfinder.min.js') }}"></script>
         <script type="text/javascript">
-            CKEDITOR.replace( 'ckeditor' );
+            function removeWarningMessages() {
+                const observer = new MutationObserver((mutations) => {
+                    mutations.forEach((mutation) => {
+                        if (mutation.addedNodes) {
+                            mutation.addedNodes.forEach((node) => {
+                                if (node.nodeType === 1) {
+                                    const warningMessage = 'This CKEditor 4.22.1 version is not secure. Consider upgrading to the latest one, 4.24.0-lts.';
+                                    if (node.innerText && node.innerText.includes(warningMessage)) {
+                                        node.remove();
+                                    }
+                                }
+                            });
+                        }
+                    });
+                });
+
+                observer.observe(document.body, { childList: true, subtree: true });
+            }
+
+            window.onload = function() {
+                removeWarningMessages();
+            };
         </script>
     @endpush
 @endsection

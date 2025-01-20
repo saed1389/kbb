@@ -39,7 +39,7 @@
                 <div class="col-md-12">
                     <div class="row">
                         <div class="text-center">
-                            <strong><a href="{{ asset('uploads/Document/Turk-KBB-ve-BBC Dernegi-Yurtdisi-Egitim-Burslari-Yonergesı̇.pdf') }}" download="">Türk KBB ve BBC Derneği Yurtdışı Eğitim Bursları Yönergesi</a></strong>
+                            <strong><a href="{{ asset('uploads/Document/Turk-KBB-ve-BBC Dernegi-Yurtdisi-Egitim-Burslari-Yonergesı̇.pdf') }}"">Türk KBB ve BBC Derneği Yurtdışı Eğitim Bursları Yönergesi</a></strong>
                         </div>
                         <h3>Başvuran Aday Bilgileri</h3>
                         <h6 class="text-danger">(*) Alanları Doldurmak Zorunludur.</h6>
@@ -178,7 +178,7 @@
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <label for="detailedProject" class="form-label">Çalışma Süresince Üzerinde Çalışacağı Detaylı Proje <span class="text-danger">*</span></label>
-                                            <input type="text" id="detailedProject" name="detailedProject" class="form-control" required>
+                                            <textarea class="form-control" name="detailedProject" required></textarea>
                                             @error('detailedProject')
                                             <span class="text-danger">{{ $message }} </span>
                                             @enderror

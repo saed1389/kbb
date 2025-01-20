@@ -43,30 +43,30 @@
                                 <li class="li-item">
                                     <strong>Başvuruda Kullanılacak Belgeler</strong>
                                     <ul class="under-list">
-                                        <li><p><a href="{{ asset('uploads/Document/Basvuru-Belgeleri.doc') }}" download="">Başvuru Belgeleri</a></p></li>
-                                        <li><p><a href="{{ asset('uploads/Document/Basvuru-Formu.doc') }}" download="">Başvuru Formu</a></p></li>
-                                        <li><p><a href="{{ asset('uploads/Document/Basvuru-Kabul-Tutanagi.doc') }}" download="">Başvuru Kabul Tutanağı</a></p></li>
-                                        <li><p><a href="{{ asset('uploads/Document/Basvuru-Kurallari.doc') }}" download="">Başvuru Kuralları</a></p></li>
-                                        <li><p><a href="{{ asset('uploads/Document/Basvuru-Yonergesi.doc') }}" download="">Başvuru Yönergesi</a></p></li>
-                                        <li><p><a href="{{ asset('uploads/Document/Butce-Olusturma.doc') }}" download="">Bütçe Oluşturma</a></p></li>
-                                        <li><p><a href="{{ asset('uploads/Document/Calisma-protokolu-ve-cizelgesi.doc') }}" download="">Çalışma protokolü ve çizelgesi</a></p></li>
-                                        <li><p><a href="{{ asset('uploads/Document/Kabul-ve-taahhut-formu.doc') }}" download="">Kabul ve taahhüt formu</a></p></li>
-                                        <li><p><a href="{{ asset('uploads/Document/Yayin-olarak-kabul-etme-yonergesi.doc') }}" download="">Yayın olarak kabul etme yönergesi</a></p></li>
+                                        <li><p><a href="{{ asset('uploads/Document/Basvuru-Belgeleri.doc') }}" >Başvuru Belgeleri</a></p></li>
+                                        <li><p><a href="{{ asset('uploads/Document/Basvuru-Formu.doc') }}" >Başvuru Formu</a></p></li>
+                                        <li><p><a href="{{ asset('uploads/Document/Basvuru-Kabul-Tutanagi.doc') }}" >Başvuru Kabul Tutanağı</a></p></li>
+                                        <li><p><a href="{{ asset('uploads/Document/Basvuru-Kurallari.doc') }}" >Başvuru Kuralları</a></p></li>
+                                        <li><p><a href="{{ asset('uploads/Document/Basvuru-Yonergesi.doc') }}" >Başvuru Yönergesi</a></p></li>
+                                        <li><p><a href="{{ asset('uploads/Document/Butce-Olusturma.doc') }}" >Bütçe Oluşturma</a></p></li>
+                                        <li><p><a href="{{ asset('uploads/Document/Calisma-protokolu-ve-cizelgesi.doc') }}" >Çalışma protokolü ve çizelgesi</a></p></li>
+                                        <li><p><a href="{{ asset('uploads/Document/Kabul-ve-taahhut-formu.doc') }}" >Kabul ve taahhüt formu</a></p></li>
+                                        <li><p><a href="{{ asset('uploads/Document/Yayin-olarak-kabul-etme-yonergesi.doc') }}" >Yayın olarak kabul etme yönergesi</a></p></li>
                                     </ul>
                                 </li>
 
                                 <li class="li-item">
                                     <strong class="strong">Proje Yürütme ile İlgili Belgeler</strong>
                                     <ul class="under-list ">
-                                        <li><p><a href="{{ asset('uploads/Document/Ek-Sure-Talep-Formu.doc') }}" download="">Ek Süre Talep Formu</a></p></li>
-                                        <li><p><a href="{{ asset('uploads/Document/Proje-Ara-Rapor-Formu.doc') }}" download="">Proje Ara Rapor Formu</a></p></li>
-                                        <li><p><a href="{{ asset('uploads/Document/Proje-Butce-Sonlandirma-Formu.doc') }}" download="">Proje Bütçe Sonlandırma Formu</a></p></li>
-                                        <li><p><a href="{{ asset('uploads/Document/Proje-Ek-Sure-Talep-Yonergesi.doc') }}" download="">Proje Ek Süre Talep Yönergesi</a></p></li>
-                                        <li><p><a href="{{ asset('uploads/Document/Proje-Kapatma-Raporu.doc') }}" download="">Proje Kapatma Raporu</a></p></li>
-                                        <li><p><a href="{{ asset('uploads/Document/Proje-Satin-Alma-Talebi.doc') }}" download="">Proje Satın Alma Talebi</a></p></li>
-                                        <li><p><a href="{{ asset('uploads/Document/Proje-Sonlandirma-Degerlendirme-Formu.doc') }}" download="">Proje Sonlandırma Değerlendirme Formu</a></p></li>
-                                        <li><p><a href="{{ asset('uploads/Document/Proje-Sonuc-Raporu.doc') }}" download="">Proje Sonuç Raporu</a></p></li>
-                                        <li><p><a href="{{ asset('uploads/Document/Proje-Sozlesme.doc') }}" download="">Proje Sözleşme</a></p></li>
+                                        <li><p><a href="{{ asset('uploads/Document/Ek-Sure-Talep-Formu.doc') }}" >Ek Süre Talep Formu</a></p></li>
+                                        <li><p><a href="{{ asset('uploads/Document/Proje-Ara-Rapor-Formu.doc') }}" >Proje Ara Rapor Formu</a></p></li>
+                                        <li><p><a href="{{ asset('uploads/Document/Proje-Butce-Sonlandirma-Formu.doc') }}" >Proje Bütçe Sonlandırma Formu</a></p></li>
+                                        <li><p><a href="{{ asset('uploads/Document/Proje-Ek-Sure-Talep-Yonergesi.doc') }}" >Proje Ek Süre Talep Yönergesi</a></p></li>
+                                        <li><p><a href="{{ asset('uploads/Document/Proje-Kapatma-Raporu.doc') }}" >Proje Kapatma Raporu</a></p></li>
+                                        <li><p><a href="{{ asset('uploads/Document/Proje-Satin-Alma-Talebi.doc') }}" >Proje Satın Alma Talebi</a></p></li>
+                                        <li><p><a href="{{ asset('uploads/Document/Proje-Sonlandirma-Degerlendirme-Formu.doc') }}" >Proje Sonlandırma Değerlendirme Formu</a></p></li>
+                                        <li><p><a href="{{ asset('uploads/Document/Proje-Sonuc-Raporu.doc') }}" >Proje Sonuç Raporu</a></p></li>
+                                        <li><p><a href="{{ asset('uploads/Document/Proje-Sozlesme.doc') }}" >Proje Sözleşme</a></p></li>
                                     </ul>
                                 </li>
                             </ol>
@@ -76,23 +76,23 @@
                                 <li class="li-item">
                                     <h5>Hakemlik ile İlgili Belgeler</h5>
                                     <ul class="under-list">
-                                        <li><p><a href="{{ asset('uploads/Document/Hakem-Basvuru-Formu.doc') }}" download="">Hakem Başvuru Formu</a></p></li>
-                                        <li><p><a href="{{ asset('uploads/Document/Hakem-Belirleme-Kurallari.doc') }}" download="">Hakem Belirleme Kuralları</a></p></li>
-                                        <li><p><a href="{{ asset('uploads/Document/Hakem-Degerlendirme-Formu.doc') }}" download="">Hakem Değerlendirme Formu</a></p></li>
-                                        <li><p><a href="{{ asset('uploads/Document/Hakem-Gizlilik-Taahhutnamesi.doc') }}" download="">Hakem Gizlilik Taahhütnamesi</a></p></li>
-                                        <li><p><a href="{{ asset('uploads/Document/Hakem-Gorevden-Cekme-Yazisi.doc') }}" download="">Hakem Görevden Çekme Yazısı</a></p></li>
-                                        <li><p><a href="{{ asset('uploads/Document/Hakem-Gorevlendirme-Yazisi.doc') }}" download="">Hakem Görevlendirme Yazısı</a></p></li>
-                                        <li><p><a href="{{ asset('uploads/Document/Hakeme-Gonderme-Kurallari.doc') }}" download="">Hakeme Gönderme Kuralları</a></p></li>
+                                        <li><p><a href="{{ asset('uploads/Document/Hakem-Basvuru-Formu.doc') }}" >Hakem Başvuru Formu</a></p></li>
+                                        <li><p><a href="{{ asset('uploads/Document/Hakem-Belirleme-Kurallari.doc') }}" >Hakem Belirleme Kuralları</a></p></li>
+                                        <li><p><a href="{{ asset('uploads/Document/Hakem-Degerlendirme-Formu.doc') }}" >Hakem Değerlendirme Formu</a></p></li>
+                                        <li><p><a href="{{ asset('uploads/Document/Hakem-Gizlilik-Taahhutnamesi.doc') }}" >Hakem Gizlilik Taahhütnamesi</a></p></li>
+                                        <li><p><a href="{{ asset('uploads/Document/Hakem-Gorevden-Cekme-Yazisi.doc') }}" >Hakem Görevden Çekme Yazısı</a></p></li>
+                                        <li><p><a href="{{ asset('uploads/Document/Hakem-Gorevlendirme-Yazisi.doc') }}" >Hakem Görevlendirme Yazısı</a></p></li>
+                                        <li><p><a href="{{ asset('uploads/Document/Hakeme-Gonderme-Kurallari.doc') }}" >Hakeme Gönderme Kuralları</a></p></li>
                                     </ul>
                                 </li>
                                 <li class="li-item">
                                     <h5>Koordinasyon Birimine Ait Belgeler</h5>
                                     <ul class="under-list">
-                                        <li><p><a href="{{ asset('uploads/Document/Birim-Faaliyet-Bildirim-Raporu.doc') }}" download="">Birim Faaliyet Bildirim Raporu</a></p></li>
-                                        <li><p><a href="{{ asset('uploads/Document/Birim-Toplanti-Tutanagi.doc') }}" download="">Birim Toplantı Tutanağı</a></p></li>
-                                        <li><p><a href="{{ asset('uploads/Document/Faaliyet-Raporu.doc') }}" download="">Faaliyet Raporu</a></p></li>
-                                        <li><p><a href="{{ asset('uploads/Document/Proje-Basvuru-Ilani.doc') }}" download="">Proje Başvuru İlanı</a></p></li>
-                                        <li><p><a href="{{ asset('uploads/Document/Proje-Kapatma-Bildirim-Formu.doc') }}" download="">Proje Kapatma Bildirim Formu</a></p></li>
+                                        <li><p><a href="{{ asset('uploads/Document/Birim-Faaliyet-Bildirim-Raporu.doc') }}" >Birim Faaliyet Bildirim Raporu</a></p></li>
+                                        <li><p><a href="{{ asset('uploads/Document/Birim-Toplanti-Tutanagi.doc') }}" >Birim Toplantı Tutanağı</a></p></li>
+                                        <li><p><a href="{{ asset('uploads/Document/Faaliyet-Raporu.doc') }}" >Faaliyet Raporu</a></p></li>
+                                        <li><p><a href="{{ asset('uploads/Document/Proje-Basvuru-Ilani.doc') }}" >Proje Başvuru İlanı</a></p></li>
+                                        <li><p><a href="{{ asset('uploads/Document/Proje-Kapatma-Bildirim-Formu.doc') }}" >Proje Kapatma Bildirim Formu</a></p></li>
                                     </ul>
                                 </li>
                             </ol>

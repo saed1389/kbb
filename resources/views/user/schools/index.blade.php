@@ -30,7 +30,7 @@
                     <tr>
                         <th style="width: 5%;">#</th>
                         <th>Başvuru tarihi</th>
-                        <th style="width: 10%;">Durum</th>
+                        <th style="width: 20%;">Durum</th>
                     </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">

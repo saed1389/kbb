@@ -52,7 +52,7 @@ Route::post('/province/fetch-city', [IndexController::class,'province_fetch_city
 Route::post('/user_register', [IndexController::class,'user_register'])->name('user_register');
 
 Route::get('/', [IndexController::class, 'index'])->name('index');
-
+Route::get('/home', [IndexController::class, 'home'])->name('home');
 Route::prefix('dernegmz')->group(function () {
     Route::get('', function (){
         return view('frontend.our_association.index');
@@ -61,7 +61,8 @@ Route::prefix('dernegmz')->group(function () {
     Route::get('kurullar-listesi', function (){
         return view('frontend.our_association.committees');
     })->name('kurullar');
-    Route::prefix('kurullar', )->group(function () {
+
+    Route::prefix('kurullar')->group(function () {
         Route::get('yonetim-kurulu', [IndexController::class, 'younetim'])->name('yonetimkurulu');
         Route::get('denetleme-kurulu', [IndexController::class, 'denetleme'])->name('denetleme_kurulu');
         Route::get('danisma-kurulu', [IndexController::class, 'danisma'])->name('danisma_kurulu');
@@ -149,6 +150,9 @@ Route::prefix('bilgi-merkezi')->group(function () {
     Route::get('uzmanlik-egitimi-kitablari-1', function (){
         return view('frontend.info-center.training-books-1');
     })->name('uzmanlik_egitimi_kitablari-1');
+    Route::get('uzmanlik-egitimi-kitablari-2', function (){
+        return view('frontend.info-center.training-books-2');
+    })->name('uzmanlik_egitimi_kitablari-2');
     Route::get('linkler', function () {
         return view('frontend.info-center.links');
     })->name('linkler');
@@ -466,6 +470,7 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
         Route::post('Competences/updateModal', [UserCompetenceController::class, 'point'])->name('Competences.updateModal');
         Route::get('Competences/delete/{id}', [UserCompetenceController::class, 'adminDelete'])->name('Competences.delete');
 
+
         // KBB School
         Route::get('school-list', [SchoolController::class, 'list'])->name('schools-list');
         Route::post('school-list-change/{id}/{status}', [SchoolController::class, 'changeStatus'])->name('schools-list.status');
@@ -476,6 +481,7 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
         Route::post('competencesPoint/changeStatus/{id}/{status}', [CompetencePointController::class, 'changeStatus']);
         Route::get('competencesPoint/delete/{id}', [CompetencePointController::class, 'delete'])->name('competencesPoint.delete');
         Route::get('competencesPoint/member-list/', [CompetencePointController::class, 'memberList'])->name('competences.member-list');
+        Route::get('/competences/{id}', [CompetencePointController::class, 'getCompetenceDetails'])->name('competences.details');
 
         // Comment Routes
         Route::resource('comments', CommentController::class)->except('create', 'store', 'destroy', 'edit', 'update');

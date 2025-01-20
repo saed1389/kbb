@@ -19,13 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::post('login', [AuthController::class, 'login']);
 
 Route::middleware('auth:sanctum')->group(function () {
-
-
-    /*Route::post("SendMessage", [ChatController::class, "SendMessage"]);
-    Route::get("load", [ChatController::class, "LoadThePreviousMessages"]);*/
-});
-
-Route::get('kbbCompetencePoint', [NewsController::class, 'kbbCompetencePoint']);
+    Route::get('kbbCompetencePoint', [NewsController::class, 'kbbCompetencePoint']);
 Route::get('allNews', [NewsController::class, 'index']);
 Route::get('sliders', [NewsController::class, 'slider']);
 Route::get('news-detail/{id}', [NewsController::class, 'show']);
@@ -51,5 +45,11 @@ Route::post('newsStore', [NewsController::class, 'newsStore']);
 Route::get('newsEdit/{id}', [NewsController::class, 'newsEdit']);
 Route::post('newsUpdate/{id}', [NewsController::class, 'newsUpdate']);
 Route::delete('newsDelete/{id}', [NewsController::class, 'newsDelete']);
+
+    /*Route::post("SendMessage", [ChatController::class, "SendMessage"]);
+    Route::get("load", [ChatController::class, "LoadThePreviousMessages"]);*/
+});
+
+
 
 

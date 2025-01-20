@@ -99,7 +99,7 @@ class UserNewsController extends Controller
             'image' => $save_url,
             'cropImage' => $this->storeBase64($request->image_base64),
             'created_by' => Auth::user()->id,
-            'news_order' => 0,
+            'news_order' => 1,
             'confirm' => 0
         ]);
 

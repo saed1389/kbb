@@ -39,18 +39,18 @@
                             <ol class="alternating-colors">
                                 <li class="li-item">
                                     <strong class="strong">9. Koklear İmplantasyon Otoloji-Nörootoloji Odyoloji Kongresi</strong>
-                                    <p class="under-list" ><a href="{{ asset('uploads/Document/History/9.-Koklear-implantasyon-Otoloji-Norootoloji-Odyoloji-Kongresi.pdf') }}" download="">9. Koklear İmplantasyon Otoloji-Nörootoloji Odyoloji Kongresi</a></p>
+                                    <p class="under-list" ><a href="{{ asset('uploads/Document/History/9.-Koklear-implantasyon-Otoloji-Norootoloji-Odyoloji-Kongresi.pdf') }}" >9. Koklear İmplantasyon Otoloji-Nörootoloji Odyoloji Kongresi</a></p>
                                 </li>
                                 <li class="li-item">
                                     <strong>11. Türk Rinoloji Kongresi</strong>
                                     <ul class="under-list">
-                                        <li><p><a href="{{ asset('uploads/Document/History/11.Turk-Rinoloji-Kongresi-bildiri-kitabi.pdf') }}" download="">Türk Rinoloji Kongre Bildiri Kitabı</a></p></li>
-                                        <li><p><a href="{{ asset('uploads/Document/History/11.Turk-Rinoloji-Kongresi-program.pdf') }}" download="">Türk Rinoloji Kongre Cep Programı</a></p></li>
+                                        <li><p><a href="{{ asset('uploads/Document/History/11.Turk-Rinoloji-Kongresi-bildiri-kitabi.pdf') }}" >Türk Rinoloji Kongre Bildiri Kitabı</a></p></li>
+                                        <li><p><a href="{{ asset('uploads/Document/History/11.Turk-Rinoloji-Kongresi-program.pdf') }}" >Türk Rinoloji Kongre Cep Programı</a></p></li>
                                     </ul>
                                 </li>
                                 <li class="li-item">
                                     <strong class="strong">13. Türk Rinoloji & 5. Ulusal Otoloji Nörootoloji & 1. Ulusal Baş Boyun Cerrahisi Kongresi</strong>
-                                    <p class="under-list"><a href="{{ asset('uploads/Document/History/13.-Türk Rinoloji-5.-Ulusal-Otoloji-Nörootoloji-1.-Ulusal-Bas-Boyun-Cerrahisi-Kongresi.pdf') }}" download="">13. Türk Rinoloji & 5. Ulusal Otoloji Nörootoloji & 1. Ulusal Baş Boyun Cerrahisi Kongresi</a></p>
+                                    <p class="under-list"><a href="{{ asset('uploads/Document/History/13.-Türk Rinoloji-5.-Ulusal-Otoloji-Nörootoloji-1.-Ulusal-Bas-Boyun-Cerrahisi-Kongresi.pdf') }}" >13. Türk Rinoloji & 5. Ulusal Otoloji Nörootoloji & 1. Ulusal Baş Boyun Cerrahisi Kongresi</a></p>
                                 </li>
                                 <li class="li-item">
                                     <strong class="strong">32. Türk Ulusal Kulak Burun Boğaz ve Baş Boyun Cerrahisi Kongresi</strong>
@@ -71,8 +71,8 @@
                                 <li class="li-item">
                                     <strong class="strong">37. Türk Ulusal Kulak Burun Boğaz ve Baş Boyun Cerrahisi Kongresi</strong>
                                     <ul class="under-list ">
-                                        <li><p><a href="{{ asset('uploads/Document/History/37.-Turk-Ulusal-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Kongresi-bildiri-kitabi.pdf') }}" download="">Türk Ulusal KBB BBC Kongresi Bildiri Kitabı</a></p></li>
-                                        <li><p><a href="{{ asset('uploads/Document/History/37.-Turk-Ulusal-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Kongresi-program.pdf') }}" download="">Türk Ulusal KBB BBC Kongresi Bilimsel Programı</a></p></li>
+                                        <li><p><a href="{{ asset('uploads/Document/History/37.-Turk-Ulusal-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Kongresi-bildiri-kitabi.pdf') }}" >Türk Ulusal KBB BBC Kongresi Bildiri Kitabı</a></p></li>
+                                        <li><p><a href="{{ asset('uploads/Document/History/37.-Turk-Ulusal-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Kongresi-program.pdf') }}" >Türk Ulusal KBB BBC Kongresi Bilimsel Programı</a></p></li>
                                     </ul>
                                 </li>
                             </ol>
@@ -82,40 +82,40 @@
                                 <li class="li-item">
                                     <strong class="strong">38. Türk Ulusal Kulak Burun Boğaz ve Baş Boyun Cerrahisi Kongresi</strong>
                                     <ul class="under-list">
-                                        <li><p><a href="{{ asset('uploads/Document/History/38.-Turk-Ulusal-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Kongresi-bildiri-kitabi.pdf') }}" download="">Türk Ulusal KBB BBC Kongresi Bildiri Kitabı</a></p></li>
-                                        <li><p><a href="{{ asset('uploads/Document/History/38.-Turk-Ulusal-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Kongresi-program.pdf') }}" download="">Türk Ulusal KBB BBC Kongresi Bilimsel Programı</a></p></li>
+                                        <li><p><a href="{{ asset('uploads/Document/History/38.-Turk-Ulusal-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Kongresi-bildiri-kitabi.pdf') }}" >Türk Ulusal KBB BBC Kongresi Bildiri Kitabı</a></p></li>
+                                        <li><p><a href="{{ asset('uploads/Document/History/38.-Turk-Ulusal-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Kongresi-program.pdf') }}" >Türk Ulusal KBB BBC Kongresi Bilimsel Programı</a></p></li>
                                     </ul>
                                 </li>
                                 <li class="li-item">
                                     <strong class="strong">39. Türk Ulusal Kulak Burun Boğaz ve Baş Boyun Cerrahisi Kongresi</strong>
                                     <ul class="under-list">
-                                        <li><p><a href="{{ asset('uploads/Document/History/39.-Turk-Ulusal-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Kongresi-bildiri-kitabi.pdf') }}" download="">Türk Ulusal KBB BBC Kongresi Bildiri Kitabı</a></p></li>
-                                        <li><p><a href="{{ asset('uploads/Document/History/39.-Turk-Ulusal-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Kongresi-program.pdf') }}" download="">Türk Ulusal KBB BBC Kongresi Bilimsel Programı</a></p></li>
+                                        <li><p><a href="{{ asset('uploads/Document/History/39.-Turk-Ulusal-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Kongresi-bildiri-kitabi.pdf') }}" >Türk Ulusal KBB BBC Kongresi Bildiri Kitabı</a></p></li>
+                                        <li><p><a href="{{ asset('uploads/Document/History/39.-Turk-Ulusal-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Kongresi-program.pdf') }}" >Türk Ulusal KBB BBC Kongresi Bilimsel Programı</a></p></li>
                                     </ul>
                                 </li>
                                 <li class="li-item">
                                     <strong class="strong">40. Türk Ulusal Kulak Burun Boğaz ve Baş Boyun Cerrahisi Kongresi</strong>
-                                    <p class="under-list"><a href="{{ asset('uploads/Document/History/40.-Turk-Ulusal-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Kongresi-program.pdf') }}" download="">40. Türk Ulusal Kulak Burun Boğaz ve Baş Boyun Cerrahisi Kongresi</a></p>
+                                    <p class="under-list"><a href="{{ asset('uploads/Document/History/40.-Turk-Ulusal-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Kongresi-program.pdf') }}" >40. Türk Ulusal Kulak Burun Boğaz ve Baş Boyun Cerrahisi Kongresi</a></p>
                                 </li>
                                 <li class="li-item">
                                     <strong class="strong">Türk Ulusal Kulak Burun Boğaz ve Baş Boyun Cerrahisi Sanal Kongresi</strong>
-                                    <p class="under-list"><a href="{{ asset('uploads/Document/History/Turk-Ulusal-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Sanal-Kongresi-bildiri-kitabi.pdf') }}" download="">Türk Ulusal KBB BBC Sanal Kongresi Bildiri Kitabı </a></p>
+                                    <p class="under-list"><a href="{{ asset('uploads/Document/History/Turk-Ulusal-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Sanal-Kongresi-bildiri-kitabi.pdf') }}" >Türk Ulusal KBB BBC Sanal Kongresi Bildiri Kitabı </a></p>
                                 </li>
                                 <li class="li-item">
                                     <strong class="strong">41. Türk Ulusal Kulak Burun Boğaz ve Baş Boyun Cerrahisi Kongresi</strong>
-                                    <p class="under-list"><a href="{{ asset('uploads/Document/History/41-Turk-Ulusal-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Kongresi-2022318181041.pdf') }}" download="">41. Türk Ulusal Kulak Burun Boğaz ve Baş Boyun Cerrahisi Kongresi </a></p>
+                                    <p class="under-list"><a href="{{ asset('uploads/Document/History/41-Turk-Ulusal-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Kongresi-2022318181041.pdf') }}" >41. Türk Ulusal Kulak Burun Boğaz ve Baş Boyun Cerrahisi Kongresi </a></p>
                                 </li>
                                 <li class="li-item">
                                     <strong class="strong">42. Türk Ulusal Kulak Burun Boğaz ve Baş Boyun Cerrahisi Kongresi</strong>
-                                    <p class="under-list"><a href="{{ asset('uploads/Document/History/42-Turk-Ulusal-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Kongresi-202112616464.pdf') }}" download="">42. Türk Ulusal Kulak Burun Boğaz ve Baş Boyun Cerrahisi Kongresi </a></p>
+                                    <p class="under-list"><a href="{{ asset('uploads/Document/History/42-Turk-Ulusal-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Kongresi-202112616464.pdf') }}" >42. Türk Ulusal Kulak Burun Boğaz ve Baş Boyun Cerrahisi Kongresi </a></p>
                                 </li>
                                 <li class="li-item">
                                     <strong class="strong">43. Türk Ulusal Kulak Burun Boğaz ve Baş Boyun Cerrahisi Kongresi</strong>
-                                    <p class="under-list"><a href="{{ asset('uploads/Document/History/43-Turk-Ulusal-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Kongresi-24052023.pdf') }}" download="">43. Türk Ulusal Kulak Burun Boğaz ve Baş Boyun Cerrahisi Kongresi </a></p>
+                                    <p class="under-list"><a href="{{ asset('uploads/Document/History/43-Turk-Ulusal-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Kongresi-24052023.pdf') }}" >43. Türk Ulusal Kulak Burun Boğaz ve Baş Boyun Cerrahisi Kongresi </a></p>
                                 </li>
                                 <li class="li-item">
                                     <strong class="strong">44. Türk Ulusal Kulak Burun Boğaz ve Baş Boyun Cerrahisi Kongresi</strong>
-                                    <p class="under-list"><a href="{{ asset('uploads/Document/History/44_KBB 2023-web press_07122023.pdf') }}" download="">44. Türk Ulusal Kulak Burun Boğaz ve Baş Boyun Cerrahisi Kongresi </a></p>
+                                    <p class="under-list"><a href="{{ asset('uploads/Document/History/44_KBB 2023-web press_07122023.pdf') }}" >44. Türk Ulusal Kulak Burun Boğaz ve Baş Boyun Cerrahisi Kongresi </a></p>
                                 </li>
                             </ol>
                         </div>

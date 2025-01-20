@@ -12,14 +12,14 @@
                                     <h5 class="text-white mb-0 mt-2">{{ @Auth::user()->titleName->title.' '.Auth::user()->first_name. ' '. Auth::user()->last_name }}</h5>
                                     <small>{{ Auth::user()->email }}</small>
                                 </div>
-                                <div class="row">
+                                <div class="row" style="--bs-gutter-x: 0rem !important;">
                                     <div class="col-lg-9 col-md-9 col-12 order-2 order-md-1">
                                         <h6 class="text-white mt-0 mt-md-3 mb-3">&nbsp;</h6>
                                         <div class="row">
                                             <div class="col-6">
                                                 <ul class="list-unstyled mb-0">
                                                     <li class="d-flex mb-4 align-items-center">
-                                                        <p class="mb-0 fw-medium me-2 website-analytics-text-bg">Haberlerim</p>
+                                                        <p class="mb-0 fw-medium me-0 website-analytics-text-bg">Haberlerim</p>
                                                         <p class="mb-0">{{ $myNews }} Adet</p>
                                                     </li>
 
@@ -28,7 +28,7 @@
                                             <div class="col-6">
                                                 <ul class="list-unstyled mb-0">
                                                     <li class="d-flex mb-4 align-items-center">
-                                                        <p class="mb-0 fw-medium me-2 website-analytics-text-bg @if($point < 0 ) text-danger @else text-success @endif">Yeterlik</p>
+                                                        <p class="mb-0 fw-medium me-0 website-analytics-text-bg @if($point < 0 ) text-danger @else text-success @endif">Yeterlik</p>
                                                         <p class="mb-0 @if($point < 0 ) text-danger @else text-success @endif">{{ $point }} </p>
                                                     </li>
                                                     <li class="d-flex align-items-center mb-2">
@@ -64,11 +64,11 @@
                                             <div class="col-6">
                                                 <ul class="list-unstyled mb-0">
                                                     <li class="d-flex mb-4 align-items-center">
-                                                        <p class="mb-0 fw-medium me-2 website-analytics-text-bg"><i class="ti ti-news ti-md"></i> Eğitim</p>
+                                                        <p class="mb-0 fw-medium me-0 website-analytics-text-bg"><i class="ti ti-news ti-md"></i> Eğitim</p>
                                                         <p class="mb-0">...</p>
                                                     </li>
                                                     <li class="d-flex align-items-center mb-2">
-                                                        <p class="mb-0 fw-medium me-2 website-analytics-text-bg"><i class="ti ti-pencil"></i> Görevlerim</p>
+                                                        <p class="mb-0 fw-medium me-0 website-analytics-text-bg"><i class="ti ti-pencil"></i> Görevlerim</p>
                                                         <p class="mb-0">...</p>
                                                     </li>
                                                 </ul>

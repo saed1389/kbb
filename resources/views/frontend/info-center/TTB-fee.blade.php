@@ -42,7 +42,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/LARINKS-VE-BOYUN-CERRAHISI-201921595338.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/LARINKS-VE-BOYUN-CERRAHISI-201921595338.pdf') }}"  class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>
@@ -54,7 +54,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/AGIZ-DUDAK-DIL-201921595358.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/AGIZ-DUDAK-DIL-201921595358.pdf') }}" class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>
@@ -66,7 +66,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/BOGAZ-(FARINKS,-ADENOID,-TONSIL,-DAMAK,-UVULA)-201921595419.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/BOGAZ-(FARINKS,-ADENOID,-TONSIL,-DAMAK,-UVULA)-201921595419.pdf') }}" class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>
@@ -78,7 +78,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/KULAK-201921595443.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/KULAK-201921595443.pdf') }}" class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>
@@ -90,7 +90,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/LARINKS_VE_BOYUN_CERRAHISI_2-20192159554.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/LARINKS_VE_BOYUN_CERRAHISI_2-20192159554.pdf') }}" class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>

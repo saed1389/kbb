@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\School;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class SchoolController extends Controller
 {
@@ -31,6 +32,48 @@ class SchoolController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'certificate_proficiency_doc' => 'file',
+            'european_board_doc' => 'file',
+            'expertise_doc' => 'file'
+        ]);
+        
+        if ($request->hasFile('certificate_proficiency_doc')) {
+            $path = 'uploads/school/';
+            $originalExtension = $request->file('certificate_proficiency_doc')->getClientOriginalExtension();
+            $slugifiedName = Str::slug($request->name).'-Yeterlik';
+            $timestamp = time(); 
+            $fileName = $slugifiedName . '-' . $timestamp . '.' . $originalExtension;
+            $request->file('certificate_proficiency_doc')->move(public_path($path), $fileName);
+            $fileUrl1 = $path . $fileName;
+        } else {
+            $fileUrl1 = '';
+        }
+        
+        if ($request->hasFile('european_board_doc')) {
+            $path = 'uploads/school/';
+            $originalExtension = $request->file('european_board_doc')->getClientOriginalExtension();
+            $slugifiedName = Str::slug($request->name).'-Avrupa-Board';
+            $timestamp = time(); 
+            $fileName = $slugifiedName . '-' . $timestamp . '.' . $originalExtension;
+            $request->file('european_board_doc')->move(public_path($path), $fileName);
+            $fileUrl2 = $path . $fileName;
+        } else {
+            $fileUrl2 = '';
+        }
+        
+        if ($request->hasFile('expertise_doc')) {
+            $path = 'uploads/school/';
+            $originalExtension = $request->file('expertise_doc')->getClientOriginalExtension();
+            $slugifiedName = Str::slug($request->name).'-Uzmanlik';
+            $timestamp = time(); 
+            $fileName = $slugifiedName . '-' . $timestamp . '.' . $originalExtension;
+            $request->file('expertise_doc')->move(public_path($path), $fileName);
+            $fileUrl3 = $path . $fileName;
+        } else {
+            $fileUrl3 = '';
+        }
+        
         School::create([
             'name' => $request->name,
             'specialty_date' => $request->specialty_date,
@@ -43,6 +86,9 @@ class SchoolController extends Controller
             'congress_registration' => $request->congress_registration,
             'institutional_permission' => $request->institutional_permission,
             'certificate_proficiency' => $request->certificate_proficiency,
+            'certificate_proficiency_doc' => $fileUrl1,
+            'european_board_doc' => $fileUrl2,
+            'expertise_doc' => $fileUrl3,
             'european_board' => $request->european_board,
             'previously_school' => $request->previously_school,
             'complete_school' => $request->complete_school,
@@ -54,7 +100,7 @@ class SchoolController extends Controller
 
         $notification = array(
             'message' => "Başvuru formu başarıyla gönderildi!",
-            'alert-type' => 'danger'
+            'alert-type' => 'success'
         );
 
         return redirect()->route('schools.index')->with($notification);

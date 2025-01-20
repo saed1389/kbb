@@ -45,7 +45,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/Turk-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Dernegi-Yonetim-Kurulu-Toplantisi-Kararlari-29012016-2019214161818.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/Turk-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Dernegi-Yonetim-Kurulu-Toplantisi-Kararlari-29012016-2019214161818.pdf') }}"  class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>
@@ -58,7 +58,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/Turk-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Dernegi-Yonetim-Kurulu-Toplantisi-Kararlari-24022015-2019214162235.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/Turk-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Dernegi-Yonetim-Kurulu-Toplantisi-Kararlari-24022015-2019214162235.pdf') }}"  class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>
@@ -71,7 +71,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/Turk-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Dernegi-Yonetim-Kurulu-Toplantisi-Kararlari-24112015-2019214162324.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/Turk-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Dernegi-Yonetim-Kurulu-Toplantisi-Kararlari-24112015-2019214162324.pdf') }}"  class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>
@@ -97,7 +97,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/Turk-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Dernegi-Yonetim-Kurulu-Toplantisi-Kararlari-12112015-2019214163140.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/Turk-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Dernegi-Yonetim-Kurulu-Toplantisi-Kararlari-12112015-2019214163140.pdf') }}"  class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>
@@ -110,7 +110,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/Turk-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Dernegi-Yonetim-Kurulu-Toplantisi-Kararlari-28102015-2019214163232.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/Turk-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Dernegi-Yonetim-Kurulu-Toplantisi-Kararlari-28102015-2019214163232.pdf') }}"  class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>
@@ -123,7 +123,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/Turk-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Dernegi-Yonetim-Kurulu-Toplantisi-Kararlari-15102015-2019214163326.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/Turk-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Dernegi-Yonetim-Kurulu-Toplantisi-Kararlari-15102015-2019214163326.pdf') }}"  class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>
@@ -136,7 +136,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/Turk-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Dernegi-Yonetim-Kurulu-Toplantisi-Kararlari-17082015-2019214163415.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/Turk-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Dernegi-Yonetim-Kurulu-Toplantisi-Kararlari-17082015-2019214163415.pdf') }}"  class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>
@@ -149,7 +149,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/Turk-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Dernegi-Yonetim-Kurulu-Toplantisi-Kararlari-27052015-2019214163453.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/Turk-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Dernegi-Yonetim-Kurulu-Toplantisi-Kararlari-27052015-2019214163453.pdf') }}"  class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>
@@ -162,7 +162,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/Turk-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Dernegi-Yonetim-Kurulu-Toplantisi-Kararlari-07042015-2019214171725.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/Turk-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Dernegi-Yonetim-Kurulu-Toplantisi-Kararlari-07042015-2019214171725.pdf') }}"  class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>
@@ -175,7 +175,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/Turk-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Dernegi-Yonetim-Kurulu-Toplantisi-Kararlari-16032015-2019214171853.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/Turk-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Dernegi-Yonetim-Kurulu-Toplantisi-Kararlari-16032015-2019214171853.pdf') }}"  class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>
@@ -188,7 +188,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/Turk-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Dernegi-Yonetim-Kurulu-Toplantisi-Kararlari-09122014-2019214172034.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/Turk-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Dernegi-Yonetim-Kurulu-Toplantisi-Kararlari-09122014-2019214172034.pdf') }}"  class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>
@@ -201,7 +201,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/Turk-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Dernegi-Yonetim-Kurulu-Toplantisi-Kararlari-27112014-201921417222.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/Turk-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Dernegi-Yonetim-Kurulu-Toplantisi-Kararlari-27112014-201921417222.pdf') }}"  class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>
@@ -214,7 +214,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/Turk-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Dernegi-Yonetim-Kurulu-Toplantisi-Kararlari-08112014-2019214172226.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/Turk-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Dernegi-Yonetim-Kurulu-Toplantisi-Kararlari-08112014-2019214172226.pdf') }}"  class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>
@@ -227,7 +227,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/Turk-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Dernegi-Yonetim-Kurulu-Toplantisi-Kararlari-09102014-201921417231.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/Turk-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Dernegi-Yonetim-Kurulu-Toplantisi-Kararlari-09102014-201921417231.pdf') }}"  class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>
@@ -240,7 +240,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/Turk-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Dernegi-Yonetim-Kurulu-Toplantisi-Kararlari-03092014-2019214172339.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/Turk-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Dernegi-Yonetim-Kurulu-Toplantisi-Kararlari-03092014-2019214172339.pdf') }}"  class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>
@@ -253,7 +253,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/Turk-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Dernegi-Yonetim-Kurulu-Toplantisi-Kararlari-07082014-201921417246.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/Turk-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Dernegi-Yonetim-Kurulu-Toplantisi-Kararlari-07082014-201921417246.pdf') }}"  class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>
@@ -266,7 +266,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/Turk-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Dernegi-Yonetim-Kurulu-Toplantisi-Kararlari-24052014-2019214172433.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/Turk-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Dernegi-Yonetim-Kurulu-Toplantisi-Kararlari-24052014-2019214172433.pdf') }}"  class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>
@@ -279,7 +279,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/Turk-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Dernegi-Yonetim-Kurulu-Toplantisi-Kararlari-08052014-2019214172455.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/Turk-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Dernegi-Yonetim-Kurulu-Toplantisi-Kararlari-08052014-2019214172455.pdf') }}"  class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>
@@ -292,7 +292,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/Turk-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Dernegi-Yonetim-Kurulu-Toplantisi-Kararlari-15042014-2019214172514.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/Turk-Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Dernegi-Yonetim-Kurulu-Toplantisi-Kararlari-15042014-2019214172514.pdf') }}"  class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>

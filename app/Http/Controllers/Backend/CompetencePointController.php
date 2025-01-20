@@ -87,4 +87,13 @@ class CompetencePointController extends Controller
         //dd($points);
         return view('admin.competence.memberList', compact('points', 'total'));
     }
+    
+    public function getCompetenceDetails($id)
+    {
+        $competences = Competence::where('user_id', $id)->get();
+        
+        $name = Competence::where('user_id', $id)->first();
+    
+        return view('admin.competence.memberListDetail', compact('competences', 'name'));
+    }
 }

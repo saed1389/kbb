@@ -11,6 +11,10 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('/packages/barryvdh/elfinder/css/elfinder.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('/packages/barryvdh/elfinder/css/theme.css') }}">
         <style>
+        .cke_notifications_area {
+                pointer-events: none;
+                display: none;
+            }
             .ck-editor__editable {
                 min-height: 300px;
             }
@@ -107,7 +111,7 @@
                                 </label>
                             </div>
                             <div class="col-md-12 mb-3">
-                                <label class="form-label" for="editor">Haber <span class="text-danger">*</span></label>
+                                <label class="form-label" for="editor">Haber</label>
                                 <textarea class="form-control ckeditor" id="ckeditor" name="news_body">{!! $news->news_body !!}</textarea>
                             </div>
                             <div class="col-md-12 mb-3">
@@ -220,7 +224,28 @@
         <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
         <script src="{{ asset('/packages/barryvdh/elfinder/js/elfinder.min.js') }}"></script>
         <script type="text/javascript">
-            CKEDITOR.replace( 'ckeditor' );
+            function removeWarningMessages() {
+                const observer = new MutationObserver((mutations) => {
+                    mutations.forEach((mutation) => {
+                        if (mutation.addedNodes) {
+                            mutation.addedNodes.forEach((node) => {
+                                if (node.nodeType === 1) {
+                                    const warningMessage = 'This CKEditor 4.22.1 version is not secure. Consider upgrading to the latest one, 4.24.0-lts.';
+                                    if (node.innerText && node.innerText.includes(warningMessage)) {
+                                        node.remove();
+                                    }
+                                }
+                            });
+                        }
+                    });
+                });
+
+                observer.observe(document.body, { childList: true, subtree: true });
+            }
+
+            window.onload = function() {
+                removeWarningMessages();
+            };
         </script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.js"></script>
         <script>

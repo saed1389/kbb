@@ -70,10 +70,12 @@
                                                 <li><a href="{{ route('kilavuzlar') }}">Kılavuzlar</a></li>
                                                 <li><a href="{{ route('ttb-ucret-tarifesi') }}">TTB Ücret Tarifesi</a></li>
                                                 <li><a href="{{ route('satin-alma-sureci') }}">Satın Alma Süreci</a></li>
+                                                <li><a href="{{ route('turk-kbb-bbc-dernegi-etik-kitabi') }}">Türk KBB-BBC Derneği Etik Kitabı</a></li>
                                                 <li><a href="{{ route('uzmanlik_egitimi_kitablari') }}">KBB ve BBC Uzmanlık Eğitimi Kitabı - 1</a></li>
                                                 <li><a href="{{ route('uzmanlik_egitimi_kitablari-1') }}">KBB ve BBC Uzmanlık Eğitimi Kitabı - 2</a></li>
+                                                <li><a href="{{ route('uzmanlik_egitimi_kitablari-2') }}">KBB ve BBC Uzmanlık Eğitimi Kitabı - 3</a></li>
                                                 <li><a href="{{ route('linkler') }}">Linkler</a></li>
-                                                <li><a href="{{ route('turk-kbb-bbc-dernegi-etik-kitabi') }}">Türk KBB-BBC Derneği Etik Kitabı</a></li>
+                                                
                                             </ul>
                                         </li>
                                         <li class="has-dropdown"><a href="#">KBB Okulları <i class="fa fa-angle-down down disable-arrow"></i></a>
@@ -86,14 +88,14 @@
                                             </ul>
                                         </li>
                                         <li><a href="http://www.kbbyeterlik.org.tr/" target="_blank">KBB Yeterlik</a></li>
-                                        <li class="has-dropdown"><a href="#">Torlak <i class="fa fa-angle-down down disable-arrow"></i></a>
+                                        <!--<li class="has-dropdown"><a href="#">Torlak <i class="fa fa-angle-down down disable-arrow"></i></a>
                                             <ul class="submenu tp-submenu">
                                                 <li><a href="#">Eğitim Videoları</a></li>
                                                 <li><a href="#">Kongreler</a></li>
                                                 <li><a href="#">Vizyon</a></li>
                                                 <li><a href="#">Misyon</a></li>
                                             </ul>
-                                        </li>
+                                        </li>-->
                                         <li class="has-dropdown"><a href="#">Burs - Ödüller <i class="fa fa-angle-down down disable-arrow"></i></a>
                                             <ul class="submenu tp-submenu">
                                                 <li><a href="{{ route('burslar') }}">Burslar</a></li>
@@ -102,7 +104,7 @@
                                             </ul>
                                         </li>
                                         <li><a href="{{ route('asistan-okulu') }}">Asistan Okulu</a></li>
-                                        <li><a href="{{ route('degisim-programi') }}">Değişim Programı</a></li>
+                                        <li><a href="#">Değişim Programı</a></li>
                                     </ul>
                                 </nav>
                             </div>

@@ -44,7 +44,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/DKY-ndan-kitle-polip-eksizyonu-20192141855.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/DKY-ndan-kitle-polip-eksizyonu-20192141855.pdf') }}"  class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>
@@ -56,7 +56,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/Kulak-Kepcesi-Tumor-Eksizyonu-201921418547.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/Kulak-Kepcesi-Tumor-Eksizyonu-201921418547.pdf') }}" class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>
@@ -68,7 +68,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/Mastoidektomi---Timpanoplasti-201921418613.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/Mastoidektomi---Timpanoplasti-201921418613.pdf') }}" class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>
@@ -80,7 +80,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/Stapedektomi-201921418638.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/Stapedektomi-201921418638.pdf') }}" class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>

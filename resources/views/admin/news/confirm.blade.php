@@ -41,7 +41,7 @@
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $item->newsCategory->title }}</td>
                                     <td>{{ $item->title }}</td>
-                                    <td>{{ $item->getAuthorName->first_name. ' '. $item->getAuthorName->last_name }}</td>
+                                    <td>{{ @$item->getAuthorName->first_name. ' '. @$item->getAuthorName->last_name }}</td>
                                     <td>{{ $item->created_at }}</td>
                                     <td>
                                         <label class="switch switch-success">

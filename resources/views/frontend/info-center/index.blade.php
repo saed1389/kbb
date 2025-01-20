@@ -255,6 +255,23 @@
                             </a>
                         </div>
                         <div class="col-xl-3 col-lg-3 mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".7s">
+                            <a href="{{ route('uzmanlik_egitimi_kitablari-2') }}">
+                                <div class="tp-feature__wraper" style="height: 97px">
+                                    <div class="tp-feature__shape-1">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-1.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__shape-2">
+                                        <img src="{{ asset('front/assets/img/feature/fea-shape-2.png') }}" alt="">
+                                    </div>
+                                    <div class="tp-feature__item z-index">
+                                        <div class="tp-feature__content d-flex align-items-center justify-content-between">
+                                            <h4 class="tp-feature__title-sm">  <small>KBB ve BBC Uzmanlık Eğitimi Kitabı - 3</small></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-xl-3 col-lg-3 mb-30 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".7s">
                             <a href="{{ route('linkler') }}" >
                                 <div class="tp-feature__wraper">
                                     <div class="tp-feature__shape-1">
@@ -298,7 +315,7 @@
                                 </div>
                                 <div class="tp-feature__item z-index">
                                     <div class="tp-feature__content d-flex align-items-center justify-content-between">
-                                        <h4 class="tp-feature__title-sm">  <a href="{{ asset('uploads/Document/KBB-BBC-KALITE-POLITIKASI-MISYON-VE-VIZYONUMUZ.pdf') }}" download="">Hukuk</a></h4>
+                                        <h4 class="tp-feature__title-sm">  <a href="{{ asset('uploads/Document/KBB-BBC-KALITE-POLITIKASI-MISYON-VE-VIZYONUMUZ.pdf') }}" >Hukuk</a></h4>
                                     </div>
                                 </div>
                             </div>

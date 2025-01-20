@@ -98,15 +98,36 @@
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="certificate_proficiency" class="form-label">Yeterlik Belgesi (Yılı, puanı, başarı sıralaması)<span class="text-danger">*</span></label>
-                                <input type="text" id="certificate_proficiency" name="certificate_proficiency" class="form-control" value="{{ old('certificate_proficiency') }}" placeholder="Yeterlik Belgesi (Yılı, puanı, başarı sıralaması) Giriniz" required>
+                                <input type="text" id="certificate_proficiency" name="certificate_proficiency" class="form-control" value="{{ old('certificate_proficiency') }}" placeholder="Yeterlik Belgesi (Yılı, puanı, başarı sıralaması) Giriniz" >
                                 @error('certificate_proficiency')
                                 <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="european_board" class="form-label">Avrupa Board Belgesi<span class="text-danger">*</span></label>
-                                <input type="text" id="european_board" name="european_board" class="form-control" value="{{ old('european_board') }}" placeholder="Avrupa Board Belgesi Giriniz" required>
+                                <input type="text" id="european_board" name="european_board" class="form-control" value="{{ old('european_board') }}" placeholder="Avrupa Board Belgesi Giriniz">
                                 @error('european_board')
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="certificate_proficiency_doc" class="form-label">Yeterlik Belgesi Yükle</label>
+                                <input type="file" id="certificate_proficiency_doc" name="certificate_proficiency_doc" class="form-control">
+                                @error('certificate_proficiency_doc')
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="european_board_doc" class="form-label">Avrupa Board Belgesi Yükle</label>
+                                <input type="file" id="european_board_doc" name="european_board_doc" class="form-control" >
+                                @error('european_board_doc')
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="expertise_doc" class="form-label">Uzmanlık Belgesi Yükle</label>
+                                <input type="file" id="expertise_doc" name="expertise_doc" class="form-control" >
+                                @error('expertise_doc')
                                 <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
@@ -137,6 +158,9 @@
                                 @error('email')
                                 <span class="text-danger">{{ $message }}</span>
                                 @enderror
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                
                             </div>
                             <div class="col-md-4">
                                 <button type="submit" class="btn btn-primary">Başvur</button>

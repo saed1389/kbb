@@ -31,6 +31,15 @@ class IndexController extends Controller
         $data['city'] = City::where('province_no', $request->province_no)->get();
         return response()->json($data);
     }
+    
+    public function home()
+    {
+        if (Auth::check()) {
+            Auth::logout();
+        }
+
+        return redirect()->route('login');
+    }
 
     public function user_register(Request $request)
     {

@@ -44,7 +44,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/Adenoidektomi-2019214182439.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/Adenoidektomi-2019214182439.pdf') }}" class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>
@@ -56,7 +56,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/Miringotomi---VT-Tatbiki-201921418250.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/Miringotomi---VT-Tatbiki-201921418250.pdf') }}" class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>
@@ -68,7 +68,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/Otoplasti-2019214182520.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/Otoplasti-2019214182520.pdf') }}" class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>
@@ -80,7 +80,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/Tonsillektomi-2019214182543.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/Tonsillektomi-2019214182543.pdf') }}" class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>
@@ -92,7 +92,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/Endoskopik-DSR-201921418051.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/Endoskopik-DSR-201921418051.pdf') }}" class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>

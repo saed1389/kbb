@@ -42,7 +42,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Uzmanlik-Egitimi-2018-201921595736.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/Kulak-Burun-Bogaz-ve-Bas-Boyun-Cerrahisi-Uzmanlik-Egitimi-2018-201921595736.pdf') }}" class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>

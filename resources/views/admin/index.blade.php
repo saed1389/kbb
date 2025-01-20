@@ -15,27 +15,27 @@
                                 <div class="row">
                                     <div class="col-lg-9 col-md-9 col-12 order-2 order-md-1">
                                         <h6 class="text-white mt-0 mt-md-3 mb-3">&nbsp;</h6>
-                                        <div class="row">
+                                        <div class="row" style="--bs-gutter-x: 0rem !important;">
                                             <div class="col-6">
                                                 <ul class="list-unstyled mb-0">
                                                     <li class="d-flex mb-4 align-items-center">
-                                                        <p class="mb-0 fw-medium me-2 website-analytics-text-bg">Haberlerim</p>
+                                                        <p class="mb-0 fw-medium me-1 website-analytics-text-bg">Haberlerim</p>
                                                         <p class="mb-0">{{ $myNews }} Adet</p>
                                                     </li>
                                                     <li class="d-flex align-items-center mb-2">
-                                                        <p class="mb-0 fw-medium me-2 website-analytics-text-bg">Duyurularım</p>
-                                                        <p class="mb-0">0 Adet</p>
+                                                        <p class="mb-0 fw-medium me-0 website-analytics-text-bg">Duyurularım</p>
+                                                        <p class="mb-0 ">0 Adet</p>
                                                     </li>
                                                 </ul>
                                             </div>
                                             <div class="col-6">
                                                 <ul class="list-unstyled mb-0">
                                                     <li class="d-flex mb-4 align-items-center">
-                                                        <p class="mb-0 fw-medium me-2 website-analytics-text-bg">Etkinliklerim</p>
+                                                        <p class="mb-0 fw-medium me-0 website-analytics-text-bg">Etkinliklerim</p>
                                                         <p class="mb-0">{{ $myEvents }} Adet</p>
                                                     </li>
                                                     <li class="d-flex align-items-center mb-2">
-                                                        <p class="mb-0 fw-medium me-2 website-analytics-text-bg">Aktif Üye</p>
+                                                        <p class="mb-0 fw-medium me-0 website-analytics-text-bg">Aktif Üye</p>
                                                         <p class="mb-0">{{ $activeUsers }} Adet</p>
                                                     </li>
                                                 </ul>

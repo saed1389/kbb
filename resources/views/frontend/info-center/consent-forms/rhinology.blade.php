@@ -44,7 +44,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/Acik-Septoplasti-2019214175732.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/Acik-Septoplasti-2019214175732.pdf') }}" class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>
@@ -56,7 +56,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/bos-2019214175835.docx') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/bos-2019214175835.docx') }}" class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>
@@ -68,7 +68,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/Burundan-yabanci-cisim-cikartilmasi-2019214175941.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/Burundan-yabanci-cisim-cikartilmasi-2019214175941.pdf') }}" class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>
@@ -80,7 +80,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/Eksternal-sinus-cerrahisi-(caldwell---frontal)-201921418016.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/Eksternal-sinus-cerrahisi-(caldwell---frontal)-201921418016.pdf') }}" class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>
@@ -92,7 +92,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/Endoskopik-DSR-201921418051.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/Endoskopik-DSR-201921418051.pdf') }}" class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>
@@ -104,7 +104,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/Endoskopik-Sinus-Cerrahisi-201921418115.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/Endoskopik-Sinus-Cerrahisi-201921418115.pdf') }}"  class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>
@@ -116,7 +116,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/Konka-mudahalesi-201921418137.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/Konka-mudahalesi-201921418137.pdf') }}" class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>
@@ -128,7 +128,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/Lateral-Rinotomi---Sinus-Tumor-Cerrahisi-201921418158.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/Lateral-Rinotomi---Sinus-Tumor-Cerrahisi-201921418158.pdf') }}" class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>
@@ -140,7 +140,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/Nazal-sinesi-acilmasi-201921418221.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/Nazal-sinesi-acilmasi-201921418221.pdf') }}" class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>
@@ -152,7 +152,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/Nazoalveolar-kist-eksizyonu-201921418253.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/Nazoalveolar-kist-eksizyonu-201921418253.pdf') }}" class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>
@@ -164,7 +164,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/Septoplasti-201921418333.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/Septoplasti-201921418333.pdf') }}" class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>
@@ -176,7 +176,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/Septorinoplasti-201921418358.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/Septorinoplasti-201921418358.pdf') }}"  class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>
@@ -188,7 +188,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/Oroantral-fistul-onarimi-201921418421.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/Oroantral-fistul-onarimi-201921418421.pdf') }}"  class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>

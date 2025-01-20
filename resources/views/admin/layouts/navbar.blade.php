@@ -29,15 +29,15 @@
                                 <span class="dropdown-shortcuts-icon rounded-circle mb-2">
                                     <i class="ti ti-calendar fs-4"></i>
                                 </span>
-                                <a href="javascript: void (0)" class="stretched-link">Calendar</a>
-                                <small class="text-muted mb-0">Appointments</small>
+                                <a href="/" class="stretched-link" target="_blank">Website</a>
+                                <small class="text-muted mb-0">Geri dön</small>
                             </div>
                             <div class="dropdown-shortcuts-item col">
                                 <span class="dropdown-shortcuts-icon rounded-circle mb-2">
                                     <i class="ti ti-file-invoice fs-4"></i>
                                 </span>
-                                <a href="javascript: void (0)" class="stretched-link">Invoice App</a>
-                                <small class="text-muted mb-0">Manage Accounts</small>
+                                <a href="{{ route('news.create') }}" class="stretched-link">Haber </a>
+                                <small class="text-muted mb-0">Ekle</small>
                             </div>
                         </div>
                         <div class="row row-bordered overflow-visible g-0">
@@ -45,16 +45,15 @@
                                 <span class="dropdown-shortcuts-icon rounded-circle mb-2">
                                     <i class="ti ti-users fs-4"></i>
                                 </span>
-                                <a href="javascript: void (0)" class="stretched-link">User App</a>
-                                <small class="text-muted mb-0">Manage Users</small>
+                                <a href="{{ route('events.create') }}" class="stretched-link">Etkinlik </a>
+                                <small class="text-muted mb-0">Ekle</small>
                             </div>
                             <div class="dropdown-shortcuts-item col">
                                 <span class="dropdown-shortcuts-icon rounded-circle mb-2">
                                     <i class="ti ti-lock fs-4"></i>
                                 </span>
-                                <a href="javascript: void (0)" class="stretched-link">Role
-                                    Management</a>
-                                <small class="text-muted mb-0">Permission</small>
+                                <a href="{{ route('mailingUsers.bulkMail') }}" class="stretched-link">Toplu </a>
+                                <small class="text-muted mb-0">Mail</small>
                             </div>
                         </div>
                         <div class="row row-bordered overflow-visible g-0">
@@ -62,15 +61,15 @@
                             <span class="dropdown-shortcuts-icon rounded-circle mb-2">
                                 <i class="ti ti-chart-bar fs-4"></i>
                             </span>
-                                <a href="javascript: void (0)" class="stretched-link">Dashboard</a>
-                                <small class="text-muted mb-0">User Profile</small>
+                                <a href="{{ route('members.applications') }}" class="stretched-link">Üye Başvuru </a>
+                                <small class="text-muted mb-0">Listesi</small>
                             </div>
                             <div class="dropdown-shortcuts-item col">
                             <span class="dropdown-shortcuts-icon rounded-circle mb-2">
                                 <i class="ti ti-settings fs-4"></i>
                             </span>
-                                <a href="javascript: void (0)" class="stretched-link">Setting</a>
-                                <small class="text-muted mb-0">Account Settings</small>
+                                <a href="{{ route('galleries.index') }}" class="stretched-link">Fotoğraf Galeri </a>
+                                <small class="text-muted mb-0">Listesi</small>
                             </div>
                         </div>
                         <div class="row row-bordered overflow-visible g-0">

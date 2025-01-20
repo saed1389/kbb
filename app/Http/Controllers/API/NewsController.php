@@ -52,7 +52,7 @@ class NewsController extends Controller
 
     public function showImage($id)
     {
-        $image = Image::where($id)->get();
+        $image = Image::where('category', $id)->get();
         return response()->json(['image' => $image], 200);
     }
 
@@ -164,10 +164,6 @@ class NewsController extends Controller
 
     public function kbbCompetenceStore(Request $request)
     {
-        $request->validate([
-            'title' => 'required',
-            'certificate' => 'required'
-        ]);
 
         if ($request->hasFile('certificate')) {
             $path = 'uploads/users/certificate/';

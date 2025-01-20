@@ -42,7 +42,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/tipta-uzmanlik-egitimi-karnesi-201921594851.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/tipta-uzmanlik-egitimi-karnesi-201921594851.pdf') }}" class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>
@@ -54,7 +54,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/Uzmanlik-Egitimi-Karnesi-Kullanim-Rehberi-201921594926.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/Uzmanlik-Egitimi-Karnesi-Kullanim-Rehberi-201921594926.pdf') }}" class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>

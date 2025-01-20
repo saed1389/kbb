@@ -44,7 +44,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/41-Ulusal-KBB-BBC-Kongre-Sartnamesi-2019214173441.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/41-Ulusal-KBB-BBC-Kongre-Sartnamesi-2019214173441.pdf') }}" class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>
@@ -56,7 +56,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/40-Ulusal-KBB-BBC-Kongre-Sartnamesi-2019214173533.docx') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/40-Ulusal-KBB-BBC-Kongre-Sartnamesi-2019214173533.docx') }}" class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>
@@ -68,7 +68,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/39-Ulusal-KBB-Kongresi-Sartnameleri-2019214173559.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/39-Ulusal-KBB-Kongresi-Sartnameleri-2019214173559.pdf') }}" class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>
@@ -80,7 +80,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/38-Ulusal-KBB-Kongresi-Sartnameleri-2019214173628.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/38-Ulusal-KBB-Kongresi-Sartnameleri-2019214173628.pdf') }}" class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>
@@ -92,7 +92,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/37-Ulusal-KBB-Kongresi-Sartnameleri-201921417378.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/37-Ulusal-KBB-Kongresi-Sartnameleri-201921417378.pdf') }}" class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>
@@ -104,7 +104,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/36-Ulusal-KBB-Kongresi-Sartnameleri-2019214173741.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/36-Ulusal-KBB-Kongresi-Sartnameleri-2019214173741.pdf') }}" class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>
@@ -116,7 +116,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/35-Ulusal-KBB-Kongresi-Sartnameleri-201921417387.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/35-Ulusal-KBB-Kongresi-Sartnameleri-201921417387.pdf') }}" class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>
@@ -128,7 +128,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/bos-2019214173955.docx') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/bos-2019214173955.docx') }}" class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>
@@ -140,7 +140,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/33-Ulusal-KBB-Kongresi-Sartnameleri-2019214174011.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/33-Ulusal-KBB-Kongresi-Sartnameleri-2019214174011.pdf') }}" class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>

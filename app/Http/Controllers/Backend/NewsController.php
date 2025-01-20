@@ -41,10 +41,8 @@ class NewsController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'news_body' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ],[
-            'news_body.required' => 'Haber İçeriği gerekli',
             'title.required' => 'Başlık gerekli',
             'image.required' => 'Resim gerekli',
             'image.mimes' => 'Resim Formatı Doğru Olmalı (jpeg,png,jpg,gif,svg)',
@@ -96,7 +94,7 @@ class NewsController extends Controller
             'image' => $save_url,
             'cropImage' => $this->storeBase64($request->image_base64),
             'created_by' => Auth::user()->id,
-            'news_order' => 0,
+            'news_order' => 1,
             'confirm' => 1
         ]);
 
@@ -127,10 +125,8 @@ class NewsController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'news_body' => 'required',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ],[
-            'news_body.required' => 'Haber İçeriği gerekli',
             'title.required' => 'Başlık gerekli',
             'image.mimes' => 'Resim Formatı Doğru Olmalı (jpeg,png,jpg,gif,svg)',
             'image.max' => 'Maksimum resim boyutu şu şekilde olmalıdır: 2Mb',

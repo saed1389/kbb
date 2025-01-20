@@ -44,7 +44,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/Reklam-Ve-Duyurularda-Kullanilacak-Meslek-Unvani-Uzerine-2019214172645.docx') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/Reklam-Ve-Duyurularda-Kullanilacak-Meslek-Unvani-Uzerine-2019214172645.docx') }}" class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>
@@ -56,7 +56,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/Dil-Ve-Konusma-Terapistlerine-Bazi-Istisnai-Tanilarda-Ilgili-Uzmanin-Yonlendirmesine-Gerek-Olmadan-Tedaviye-Baslamasina-Dair-201921417280.docx') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/Dil-Ve-Konusma-Terapistlerine-Bazi-Istisnai-Tanilarda-Ilgili-Uzmanin-Yonlendirmesine-Gerek-Olmadan-Tedaviye-Baslamasina-Dair-201921417280.docx') }}" class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>
@@ -68,7 +68,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/Tabip-Disi-Meslek-Mensuplarinin-Gorev-Tanimlari-ve-Uygulama-Uzerine-2019214172827.docx') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/Tabip-Disi-Meslek-Mensuplarinin-Gorev-Tanimlari-ve-Uygulama-Uzerine-2019214172827.docx') }}"  class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>
@@ -80,7 +80,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/UAK-Etige-Aykiri-Davranislar-2019214172856.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/UAK-Etige-Aykiri-Davranislar-2019214172856.pdf') }}"  class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>
@@ -92,7 +92,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/Bilimsel-Toplanti-Organizasyonlarinda-Uyulmasi-Gereken-Temel-Etik-Kurallar-2019214173033.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/Bilimsel-Toplanti-Organizasyonlarinda-Uyulmasi-Gereken-Temel-Etik-Kurallar-2019214173033.pdf') }}" class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>
@@ -104,7 +104,7 @@
                     <tr>
                         <td>
                             <div id="wrap">
-                                <a href="{{ asset('uploads/Document/Turk-KBB-ve-BBC-Dernegi-Onur-ve-Etik-Kurulu-VI-Toplanti-Tutanagi-2019214173120.pdf') }}" download="" class="btn-slide2">
+                                <a href="{{ asset('uploads/Document/Turk-KBB-ve-BBC-Dernegi-Onur-ve-Etik-Kurulu-VI-Toplanti-Tutanagi-2019214173120.pdf') }}" class="btn-slide2">
                                     <span class="circle2"><i class="fa fa-download"></i></span>
                                     <span class="title2">İndir</span>
                                     <span class="title-hover2">Buraya Tıkla</span>

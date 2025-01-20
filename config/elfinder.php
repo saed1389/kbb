@@ -67,7 +67,18 @@ return array(
     |
     */
 
-    'roots' => null,
+    'roots' => [
+        [
+            'driver' => 'LocalFileSystem', // Driver to use
+            'path' => public_path('uploads'), // Path to your upload directory
+            'URL' => env('APP_URL') . '/uploads', // URL to access files
+            'uploadAllow' => ['image/*'], // Allow only images
+            'uploadOrder' => ['deny', 'allow'], // Order of upload rules
+            'accessControl' => 'Barryvdh\Elfinder\Elfinder::checkAccess', // Access control
+            'sort' => '-date', // Sort files by date, newest first
+            'sortDirsFirst' => false, // Optional: Directories will not come before files
+        ],
+    ],
 
     /*
     |--------------------------------------------------------------------------

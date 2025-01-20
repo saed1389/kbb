@@ -115,6 +115,15 @@
                         <div class="col-md-6 mb-4">
                             <strong>E-posta: </strong> <span id="email"></span>
                         </div>
+                        <div class="col-md-6 mb-4">
+                            <p id="certificate_proficiency_link"></p>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <p id="european_board_link"></p>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <p id="expertise_doc_link"></p>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -161,7 +170,6 @@
                             data: 'created_at',
                             name: 'created_at',
                             render: function(data, type, row) {
-                                // Format the date using JavaScript Date object
                                 return moment(data).format('DD/MM/YYYY');
                             },
                             searchable: false,
@@ -171,13 +179,12 @@
                             data: 'status',
                             name: 'status',
                             render: function(data, type, row) {
-                                // Convert status code to text
                                 switch (data) {
-                                    case "0":
+                                    case 0:
                                         return '<span class="text-info">Bekliyor</span>';
-                                    case "1":
+                                    case 1:
                                         return '<span class="text-success">Kabul</span>';
-                                    case "2":
+                                    case 2:
                                         return '<span class="text-danger">Reddedilmiş</span>';
                                     default:
                                         return '';
@@ -187,19 +194,18 @@
                             orderable: true
                         },
                         {
-                            data: 'id', // Assuming 'id' is the unique identifier for each record
+                            data: 'id',
                             name: 'action',
                             render: function(data, type, row) {
-                                // Create a select element with options based on status
                                 var selectOptions = '';
                                 switch (row.status) {
-                                    case "0":
+                                    case 0:
                                         selectOptions = '<option value="0" selected>Bekliyor</option><option class="text-success" value="1">Kabul</option><option class="text-danger" value="2">Reddedilmiş</option>';
                                         break;
-                                    case "1":
+                                    case 1:
                                         selectOptions = '<option value="0">Bekliyor</option><option class="text-success" value="1" selected>Kabul</option><option class="text-danger" value="2">Reddedilmiş</option>';
                                         break;
-                                    case "2":
+                                    case 2:
                                         selectOptions = '<option value="0">Bekliyor</option><option class="text-success" value="1">Kabul</option><option class="text-danger" value="2" selected>Reddedilmiş</option>';
                                         break;
                                     default:
@@ -277,6 +283,7 @@
             });
             $('#example').on('click', 'td:nth-child(2)', function() {
                 var rowData = $('#example').DataTable().row($(this).closest('tr')).data();
+                console.log(rowData);
                 $('#myModal').modal('show');
                 $('#modalTitle').text(rowData.name);
                 $('#specialty_date').text(rowData.specialty_date);
@@ -294,6 +301,23 @@
                 $('#complete_school').text(rowData.complete_school);
                 $('#telephone').text(rowData.telephone);
                 $('#email').text(rowData.email);
+                
+                const basePath = '{{ asset("/") }}'; 
+                    $('#certificate_proficiency_link').html(
+                        rowData.certificate_proficiency_doc 
+                        ? `<a href="${basePath}/${rowData.certificate_proficiency_doc}" target="_blank" download>Sertifika Yeterlilik İndir</a>` 
+                        : 'Dosya yüklenmedi'
+                    );
+                    $('#european_board_link').html(
+                        rowData.european_board_doc 
+                        ? `<a href="${basePath}/${rowData.european_board_doc}" target="_blank" download>Avrupa Board İndirin</a>` 
+                        : 'Dosya yüklenmedi'
+                    );
+                    $('#expertise_doc_link').html(
+                        rowData.expertise_doc 
+                        ? `<a href="${basePath}/${rowData.expertise_doc}" target="_blank" download>Uzmanlık Belgesini İndirin</a>` 
+                        : 'Dosya yüklenmedi'
+                    );
             });
 
             function newexportaction(e, dt, button, config) {
@@ -346,12 +370,11 @@
                 var id = $(this).data('id');
                 var status = $(this).val();
 
-                // Update the record in the database
                 $.ajax({
                     url: "{{ route('schools-list.status', ['id' => ':id', 'status' => ':status']) }}".replace(':id', id).replace(':status', status),
                     method: 'POST',
                     data: {
-                        _token: '{{ csrf_token() }}', // Ensure to include CSRF token
+                        _token: '{{ csrf_token() }}', 
                         id: id,
                         status: status
                     },
