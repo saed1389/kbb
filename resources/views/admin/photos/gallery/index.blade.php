@@ -69,7 +69,7 @@
             </div>
 
             <div class="table-responsive text-nowrap">
-                <table class="table">
+                <table class="table table-striped-columns">
                     <thead>
                     <tr>
                         <th>#</th>

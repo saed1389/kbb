@@ -1,5 +1,7 @@
 <?php
 
+use App\Mail\BulkNewsMail;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -560,6 +562,46 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
         Route::get('member-types/editModal/{id}', [MemberTypeController::class, 'editModal'])->name('member-types.editModal');
         Route::post('member-types/updateModal', [MemberTypeController::class, 'updateModal'])->name('member-types.updateModal');
         Route::post('member-types/changeStatus/{id}/{status}', [MemberTypeController::class, 'changeStatus']);
+
+        Route::post('/send-newsletter', function (Request $request) {
+            $emails = $request->input('emails'); // ✅ Correct usage
+            $subject = $request->input('subject');
+            $template = $request->input('template');
+
+            if (!is_array($emails) || count($emails) === 0) {
+                return response()->json(['error' => 'No emails selected!'], 400);
+            }
+
+            if (!$subject) {
+                return response()->json(['error' => 'Subject is required!'], 400);
+            }
+
+            foreach ($emails as $email) {
+                Mail::to($email)->send(new BulkNewsMail($template, $subject));
+            }
+
+            return response()->json(['success' => 'Emails sent successfully!']);
+        });
+
+        Route::get('/get-mail-progress', function () {
+            $totalMails = Cache::get('total_mails', 1);
+            $sentMails = Cache::get('sent_mails', 0);
+            $currentEmail = Cache::get('current_email', 'Bekleniyor...'); // Always show email
+
+            $progress = ($sentMails / max($totalMails, 1)) * 100;
+
+            return response()->json([
+                'progress' => round($progress),
+                'current_email' => $currentEmail, // ✅ Always return latest email
+                'status' => Cache::get('email_sending_status', 'running'),
+            ]);
+        })->name('get-mail-progress');
+
+        Route::post('/stop-mail-sending', function () {
+            Cache::forget('email_sending_status'); // Clear old value
+            Cache::put('email_sending_status', 'stopped', now()->addMinutes(10)); // Ensure value persists
+            return response()->json(['message' => 'Email sending stopped.']);
+        })->name('stop-mail-sending');
     });
 });
 

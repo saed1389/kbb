@@ -433,15 +433,31 @@
     </main>
     @if($popup->popupStatus == 1 || $popup->popupEnd_date >= \Illuminate\Support\Carbon::now() || $popup->popupEnd_date == null)
         <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
+            <div class="modal-dialog modal-lg" style="height: 400px;">
+                <div class="modal-content" style="height: 365px;">
                     <div class="modal-header">
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <a href="{{ $popup->popupHref }}" target="_blank">
-                            <img src="{{ $popup->popupImage }}" style="width: 100%;">
-                        </a>
+                        @if($popup->popupStatus == 1 || $popup->popupEnd_date >= \Illuminate\Support\Carbon::now())
+                            <a href="{{ $popup->popupHref }}" target="_blank">
+                                <img src="{{ $popup->popupImage }}" style="width: auto; height: 250px;" alt="">
+                            </a>
+                        @else
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <a href="{{ $popup->popupHref }}" target="_blank">
+                                        <img src="{{ $popup->popupImage }}" style="width: 100%; height: 250px;" alt="">
+                                    </a>
+                                </div>
+                                <div class="col-sm-6">
+                                    <a href="{{ $popup->popupHref2 }}" target="_blank">
+                                        <img src="{{ asset($popup->popupImage2) }}" style="width: 100%; height: 250px;" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        @endif
+
                     </div>
                     <div class="modal-footer text-center" style="justify-content: center;">
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Kapat</button>

@@ -37,7 +37,7 @@
                     <div class="col-md-12 mb-3">
                         <label class="form-label" for="editor">Mail İçerik</label>
                         <textarea class="form-control editor" id="editor" name="news_body">
-                                            &nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;
                 <table style="margin-top: 30px; width: 600px;" align="center">
                     <tr>
 
@@ -52,7 +52,7 @@
                                                 <td width="67%" style="padding-left: 10px; padding-bottom: 10px;">
                                                     <font face="Arial">
                                                         <a href="http://www.kbb.org.tr/" target="_blank">
-                                                            <img src="http://kbb.org.tr/Custom/Upload/News/mailsablon/logohead.png" width="100%" />
+                                                            <img src="{{ asset('/assets/img/logoheadvefat.png') }}" width="100%" />
                                                         </a>
                                                     </font>
                                                 </td>
@@ -63,11 +63,11 @@
                                                         </strong><br />
                                                     </font><font face="Arial">
                                                         <a href="https://www.facebook.com/T%C3%BCrk-Kulak-Burun-Bo%C4%9Faz-ve-Ba%C5%9F-Boyun-Cerrahisi-Derne%C4%9Fi-493168617369439/" target="_blank">
-                                                            <img src="http://kbb.org.tr/Custom/Upload/News/mailsablon/face.png" width="32" height="31" style="margin-right: 1px; margin-top: 5px;" />
+                                                            <img src="{{ asset('/assets/img/face.png') }}" width="32" height="31" style="margin-right: 1px; margin-top: 5px;" />
                                                         </a> <a href="https://www.instagram.com/tkbbvebbcd/" target="_blank">
-                                                            <img src="http://kbb.org.tr/Custom/Upload/News/mailsablon/instagram.png" width="33" height="31" style="margin-right: 1px; margin-top: 5px;" />
+                                                            <img src="{{ asset('/assets/img/instagram.png') }}" width="33" height="31" style="margin-right: 1px; margin-top: 5px;" />
                                                         </a> <a href="https://twitter.com/tkbbvebbcd" target="_blank">
-                                                            <img src="http://kbb.org.tr/Custom/Upload/News/mailsablon/twitter.png" width="32" height="31" style="margin-top: 5px;" />
+                                                            <img src="{{ asset('/assets/img/twitter.png') }}" width="32" height="31" style="margin-top: 5px;" />
                                                         </a>
                                                     </font>
                                                 </td>
@@ -102,7 +102,7 @@
                                                 <tr>
                                                     <td valign="top">
                                                         <span style="font-size: 13px">
-                                                            <img src="http://kbb.org.tr/Custom/Upload/News/mailsablon/icon1.png" />
+                                                            <img src="{{ asset('/assets/img/icon1.png') }}" />
                                                         </span>
                                                     </td>
                                                     <td>
@@ -114,7 +114,7 @@
                                                 <tr>
                                                     <td style="padding-top: 5px;" valign="top">
                                                         <span style="font-size: 13px">
-                                                            <img src="http://kbb.org.tr/Custom/Upload/News/mailsablon/icon2.png" />
+                                                            <img src="{{ asset('/assets/img/icon2.png') }}" />
                                                         </span>
                                                     </td>
                                                     <td style="padding-top: 5px;">
@@ -128,7 +128,7 @@
                                                 <tr>
                                                     <td style="padding-top: 5px;" valign="top" width="5%">
                                                         <span style="font-size: 13px">
-                                                            <img src="http://kbb.org.tr/Custom/Upload/News/mailsablon/icon3.png" />
+                                                            <img src="{{ asset('/assets/img/icon3.png') }}" />
                                                         </span>
                                                     </td>
                                                     <td style="padding-top: 5px;">
@@ -151,32 +151,102 @@
                 &nbsp;&nbsp;&nbsp;
                         </textarea>
                     </div>
-                    <div class="col-md-3 mb-3">
+                    <div class="col-md-3">
                         <label class="form-label" for="memberList">Kullanıcı Listesi</label>
-                        <select name="memberList" id="memberList" class="form-control">
+                        <select name="memberList" id="memberList" class="form-control" required="">
                             <option selected="" disabled>Liste Seçiniz</option>
                             <option value="0">Mailing Listesi</option>
                             <option value="1">Tüm Üyeler</option>
                         </select>
-                    </div>
-                    <div class="col-lg-3 mt-4"  >
-                        <a type="button" data-mail-template-add="true" class="btn btn-success" id="useThemeBtn">Gönder</a>
-                    </div>
-                    <div class="col-md-3">
-                        <div >
-                            <p id="memberTotal" style="display: none">
-                                {{ $total_mail }} E-posta Gönderiliyor:
+                        <div class="mt-3" id="total">
+                            <p class="text-black">
+                                Mail Gönderilecek Kişi Sayısı:
+                                <span id="count" class="bg-danger text-white p-1"></span>
                             </p>
-                            <p id="userTotal" style="display: none">
-                                {{ $total_user }} E-posta Gönderiliyor:
-                            </p>
-                            <div id="loadingSpinner" style="display: none;" class="sk-swing sk-primary">
-                                <div class="sk-swing-dot"></div>
-                                <div class="sk-swing-dot"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 mt-4">
+                        <a type="button" data-mail-template-add="true" class="btn btn-success" id="useThemeBtn">Gonder</a>
+                        <a type="button" data-mail-template-add="true" class="btn btn-info" id="testMail">Test Maili</a>
+                    </div>
+                    <div class="modal fade" id="mailModal" tabindex="-1" aria-labelledby="mailModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="mailModalLabel">Lütfen Test Maili Seçiniz</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Seç</th>
+                                            <th>Mail Adresi</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td><input type="checkbox" name="emails" value="yigitdr@yahoo.com"></td>
+                                            <td>yigitdr@yahoo.com</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td><input type="checkbox" name="emails" value="saed.1389@gmail.com"></td>
+                                            <td>saed.1389@gmail.com</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td><input type="checkbox" name="emails" value="haberkbb@gmail.com"></td>
+                                            <td>haberkbb@gmail.com</td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td><input type="checkbox" name="emails" value="kbb@kbb.org.tr"></td>
+                                            <td>kbb@kbb.org.tr</td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td><input type="checkbox" name="emails" value="btopuz@pau.edu.tr"></td>
+                                            <td>btopuz@pau.edu.tr</td>
+                                        </tr>
+                                        <tr>
+                                            <td>6</td>
+                                            <td><input type="checkbox" name="emails" value="tkbbd@kbb.org.tr"></td>
+                                            <td>tkbbd@kbb.org.tr</td>
+                                        </tr>
+                                        <tr>
+                                            <td>7</td>
+                                            <td><input type="checkbox" name="emails" value="dryigit@hotmail.com"></td>
+                                            <td>dryigit@hotmail.com</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                                    <button type="button" class="btn btn-primary" id="sendMailBtn">Seçilenleri Gönder</button>
+                                </div>
                             </div>
                         </div>
-                        <div id="finish" style="display: none;">
-                            <strong class="text-success">E-posta Gönderildi</strong>
+                    </div>
+                    <div class="card-body" id="processDiv">
+                        <div class="row">
+                            <div class="card">
+                                <div class="card-header mt-3 bg-gray text-white">
+                                    <h3 class="text-white">E-MAİL GÖNDERİM TABLOSU</h3>
+                                    <p>Lütfen Mailing Bitene Kadar Bekleyiniz</p>
+                                </div>
+                                <p class="mt-3">Giden E-Mail Adresi: <span id="sending-email" class="text-primary">Başlatılıyor...</span></p>
+                                <p>Kalan Zaman</p>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                                </div>
+                                <div class="col-md-3">
+                                    <a id="stop-button" class="btn btn-danger mb-4 mt-2 text-white">Durdur</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -187,6 +257,51 @@
     @push('scripts')
         <script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/super-build/ckeditor.js"></script>
         <script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/super-build/translations/tr.js"></script>
+        <script>
+            document.getElementById("sendMailBtn").addEventListener("click", function() {
+                let selectedEmails = [];
+                document.querySelectorAll("input[name='emails']:checked").forEach((checkbox) => {
+                    selectedEmails.push(checkbox.value);
+                });
+
+                if (selectedEmails.length === 0) {
+                    alert("Lütfen en az bir mail adresi seçiniz!");
+                    return;
+                }
+
+                const subjectElement = document.querySelector("input#subject");
+                if (!subjectElement) {
+                    alert("Konu alanı bulunamadı!");
+                    return;
+                }
+
+                const subject = subjectElement.value.trim();
+                if (!subject) {
+                    alert("Lütfen bir konu giriniz!");
+                    return;
+                }
+
+                const htmlTemplate = document.getElementById("editor").value;
+
+                fetch('/admin/send-newsletter', {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').getAttribute("content")
+                    },
+                    body: JSON.stringify({ emails: selectedEmails, subject: subject, template: htmlTemplate })
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert("E-postalar başarıyla gönderildi!");
+                        } else {
+                            alert("Hata: " + data.error);
+                        }
+                    })
+                    .catch(error => console.error("Error:", error));
+            });
+        </script>
         <script>
             document.querySelectorAll('.editor').forEach(function (val) {
                 CKEDITOR.ClassicEditor.create(val, {
@@ -319,48 +434,143 @@
                     });
             });
         </script>
-
         <script>
-            $('#useThemeBtn').click(function () {
-                var subject = document.getElementById("subject").value;
-                var content = document.getElementById("editor").value;
-                var e = document.getElementById("memberList").value;
-                var member = e.value;
-                $('#loadingSpinner').show();
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN' : $(`meta[name="csrf-token"]`).attr('content')
-                    }
-                });
-                $.ajax({
-                    url: "{{ route('send-entry-news') }}",
-                    method: 'POST',
-                    data: { content: content, subject: subject, member:member },
-                    success: function (response) {
-                        $('#loadingSpinner').hide();
-                        $('#finish').show();
-                        toastr.success("E-postaları başarıyla gönderdi");
-                    },
-                    error: function (error) {
-                        toastr.error("Bir hata var!!!");
-                        console.error('Error sending email:', error);
-                        $('#loadingSpinner').hide();
+            document.getElementById("testMail").addEventListener("click", function () {
+                var myModal = new bootstrap.Modal(document.getElementById("mailModal"));
+                myModal.show();
+            });
+        </script>
+        <script>
+            $('#useThemeBtn').click(function() {
+                var subject = $("#subject").val().trim();
+                var selectedList = $('#memberList').val();
+
+                // Get the editor content properly
+                var newTemplate = $("#editor").val(); // For textarea
+                if (typeof CKEDITOR !== "undefined" && CKEDITOR.instances.editor) {
+                    newTemplate = CKEDITOR.instances.editor.getData(); // For CKEditor 4
+                } else if (document.querySelector('.ck-editor__editable')) {
+                    newTemplate = document.querySelector('.ck-editor__editable').innerHTML; // For CKEditor 5
+                }
+
+                // Check if subject is empty
+                if (!subject) {
+                    Swal.fire({
+                        title: "Uyarı!",
+                        text: "Lütfen bir konu giriniz!",
+                        icon: "warning",
+                        confirmButtonText: "Tamam"
+                    });
+                    return; // Stop execution if subject is empty
+                }
+
+                Swal.fire({
+                    title: "Emin misiniz?",
+                    text: "Bu işlemi gerçekleştirmek istediğinize emin misiniz?",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Evet, gönder!",
+                    cancelButtonText: "İptal"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            url: "{{ route('send-entry-news') }}",
+                            method: "POST",
+                            data: {
+                                content: newTemplate,
+                                subject: subject,
+                                member: selectedList,
+                                _token: "{{ csrf_token() }}" // Change this if in an external file
+                            },
+                            success: function(response) {
+                                Swal.fire("Başarılı!", response.message, "success");
+                            },
+                            error: function(error) {
+                                Swal.fire("Hata!", "Bir hata oluştu!", "error");
+                            }
+                        });
                     }
                 });
             });
+        </script>
+        <script>
+            function updateProgress() {
+                $.ajax({
+                    url: "{{ route('get-mail-progress') }}",
+                    method: "GET",
+                    success: function (response) {
 
-            $(document).ready(function () {
-                $('#memberList').change(function () {
-                    var selectedValue = $(this).val();
-                    if (selectedValue === '0') {
-                        $('#memberTotal').show();
-                        $('#userTotal').hide();
+                        $(".progress-bar").css("width", response.progress + "%")
+                            .attr("aria-valuenow", response.progress)
+                            .text(response.progress + "%");
 
-                    } else if (selectedValue === '1') {
-                        $('#memberTotal').hide();
-                        $('#userTotal').show();
+                        if (response.current_email) {
+                            $("#sending-email").text(response.current_email);
+                        } else {
+                            $("#sending-email").text("Bekleniyor...");
+                        }
+
+                        if (response.status !== "stopped" && response.progress < 100) {
+                            setTimeout(updateProgress, 3000);
+                        } else {
+                            $("#stop-button").hide();
+                        }
+                    },
+                    error: function () {
+                        toastr.error("lerleme güncellemesi başarısız oldu");
                     }
                 });
+            }
+
+            $(document).ready(function () {
+                updateProgress();
+            });
+
+            function updateProgress() {
+                $.ajax({
+                    url: "{{ route('get-mail-progress') }}",
+                    method: "GET",
+                    success: function (response) {
+
+                        $(".progress-bar").css("width", response.progress + "%")
+                            .attr("aria-valuenow", response.progress)
+                            .text(response.progress + "%");
+
+                        if (response.current_email) {
+                            $("#sending-email").text(response.current_email);
+                        } else {
+                            $("#sending-email").text("Bekleniyor...");
+                        }
+
+                        if (response.status !== "stopped" && response.progress < 100) {
+                            setTimeout(updateProgress, 3000);
+                        } else {
+                            $("#stop-button").hide();
+                        }
+                    },
+                    error: function () {
+                        toastr.error("lerleme güncellemesi başarısız oldu");
+                    }
+                });
+            }
+        </script>
+        <script>
+            document.getElementById("memberList").addEventListener("change", function() {
+                var selectedValue = this.value;
+                var totalDiv = document.getElementById("total");
+                var countSpan = document.getElementById("count");
+
+                if (selectedValue === "0") {
+                    countSpan.textContent = "{{ $total_mail }}"; // Show mailing list count
+                    totalDiv.classList.remove("d-none");
+                } else if (selectedValue === "1") {
+                    countSpan.textContent = "{{ $total_user }}"; // Show total user count
+                    totalDiv.classList.remove("d-none");
+                } else {
+                    totalDiv.classList.add("d-none");
+                }
             });
         </script>
     @endpush

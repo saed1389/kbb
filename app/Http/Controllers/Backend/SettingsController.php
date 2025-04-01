@@ -20,13 +20,20 @@ class SettingsController extends Controller
     public function update(Request $request)
     {
         $request->validate([
-            'popupImage' => 'image'
+            'popupImage' => 'image',
+            'popupImage2' => 'image',
         ]);
         $setting = Setting::where('id', 1)->first();
         if ($request->popupStatus == 1) {
             $status = 1;
         } else {
             $status = 0;
+        }
+
+        if ($request->popupStatus2 == 1) {
+            $status2 = 1;
+        } else {
+            $status2 = 0;
         }
 
         if ($request->file('popupImage')) {
@@ -40,12 +47,28 @@ class SettingsController extends Controller
             $save_url = $request->popupImageOld;
         }
 
+        if ($request->file('popupImage2')) {
+            $manager2 = new ImageManager(new Driver());
+            $name_gen2 = Str::slug($request->title2).'-'.hexdec(uniqid()).'.'.$request->file('popupImage2')->getClientOriginalExtension();
+            $img2 = $manager2->read($request->file('popupImage2'));
+            $img2->toJpeg(80)->save(base_path('public/uploads/settings/popup/'.$name_gen2));
+            $save_url2 = 'uploads/settings/popup/'.$name_gen2;
+            @unlink($setting->popupImage2);
+        } else {
+            $save_url2 = $request->popupImageOld2;
+        }
+
         Setting::where('id', 1)->update([
             'title' => $request->title,
             'popupHref' => $request->popupHref,
             'popupEnd_date' => $request->popupEnd_date,
             'popupStatus' => $status,
             'popupImage' => $save_url,
+            'title2' => $request->title2,
+            'popupHref2' => $request->popupHref2,
+            'popupEnd_date2' => $request->popupEnd_date2,
+            'popupStatus2' => $status2,
+            'popupImage2' => $save_url2,
             'competenceMax' => $request->competenceMax,
         ]);
 

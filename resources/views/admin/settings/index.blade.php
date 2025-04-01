@@ -41,7 +41,7 @@
                                         <div class="tab-content" id="myTabContent">
                                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                                 <div class="row">
-                                                    <h5>Popup Ayarları</h5>
+                                                    <h5>Popup 1 Ayarları</h5>
                                                     <div class="col-md-6">
                                                         <div class="mb-4">
                                                             <div>
@@ -86,7 +86,52 @@
                                                             </div>
                                                         </div>
                                                     </div>
-
+                                                    <hr class="mt-4">
+                                                    <h5 class="mt-4">Popup 2 Ayarları</h5>
+                                                    <div class="col-md-6">
+                                                        <div class="mb-4">
+                                                            <div>
+                                                                <label for="title2" class="form-label">Başlık</label>
+                                                                <input type="text" class="form-control" id="title2" name="title2" value="{{ $setting->title2 }}" placeholder="Lütfen Başlığı Girin">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="mb-4">
+                                                            <div>
+                                                                <label for="popupHref" class="form-label">Href</label>
+                                                                <input type="text" class="form-control" id="popupHref2" name="popupHref2" value="{{ $setting->popupHref2 }}" title="popupHref" placeholder="Lütfen Href Girin">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="mb-4">
+                                                            <div>
+                                                                <label for="popupEnd_date" class="form-label">Bitiş tarihi</label>
+                                                                <input type="date" class="form-control" id="popupEnd_date2" name="popupEnd_date2" title="popupEnd_date2" value="{{ $setting->popupEnd_date2 }}" placeholder="Lütfen Bitiş Tarihi Girin">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label for="popupStatus2" class="form-label">Durum</label>
+                                                        <div class="form-check form-switch mb-2">
+                                                            <input class="form-check-input" type="checkbox" name="popupStatus2" id="popupStatus2" value="1" @checked($setting->popupStatus2 == 1) >
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div class="row">
+                                                            <div class="col-md-4 mt-5">
+                                                                <input type="file" class="form-control" id="popupImage2" name="popupImage2">
+                                                                @error('popupImage2')
+                                                                <span class="text-danger">{{ $message }}</span>
+                                                                @enderror
+                                                                <input type="hidden" value="{{ $setting->popupImage2 }}" name="popupImageOld2">
+                                                            </div>
+                                                            <div class="col-xl-6">
+                                                                <img id="showImage2" class="w-25 rounded" src="{{ $setting->popupImage2 ? asset($setting->popupImage2) : asset('assets/img/images.png') }}" alt="profile">
+                                                            </div>
+                                                        </div>
+                                                    </div>
 
                                                 </div>
                                             </div>
@@ -125,6 +170,13 @@
                     var reader = new FileReader();
                     reader.onload = function (e) {
                         $('#showImage').attr('src', e.target.result);
+                    }
+                    reader.readAsDataURL(e.target.files['0']);
+                });
+                $('#popupImage2').change(function (e) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $('#showImage2').attr('src', e.target.result);
                     }
                     reader.readAsDataURL(e.target.files['0']);
                 });

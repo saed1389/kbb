@@ -10,7 +10,7 @@ class PhotoCategory extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'title_en', 'created_by'];
+    protected $guarded = [];
 
     public function userName():BelongsTo
     {

@@ -2,48 +2,52 @@
 
 namespace App\Jobs;
 
-namespace App\Jobs;
-
-use App\Models\EmailTracker;
-use App\Models\MailList;
+use Illuminate\Bus\Batchable;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use App\Mail\BulkNewsMail;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\BulkNewsMail;
 
 class SendMultiEmailJob implements ShouldQueue
 {
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
-    protected $emailAddress;
-    /**
-     * Create a new job instance.
-     *
-     * @param int $index
-     */
-    public function __construct($index)
+    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels, Batchable;
+
+    protected $emails;
+    protected $content;
+    protected $subject;
+
+    public function __construct($emails, $content, $subject)
     {
-        // You might pass necessary parameters to the job constructor
-        $this->emailAddress = MailList::where('status', 1)->pluck('email')->toArray()[$index];
+        $this->emails = $emails;
+        $this->content = $content;
+        $this->subject = $subject;
     }
 
-    /**
-     * Execute the job.
-     *
-     * @return void
-     */
+
     public function handle()
     {
-        // Implement your logic to send the email
-        $mail = new BulkNewsMail(request()->input('content'));
-        Mail::to($this->emailAddress)->send($mail);
+        foreach ($this->emails as $email) { // ✅ Now, this property exists!
+            // Stop execution if user clicked 'Durdur'
+            if (Cache::get('email_sending_status') === 'stopped') {
+                Log::info('✅ Email sending stopped by user.');
+                return;
+            }
 
-        // Increment the processed emails count in the database
-        EmailTracker::first()->increment('processed_emails');
+            // Store currently sending email
+            Cache::put('current_email', $email);
+            Log::info('📩 Sending email to: ' . $email); // Debugging
 
-        // Simulate processing time if needed
-        sleep(1);
+            // Send email
+            Mail::to($email)->send(new BulkNewsMail($this->content, $this->subject));
+
+            // Update progress
+            Cache::increment('sent_mails');
+        }
     }
+
 }

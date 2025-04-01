@@ -31,7 +31,7 @@ class IndexController extends Controller
         $data['city'] = City::where('province_no', $request->province_no)->get();
         return response()->json($data);
     }
-    
+
     public function home()
     {
         if (Auth::check()) {
@@ -129,8 +129,9 @@ class IndexController extends Controller
         }
 
         $popup = Setting::select('popupImage', 'popupEnd_date', 'popupHref', 'popupStatus')->where('id', 1)->first();
+        $popup2 = Setting::select('popupImage2', 'popupEnd_date2', 'popupHref2', 'popupStatus2')->where('id', 1)->first();
         $ads = Advertisement::where('status', 1)->get();
-        return view('frontend.index', compact('sliders', 'popup', 'events', 'ads'));
+        return view('frontend.index', compact('sliders', 'popup', 'events', 'ads', 'popup2'));
     }
 
     public function baskan()

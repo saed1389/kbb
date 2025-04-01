@@ -45,7 +45,7 @@
                             <div class="tp-blog-2__content">
                                 <a href="{{ $item->news_href ? $item->news_href :route('haber', $item->slug) }}" @if($item->new_page == 1) target="_blank" @endif><h4 class="tp-blog-2__title-sm">{{ Str::limit($item->title, '50', '...') }}</h4></a>
                                 <span class="tp-blog-2__meta">{{ date('d/m/Y', strtotime($item->created_at)) }}</span>
-                                <a href="{{ $item->news_href ? $item->news_href :route('haber', $item->slug) }}" @if($item->new_page == 1) target="_blank" @endif>
+                                <a href="{{ route('haber', $item->slug) }}" @if($item->new_page == 1) target="_blank" @endif>
                                     <div class="tp-blog-2__link text-center">
                                         <span>Devamı<i class="flaticon-arrow-right"></i></span>
                                     </div>

@@ -56,9 +56,9 @@ class NewsController extends Controller
         }
 
         if ($request->image_base64) {
-            $image_base64 = $this->storeBase64($request->image_base64);
+            $image_base64 = 'uploads/news/crop'.$this->storeBase64($request->image_base64);
         } else {
-            $image_base64 = 'kbb.jpg';
+            $image_base64 = 'assets/img/kbb.jpg';
         }
 
         News::create([
@@ -78,6 +78,7 @@ class NewsController extends Controller
             'slider' => $request->slider,
             'OnPermission' => $request->OnPermission,
             'status' => $request->status,
+            'image' => $image_base64,
             'cropImage' => $image_base64,
             'created_by' => Auth::user()->id,
             'news_order' => 1,
@@ -120,7 +121,7 @@ class NewsController extends Controller
 
 
         if ($request->image_base64) {
-            $crop = $this->storeBase64($request->image_base64);
+            $crop = 'uploads/news/crop'. $this->storeBase64($request->image_base64);
             @unlink('uploads/news/crop/'.$request->oldCrop);
         } else {
             $crop = $request->oldCrop;
@@ -156,6 +157,7 @@ class NewsController extends Controller
             'OnPermission' => $request->OnPermission,
             'status' => $request->status,
             'cropImage' => $crop,
+            'image' => $crop,
             'confirm' => $request->confirm,
             'news_order' => $confirm,
         ]);
@@ -201,7 +203,7 @@ class NewsController extends Controller
     {
         if (\request()->ajax()) {
             return datatables()->of(News::with('newsCategory:id,title')
-                ->select('news.id', 'news.title', 'news.created_at', 'news.cropImage', 'news.hit', 'news.status')
+                ->select('news.id', 'news.title', 'news.created_at', 'news.image', 'news.hit', 'news.status')
                 ->where('news.confirm', 1)
                 ->orderBy('created_at', 'DESC')
             )->make(true);

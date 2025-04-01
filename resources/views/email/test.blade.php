@@ -400,7 +400,7 @@
                         },
                         { data: 'image', name: 'image',
                             render: function (data, type, row) {
-                                return '<img class="rounded w-50" src="/uploads/news/crop/'+data+'" width="100" alt="">'
+                                return '<img class="rounded w-50" src="/'+data+'" width="100" alt="">'
                             },
                             "searchable": true
                         },
@@ -534,7 +534,7 @@
                         style="max-width: 558px; margin: 10px auto; display: block; border: 1px solid #ccc;">
                         <tbody>
                             <tr>
-                                <td><img width="200px" src="{{ env('APP_URL') }}/uploads/news/crop/${newsData.image}" alt="${newsData.title}"></td>
+                                <td><img width="200px" src="{{ env('APP_URL') }}/${newsData.image}" alt="${newsData.title}"></td>
                                 <td style="border-left:1px solid #ccc; padding:5px; color: #00498f; font-size: 14px; font-family: Arial;">
                                     <p><strong><a style="text-decoration: none; color: #00498f;" href="{{ env('APP_URL') }}/haber/${newsData.slug}">${newsData.title}</a></strong></p>
                                 </td>
